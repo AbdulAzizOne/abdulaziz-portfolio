@@ -25,7 +25,7 @@ set Framework Preset to **Other**, leave Build Command and Output Directory empt
 
 ## Before going live
 
-The site assumes the domain `https://abdulazizabudhair.vercel.app`. If your Vercel URL or custom domain is different,
+The site assumes the domain `https://abdulazizabudhair-portfolio.vercel.app`. If your Vercel URL or custom domain is different,
 find-and-replace that string in `index.html`, `work/*.html`, `robots.txt` and `sitemap.xml`
 (it is used for canonical links, Open Graph images and the sitemap).
 

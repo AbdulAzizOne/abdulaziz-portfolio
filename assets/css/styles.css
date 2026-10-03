@@ -199,7 +199,7 @@ button { font: inherit; color: inherit; }
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 800px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 780fr) minmax(0, 506fr);
   align-items: center;
   gap: clamp(32px, 6vw, 84px);
 }
