@@ -40,6 +40,36 @@
     el.textContent = String(new Date().getFullYear());
   });
 
+  // Copy email to clipboard (button is hidden without JS)
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    const label = btn.firstChild;
+    const status = btn.parentElement.querySelector("[data-copy-status]");
+    btn.hidden = false;
+    btn.addEventListener("click", async () => {
+      const text = btn.getAttribute("data-copy");
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const field = Object.assign(document.createElement("textarea"), { value: text });
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.append(field);
+        field.select();
+        document.execCommand("copy");
+        field.remove();
+      }
+      label.textContent = "Copied ✓";
+      btn.classList.add("is-copied");
+      if (status) status.textContent = "Email address copied to clipboard";
+      clearTimeout(btn._t);
+      btn._t = setTimeout(() => {
+        label.textContent = "Copy";
+        btn.classList.remove("is-copied");
+        if (status) status.textContent = "";
+      }, 2000);
+    });
+  });
+
   // Reveal on scroll
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const targets = document.querySelectorAll(".reveal");

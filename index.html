@@ -25,9 +25,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;600&family=Noto+Serif:wght@500&display=swap">
+  <link rel="preload" href="assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/noto-serif-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>document.documentElement.classList.add("js");</script>
   <script src="assets/js/main.js" defer></script>
@@ -51,7 +50,7 @@
   <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -65,8 +64,7 @@
       </button>
       <nav class="nav" id="site-nav" aria-label="Main">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#case-studies">Case Studies</a></li>
-          <li><a class="nav__link" href="#more-work">My Work</a></li>
+          <li><a class="nav__link" href="#case-studies">Work</a></li>
           <li><a class="nav__link" href="#beyond-design">Beyond Design</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
           <li><a class="btn btn--dark btn--sm" href="#contact">Let’s talk</a></li>
@@ -81,7 +79,7 @@
       <div class="container hero__grid">
         <div>
           <h1 class="hero__title" id="hero-title">Design that bridges <em>human behavior</em> &amp; business goals.</h1>
-          <p class="hero__lead"><strong>I'm Abdulaziz Abu Dhair.</strong> For 15+ years I've partnered with R&amp;D teams at Fortune 500 companies and startups to turn fuzzy problems into products people actually want to use — across enterprise platforms, healthcare, e-commerce, travel, fintech, industrial printing, and telecom.</p>
+          <p class="hero__lead">For 15+ years, I've partnered with R&amp;D teams at Fortune 500 companies and startups to turn ambiguous problems into products people actually want to use.</p>
           <ul class="chips" aria-label="Highlights">
             <li class="chip">15+ years in product design</li>
             <li class="chip">Google UX Design Certified</li>
@@ -100,7 +98,7 @@
     <section class="clients" aria-labelledby="clients-title">
       <div class="container">
         <h2 class="visually-hidden" id="clients-title">Clients and partners</h2>
-        <p class="clients__intro">15+ years of shipped products across enterprise platforms, healthcare, e-commerce, travel, fintech, industrial printing, government platforms and telecom. Several global engagements are under NDA.</p>
+        <p class="clients__intro">Teams I've designed for across eight industries — enterprise, healthcare, e-commerce, travel, fintech, industrial printing, government and telecom. Several global engagements remain under NDA.</p>
         <ul class="clients__grid">
           <li><img src="assets/img/clients/vbooking.png" width="408" height="210" alt="VBooking" loading="lazy" decoding="async"></li>
           <li><img src="assets/img/clients/exalt.png" width="408" height="210" alt="EXALT Technologies" loading="lazy" decoding="async"></li>
@@ -141,12 +139,12 @@
               <div><dt>Platform</dt><dd>Web app + companion mobile app</dd></div>
               <div><dt>Tools</dt><dd>Figma</dd></div>
             </dl>
+            <p class="case__permalink"><a href="work/crpton.html">Open as its own page <span aria-hidden="true">→</span></a></p>
           </header>
 
-          <picture class="case__media">
-            <source type="image/webp" srcset="assets/img/crpton-1-1368.webp 1368w, assets/img/crpton-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw">
-            <img src="assets/img/crpton-1-1368.jpg" srcset="assets/img/crpton-1-1368.jpg 1368w, assets/img/crpton-1-2736.jpg 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1778" loading="lazy" decoding="async" alt="Crpton web app: a patient's finance tab showing total fees, payments, insurance and balance, with an expandable list of treatments and payment allocations.">
-          </picture>
+          <div class="case__media">
+            <img src="assets/img/crpton-1-1368.webp" srcset="assets/img/crpton-1-1368.webp 1368w, assets/img/crpton-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1778" loading="lazy" decoding="async" alt="Crpton web app: a patient's finance tab showing total fees, payments, insurance and balance, with an expandable list of treatments and payment allocations.">
+          </div>
 
           <div class="case__body">
             <div class="prose">
@@ -171,14 +169,8 @@
           </div>
 
           <div class="media-row media-row--crpton">
-            <picture>
-              <source type="image/webp" srcset="assets/img/crpton-2-850.webp 850w, assets/img/crpton-2-1701.webp 1701w" sizes="(min-width: 1448px) 873px, (min-width: 721px) 60vw, 94vw">
-              <img src="assets/img/crpton-2-850.jpg" srcset="assets/img/crpton-2-850.jpg 850w, assets/img/crpton-2-1701.jpg 1701w" sizes="(min-width: 1448px) 873px, (min-width: 721px) 60vw, 94vw" width="1701" height="1024" loading="lazy" decoding="async" alt="Crpton dental tab: an interactive tooth chart with tagged procedures beside a treatment plan and frequent treatments.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/crpton-3-482.webp 482w, assets/img/crpton-3-965.webp 965w" sizes="(min-width: 1448px) 495px, (min-width: 721px) 34vw, 94vw">
-              <img src="assets/img/crpton-3-482.jpg" srcset="assets/img/crpton-3-482.jpg 482w, assets/img/crpton-3-965.jpg 965w" sizes="(min-width: 1448px) 495px, (min-width: 721px) 34vw, 94vw" width="965" height="1024" loading="lazy" decoding="async" alt="Crpton companion mobile app home screen in light and dark themes, showing workflow and appointments.">
-            </picture>
+            <img src="assets/img/crpton-2-850.webp" srcset="assets/img/crpton-2-850.webp 850w, assets/img/crpton-2-1701.webp 1701w" sizes="(min-width: 1448px) 873px, (min-width: 721px) 60vw, 94vw" width="1701" height="1024" loading="lazy" decoding="async" alt="Crpton dental tab: an interactive tooth chart with tagged procedures beside a treatment plan and frequent treatments.">
+            <img src="assets/img/crpton-3-482.webp" srcset="assets/img/crpton-3-482.webp 482w, assets/img/crpton-3-965.webp 965w" sizes="(min-width: 1448px) 495px, (min-width: 721px) 34vw, 94vw" width="965" height="1024" loading="lazy" decoding="async" alt="Crpton companion mobile app home screen in light and dark themes, showing workflow and appointments.">
           </div>
 
           <div class="case__body">
@@ -207,12 +199,12 @@
               <div><dt>Platform</dt><dd>Web + mobile app — Community, Moments, AI Trip Planner, Expert &amp; Ambassador Profiles</dd></div>
               <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
             </dl>
+            <p class="case__permalink"><a href="work/vbooking-community.html">Open as its own page <span aria-hidden="true">→</span></a></p>
           </header>
 
-          <picture class="case__media">
-            <source type="image/webp" srcset="assets/img/vbooking-1-1368.webp 1368w, assets/img/vbooking-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw">
-            <img src="assets/img/vbooking-1-1368.jpg" srcset="assets/img/vbooking-1-1368.jpg 1368w, assets/img/vbooking-1-2736.jpg 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1780" loading="lazy" decoding="async" alt="VBooking Community trip page for a 7-day Tokyo and Japan city adventure, with photo gallery, price, booking actions and an activity feed.">
-          </picture>
+          <div class="case__media">
+            <img src="assets/img/vbooking-1-1368.webp" srcset="assets/img/vbooking-1-1368.webp 1368w, assets/img/vbooking-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1780" loading="lazy" decoding="async" alt="VBooking Community trip page for a 7-day Tokyo and Japan city adventure, with photo gallery, price, booking actions and an activity feed.">
+          </div>
 
           <div class="case__body">
             <div class="prose">
@@ -237,14 +229,8 @@
           </div>
 
           <div class="media-row media-row--2">
-            <picture>
-              <source type="image/webp" srcset="assets/img/vbooking-2-674.webp 674w, assets/img/vbooking-2-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw">
-              <img src="assets/img/vbooking-2-674.jpg" srcset="assets/img/vbooking-2-674.jpg 674w, assets/img/vbooking-2-1349.jpg 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1018" loading="lazy" decoding="async" alt="VBooking destination hub for Tokyo with gallery, local facts, AI summary and shortcuts to hotels, things to do, restaurants, flights and rentals.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/vbooking-3-674.webp 674w, assets/img/vbooking-3-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw">
-              <img src="assets/img/vbooking-3-674.jpg" srcset="assets/img/vbooking-3-674.jpg 674w, assets/img/vbooking-3-1349.jpg 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="VBooking travel expert profile for TabiTomo Travel showing ratings, followers and package listings.">
-            </picture>
+            <img src="assets/img/vbooking-2-674.webp" srcset="assets/img/vbooking-2-674.webp 674w, assets/img/vbooking-2-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1018" loading="lazy" decoding="async" alt="VBooking destination hub for Tokyo with gallery, local facts, AI summary and shortcuts to hotels, things to do, restaurants, flights and rentals.">
+            <img src="assets/img/vbooking-3-674.webp" srcset="assets/img/vbooking-3-674.webp 674w, assets/img/vbooking-3-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="VBooking travel expert profile for TabiTomo Travel showing ratings, followers and package listings.">
           </div>
 
           <div class="case__body">
@@ -272,21 +258,13 @@
               <div><dt>Platform</dt><dd>Tablet app</dd></div>
               <div><dt>Tools</dt><dd>Figma (Material Theme Builder) · FigJam</dd></div>
             </dl>
+            <p class="case__permalink"><a href="work/zenraise.html">Open as its own page <span aria-hidden="true">→</span></a></p>
           </header>
 
           <div class="media-row media-row--3">
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-1-445.webp 445w, assets/img/zenraise-1-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-1-445.jpg" srcset="assets/img/zenraise-1-445.jpg 445w, assets/img/zenraise-1-891.jpg 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1425" loading="lazy" decoding="async" alt="ZenRaise onboarding: three steps to start collecting — select your event, pair a card reader, start collecting donations.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-2-446.webp 446w, assets/img/zenraise-2-892.webp 892w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-2-446.jpg" srcset="assets/img/zenraise-2-446.jpg 446w, assets/img/zenraise-2-892.jpg 892w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="892" height="1424" loading="lazy" decoding="async" alt="ZenRaise setup step 2: a connected Bluetooth card reader marked ready, with continue and scan again actions.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-3-445.webp 445w, assets/img/zenraise-3-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-3-445.jpg" srcset="assets/img/zenraise-3-445.jpg 445w, assets/img/zenraise-3-891.jpg 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1424" loading="lazy" decoding="async" alt="ZenRaise donation screen: choose a program, set the number of children, pick monthly, yearly or one-time, and enter a phone number.">
-            </picture>
+            <img src="assets/img/zenraise-1-445.webp" srcset="assets/img/zenraise-1-445.webp 445w, assets/img/zenraise-1-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1425" loading="lazy" decoding="async" alt="ZenRaise onboarding: three steps to start collecting — select your event, pair a card reader, start collecting donations.">
+            <img src="assets/img/zenraise-2-446.webp" srcset="assets/img/zenraise-2-446.webp 446w, assets/img/zenraise-2-892.webp 892w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="892" height="1424" loading="lazy" decoding="async" alt="ZenRaise setup step 2: a connected Bluetooth card reader marked ready, with continue and scan again actions.">
+            <img src="assets/img/zenraise-3-445.webp" srcset="assets/img/zenraise-3-445.webp 445w, assets/img/zenraise-3-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1424" loading="lazy" decoding="async" alt="ZenRaise donation screen: choose a program, set the number of children, pick monthly, yearly or one-time, and enter a phone number.">
           </div>
 
           <div class="case__body">
@@ -313,18 +291,9 @@
           </div>
 
           <div class="media-row media-row--3">
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-4-445.webp 445w, assets/img/zenraise-4-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-4-445.jpg" srcset="assets/img/zenraise-4-445.jpg 445w, assets/img/zenraise-4-890.jpg 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise donation screen with the Orphan program selected, per-child stepper and frequency options.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-5-445.webp 445w, assets/img/zenraise-5-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-5-445.jpg" srcset="assets/img/zenraise-5-445.jpg 445w, assets/img/zenraise-5-890.jpg 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise “Is this you?” dialog recognizing a returning donor by phone number.">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="assets/img/zenraise-6-445.webp 445w, assets/img/zenraise-6-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw">
-              <img src="assets/img/zenraise-6-445.jpg" srcset="assets/img/zenraise-6-445.jpg 445w, assets/img/zenraise-6-890.jpg 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise event summary: total raised broken down by program and frequency, plus leads captured.">
-            </picture>
+            <img src="assets/img/zenraise-4-445.webp" srcset="assets/img/zenraise-4-445.webp 445w, assets/img/zenraise-4-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise donation screen with the Orphan program selected, per-child stepper and frequency options.">
+            <img src="assets/img/zenraise-5-445.webp" srcset="assets/img/zenraise-5-445.webp 445w, assets/img/zenraise-5-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise “Is this you?” dialog recognizing a returning donor by phone number.">
+            <img src="assets/img/zenraise-6-445.webp" srcset="assets/img/zenraise-6-445.webp 445w, assets/img/zenraise-6-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise event summary: total raised broken down by program and frequency, plus leads captured.">
           </div>
 
           <div class="case__body">
@@ -351,10 +320,7 @@
         <ul class="work-grid">
           <li class="work-card reveal">
             <div class="work-card__media">
-              <picture>
-                <source type="image/webp" srcset="assets/img/turbo-3-674.webp 674w, assets/img/turbo-3-1349.webp 1349w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw">
-                <img src="assets/img/turbo-3-674.jpg" srcset="assets/img/turbo-3-674.jpg 674w, assets/img/turbo-3-1349.jpg 1349w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="">
-              </picture>
+              <img src="assets/img/turbo-3-674.webp" srcset="assets/img/turbo-3-674.webp 674w, assets/img/turbo-3-1349.webp 1349w" sizes="(min-width: 1448px) 666px, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="">
             </div>
             <h3 class="work-card__title">VBooking Turbo Suite</h3>
             <p class="work-card__text">B2B booking, CRM, and AI itinerary tools unifying the workflow of travel agents — live beta, sibling case study to VBooking Community above.</p>
@@ -362,24 +328,10 @@
           </li>
           <li class="work-card reveal">
             <div class="work-card__media">
-              <picture>
-                <source type="image/webp" srcset="assets/img/qetaf-2-674.webp 674w, assets/img/qetaf-2-1349.webp 1349w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw">
-                <img src="assets/img/qetaf-2-674.jpg" srcset="assets/img/qetaf-2-674.jpg 674w, assets/img/qetaf-2-1349.jpg 1349w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw" width="1349" height="1017" loading="lazy" decoding="async" alt="">
-              </picture>
+              <img src="assets/img/alard-1-1368.webp" srcset="assets/img/alard-1-1368.webp 1368w, assets/img/alard-1-2736.webp 2736w" sizes="(min-width: 1448px) 666px, (min-width: 721px) 47vw, 94vw" width="2736" height="1778" loading="lazy" decoding="async" alt="">
             </div>
-            <h3 class="work-card__title">Qetaf Medical E-commerce · Healthcare Retail</h3>
-            <p class="work-card__text">Custom web app on WooCommerce, replacing Salla</p>
-            <a class="work-card__link" href="work/qetaf-medical.html">View case study <span aria-hidden="true">→</span><span class="visually-hidden">: Qetaf Medical</span></a>
-          </li>
-          <li class="work-card reveal">
-            <div class="work-card__media">
-              <picture>
-                <source type="image/webp" srcset="assets/img/alard-1-1368.webp 1368w, assets/img/alard-1-2736.webp 2736w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw">
-                <img src="assets/img/alard-1-1368.jpg" srcset="assets/img/alard-1-1368.jpg 1368w, assets/img/alard-1-2736.jpg 2736w" sizes="(min-width: 1448px) 432px, (min-width: 961px) 31vw, (min-width: 721px) 47vw, 94vw" width="2736" height="1778" loading="lazy" decoding="async" alt="">
-              </picture>
-            </div>
-            <h3 class="work-card__title">Al-Ard</h3>
-            <p class="work-card__text">A conversion-focused redesign of a multi-region store for Palestinian olive oil and heritage goods.</p>
+            <h3 class="work-card__title">AL'ARD</h3>
+            <p class="work-card__text">A conversion-focused redesign of a multi-region store for Palestinian olive oil and heritage goods — now live.</p>
             <a class="work-card__link" href="work/alard.html">View case study <span aria-hidden="true">→</span><span class="visually-hidden">: AL'ARD</span></a>
           </li>
         </ul>
@@ -438,40 +390,40 @@
         <ul class="quotes">
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"Abdulaziz has shown a high level of professionalism accompanied by a deep understanding of his domain. I strongly believe he is a capable designer able to deliver high-quality products."</p></blockquote>
+              <blockquote><p>“Abdulaziz has shown a high level of professionalism accompanied by a deep understanding of his domain. I strongly believe he is a capable designer able to deliver high-quality products.”</p></blockquote>
               <figcaption><cite>Tareq Maayah</cite><span>CEO, EXALT Technologies</span></figcaption>
             </figure>
           </li>
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"The Crpton Dashboard reached a new level of quality thanks to Abdalaziz's UI/UX expertise. His thoughtful design decisions greatly enhanced the overall user experience.”</p></blockquote>
-              <figcaption><cite>Alaa Al-Najjar</cite><span>Founder, Cripton</span></figcaption>
+              <blockquote><p>“The Crpton dashboard reached a new level of quality thanks to Abdulaziz's UX/UI expertise. His thoughtful design decisions greatly enhanced the overall user experience.”</p></blockquote>
+              <figcaption><cite>Alaa Al-Najjar</cite><span>Founder, Crpton</span></figcaption>
             </figure>
           </li>
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.
+              <blockquote><p>“Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.
 His work stands out through its attention to detail, creative thinking, and deep understanding of how users interact with products.
-Simply put, Abdulaziz designs experiences that people don’t just use — they remember."</p></blockquote>
+Simply put, Abdulaziz designs experiences that people don’t just use — they remember.”</p></blockquote>
               <figcaption><cite>Tareq Nassif</cite><span>Founder, RIS Enterprise Solutions</span></figcaption>
             </figure>
           </li>
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. He is deeply knowledgeable in his field and attuned to the latest design trends. I highly recommend working with him."</p></blockquote>
+              <blockquote><p>“Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. He is deeply knowledgeable in his field and attuned to the latest design trends. I highly recommend working with him.”</p></blockquote>
               <figcaption><cite>Omrie Abu Madi</cite><span>Founder, VBooking</span></figcaption>
             </figure>
           </li>
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"Great UX/UI design, and wireframing. provided multiple prototypes using Figma. was able to provide High-Fidelity design for our tablet app design providing best user experience. Highly recommend hiring him and would definitely work with Abdulaziz again."</p></blockquote>
+              <blockquote><p>“Great UX/UI design and wireframing. He provided multiple prototypes in Figma and delivered high-fidelity designs for our tablet app, creating the best possible user experience. I highly recommend hiring him and would definitely work with Abdulaziz again.”</p></blockquote>
               <figcaption><cite>Ameed J.</cite><span>Founder, ZenRaise</span></figcaption>
             </figure>
           </li>
           <li class="reveal">
             <figure class="quote">
-              <blockquote><p>"Abdulaziz has been doing a great job so far on the UI/UX work for our new website. He understands the direction well, is responsive to feedback, and has been helping translate our ideas into a clearer and more user-friendly website experience. His work shows good attention to structure, visual flow, and overall usability, and we appreciate the progress made so far. Looking forward to seeing the project continue to develop."</p></blockquote>
-              <figcaption><cite>Ahmad AlNimr</cite><span>Digital Marketing Manager, Al-Ard</span></figcaption>
+              <blockquote><p>“Abdulaziz has been doing a great job so far on the UI/UX work for our new website. He understands the direction well, is responsive to feedback, and has been helping translate our ideas into a clearer and more user-friendly website experience. His work shows good attention to structure, visual flow, and overall usability, and we appreciate the progress made so far. Looking forward to seeing the project continue to develop.”</p></blockquote>
+              <figcaption><cite>Ahmad AlNimr</cite><span>Digital Marketing Manager, AL'ARD</span></figcaption>
             </figure>
           </li>
         </ul>
@@ -483,28 +435,30 @@ Simply put, Abdulaziz designs experiences that people don’t just use — they 
       <div class="container">
         <h2 class="contact__title" id="contact-title">Let’s build something people love to use.</h2>
         <ul class="contact__list">
-          <li>
+          <li class="contact__email">
             <a class="contact__link" href="mailto:abdulaziz.abudhair@gmail.com">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
               abdulaziz.abudhair@gmail.com
             </a>
+            <button class="copy-btn" type="button" data-copy="abdulaziz.abudhair@gmail.com" hidden>Copy<span class="visually-hidden"> email address</span></button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </li>
           <li>
             <a class="contact__link" href="https://wa.me/970599835978" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 4.2 2 2 0 0 1 3.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L7.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2Z"/></svg>
-              +970 599 835 978 (WhatsApp)
+              WhatsApp · +970 599 835 978
             </a>
           </li>
           <li>
             <a class="contact__link" href="https://linkedin.com/in/abdulaziz-abudhair" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              linkedin.com/in/abdulaziz-abudhair
+              LinkedIn
             </a>
           </li>
           <li>
             <a class="contact__link" href="https://www.upwork.com/freelancers/~01608bf0df4b2dc6fd" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13" rx="1.5"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/><path d="M2.5 12.5h19"/><path d="M11 12.5h2"/></svg>
-              Hire me on Upwork
+              Upwork
             </a>
           </li>
         </ul>
@@ -517,7 +471,10 @@ Simply put, Abdulaziz designs experiences that people don’t just use — they 
   </main>
 
   <footer class="site-footer">
-    <p>© <span data-year>2026</span> abdulaziz abudhair · senior product designer</p>
+    <div class="container site-footer__inner">
+      <p>© <span data-year>2026</span> abdulaziz abudhair · senior product designer</p>
+      <a class="site-footer__top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
   </footer>
 </body>
 </html>
