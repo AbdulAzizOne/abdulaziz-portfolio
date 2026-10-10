@@ -1,0 +1,21 @@
+---
+import { clientRows } from "../data/clients";
+// Static grid by default; main.js turns it into a two-way marquee
+// (skipped when the visitor prefers reduced motion).
+---
+<div class="logo-marquee" data-marquee>
+  {clientRows.map((row, i) => (
+    <div class="logo-marquee__viewport">
+      <ul class="logo-marquee__row" data-reverse={i % 2 === 1 ? "" : undefined}>
+        {row.map((logo) => (
+          <li><img src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} decoding="async"></li>
+        ))}
+      </ul>
+    </div>
+  ))}
+  <button class="logo-marquee__toggle" type="button" aria-pressed="false" hidden>
+    <svg class="logo-marquee__icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+    <svg class="logo-marquee__icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 7 5.5Z"/></svg>
+    <span data-toggle-label>Pause logos</span>
+  </button>
+</div>

@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import Contact from "../../components/Contact.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Crpton — Taking a clinic system off the desktop",
+    "description": "Rebuilding a desktop-bound clinic system as a web app and companion mobile app — patient records, tooth charting, treatment plans and billing.",
+    "url": "https://abdulazizabudhair-portfolio.vercel.app/work/crpton",
+    "image": "https://abdulazizabudhair-portfolio.vercel.app/assets/img/og-crpton.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "genre": "Healthcare practice management",
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Crpton",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/work/crpton"
+      }
+    ]
+  }
+];
+---
+<Layout
+  title="Crpton — Case Study · Abdulaziz Abu Dhair"
+  description="Rebuilding a desktop-bound clinic system as a web app and companion mobile app — patient records, tooth charting, treatment plans and billing."
+  path="/work/crpton"
+  ogType="article"
+  ogImage="og-crpton.jpg"
+  jsonLd={jsonLd}
+>
+<article class="band band--light case" aria-labelledby="case-title">
+    <div class="container">
+      <a class="back-link" href="/#case-studies"><span aria-hidden="true">←</span> Back to portfolio</a>
+      <header>
+        <p class="case__eyebrow">Healthcare · Practice Management</p>
+        <h1 class="case__title" id="case-title">Crpton <span>Taking a clinic system off the desktop</span></h1>
+        <dl class="case__meta">
+          <div><dt>Role</dt><dd>UX/UI Designer, solo end-to-end</dd></div>
+          <div><dt>Platform</dt><dd>Web app + companion mobile app</dd></div>
+          <div><dt>Tools</dt><dd>Figma</dd></div>
+        </dl>
+      </header>
+
+      <div class="case__media">
+        <img src="/assets/img/crpton-1-1368.webp" srcset="/assets/img/crpton-1-1368.webp 1368w, /assets/img/crpton-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1778" fetchpriority="high" decoding="async" alt="Crpton web app: a patient's finance tab showing total fees, payments, insurance and balance, with an expandable list of treatments and payment allocations.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>Context</h2>
+          <p>Crpton was clinic-management software installed on desktop computers in doctors' clinics and medical centers — handling patients, treatment plans, and billing. Being desktop-bound meant it lived on one machine, in one room.</p>
+          <h2>Problem</h2>
+          <p>When something broke, there was no easy fix. Support either had to send someone on-site or walk a doctor through a screen-share session mid-clinic — slow, disruptive, and dependent on the doctor being free to sit through it. The software also couldn't be reached from anywhere but that one desktop, even for a quick check between patients.</p>
+          <h2>My Role</h2>
+          <p>UX/UI designer, solely responsible for the end-to-end design of Crpton's rebuild — the web platform and its companion mobile app — from the ground up.</p>
+        </div>
+        <div class="prose">
+          <h2>Key Decisions</h2>
+          <ul>
+            <li>Redesigned Crpton as a browser-based web app instead of installed desktop software, so a doctor — or support — could open it from any device, anywhere, without a site visit or a screen-share session.</li>
+            <li>Designed a companion mobile app with a condensed home (appointments, recalls, analytics) and a quick-access "Hub" menu, so a doctor could check on the clinic without being at a desk at all.</li>
+            <li>Consolidated every patient's record into one profile with tabs — General, Dental, Finance, Medical, X-Ray, Prescription, Reports, Lab — so a doctor never has to leave a patient's context just to check billing or history.</li>
+            <li>Designed an interactive tooth chart for treatment planning: tap a tooth, tag the procedure, and it flows straight into a priced treatment plan — turning a normally manual chart into something fast enough for chairside use.</li>
+            <li>Designed a full per-patient finance view — fees, payments, insurance, balance — alongside clinic-wide expense analytics, so billing and practice finances live in one system instead of a separate spreadsheet or accounting tool.</li>
+            <li>Added Light/Dark/Auto themes and adjustable text sizing, since clinics run under different lighting and staff span a wide range of ages spending long shifts in front of the screen.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="media-row media-row--crpton">
+        <img src="/assets/img/crpton-2-850.webp" srcset="/assets/img/crpton-2-850.webp 850w, /assets/img/crpton-2-1701.webp 1701w" sizes="(min-width: 1448px) 873px, (min-width: 721px) 60vw, 94vw" width="1701" height="1024" loading="lazy" decoding="async" alt="Crpton dental tab: an interactive tooth chart with tagged procedures beside a treatment plan and frequent treatments.">
+        <img src="/assets/img/crpton-3-482.webp" srcset="/assets/img/crpton-3-482.webp 482w, /assets/img/crpton-3-965.webp 965w" sizes="(min-width: 1448px) 495px, (min-width: 721px) 34vw, 94vw" width="965" height="1024" loading="lazy" decoding="async" alt="Crpton companion mobile app home screen in light and dark themes, showing workflow and appointments.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>Outcome</h2>
+          <p>Crpton is live and in daily use in real clinics today — not a pilot or a beta, but the system doctors and staff actually run their day on.</p>
+        </div>
+        <div class="prose">
+          <h2>Reflection</h2>
+          <p>This project pulled me outside pure UI work. To design treatment plans, insurance flows, and clinic billing that actually held up, I had to read into dentistry and accounting well enough to think like the people using the system every day, not just skin the screens for them.</p>
+          <p>That habit — learning the domain before trusting my own design instincts — turned out to be the most useful thing I took from Crpton, and it's the lens I now bring to any specialized, unfamiliar industry.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<Testimonials />
+
+<Contact />
+</Layout>

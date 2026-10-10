@@ -1,4 +1,6 @@
 .DS_Store
 .vercel
 .claude
-.DS_Store
+node_modules/
+dist/
+.astro/

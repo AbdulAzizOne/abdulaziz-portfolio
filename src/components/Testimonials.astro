@@ -1,0 +1,55 @@
+---
+interface Props {
+  /** Background band; alternates with the section above it. */
+  band?: "light" | "alt";
+}
+const { band = "alt" } = Astro.props;
+---
+<section class={`band band--${band}`} id="testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="section-head section-head--tight reveal">
+      <h2 class="section-title" id="testimonials-title">What people say</h2>
+      <p class="section-sub">A few words from the people I've had the pleasure of working with.</p>
+    </div>
+    <ul class="quotes">
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“Abdulaziz has shown a high level of professionalism accompanied by a deep understanding of his domain. I strongly believe he is a capable designer able to deliver high-quality products.”</p></blockquote>
+          <figcaption><cite>Tareq Maayah</cite><span>CEO, EXALT Technologies</span></figcaption>
+        </figure>
+      </li>
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“The Crpton dashboard reached a new level of quality thanks to Abdulaziz's UX/UI expertise. His thoughtful design decisions greatly enhanced the overall user experience.”</p></blockquote>
+          <figcaption><cite>Alaa Al-Najjar</cite><span>Founder, Crpton</span></figcaption>
+        </figure>
+      </li>
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.
+His work stands out through its attention to detail, creative thinking, and deep understanding of how users interact with products.
+Simply put, Abdulaziz designs experiences that people don’t just use — they remember.”</p></blockquote>
+          <figcaption><cite>Tareq Nassif</cite><span>Founder, RIS Enterprise Solutions</span></figcaption>
+        </figure>
+      </li>
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. He is deeply knowledgeable in his field and attuned to the latest design trends. I highly recommend working with him.”</p></blockquote>
+          <figcaption><cite>Omrie Abu Madi</cite><span>Founder, VBooking</span></figcaption>
+        </figure>
+      </li>
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“Great UX/UI design and wireframing. He provided multiple prototypes in Figma and delivered high-fidelity designs for our tablet app, creating the best possible user experience. I highly recommend hiring him and would definitely work with Abdulaziz again.”</p></blockquote>
+          <figcaption><cite>Ameed J.</cite><span>Founder, ZenRaise</span></figcaption>
+        </figure>
+      </li>
+      <li class="reveal">
+        <figure class="quote">
+          <blockquote><p>“Abdulaziz has been doing a great job so far on the UI/UX work for our new website. He understands the direction well, is responsive to feedback, and has been helping translate our ideas into a clearer and more user-friendly website experience. His work shows good attention to structure, visual flow, and overall usability, and we appreciate the progress made so far. Looking forward to seeing the project continue to develop.”</p></blockquote>
+          <figcaption><cite>Ahmad AlNimr</cite><span>Digital Marketing Manager, AL'ARD</span></figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>

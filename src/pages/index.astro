@@ -1,0 +1,118 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LogoMarquee from "../components/LogoMarquee.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Contact from "../components/Contact.astro";
+import { projects } from "../data/projects";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abdulaziz Abu Dhair",
+  "jobTitle": "Senior Product Designer (UX/UI)",
+  "url": "https://abdulazizabudhair-portfolio.vercel.app/",
+  "email": "mailto:abdulaziz.abudhair@gmail.com",
+  "telephone": "+970599835978",
+  "sameAs": [
+    "https://linkedin.com/in/abdulaziz-abudhair",
+    "https://www.behance.net/abdulazizabudhair",
+    "https://www.upwork.com/freelancers/~01608bf0df4b2dc6fd"
+  ]
+};
+---
+<Layout
+  title="Abdulaziz Abu Dhair — Senior Product Designer (UX/UI)"
+  description="Senior product designer with 15+ years shipping enterprise, healthcare, travel and fintech products for Fortune 500 R&D teams and startups."
+  path="/"
+  jsonLd={jsonLd}
+  home
+>
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__inner">
+      <h1 class="hero__title" id="hero-title">Design that bridges <em>human behavior</em> &amp; business goals.</h1>
+      <p class="hero__lead">For 15+ years, I've partnered with R&amp;D teams at Fortune 500 companies and startups to turn ambiguous problems into products people actually want to use.</p>
+      <ul class="chips" aria-label="Highlights">
+        <li class="chip">15+ years in product design</li>
+        <li class="chip">Google UX Design Certified</li>
+        <li class="chip">University Lecturer, UX/UI</li>
+      </ul>
+      <div class="hero__actions">
+        <a class="btn" href="#case-studies">View case studies</a>
+        <a class="btn btn--dark" href="#contact">Say hello</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="clients" aria-labelledby="clients-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="clients-title">Clients and partners</h2>
+    <p class="clients__intro">Teams I've designed for across eight industries — enterprise, healthcare, e-commerce, travel, fintech, industrial printing, government and telecom. Several global engagements remain under NDA.</p>
+    <LogoMarquee />
+  </div>
+</section>
+
+<!-- Case studies -->
+<section class="band band--light" id="case-studies" aria-labelledby="case-studies-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title" id="case-studies-title">Five problems worth telling you about</h2>
+      <p class="section-sub">Every one of these reflects real work with real users — from a system clinics run their whole day on, to a donation app live at real events and a store selling across three regions. Each case study walks through the thinking behind it, not just the pixels.</p>
+    </div>
+
+    <ol class="showcases">
+      {projects.map((project, i) => <ProjectCard project={project} index={i + 1} />)}
+    </ol>
+  </div>
+</section>
+
+<!-- Beyond design -->
+<section class="band band--alt" id="beyond-design" aria-labelledby="beyond-title">
+  <div class="container">
+    <div class="section-head section-head--tight reveal">
+      <h2 class="section-title" id="beyond-title">Beyond design</h2>
+      <p class="section-sub">Teaching and evaluating design keeps my own process honest — it's the part of the work that doesn't show up in a Figma file.</p>
+    </div>
+    <ul class="roles">
+      <li class="role-card reveal">
+        <p class="role-card__kicker">Lecturer, Graphic Design &amp; UX/UI</p>
+        <h3 class="role-card__title">An-Najah National University</h3>
+        <p class="role-card__text">Taught graphic design and UX/UI to undergraduate students, bringing the same process used across client work into the classroom.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">Certificate of Appreciation</p>
+        <h3 class="role-card__title">TEDI Najah Expo</h3>
+        <p class="role-card__text">Recognized for mentoring students through their graduation projects.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">External UX/UI Projects Evaluator</p>
+        <h3 class="role-card__title">Birzeit University · 2023–2026</h3>
+        <p class="role-card__text">Evaluated graduating students' UX/UI projects for three consecutive years.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">AI-in-Design Workshop Trainer</p>
+        <h3 class="role-card__title">Independent training</h3>
+        <p class="role-card__text">Trained designers on generative AI and prompt engineering as part of a modern design workflow.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">Curriculum Redevelopment Committee</p>
+        <h3 class="role-card__title">An-Najah National University</h3>
+        <p class="role-card__text">Committee member shaping how UX/UI is taught to the next generation of designers.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">UX/UI Mentor</p>
+        <h3 class="role-card__title">Startup Weekend, Nablus</h3>
+        <p class="role-card__text">Mentored startup teams on UX strategy, user flows, and interface design.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<Testimonials band="light" />
+
+<Contact />
+</Layout>
