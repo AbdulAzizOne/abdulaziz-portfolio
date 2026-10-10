@@ -617,92 +617,62 @@ button { font: inherit; color: inherit; }
 .quote cite { display: block; font-style: normal; font-weight: 600; color: var(--ink-brown); }
 .quote figcaption span { display: block; margin-top: 4px; font-size: 0.75rem; color: var(--ink-muted); }
 
-/* ---------- Contact ---------- */
-.contact { background: var(--bg-contact); padding-block: clamp(64px, 7vw, 76px); text-align: center; }
-.contact__title {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: clamp(2rem, 4.2vw, 3.5rem);
-  line-height: 1.1;
-  color: var(--ink-brown);
-}
-.contact__lead {
-  max-width: 560px;
-  margin: 20px auto 0;
-  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-  line-height: 1.4;
-  color: var(--ink-soft);
-}
-.contact__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
-}
-.contact__btn { gap: 10px; min-width: 176px; }
-.contact__btn svg { width: 20px; height: 20px; flex: none; }
-.contact__social {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 32px;
-  max-width: 640px;
-  margin: 36px auto 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--line-strong);
-  list-style: none;
-}
-.contact__social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-block: 8px;
-  font-size: 1rem;
-  color: var(--ink-strong);
-  text-decoration: none;
-}
-.contact__social a:hover { color: var(--ink-brown); text-decoration: underline; text-underline-offset: 4px; }
-.contact__social svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
-.contact__social .icon-brand { width: 18px; height: 18px; }
-.contact__btn .icon-brand { width: 18px; height: 18px; }
-
-/* ---------- Footer ---------- */
-/* A dark, quiet close. Contact links live in the section just above and the
-   page links in the header, so the footer repeats neither. */
+/* ---------- Footer (contact) ---------- */
+/* The footer doubles as the contact block (#contact): one row of links,
+   then the fine print. */
 .site-footer {
   --footer-ink: var(--bg-alt);
   --footer-muted: rgb(236 234 228 / 0.66);
+  --footer-line: rgb(236 234 228 / 0.14);
   background: var(--btn-dark);
   color: var(--footer-ink);
 }
 .site-footer a { color: inherit; text-decoration: none; }
-.site-footer__inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+.site-footer__main {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 16px 28px;
-  padding-block: clamp(32px, 4vw, 44px);
+  justify-content: space-between;
+  gap: 28px 48px;
+  padding-block: clamp(40px, 5vw, 64px);
 }
-.site-footer__mark { width: 44px; height: auto; color: var(--footer-ink); transition: color 0.3s ease; }
+.site-footer__mark { width: 52px; height: auto; color: var(--footer-ink); transition: color 0.3s ease; }
 .site-footer__home:hover .site-footer__mark { color: var(--gold-logo); }
-.site-footer__legal {
-  padding-left: 28px;
-  border-left: 1px solid rgb(236 234 228 / 0.16);
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px clamp(20px, 2.6vw, 36px);
+  list-style: none;
+}
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 6px;
+  font-size: 1rem;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.3s var(--ease-out), color 0.3s ease;
+}
+.site-footer__links a:hover { background-size: 100% 1px; }
+.site-footer__links .icon-brand { width: 18px; height: 18px; flex: none; color: var(--gold-logo); }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding-block: 22px 28px;
+  border-top: 1px solid var(--footer-line);
   font-size: 0.875rem;
   letter-spacing: 0.02em;
   color: var(--footer-muted);
 }
-.site-footer__top {
-  font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  color: var(--footer-muted);
-  transition: color 0.3s ease;
-}
+.site-footer__top { transition: color 0.3s ease; }
 .site-footer__top:hover { color: var(--footer-ink); }
 @media (max-width: 720px) {
-  .site-footer__inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .site-footer__legal { padding-left: 0; border-left: 0; }
+  .site-footer__main { flex-direction: column; text-align: center; }
+  .site-footer__links { justify-content: center; }
+  .site-footer__bottom { flex-direction: column; text-align: center; }
 }
 
 /* ---------- 404 ---------- */
@@ -776,7 +746,6 @@ button { font: inherit; color: inherit; }
   .chip { font-size: 0.75rem; }
   .chip + .chip::before { display: none; }
   .hero__actions .btn { flex: 1 1 auto; }
-  .contact__actions { flex-direction: column; max-width: 320px; margin-inline: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -787,7 +756,7 @@ button { font: inherit; color: inherit; }
 
 @media print {
   .site-header, .nav-toggle, .skip-link { display: none; }
-  .band, .hero, .clients, .contact { background: none; }
+  .band, .hero, .clients { background: none; }
 }
 
 /* ---------- Extended case study (sections, steps, features, swatches) ---------- */
@@ -918,6 +887,3 @@ button { font: inherit; color: inherit; }
 .case__permalink { margin-top: 24px; font-size: 0.9375rem; }
 .case__permalink a { color: var(--ink-brown); text-underline-offset: 4px; }
 
-/* ---------- Copy email ---------- */
-.copy-btn { font-family: inherit; cursor: pointer; }
-.copy-btn.is-copied { border-color: var(--gold); color: var(--gold); }

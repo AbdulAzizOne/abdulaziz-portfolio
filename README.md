@@ -5,7 +5,7 @@ Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.c
 ```
 src/
   layouts/Layout.astro        <head> (SEO, Open Graph, JSON-LD), header, footer
-  components/                 Header, Footer, Contact, Testimonials, LogoMarquee, ProjectCard
+  components/                 Header, Footer (with contact links), Testimonials, LogoMarquee, ProjectCard, NextProject
   data/projects.ts            Home-page case-study cards (order = display order, numbered 01…)
   data/clients.ts             Client logos, one array per marquee row
   pages/index.astro           Home
@@ -17,7 +17,7 @@ public/
   assets/img/                 WebP/SVG images, client logos, share (OG) images
   assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (WOFF2, latin)
   assets/files/               Résumé PDF
-  assets/js/main.js           Mobile menu, footer year, copy email, logo marquee, scroll reveal
+  assets/js/main.js           Mobile menu, header state, footer year, logo marquee, scroll reveal
   favicon.svg  robots.txt  sitemap.xml
 vercel.json                   Build settings, clean URLs, security headers, caching, redirects
 ```
