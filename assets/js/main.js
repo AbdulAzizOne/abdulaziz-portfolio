@@ -71,6 +71,63 @@
     });
   });
 
+  // Client logo marquee: clone each row so it loops seamlessly, pausable by
+  // hover, focus or the toggle button. Stays a static wrap for reduced motion.
+  const marquee = document.querySelector("[data-marquee]");
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (marquee && !motionQuery.matches) {
+    const rows = [...marquee.querySelectorAll(".logo-marquee__row")];
+    const originals = rows.map((row) => [...row.children]);
+    const toggle = marquee.querySelector(".logo-marquee__toggle");
+    const toggleLabel = toggle && toggle.querySelector("[data-toggle-label]");
+    const pxPerSecond = 40;
+
+    const cloneItem = (item) => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      return clone;
+    };
+
+    const build = () => {
+      marquee.classList.add("is-animated");
+      const viewportWidth = marquee.clientWidth;
+      rows.forEach((row, i) => {
+        const items = originals[i];
+        row.replaceChildren(...items);
+        // Repeat the set until one half of the track is wider than the viewport,
+        // then duplicate that half so translating by -50% loops without a gap.
+        const setWidth = row.scrollWidth;
+        const repeats = Math.max(1, Math.ceil(viewportWidth / setWidth));
+        for (let r = 1; r < repeats; r++) items.forEach((item) => row.append(cloneItem(item)));
+        [...row.children].forEach((item) => row.append(cloneItem(item)));
+        row.style.setProperty("--marquee-duration", `${(setWidth * repeats) / pxPerSecond}s`);
+      });
+    };
+
+    build();
+    let resizeTimer;
+    let lastWidth = marquee.clientWidth;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (marquee.clientWidth !== lastWidth) {
+          lastWidth = marquee.clientWidth;
+          build();
+        }
+      }, 200);
+    });
+
+    if (toggle) {
+      toggle.hidden = false;
+      toggle.addEventListener("click", () => {
+        const paused = marquee.classList.toggle("is-paused");
+        toggle.setAttribute("aria-pressed", String(paused));
+        if (toggleLabel) toggleLabel.textContent = paused ? "Play logos" : "Pause logos";
+      });
+    }
+  }
+
   // Reveal on scroll
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const targets = document.querySelectorAll(".reveal");

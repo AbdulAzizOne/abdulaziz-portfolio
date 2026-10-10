@@ -98,22 +98,37 @@
       <div class="container">
         <h2 class="visually-hidden" id="clients-title">Clients and partners</h2>
         <p class="clients__intro">Teams I've designed for across eight industries — enterprise, healthcare, e-commerce, travel, fintech, industrial printing, government and telecom. Several global engagements remain under NDA.</p>
-        <ul class="clients__grid">
-          <li><img src="assets/img/clients/exalt.webp" width="408" height="210" alt="EXALT Technologies" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/millennium.webp" width="408" height="210" alt="Millennium Technology" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/progmix.svg" width="300" height="160" alt="ProgmiX" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/crpton.svg" width="300" height="160" alt="Crpton" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/alard.webp" width="408" height="210" alt="AL'ARD" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/sada.webp" width="408" height="210" alt="SADA Intelligence" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/palestine-exchange.webp" width="408" height="210" alt="Palestine Exchange" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/alrajhi.webp" width="408" height="210" alt="Al Rajhi Bank" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/padico.webp" width="408" height="210" alt="PADICO Holding" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/vbooking.svg" width="300" height="160" alt="VBooking" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/fastlink.webp" width="408" height="210" alt="Fastlink" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/newroz.webp" width="408" height="210" alt="Newroz Telecom" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/qetaf.svg" width="300" height="160" alt="Qetaf Medical" loading="lazy" decoding="async"></li>
-          <li><img src="assets/img/clients/ourverse.svg" width="300" height="160" alt="OurVerse" loading="lazy" decoding="async"></li>
-        </ul>
+        <div class="logo-marquee" data-marquee>
+          <div class="logo-marquee__viewport">
+            <ul class="logo-marquee__row">
+              <li><img src="assets/img/clients/exalt.webp" width="408" height="210" alt="EXALT Technologies" decoding="async"></li>
+              <li><img src="assets/img/clients/millennium.webp" width="408" height="210" alt="Millennium Technology" decoding="async"></li>
+              <li><img src="assets/img/clients/progmix.svg" width="300" height="160" alt="ProgmiX" decoding="async"></li>
+              <li><img src="assets/img/clients/crpton.svg" width="300" height="160" alt="Crpton" decoding="async"></li>
+              <li><img src="assets/img/clients/alard.webp" width="408" height="210" alt="AL'ARD" decoding="async"></li>
+              <li><img src="assets/img/clients/sada.webp" width="408" height="210" alt="SADA Intelligence" decoding="async"></li>
+              <li><img src="assets/img/clients/palestine-exchange.webp" width="408" height="210" alt="Palestine Exchange" decoding="async"></li>
+              <li><img src="assets/img/clients/alrajhi.webp" width="408" height="210" alt="Al Rajhi Bank" decoding="async"></li>
+            </ul>
+          </div>
+          <div class="logo-marquee__viewport">
+            <ul class="logo-marquee__row" data-reverse>
+              <li><img src="assets/img/clients/fedex.svg" width="300" height="160" alt="FedEx" decoding="async"></li>
+              <li><img src="assets/img/clients/padico.webp" width="408" height="210" alt="PADICO Holding" decoding="async"></li>
+              <li><img src="assets/img/clients/ichr.svg" width="300" height="160" alt="Independent Commission for Human Rights" decoding="async"></li>
+              <li><img src="assets/img/clients/vbooking.svg" width="300" height="160" alt="VBooking" decoding="async"></li>
+              <li><img src="assets/img/clients/fastlink.webp" width="408" height="210" alt="Fastlink" decoding="async"></li>
+              <li><img src="assets/img/clients/newroz.webp" width="408" height="210" alt="Newroz Telecom" decoding="async"></li>
+              <li><img src="assets/img/clients/qetaf.svg" width="300" height="160" alt="Qetaf Medical" decoding="async"></li>
+              <li><img src="assets/img/clients/ourverse.svg" width="300" height="160" alt="OurVerse" decoding="async"></li>
+            </ul>
+          </div>
+          <button class="logo-marquee__toggle" type="button" aria-pressed="false" hidden>
+            <svg class="logo-marquee__icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="logo-marquee__icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 7 5.5Z"/></svg>
+            <span data-toggle-label>Pause logos</span>
+          </button>
+        </div>
       </div>
     </section>
 
