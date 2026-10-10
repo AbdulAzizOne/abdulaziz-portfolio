@@ -35,40 +35,17 @@
     });
   }
 
+  // Header: hairline and soft shadow once the page scrolls
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   // Current year in footer
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = String(new Date().getFullYear());
-  });
-
-  // Copy email to clipboard (button is hidden without JS)
-  document.querySelectorAll("[data-copy]").forEach((btn) => {
-    const label = btn.querySelector("[data-copy-label]") || btn.firstChild;
-    const original = label.textContent;
-    const status = btn.parentElement.querySelector("[data-copy-status]");
-    btn.hidden = false;
-    btn.addEventListener("click", async () => {
-      const text = btn.getAttribute("data-copy");
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch {
-        const field = Object.assign(document.createElement("textarea"), { value: text });
-        field.style.position = "fixed";
-        field.style.opacity = "0";
-        document.body.append(field);
-        field.select();
-        document.execCommand("copy");
-        field.remove();
-      }
-      label.textContent = "Copied ✓";
-      btn.classList.add("is-copied");
-      if (status) status.textContent = "Email address copied to clipboard";
-      clearTimeout(btn._t);
-      btn._t = setTimeout(() => {
-        label.textContent = original;
-        btn.classList.remove("is-copied");
-        if (status) status.textContent = "";
-      }, 2000);
-    });
   });
 
   // Client logo marquee: clone each row so it loops seamlessly, pausable by
@@ -139,12 +116,14 @@
 
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+      // Stagger items that enter the viewport together (e.g. a row of cards).
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry, i) => {
+          entry.target.style.setProperty("--reveal-delay", `${Math.min(i, 5) * 0.08}s`);
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
-        }
-      });
+        });
     },
     { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
   );

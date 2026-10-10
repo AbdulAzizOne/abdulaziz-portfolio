@@ -18,7 +18,11 @@
   --color-bg-contact: var(--bg-contact);
   --color-bg-footer: var(--bg-footer);
   --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-line-strong: var(--line-strong);
   --color-ink: var(--ink);
+  --color-ink-strong: var(--ink-strong);
+  --color-ink-body: var(--ink-body);
   --color-ink-brown: var(--ink-brown);
   --color-ink-muted: var(--ink-muted);
   --color-ink-soft: var(--ink-soft);
