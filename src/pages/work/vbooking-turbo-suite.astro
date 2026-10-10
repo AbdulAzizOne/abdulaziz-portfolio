@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import Contact from "../../components/Contact.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "VBooking Turbo Suite — Unifying booking, CRM, and AI for travel agents",
+    "description": "How a unified booking engine, CRM pipeline, itinerary builder and AI assistant cut tool-switching for travel agents.",
+    "url": "https://abdulazizabudhair-portfolio.vercel.app/work/vbooking-turbo-suite",
+    "image": "https://abdulazizabudhair-portfolio.vercel.app/assets/img/og-turbo-suite.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "genre": "B2B travel booking platform",
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "VBooking Turbo Suite",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/work/vbooking-turbo-suite"
+      }
+    ]
+  }
+];
+---
+<Layout
+  title="VBooking Turbo Suite — Case Study · Abdulaziz Abu Dhair"
+  description="How a unified booking engine, CRM pipeline, itinerary builder and AI assistant cut tool-switching for travel agents."
+  path="/work/vbooking-turbo-suite"
+  ogType="article"
+  ogImage="og-turbo-suite.jpg"
+  jsonLd={jsonLd}
+>
+<article class="band band--light case" aria-labelledby="case-title">
+  <div class="container">
+    <a class="back-link" href="/#case-studies"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <header>
+      <p class="case__eyebrow">B2B · Travel Tech</p>
+      <h1 class="case__title" id="case-title">VBooking Turbo Suite <span>Unifying booking, CRM, and AI for travel agents</span></h1>
+      <dl class="case__meta">
+        <div><dt>Role</dt><dd>Lead UX/UI Designer, solo end-to-end</dd></div>
+        <div><dt>Platform</dt><dd>Web app — Booking Engine, CRM, Itinerary Builder, Ask Genie</dd></div>
+        <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
+      </dl>
+    </header>
+
+    <div class="case__media">
+      <img src="/assets/img/turbo-1-1368.webp" srcset="/assets/img/turbo-1-1368.webp 1368w, /assets/img/turbo-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1778" fetchpriority="high" decoding="async" alt="VBooking Turbo Suite CRM pipeline: a Kanban board of leads moving through New, Sent, Follow ups, Viewed and Paid.">
+    </div>
+
+    <div class="case__body">
+      <div class="prose">
+        <h2>Context</h2>
+        <p>VBooking set out to unify a fragmented industry — wholesalers, DMCs, OTAs, and holiday rental managers — under one booking platform, Turbo Suite. Agents were used to juggling separate tools for search, quoting, CRM, and finance across every supplier and channel they worked with.</p>
+        <h2>Problem</h2>
+        <p>Agents were losing time and revenue to problems baked into how the industry worked: supplier management and commission structures were manually tangled, inventory wasn't updated in real time so agents quoted stale prices, and once a lead came in, there was no single place to track it from first contact to payment. Support tools were too weak to hold onto the customer relationship, let alone upsell.</p>
+        <h2>My Role</h2>
+        <p>Lead UX/UI designer, solely responsible for the end-to-end design of Turbo Suite — from the CRM pipeline to the itinerary builder to Ask Genie — working as the only designer across a fast-moving, multi-team build.</p>
+      </div>
+      <div class="prose">
+        <h2>Key Decisions</h2>
+        <ul>
+          <li>Designed CRM pipelines that pull every incoming lead into one Kanban view (New → Sent → Follow ups → Viewed → Paid), so an agent never checks two systems to know where a deal stands.</li>
+          <li>Put real-time inventory and financial exposure — unpaid orders, contract limits, cancellations — on the home dashboard itself, not buried in a report, since stale numbers were the exact complaint agents had about the old way of working.</li>
+          <li>Designed the itinerary builder day-by-day — flights, hotels, restaurants, transport per day — with a "Generate with AI" shortcut, so an agent could go from a client's ask to a priced multi-day package in minutes instead of assembling it supplier by supplier.</li>
+          <li>Made Ask Genie a first-class tab in the workspace, not a side panel, so agents could describe what a customer needed in plain language and get offers back immediately.</li>
+          <li>Consolidated search, CRM, finance, and tools under one sidebar instead of separate logins per function, removing the tool-switching agents were already stuck with.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="media-row media-row--2">
+      <img src="/assets/img/turbo-2-674.webp" srcset="/assets/img/turbo-2-674.webp 674w, /assets/img/turbo-2-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1019" loading="lazy" decoding="async" alt="Turbo Suite itinerary builder: a day-by-day Tokyo quotation with flights, transportation and hotels, plus a Generate with AI action.">
+      <img src="/assets/img/turbo-3-674.webp" srcset="/assets/img/turbo-3-674.webp 674w, /assets/img/turbo-3-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="Turbo Suite home with the Ask Genie prompt, latest offers, sales analytics, payment information and recent quotations.">
+    </div>
+
+    <div class="case__body">
+      <div class="prose">
+        <h2>Outcome</h2>
+        <p>Turbo Suite shipped as a live beta and is currently in use by agents, though it hasn't opened to the general market yet. Working with real agents at this stage surfaced exactly where the old tool-hopping workflow still leaked into the new one — feedback now shaping the run-up to a full launch.</p>
+      </div>
+      <div class="prose">
+        <h2>Reflection</h2>
+        <p>The biggest lesson was how differently "good design" reads on the B2B side: agents don't want delight, they want speed and control over their own numbers, so every decision got tested against "does this save a step" rather than "does this look good." Heavy competitor analysis across travel-tech platforms is also what pushed decisions like the unified CRM pipeline, instead of just copying what every other booking tool already did.</p>
+      </div>
+    </div>
+
+    <p class="case__footnote">Read the sibling case study for this client's traveler-facing side: <a href="vbooking-community.html">VBooking Community <span aria-hidden="true">→</span></a></p>
+  </div>
+</article>
+
+<Testimonials />
+
+<Contact />
+</Layout>

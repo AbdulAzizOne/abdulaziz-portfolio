@@ -1,0 +1,30 @@
+/* Tailwind v4 without Preflight: site.css carries its own reset, so we load
+   only the theme and utilities layers. Existing component styles live in the
+   components layer, which lets Tailwind utilities override them when needed. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "./site.css" layer(components);
+
+/* site.css defines its own .container (1368px + gutters); stop Tailwind from
+   generating its breakpoint-based container utility, which would override it. */
+@source not inline("container");
+
+/* Expose the site's design tokens as Tailwind utilities
+   (bg-bg-alt, text-ink-brown, text-gold, border-line, …). */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-bg-contact: var(--bg-contact);
+  --color-bg-footer: var(--bg-footer);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-brown: var(--ink-brown);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-soft: var(--ink-soft);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-logo: var(--gold-logo);
+}
+/* Fonts need no mapping: site.css redefines --font-sans/--font-serif/--font-mono
+   in a later layer, so font-sans, font-serif and font-mono use the site fonts. */

@@ -1,0 +1,26 @@
+---
+interface Props {
+  /** On the home page, section links stay in-page anchors. */
+  home?: boolean;
+}
+const { home = false } = Astro.props;
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Abdulaziz Abu Dhair — home">
+      <svg viewBox="0 0 1011 601" aria-hidden="true" focusable="false"><path fill="#433717" d="M0 600 349 0l291 500h68a200 200 0 0 0 0-400H523L465 0h243a300 300 0 0 1 0 600H582L349 201 116 600Z"/><path fill="#b18f3c" d="m233 600 116-199 116 199Z"/></svg>
+      <span>Abdulaziz Abu Dhair</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars"></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a class="nav__link" href={home ? "#case-studies" : "/#case-studies"}>Work</a></li>
+        <li><a class="nav__link" href={home ? "#beyond-design" : "/#beyond-design"}>Beyond Design</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+        <li><a class="btn btn--dark btn--sm" href="#contact">Let’s talk</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

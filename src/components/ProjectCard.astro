@@ -1,0 +1,30 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  /** 1-based position, shown as 01, 02, … */
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const num = String(index).padStart(2, "0");
+---
+<li class="showcase reveal" id={project.id}>
+  <div class:list={["showcase__media", { "showcase__media--tablets": project.layout === "tablets" }]}>
+    {project.images.map((img) => (
+      <img src={img.src} srcset={img.srcset} sizes={img.sizes} width={img.width} height={img.height} loading="lazy" decoding="async" alt={img.alt}>
+    ))}
+  </div>
+  <div class="showcase__body">
+    <p class="case__num" aria-hidden="true">{num}</p>
+    <p class="case__eyebrow">{project.eyebrow}</p>
+    <h3 class="showcase__title">{project.title} <span>{project.subtitle}</span></h3>
+    <p class="showcase__text">{project.summary}</p>
+    <dl class="showcase__meta">
+      <div><dt>Role</dt><dd>{project.role}</dd></div>
+      <div><dt>Outcome</dt><dd>{project.outcome}</dd></div>
+    </dl>
+    <a class="showcase__link" href={`/work/${project.page}`}>Read the case study <span aria-hidden="true">→</span><span class="visually-hidden">: {project.title}</span></a>
+  </div>
+</li>

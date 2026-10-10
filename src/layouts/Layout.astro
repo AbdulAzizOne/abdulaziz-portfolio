@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Site-relative path used for the canonical and og:url, e.g. "/work/alard". */
+  path?: string;
+  ogType?: "website" | "article";
+  /** File name in /assets/img, e.g. "og-alard.jpg". */
+  ogImage?: string;
+  /** Structured data, serialised into a JSON-LD script. */
+  jsonLd?: unknown;
+  /** Home page: in-page nav anchors. */
+  home?: boolean;
+  /** Error pages: no header/footer, not indexed. */
+  bare?: boolean;
+}
+
+const {
+  title,
+  description,
+  path = "/",
+  ogType = "website",
+  ogImage = "og-image.jpg",
+  jsonLd,
+  home = false,
+  bare = false,
+} = Astro.props;
+
+const site = Astro.site!.origin;
+const url = site + path;
+const image = `${site}/assets/img/${ogImage}`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  {bare ? (
+    <meta name="robots" content="noindex">
+  ) : (
+    <>
+      <meta name="description" content={description}>
+      <meta name="author" content="Abdulaziz Abu Dhair">
+      <meta name="theme-color" content="#eceae4">
+      <link rel="canonical" href={url}>
+
+      <meta property="og:type" content={ogType}>
+      <meta property="og:site_name" content="Abdulaziz Abu Dhair">
+      <meta property="og:url" content={url}>
+      <meta property="og:title" content={title}>
+      <meta property="og:description" content={description}>
+      <meta property="og:image" content={image}>
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content={title}>
+      <meta name="twitter:description" content={description}>
+      <meta name="twitter:image" content={image}>
+    </>
+  )}
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+  <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/noto-serif-500.woff2" as="font" type="font/woff2" crossorigin>
+  {/* The two inline scripts below are allowed by SHA-256 hash in the CSP (vercel.json).
+      Editing either one means regenerating its hash. */}
+  <script is:inline>document.documentElement.classList.add("js");</script>
+  <script is:inline src="/assets/js/main.js" defer></script>
+  <script is:inline>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script is:inline defer src="/_vercel/insights/script.js"></script>
+  {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd, null, 2)} />}
+</head>
+<body id={bare ? undefined : "top"}>
+  {bare ? (
+    <slot />
+  ) : (
+    <>
+      <a class="skip-link" href="#main">Skip to content</a>
+      <Header home={home} />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+    </>
+  )}
+</body>
+</html>

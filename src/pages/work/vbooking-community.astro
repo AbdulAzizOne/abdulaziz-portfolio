@@ -1,0 +1,121 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import Contact from "../../components/Contact.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "VBooking Community — AI trip planning and a marketplace for real travel experts",
+    "description": "AI trip planning plus a marketplace of real travel experts — three ways into planning, expert profiles and trips travelers can trust.",
+    "url": "https://abdulazizabudhair-portfolio.vercel.app/work/vbooking-community",
+    "image": "https://abdulazizabudhair-portfolio.vercel.app/assets/img/og-vbooking-community.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "genre": "B2C travel marketplace",
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "VBooking Community",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/work/vbooking-community"
+      }
+    ]
+  }
+];
+---
+<Layout
+  title="VBooking Community — Case Study · Abdulaziz Abu Dhair"
+  description="AI trip planning plus a marketplace of real travel experts — three ways into planning, expert profiles and trips travelers can trust."
+  path="/work/vbooking-community"
+  ogType="article"
+  ogImage="og-vbooking-community.jpg"
+  jsonLd={jsonLd}
+>
+<article class="band band--light case" aria-labelledby="case-title">
+    <div class="container">
+      <a class="back-link" href="/#case-studies"><span aria-hidden="true">←</span> Back to portfolio</a>
+      <header>
+        <p class="case__eyebrow">B2C · Travel Marketplace</p>
+        <h1 class="case__title" id="case-title">VBooking Community <span>AI trip planning and a marketplace for real travel experts</span></h1>
+        <dl class="case__meta">
+          <div><dt>Role</dt><dd>Lead UX/UI Designer, solo end-to-end</dd></div>
+          <div><dt>Platform</dt><dd>Web + mobile app — Community, Moments, AI Trip Planner, Expert &amp; Ambassador Profiles</dd></div>
+          <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
+        </dl>
+      </header>
+
+      <div class="case__media">
+        <img src="/assets/img/vbooking-1-1368.webp" srcset="/assets/img/vbooking-1-1368.webp 1368w, /assets/img/vbooking-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1780" fetchpriority="high" decoding="async" alt="VBooking Community trip page for a 7-day Tokyo and Japan city adventure, with photo gallery, price, booking actions and an activity feed.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>Context</h2>
+          <p>On the traveler side, VBooking was solving a trust problem: people don't always know who to trust for travel advice, and assembling a full trip — flights, hotels, activities — usually means jumping between many disconnected sites and sources.</p>
+          <h2>Problem</h2>
+          <p>Travelers dealt with limited personalization, unreliable reviews with no real access to expert guidance, difficulty putting together a complete holiday package in one place, and hidden fees that surfaced late in the process. The gap wasn't information — it was trust and a lack of one recognized route to a real answer.</p>
+          <h2>My Role</h2>
+          <p>Lead UX/UI designer, solely responsible for the end-to-end design of the Community platform, mobile app, AI trip planner, and Ambassador and Travel Expert profiles.</p>
+        </div>
+        <div class="prose">
+          <h2>Key Decisions</h2>
+          <ul>
+            <li>Gave travelers three ways into planning — AI, manual, or a real travel expert — from the same entry point, after testing three layouts for surfacing this choice. A single buried link meant people defaulted to browsing alone instead of asking for help; a prominent, labeled set of options fixed that.</li>
+            <li>Designed the AI planner to produce a full day-by-day itinerary with a map before ever asking for payment, then let the traveler "Send Request" to turn that draft into a real, human-priced offer — so people got AI-level personalization without losing the trust of a real quote from a real person.</li>
+            <li>Turned destination pages into one hub — hotels, activities, restaurants, car rental, and articles together — instead of scattering them across sections, cutting the "assembling a trip from five sources" feeling travelers complained about.</li>
+            <li>Gave every travel expert and ambassador a public profile with reviews, followers, and their own package listings, so "who do I trust" could be answered with the same social proof people already use to judge anyone online.</li>
+            <li>Added "Join" on existing group itineraries, so someone who didn't want to plan from zero could join a trip that was already built and priced.</li>
+            <li>Tied trip photos and videos to specific itinerary days rather than a generic feed, keeping travel content anchored to real, verifiable trips instead of disconnected posts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="media-row media-row--2">
+        <img src="/assets/img/vbooking-2-674.webp" srcset="/assets/img/vbooking-2-674.webp 674w, /assets/img/vbooking-2-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1018" loading="lazy" decoding="async" alt="VBooking destination hub for Tokyo with gallery, local facts, AI summary and shortcuts to hotels, things to do, restaurants, flights and rentals.">
+        <img src="/assets/img/vbooking-3-674.webp" srcset="/assets/img/vbooking-3-674.webp 674w, /assets/img/vbooking-3-1349.webp 1349w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1349" height="1020" loading="lazy" decoding="async" alt="VBooking travel expert profile for TabiTomo Travel showing ratings, followers and package listings.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>Outcome</h2>
+          <p>The Community platform also shipped as a live beta, active but not yet public. Early use by real travelers and ambassadors validated the three-entry-point approach to planning a trip, and it's now being refined ahead of full release.</p>
+        </div>
+        <div class="prose">
+          <h2>Reflection</h2>
+          <p>Working on both platforms at once made it clear that a traveler, an ambassador, and a travel agent are three different people even when they're looking at the same trip — the same UI would have flattened all three. Even inside Community alone, travelers and travel experts needed genuinely different flows: one browsing and trusting, one managing and selling. Competitor analysis across the space is what shaped where VBooking chose to differentiate — pairing AI planning with a real human behind every quote, instead of picking one or the other.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<Testimonials />
+
+<Contact />
+</Layout>
