@@ -136,11 +136,9 @@ button { font: inherit; color: inherit; }
   border-bottom: 1px solid transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-/* main.js adds .is-scrolled once the page moves; without JS the header stays solid. */
+/* main.js adds .is-scrolled once the page moves: a hairline and soft shadow
+   separate the (still opaque) header from the content scrolling beneath it. */
 .site-header.is-scrolled {
-  background: rgb(236 234 228 / 0.78);
-  backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
   border-bottom-color: rgb(67 55 23 / 0.1);
   box-shadow: 0 8px 24px -20px rgb(67 55 23 / 0.35);
 }
