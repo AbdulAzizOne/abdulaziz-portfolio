@@ -6,9 +6,6 @@ interface Props {
   band?: "light" | "alt";
 }
 const { band = "alt" } = Astro.props;
-
-const featured = testimonials.find((t) => t.featured);
-const others = testimonials.filter((t) => t !== featured);
 ---
 <section class={`band band--${band}`} id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
@@ -16,19 +13,11 @@ const others = testimonials.filter((t) => t !== featured);
       <h2 class="section-title" id="testimonials-title">What people say</h2>
       <p class="section-sub">A few words from the people I've had the pleasure of working with.</p>
     </div>
-
-    {featured && (
-      <figure class="quote-feature reveal">
-        <blockquote><p>“{featured.quote.replace(/\s*\n\s*/g, " ")}”</p></blockquote>
-        <figcaption><cite>{featured.name}</cite><span>{featured.role}</span></figcaption>
-      </figure>
-    )}
-
     <ul class="quotes">
-      {others.map((t) => (
+      {testimonials.map((t) => (
         <li class="reveal">
           <figure class="quote">
-            <blockquote><p>“{t.quote}”</p></blockquote>
+            <blockquote><p>“{t.quote.replace(/\s*\n\s*/g, " ")}”</p></blockquote>
             <figcaption><cite>{t.name}</cite><span>{t.role}</span></figcaption>
           </figure>
         </li>

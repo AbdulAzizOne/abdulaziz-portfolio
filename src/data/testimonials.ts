@@ -2,17 +2,9 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
-  /** Shown large, above the others. Use for exactly one quote. */
-  featured?: boolean;
 }
 
 export const testimonials: Testimonial[] = [
-  {
-    featured: true,
-    quote: "Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.\nHis work stands out through its attention to detail, creative thinking, and deep understanding of how users interact with products.\nSimply put, Abdulaziz designs experiences that people don’t just use — they remember.",
-    name: "Tareq Nassif",
-    role: "Founder, RIS Enterprise Solutions",
-  },
   {
     quote: "Abdulaziz has shown a high level of professionalism accompanied by a deep understanding of his domain. I strongly believe he is a capable designer able to deliver high-quality products.",
     name: "Tareq Maayah",
@@ -22,6 +14,11 @@ export const testimonials: Testimonial[] = [
     quote: "The Crpton dashboard reached a new level of quality thanks to Abdulaziz's UX/UI expertise. His thoughtful design decisions greatly enhanced the overall user experience.",
     name: "Alaa Al-Najjar",
     role: "Founder, Crpton",
+  },
+  {
+    quote: "Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.\nHis work stands out through its attention to detail, creative thinking, and deep understanding of how users interact with products.\nSimply put, Abdulaziz designs experiences that people don’t just use — they remember.",
+    name: "Tareq Nassif",
+    role: "Founder, RIS Enterprise Solutions",
   },
   {
     quote: "Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. He is deeply knowledgeable in his field and attuned to the latest design trends. I highly recommend working with him.",
