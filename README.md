@@ -47,7 +47,7 @@ npm run preview   # serve the build
 - **Add a case study:** add `src/pages/work/<name>.astro` (copy an existing one), an entry in
   `src/data/projects.ts`, a `<url>` in `public/sitemap.xml`, and an OG image in `public/assets/img/`.
 - **Client logos:** add the file to `public/assets/img/clients/` and an entry in `src/data/clients.ts`.
-- **Résumé:** replace `public/assets/files/abdulaziz-abudhair-resume.pdf` with a file of the same name.
+- **Resume:** replace `public/assets/files/abdulaziz-abudhair-resume.pdf` with a file of the same name.
 - **Removed pages** should get a redirect in `vercel.json` (see the Qetaf example) so old links don't 404.
 
 ## Deploy (Vercel)
