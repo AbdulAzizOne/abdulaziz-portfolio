@@ -35,6 +35,14 @@
     });
   }
 
+  // Header: frosted background and hairline once the page scrolls
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   // Current year in footer
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = String(new Date().getFullYear());
@@ -139,12 +147,14 @@
 
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+      // Stagger items that enter the viewport together (e.g. a row of cards).
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry, i) => {
+          entry.target.style.setProperty("--reveal-delay", `${Math.min(i, 5) * 0.08}s`);
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
-        }
-      });
+        });
     },
     { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
   );

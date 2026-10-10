@@ -95,11 +95,11 @@ export const projects: Project[] = [
     layout: "wide",
     images: [
       {
-        src: "/assets/img/alard-1-1368.webp",
-        srcset: "/assets/img/alard-1-1368.webp 1368w, /assets/img/alard-1-2736.webp 2736w",
+        src: "/assets/img/alard-card-1368.webp",
+        srcset: "/assets/img/alard-card-1368.webp 1368w, /assets/img/alard-card-2736.webp 2736w",
         sizes: "(min-width: 1448px) 790px, (min-width: 961px) 55vw, 94vw",
         width: 2736,
-        height: 1778,
+        height: 1630,
         alt: "The redesigned AL'ARD homepage for Palestinian olive oil and heritage goods."
       }
     ]

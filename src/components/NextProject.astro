@@ -1,0 +1,28 @@
+---
+import { projects } from "../data/projects";
+
+interface Props {
+  /** Slug of the current case-study page, e.g. "crpton". */
+  current: string;
+}
+
+const { current } = Astro.props;
+const i = projects.findIndex((p) => p.page === current);
+// Loop back to the first project after the last one.
+const next = projects[(i + 1) % projects.length];
+const img = next.images[0];
+---
+<nav class="next-project" aria-label="Next case study">
+  <a class="next-project__link container" href={`/work/${next.page}`}>
+    <span class="next-project__text">
+      <span class="next-project__kicker">Next case study <span aria-hidden="true">→</span></span>
+      <span class="next-project__title">{next.title}</span>
+      <span class="next-project__subtitle">{next.subtitle}</span>
+    </span>
+    <span class:list={["next-project__media", { "next-project__media--tablets": next.layout === "tablets" }]}>
+      {(next.layout === "tablets" ? next.images : [img]).map((im) => (
+        <img src={im.src} srcset={im.srcset} sizes="(min-width: 961px) 560px, 90vw" width={im.width} height={im.height} loading="lazy" decoding="async" alt="">
+      ))}
+    </span>
+  </a>
+</nav>
