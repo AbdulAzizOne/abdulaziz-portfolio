@@ -3,12 +3,12 @@
 Static HTML/CSS/JS site. No build step, no dependencies.
 
 ```
-index.html                  Home (hero, clients, 3 featured case-study cards, more work, beyond design, testimonials, contact)
+index.html                  Home (hero, clients, 5 case-study cards, beyond design, testimonials, contact)
 work/crpton.html            Case study 01 (full write-up; the home page only links here)
 work/vbooking-community.html  Case study 02
 work/zenraise.html          Case study 03
-work/vbooking-turbo-suite.html  More work
-work/alard.html             More work
+work/vbooking-turbo-suite.html  Case study 04
+work/alard.html             Case study 05
 404.html
 assets/css/styles.css       All styles (design tokens at the top)
 assets/js/main.js           Mobile menu, footer year, scroll reveal

@@ -433,38 +433,10 @@ button { font: inherit; color: inherit; }
 .showcase__link span { display: inline-block; transition: transform 0.2s ease; }
 .showcase:hover .showcase__link span { transform: translateX(4px); }
 
-/* ---------- More work ---------- */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px 36px;
-  margin-top: clamp(40px, 5vw, 72px);
-  list-style: none;
-}
-.work-card { position: relative; display: flex; flex-direction: column; }
-.work-card__media { aspect-ratio: 870 / 388; overflow: hidden; background: #fff; }
-.work-card__media img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  transition: transform 0.5s ease;
-}
-.work-card:hover .work-card__media img { transform: scale(1.03); }
-.work-card__title {
-  margin-top: 16px;
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-}
-.work-card__text { margin-top: 12px; font-size: 1rem; line-height: 1.2; }
-.work-card__link { margin-top: 14px; font-size: 1rem; text-decoration: none; }
-.work-card__link::after { content: ""; position: absolute; inset: 0; }
-.work-card__link span { display: inline-block; transition: transform 0.2s ease; }
-.work-card:hover .work-card__link span { transform: translateX(4px); }
-
 /* ---------- Beyond design ---------- */
 .roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; list-style: none; }
 .role-card { padding: 24px; background: var(--bg-alt); }
+.band--alt .role-card { background: var(--bg); }
 .role-card__kicker { font-size: 0.8125rem; letter-spacing: 0.03em; }
 .role-card__title { margin-top: 10px; font-family: var(--font-sans); font-size: 1.375rem; font-weight: 400; line-height: 1.2; }
 .role-card__text { margin-top: 12px; font-size: 1.0625rem; letter-spacing: 0; }
@@ -486,6 +458,7 @@ button { font: inherit; color: inherit; }
   padding: 32px;
   background: var(--bg);
 }
+.band--light .quote { background: var(--bg-alt); }
 .quote blockquote p { font-size: 1.0625rem; line-height: 1.41; letter-spacing: 0; white-space: pre-line; }
 .quote figcaption { font-size: 0.8125rem; letter-spacing: 0.02em; }
 .quote cite { display: block; font-style: normal; font-weight: 500; }
@@ -569,7 +542,6 @@ button { font: inherit; color: inherit; }
 
   .case__body,
   .quotes { grid-template-columns: 1fr; }
-  .work-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -579,8 +551,7 @@ button { font: inherit; color: inherit; }
   .clients__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .case__meta { grid-template-columns: 1fr; }
   .media-row--2,
-  .media-row--crpton,
-  .work-grid { grid-template-columns: 1fr; }
+  .media-row--crpton { grid-template-columns: 1fr; }
   .media-row--3 { grid-template-columns: 1fr 1fr; }
   .media-row--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
   .quote { padding: 24px; }
