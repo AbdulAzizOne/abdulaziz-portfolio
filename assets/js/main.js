@@ -42,7 +42,8 @@
 
   // Copy email to clipboard (button is hidden without JS)
   document.querySelectorAll("[data-copy]").forEach((btn) => {
-    const label = btn.firstChild;
+    const label = btn.querySelector("[data-copy-label]") || btn.firstChild;
+    const original = label.textContent;
     const status = btn.parentElement.querySelector("[data-copy-status]");
     btn.hidden = false;
     btn.addEventListener("click", async () => {
@@ -63,7 +64,7 @@
       if (status) status.textContent = "Email address copied to clipboard";
       clearTimeout(btn._t);
       btn._t = setTimeout(() => {
-        label.textContent = "Copy";
+        label.textContent = original;
         btn.classList.remove("is-copied");
         if (status) status.textContent = "";
       }, 2000);
