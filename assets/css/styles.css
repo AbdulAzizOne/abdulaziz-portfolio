@@ -267,7 +267,8 @@ button { font: inherit; color: inherit; }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 64px; }
 
-.hero__mark { justify-self: end; width: 100%; max-width: 506px; }
+.hero__visual { justify-self: end; width: 100%; max-width: 440px; }
+.hero__visual img { width: 100%; box-shadow: 0 24px 60px -32px rgba(67, 55, 23, 0.45); }
 
 /* ---------- Clients ---------- */
 .clients { background: var(--bg-alt); padding-bottom: clamp(56px, 6vw, 72px); }
@@ -392,38 +393,50 @@ button { font: inherit; color: inherit; }
   text-underline-offset: 4px;
 }
 
-/* ---------- More work ---------- */
-.work-grid {
+/* ---------- Featured case studies (home) ---------- */
+.showcases { list-style: none; margin-top: clamp(40px, 5vw, 72px); }
+.showcase {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px 36px;
-  margin-top: clamp(40px, 5vw, 72px);
-  list-style: none;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
 }
-.work-card { position: relative; display: flex; flex-direction: column; }
-.work-card__media { aspect-ratio: 870 / 388; overflow: hidden; background: #fff; }
-.work-card__media img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  transition: transform 0.5s ease;
+.showcase + .showcase { margin-top: clamp(56px, 7vw, 104px); padding-top: clamp(56px, 7vw, 104px); border-top: 1px solid var(--line); }
+.showcase:nth-child(even) .showcase__media { order: 2; }
+.showcase__media { overflow: hidden; background: #fff; aspect-ratio: 16 / 10.4; }
+.showcase__media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s ease; }
+.showcase__media--tablets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  aspect-ratio: auto;
+  background: none;
 }
-.work-card:hover .work-card__media img { transform: scale(1.03); }
-.work-card__title {
-  margin-top: 16px;
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
+.showcase__media--tablets img { height: auto; object-fit: contain; }
+.showcase:hover .showcase__media:not(.showcase__media--tablets) img { transform: scale(1.02); }
+.showcase__title {
+  margin-top: 6px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  line-height: 1.1;
+  color: #000;
 }
-.work-card__text { margin-top: 12px; font-size: 1rem; line-height: 1.2; }
-.work-card__link { margin-top: 14px; font-size: 1rem; text-decoration: none; }
-.work-card__link::after { content: ""; position: absolute; inset: 0; }
-.work-card__link span { display: inline-block; transition: transform 0.2s ease; }
-.work-card:hover .work-card__link span { transform: translateX(4px); }
+.showcase__title span { display: block; margin-top: 6px; font-size: 0.6em; line-height: 1.25; color: var(--ink-brown); }
+.showcase__text { margin-top: 20px; font-size: 1.0625rem; line-height: 1.45; }
+.showcase__meta { display: grid; gap: 16px; margin-top: 24px; }
+.showcase__meta dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--gold); }
+.showcase__meta dd { margin-top: 4px; font-size: 1rem; font-weight: 600; line-height: 1.4; }
+.showcase__link { display: inline-block; margin-top: 28px; font-size: 1.0625rem; color: var(--ink-brown); text-underline-offset: 4px; }
+.showcase__link::after { content: ""; position: absolute; inset: 0; }
+.showcase__link span { display: inline-block; transition: transform 0.2s ease; }
+.showcase:hover .showcase__link span { transform: translateX(4px); }
 
 /* ---------- Beyond design ---------- */
 .roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; list-style: none; }
 .role-card { padding: 24px; background: var(--bg-alt); }
+.band--alt .role-card { background: var(--bg); }
 .role-card__kicker { font-size: 0.8125rem; letter-spacing: 0.03em; }
 .role-card__title { margin-top: 10px; font-family: var(--font-sans); font-size: 1.375rem; font-weight: 400; line-height: 1.2; }
 .role-card__text { margin-top: 12px; font-size: 1.0625rem; letter-spacing: 0; }
@@ -445,6 +458,7 @@ button { font: inherit; color: inherit; }
   padding: 32px;
   background: var(--bg);
 }
+.band--light .quote { background: var(--bg-alt); }
 .quote blockquote p { font-size: 1.0625rem; line-height: 1.41; letter-spacing: 0; white-space: pre-line; }
 .quote figcaption { font-size: 0.8125rem; letter-spacing: 0.02em; }
 .quote cite { display: block; font-style: normal; font-weight: 500; }
@@ -459,26 +473,44 @@ button { font: inherit; color: inherit; }
   line-height: 1.1;
   color: var(--ink-brown);
 }
-.contact__list {
-  display: grid;
-  justify-items: center;
-  gap: 20px;
-  margin-top: 28px;
+.contact__lead {
+  max-width: 560px;
+  margin: 20px auto 0;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+.contact__btn { gap: 10px; min-width: 176px; }
+.contact__btn svg { width: 20px; height: 20px; flex: none; }
+.contact__social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 32px;
+  max-width: 640px;
+  margin: 36px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid #cfccc2;
   list-style: none;
 }
-.contact__link {
+.contact__social a {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  gap: 8px;
+  padding-block: 8px;
+  font-size: 1rem;
   color: #2b2b2b;
   text-decoration: none;
-  overflow-wrap: anywhere;
 }
-.contact__link:hover { text-decoration: underline; text-underline-offset: 4px; }
-.contact__link svg { width: 26px; height: 26px; flex: none; color: var(--gold); }
-.contact__extra { margin-top: 28px; font-size: 1rem; color: var(--ink-soft); }
-.contact__extra a { text-underline-offset: 3px; }
+.contact__social a:hover { color: var(--ink-brown); text-decoration: underline; text-underline-offset: 4px; }
+.contact__social svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--bg-footer); padding-block: 28px; font-size: 0.9375rem; color: var(--ink-brown); }
@@ -521,12 +553,13 @@ button { font: inherit; color: inherit; }
   .nav__list .btn { width: 100%; }
 
   .hero__grid { grid-template-columns: 1fr; }
-  .hero__mark { order: -1; justify-self: start; max-width: 160px; }
+  .hero__visual { justify-self: center; max-width: 360px; }
+  .showcase { grid-template-columns: 1fr; }
+  .showcase:nth-child(even) .showcase__media { order: 0; }
   .hero__actions { margin-top: 40px; }
 
   .case__body,
   .quotes { grid-template-columns: 1fr; }
-  .work-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -536,12 +569,12 @@ button { font: inherit; color: inherit; }
   .clients__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .case__meta { grid-template-columns: 1fr; }
   .media-row--2,
-  .media-row--crpton,
-  .work-grid { grid-template-columns: 1fr; }
+  .media-row--crpton { grid-template-columns: 1fr; }
   .media-row--3 { grid-template-columns: 1fr 1fr; }
   .media-row--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
   .quote { padding: 24px; }
   .hero__actions .btn { flex: 1 1 auto; }
+  .contact__actions { flex-direction: column; max-width: 320px; margin-inline: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -684,17 +717,5 @@ button { font: inherit; color: inherit; }
 .case__permalink a { color: var(--ink-brown); text-underline-offset: 4px; }
 
 /* ---------- Copy email ---------- */
-.contact__email { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; }
-.copy-btn {
-  min-height: 32px;
-  padding: 0 12px;
-  border: 1px solid #c9c5ba;
-  background: transparent;
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-brown);
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-.copy-btn:hover { background: rgb(255 255 255 / 0.5); border-color: var(--ink-brown); }
+.copy-btn { font-family: inherit; cursor: pointer; }
 .copy-btn.is-copied { border-color: var(--gold); color: var(--gold); }

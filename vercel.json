@@ -59,7 +59,7 @@
   "redirects": [
     {
       "source": "/work/qetaf-medical",
-      "destination": "/#more-work",
+      "destination": "/#case-studies",
       "permanent": true
     }
   ]

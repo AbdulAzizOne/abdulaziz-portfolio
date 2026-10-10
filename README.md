@@ -3,13 +3,16 @@
 Static HTML/CSS/JS site. No build step, no dependencies.
 
 ```
-index.html                  Home (hero, clients, 3 case studies, more work, beyond design, testimonials, contact)
-work/vbooking-turbo-suite.html
-work/alard.html
+index.html                  Home (hero, clients, 5 case-study cards, beyond design, testimonials, contact)
+work/crpton.html            Case study 01 (full write-up; the home page only links here)
+work/vbooking-community.html  Case study 02
+work/zenraise.html          Case study 03
+work/vbooking-turbo-suite.html  Case study 04
+work/alard.html             Case study 05
 404.html
 assets/css/styles.css       All styles (design tokens at the top)
 assets/js/main.js           Mobile menu, footer year, scroll reveal
-assets/img/                 WebP images at 1x/2x, client logos, share (OG) images
+assets/img/                 WebP images at 1x/2x, client logos (WebP), share (OG) images
 assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (WOFF2, latin)
 assets/files/               Résumé PDF
 favicon.svg  robots.txt  sitemap.xml  vercel.json
@@ -41,4 +44,6 @@ Clean URLs only work on Vercel; locally open `work/alard.html` etc. directly.
   If you edit either inline script, the hash must be regenerated or the script will be blocked.
   External scripts in `assets/js/` are fine to edit freely.
 - **Résumé:** replace `assets/files/abdulaziz-abudhair-resume.pdf` with a file of the same name — the link stays the same.
+- **New case study:** add `work/<name>.html` (copy an existing one), a card on the home page, a `<url>` in `sitemap.xml`,
+  and an OG image in `assets/img/`.
 - **Removed pages** should get a redirect in `vercel.json` (see the Qetaf example) so old links don't 404.
