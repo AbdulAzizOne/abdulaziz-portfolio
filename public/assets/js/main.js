@@ -66,18 +66,22 @@
       return clone;
     };
 
+    // One layout read (viewport and item width; items have a fixed CSS width),
+    // then writes only: each row is rebuilt from a fragment in a single DOM op.
     const build = () => {
       marquee.classList.add("is-animated");
       const viewportWidth = marquee.clientWidth;
+      const itemWidth = originals[0][0].getBoundingClientRect().width;
       rows.forEach((row, i) => {
         const items = originals[i];
-        row.replaceChildren(...items);
+        const setWidth = items.length * itemWidth;
         // Repeat the set until one half of the track is wider than the viewport,
         // then duplicate that half so translating by -50% loops without a gap.
-        const setWidth = row.scrollWidth;
         const repeats = Math.max(1, Math.ceil(viewportWidth / setWidth));
-        for (let r = 1; r < repeats; r++) items.forEach((item) => row.append(cloneItem(item)));
-        [...row.children].forEach((item) => row.append(cloneItem(item)));
+        const track = document.createDocumentFragment();
+        track.append(...items);
+        for (let n = 1; n < repeats * 2; n++) items.forEach((item) => track.append(cloneItem(item)));
+        row.replaceChildren(track);
         row.style.setProperty("--marquee-duration", `${(setWidth * repeats) / pxPerSecond}s`);
       });
     };
