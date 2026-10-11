@@ -18,7 +18,7 @@ public/
   assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (WOFF2, latin)
   assets/files/               Résumé PDF
   assets/js/main.js           Mobile menu, header state, footer year, logo marquee, scroll reveal
-  favicon.svg  robots.txt  sitemap.xml
+  favicon.svg  robots.txt     (sitemap-index.xml is generated at build time by @astrojs/sitemap)
 vercel.json                   Build settings, clean URLs, security headers, caching, redirects
 ```
 
@@ -45,7 +45,7 @@ npm run preview   # serve the build
 
 - **Reorder / edit case-study cards:** `src/data/projects.ts`.
 - **Add a case study:** add `src/pages/work/<name>.astro` (copy an existing one), an entry in
-  `src/data/projects.ts`, a `<url>` in `public/sitemap.xml`, and an OG image in `public/assets/img/`.
+  `src/data/projects.ts`, and an OG image in `public/assets/img/`. The sitemap picks up new pages automatically.
 - **Client logos:** add the file to `public/assets/img/clients/` and an entry in `src/data/clients.ts`.
 - **Replacing any image:** give the new file a new name (e.g. `logo.v3.webp`) instead of overwriting it.
   `vercel.json` lets browsers cache `/assets/img/*` for 30 days, so an overwritten file keeps showing the old version.
@@ -58,7 +58,7 @@ npm run preview   # serve the build
 deploys without dashboard changes. It also enables clean URLs (`/work/alard`), security headers and caching.
 
 The site assumes the domain `https://abdulazizabudhair-portfolio.vercel.app` (`site` in `astro.config.mjs`,
-plus `public/robots.txt` and `public/sitemap.xml`). Update those if the domain changes.
+plus the `Sitemap:` line in `public/robots.txt`). Update those if the domain changes.
 
 ## Maintenance notes
 
