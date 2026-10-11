@@ -16,6 +16,8 @@ export const clientRows: ClientLogo[][] = [
     { src: "/assets/img/clients/sada.v2.webp", width: 408, height: 210, alt: "SADA Intelligence" },
     { src: "/assets/img/clients/palestine-exchange.v2.webp", width: 408, height: 210, alt: "Palestine Exchange" },
     { src: "/assets/img/clients/alrajhi.v2.webp", width: 408, height: 210, alt: "Al Rajhi Bank" },
+    { src: "/assets/img/clients/ris.svg", width: 300, height: 160, alt: "RIS Enterprise Solutions" },
+    { src: "/assets/img/clients/zenraise.svg", width: 300, height: 160, alt: "ZenRaise" },
   ],
   [
     { src: "/assets/img/clients/fedex.svg", width: 300, height: 160, alt: "FedEx" },
@@ -26,5 +28,6 @@ export const clientRows: ClientLogo[][] = [
     { src: "/assets/img/clients/newroz.v2.webp", width: 408, height: 210, alt: "Newroz Telecom" },
     { src: "/assets/img/clients/qetaf.svg", width: 300, height: 160, alt: "Qetaf Medical" },
     { src: "/assets/img/clients/ourverse.svg", width: 300, height: 160, alt: "OurVerse" },
+    { src: "/assets/img/clients/arch.svg", width: 300, height: 160, alt: "Arch — digital document archiving system" },
   ],
 ];
