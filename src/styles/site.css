@@ -64,7 +64,90 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow-soft: 0 1px 2px rgb(67 55 23 / 0.06), 0 18px 40px -22px rgb(67 55 23 / 0.28);
 
+  /* Theme-dependent roles: the dark theme below overrides only these and the
+     colour tokens above, so components never need a theme selector. */
+  --tint: 67 55 23;                 /* rgb triple for shadows */
+  --hairline: rgb(67 55 23 / 0.1);
+  --rule: rgb(67 55 23 / 0.3);
+  --btn-primary-bg: var(--btn-dark);
+  --btn-primary-ink: #fff;
+  --btn-primary-hover: var(--ink-brown);
+  --footer-bg: var(--btn-dark);
+  --logo-filter: grayscale(1);
+  --logo-opacity: 0.6;
+  --logo-filter-hover: none;
+  --logo-opacity-hover: 1;
+
   color-scheme: light;
+}
+
+/* ---------- Dark theme ----------
+   Warm near-black instead of neutral grey, so the brown/gold identity carries
+   over. Applied when the OS prefers dark (unless the visitor picked light), or
+   when the visitor picks dark with the header toggle. Both blocks must match. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15120c;
+    --bg-alt: #1b1710;
+    --bg-contact: #211c14;
+    --bg-footer: #262017;
+    --line: #2f2920;
+    --surface: #221d15;
+    --line-strong: #3d3628;
+    --ink: #f4efe4;
+    --ink-strong: #e8e2d4;
+    --ink-body: #d6cebd;
+    --ink-soft: #c2b9a5;
+    --ink-muted: #aea48f;
+    --ink-brown: #eadcbc;
+    --gold: #d4ab52;
+    --gold-bright: #e2b84f;
+    --gold-logo: #c9a24a;
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -22px rgb(0 0 0 / 0.75);
+    --tint: 0 0 0;
+    --hairline: #2f2920;
+    --rule: rgb(234 220 188 / 0.25);
+    --btn-primary-bg: #eadcbc;
+    --btn-primary-ink: #1b1710;
+    --btn-primary-hover: #f7eedb;
+    --footer-bg: #0e0c08;
+    --logo-filter: grayscale(1) brightness(0) invert(1);
+    --logo-opacity: 0.55;
+    --logo-filter-hover: grayscale(1) brightness(0) invert(1);
+    --logo-opacity-hover: 0.95;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15120c;
+  --bg-alt: #1b1710;
+  --bg-contact: #211c14;
+  --bg-footer: #262017;
+  --line: #2f2920;
+  --surface: #221d15;
+  --line-strong: #3d3628;
+  --ink: #f4efe4;
+  --ink-strong: #e8e2d4;
+  --ink-body: #d6cebd;
+  --ink-soft: #c2b9a5;
+  --ink-muted: #aea48f;
+  --ink-brown: #eadcbc;
+  --gold: #d4ab52;
+  --gold-bright: #e2b84f;
+  --gold-logo: #c9a24a;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -22px rgb(0 0 0 / 0.75);
+  --tint: 0 0 0;
+  --hairline: #2f2920;
+  --rule: rgb(234 220 188 / 0.25);
+  --btn-primary-bg: #eadcbc;
+  --btn-primary-ink: #1b1710;
+  --btn-primary-hover: #f7eedb;
+  --footer-bg: #0e0c08;
+  --logo-filter: grayscale(1) brightness(0) invert(1);
+  --logo-opacity: 0.55;
+  --logo-filter-hover: grayscale(1) brightness(0) invert(1);
+  --logo-opacity-hover: 0.95;
+  color-scheme: dark;
 }
 
 /* ---------- Reset ---------- */
@@ -116,8 +199,8 @@ button { font: inherit; color: inherit; }
   left: 16px; top: -100px;
   z-index: 100;
   padding: 12px 20px;
-  background: var(--btn-dark);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-ink);
   text-decoration: none;
 }
 .skip-link:focus { top: 12px; }
@@ -146,8 +229,8 @@ button { font: inherit; color: inherit; }
 /* main.js adds .is-scrolled once the page moves: a hairline and soft shadow
    separate the (still opaque) header from the content scrolling beneath it. */
 .site-header.is-scrolled {
-  border-bottom-color: rgb(67 55 23 / 0.1);
-  box-shadow: 0 8px 24px -20px rgb(67 55 23 / 0.35);
+  border-bottom-color: var(--hairline);
+  box-shadow: 0 8px 24px -20px rgb(var(--tint) / 0.35);
 }
 
 .site-header__inner {
@@ -169,6 +252,28 @@ button { font: inherit; color: inherit; }
   text-decoration: none;
 }
 .brand svg { width: 54px; height: auto; flex: none; }
+.brand__ink { fill: var(--ink-brown); }
+
+.site-header__end { display: flex; align-items: center; gap: clamp(16px, 2vw, 26px); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-brown);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover { border-color: var(--ink-brown); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle__sun { display: none; }
+.theme-toggle.is-dark .theme-toggle__sun { display: block; }
+.theme-toggle.is-dark .theme-toggle__moon { display: none; }
 
 .nav__list {
   display: flex;
@@ -231,8 +336,8 @@ button { font: inherit; color: inherit; }
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .btn:hover { border-color: var(--ink-brown); }
-.btn--dark { background: var(--btn-dark); border-color: var(--btn-dark); color: #fff; }
-.btn--dark:hover { background: var(--ink-brown); border-color: var(--ink-brown); }
+.btn--dark { background: var(--btn-primary-bg); border-color: var(--btn-primary-bg); color: var(--btn-primary-ink); }
+.btn--dark:hover { background: var(--btn-primary-hover); border-color: var(--btn-primary-hover); }
 .btn--sm { min-height: 40px; padding: 0 16px; font-size: 0.9375rem; }
 
 /* ---------- Hero ---------- */
@@ -288,7 +393,7 @@ button { font: inherit; color: inherit; }
   width: 1px;
   height: 14px;
   margin-inline: clamp(14px, 2vw, 24px);
-  background: rgb(67 55 23 / 0.3);
+  background: var(--rule);
 }
 
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 24px; margin-top: 48px; }
@@ -320,11 +425,11 @@ button { font: inherit; color: inherit; }
 .logo-marquee__row img {
   width: 100%;
   height: auto;
-  filter: grayscale(1);
-  opacity: 0.6;
+  filter: var(--logo-filter);
+  opacity: var(--logo-opacity);
   transition: filter 0.4s ease, opacity 0.4s ease;
 }
-.logo-marquee__row li:hover img { filter: none; opacity: 1; }
+.logo-marquee__row li:hover img { filter: var(--logo-filter-hover); opacity: var(--logo-opacity-hover); }
 
 .logo-marquee.is-animated .logo-marquee__viewport {
   overflow: hidden;
@@ -674,10 +779,11 @@ button { font: inherit; color: inherit; }
 /* The footer doubles as the contact block (#contact): one row of links,
    then the fine print. */
 .site-footer {
-  --footer-ink: var(--bg-alt);
+  /* Always dark, in both themes. */
+  --footer-ink: #eceae4;
   --footer-muted: rgb(236 234 228 / 0.66);
   --footer-line: rgb(236 234 228 / 0.14);
-  background: var(--btn-dark);
+  background: var(--footer-bg);
   color: var(--footer-ink);
 }
 .site-footer a { color: inherit; text-decoration: none; }
@@ -897,7 +1003,7 @@ button { font: inherit; color: inherit; }
 .brand-system h3 { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .swatches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; list-style: none; }
 .swatch { display: flex; align-items: center; gap: 12px; font-size: 0.9375rem; }
-.swatch i { width: 48px; height: 48px; flex: none; border: 1px solid rgb(0 0 0 / 0.08); }
+.swatch i { width: 48px; height: 48px; flex: none; border: 1px solid var(--line-strong); }
 .swatch small { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); }
 .type-list { display: grid; gap: 14px; list-style: none; }
 .type-list li { display: flex; align-items: baseline; gap: 14px; }
