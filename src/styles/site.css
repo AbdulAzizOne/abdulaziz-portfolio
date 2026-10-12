@@ -432,6 +432,9 @@ button { font: inherit; color: inherit; }
 
 .case__media { margin-top: clamp(40px, 5vw, 64px); }
 .case__media img { width: 100%; }
+/* Tall full-page captures (e.g. a marketing homepage) read better narrower than the column. */
+.case__media--narrow { max-width: 1040px; margin-inline: auto; }
+.case__media--narrow img { box-shadow: var(--shadow-soft); }
 
 .media-row {
   display: grid;
