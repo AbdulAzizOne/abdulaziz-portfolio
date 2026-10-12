@@ -590,6 +590,44 @@ button { font: inherit; color: inherit; }
 .next-project__link:hover .next-project__media img { transform: translateY(-4px) scale(1.012); }
 .next-project__link:hover .next-project__title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px; }
 
+/* ---------- About ---------- */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.about__photo { max-width: 420px; }
+.about__photo img { width: 100%; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-soft); }
+.about__bio { margin-top: 28px; max-width: 62ch; }
+.about__bio p + p { margin-top: 16px; }
+.about__bio p { font-size: 1.0625rem; line-height: 1.6; color: var(--ink-body); }
+.about__bio .about__lead {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  line-height: 1.3;
+  color: var(--ink-brown);
+}
+.about__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(24px, 3vw, 48px);
+  margin-top: 36px;
+}
+.about__facts > div { padding-block: 14px; border-top: 1px solid var(--line-strong); }
+.about__facts dt { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.about__facts dd { margin-top: 4px; font-size: 1rem; line-height: 1.45; color: var(--ink-strong); }
+.about__beyond { margin-top: clamp(64px, 8vw, 112px); }
+.about__subtitle {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  color: var(--ink-brown);
+}
+.about__beyond .section-sub { margin-top: 12px; }
+
 /* ---------- Beyond design ---------- */
 /* Same hairline language as the testimonials: no boxed cards. */
 .roles {
@@ -744,11 +782,15 @@ button { font: inherit; color: inherit; }
   .case__body { grid-template-columns: 1fr; }
   .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
 }
 
 @media (max-width: 720px) {
   :root { --header-h: 64px; }
   .roles { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .about__photo { max-width: 240px; }
+  .about__facts { grid-template-columns: 1fr; }
   .brand svg { width: 44px; }
   .case__meta { grid-template-columns: 1fr; }
   .media-row--2,

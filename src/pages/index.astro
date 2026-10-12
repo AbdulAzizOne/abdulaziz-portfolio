@@ -10,6 +10,7 @@ const jsonLd = {
   "@type": "Person",
   "name": "Abdulaziz Abu Dhair",
   "jobTitle": "Senior Product Designer (UX/UI)",
+  "image": "https://abdulazizabudhair-portfolio.vercel.app/assets/img/abdulaziz-portrait-960.webp",
   "url": "https://abdulazizabudhair-portfolio.vercel.app/",
   "email": "mailto:abdulaziz.abudhair@gmail.com",
   "telephone": "+970599835978",
@@ -68,45 +69,67 @@ const jsonLd = {
   </div>
 </section>
 
-<!-- Beyond design -->
-<section class="band band--alt" id="beyond-design" aria-labelledby="beyond-title">
+<!-- About (with Beyond design) -->
+<section class="band band--alt" id="about" aria-labelledby="about-title">
   <div class="container">
-    <div class="section-head section-head--tight reveal">
-      <h2 class="section-title" id="beyond-title">Beyond design</h2>
-      <p class="section-sub">Teaching and evaluating design keeps my own process honest — it's the part of the work that doesn't show up in a Figma file.</p>
+    <div class="about">
+      <figure class="about__photo reveal">
+        <img src="/assets/img/abdulaziz-portrait-480.webp" srcset="/assets/img/abdulaziz-portrait-480.webp 480w, /assets/img/abdulaziz-portrait-960.webp 960w" sizes="(min-width: 961px) 420px, (min-width: 721px) 300px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="Portrait of Abdulaziz Abu Dhair">
+      </figure>
+      <div class="about__body reveal">
+        <h2 class="section-title" id="about-title">About</h2>
+        <div class="about__bio">
+          <p class="about__lead">I'm Abdulaziz — a senior product designer based in Nablus, Palestine.</p>
+          <p>I started in print, designing brand identities and annual reports, and moved into product design in 2011 at EXALT Technologies. Over nearly 13 years there I grew from UI designer to the company's sole UX/UI designer, owning design end to end for global enterprise clients and startups — from on-screen software for large-format industrial printers to complex medical applications.</p>
+          <p>Since 2023 I've worked independently with startups and product teams across healthcare, travel, e-commerce and fintech. I learn the domain before trusting my instincts, work closely with stakeholders and engineers, and hand off systems — not just screens.</p>
+        </div>
+        <dl class="about__facts">
+          <div><dt>Based in</dt><dd>Nablus, Palestine</dd></div>
+          <div><dt>Experience</dt><dd>15+ years, 12+ at EXALT Technologies</dd></div>
+          <div><dt>Education</dt><dd>BA in Graphic Design, An-Najah National University</dd></div>
+          <div><dt>Certification</dt><dd>Google UX Design Certificate</dd></div>
+          <div><dt>Languages</dt><dd>Arabic (native), English (proficient)</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Adobe Illustrator, Photoshop, InDesign, AI tools</dd></div>
+        </dl>
+      </div>
     </div>
+
+    <div class="about__beyond">
+      <h3 class="about__subtitle reveal" id="beyond-design">Beyond design</h3>
+      <p class="section-sub reveal">Teaching and evaluating design keeps my own process honest — it's the part of the work that doesn't show up in a Figma file.</p>
     <ul class="roles">
       <li class="role-card reveal">
         <p class="role-card__kicker">Lecturer, Graphic Design &amp; UX/UI</p>
-        <h3 class="role-card__title">An-Najah National University</h3>
+        <h4 class="role-card__title">An-Najah National University</h4>
         <p class="role-card__text">Taught graphic design and UX/UI to undergraduate students, bringing the same process used across client work into the classroom.</p>
       </li>
       <li class="role-card reveal">
         <p class="role-card__kicker">Certificate of Appreciation</p>
-        <h3 class="role-card__title">TEDI Najah Expo</h3>
+        <h4 class="role-card__title">TEDI Najah Expo</h4>
         <p class="role-card__text">Recognized for mentoring students through their graduation projects.</p>
       </li>
       <li class="role-card reveal">
         <p class="role-card__kicker">External UX/UI Projects Evaluator</p>
-        <h3 class="role-card__title">Birzeit University · 2023–2026</h3>
+        <h4 class="role-card__title">Birzeit University · 2023–2026</h4>
         <p class="role-card__text">Evaluated graduating students' UX/UI projects for three consecutive years.</p>
       </li>
       <li class="role-card reveal">
         <p class="role-card__kicker">AI-in-Design Workshop Trainer</p>
-        <h3 class="role-card__title">Independent training</h3>
+        <h4 class="role-card__title">Independent training</h4>
         <p class="role-card__text">Trained designers on generative AI and prompt engineering as part of a modern design workflow.</p>
       </li>
       <li class="role-card reveal">
         <p class="role-card__kicker">Curriculum Redevelopment Committee</p>
-        <h3 class="role-card__title">An-Najah National University</h3>
+        <h4 class="role-card__title">An-Najah National University</h4>
         <p class="role-card__text">Committee member shaping how UX/UI is taught to the next generation of designers.</p>
       </li>
       <li class="role-card reveal">
         <p class="role-card__kicker">UX/UI Mentor</p>
-        <h3 class="role-card__title">Startup Weekend, Nablus</h3>
+        <h4 class="role-card__title">Startup Weekend, Nablus</h4>
         <p class="role-card__text">Mentored startup teams on UX strategy, user flows, and interface design.</p>
       </li>
     </ul>
+    </div>
   </div>
 </section>
 
