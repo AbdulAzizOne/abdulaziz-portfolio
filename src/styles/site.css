@@ -637,7 +637,6 @@ button { font: inherit; color: inherit; }
   margin-top: clamp(32px, 4vw, 48px);
   list-style: none;
 }
-.roles--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .role-card { padding-block: 24px 32px; border-top: 1px solid var(--line-strong); }
 .role-card__kicker {
   font-family: var(--font-mono);
@@ -788,7 +787,7 @@ button { font: inherit; color: inherit; }
 
 @media (max-width: 720px) {
   :root { --header-h: 64px; }
-  .roles, .roles--2 { grid-template-columns: 1fr; }
+  .roles { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; }
   .about__photo { max-width: 240px; }
   .about__facts { grid-template-columns: 1fr; }
