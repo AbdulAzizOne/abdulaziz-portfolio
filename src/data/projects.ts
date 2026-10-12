@@ -106,13 +106,13 @@ export const projects: Project[] = [
   },
   {
     id: "vbooking",
-    page: "vbooking-community",
-    eyebrow: "B2C · Travel Marketplace",
-    title: "VBooking Community",
-    subtitle: "AI trip planning and a marketplace for real travel experts",
-    summary: "Gave travelers three ways into planning — AI, manual, or a real travel expert — and public expert profiles that answer “who do I trust” with the social proof people already rely on.",
+    page: "vbooking",
+    eyebrow: "Travel Tech · B2C + B2B",
+    title: "VBooking",
+    subtitle: "One travel platform, two sides — travelers and travel agents",
+    summary: "A traveler community with AI trip planning and real travel experts, and a workspace for agents that unifies booking, a CRM pipeline and the Ask Genie AI assistant — designed end to end as one system.",
     role: "Lead UX/UI Designer, solo end-to-end",
-    outcome: "Live beta with real travelers and ambassadors",
+    outcome: "Both sides live in beta with real travelers and agents",
     layout: "wide",
     images: [
       {
@@ -122,27 +122,6 @@ export const projects: Project[] = [
         width: 2736,
         height: 1780,
         alt: "VBooking Community trip page for a 7-day Tokyo and Japan city adventure, with photo gallery, price and booking actions."
-      }
-    ]
-  },
-  {
-    id: "turbo-suite",
-    page: "vbooking-turbo-suite",
-    eyebrow: "B2B · Travel Tech",
-    title: "VBooking Turbo Suite",
-    subtitle: "Unifying booking, CRM, and AI for travel agents",
-    summary: "One workspace for travel agents — booking engine, a CRM pipeline that tracks every lead from first contact to payment, an itinerary builder and the Ask Genie AI assistant — instead of hopping between tools.",
-    role: "Lead UX/UI Designer, solo end-to-end",
-    outcome: "Live beta in use by real travel agents",
-    layout: "wide",
-    images: [
-      {
-        src: "/assets/img/turbo-1-1368.webp",
-        srcset: "/assets/img/turbo-1-1368.webp 1368w, /assets/img/turbo-1-2736.webp 2736w",
-        sizes: "(min-width: 1448px) 790px, (min-width: 961px) 55vw, 94vw",
-        width: 2736,
-        height: 1778,
-        alt: "VBooking Turbo Suite CRM pipeline: a Kanban board of leads moving through New, Sent, Follow ups, Viewed and Paid."
       }
     ]
   }
