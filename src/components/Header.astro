@@ -18,6 +18,8 @@ const { home = false } = Astro.props;
       <ul class="nav__list">
         <li><a class="nav__link" href={home ? "#case-studies" : "/#case-studies"}>Work</a></li>
         <li><a class="nav__link" href={home ? "#beyond-design" : "/#beyond-design"}>Beyond Design</a></li>
+        {/* Every page ends with the testimonials section, so this stays in-page. */}
+        <li><a class="nav__link" href="#testimonials">Testimonials</a></li>
         <li><a class="btn btn--dark btn--sm" href="#contact">Let’s talk</a></li>
       </ul>
     </nav>
