@@ -17,7 +17,7 @@ public/
   assets/img/                 WebP/SVG images, client logos, share (OG) images
   assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (WOFF2, latin)
   assets/files/               Résumé PDF
-  assets/js/main.js           Mobile menu, header state, footer year, logo marquee, scroll reveal
+  assets/js/main.js           Mobile menu, header state, theme toggle, footer year, logo marquee, scroll reveal
   favicon.svg  robots.txt     (sitemap-index.xml is generated at build time by @astrojs/sitemap)
 vercel.json                   Build settings, clean URLs, security headers, caching, redirects
 ```
@@ -47,6 +47,9 @@ npm run preview   # serve the build
 - **Add a case study:** add `src/pages/work/<name>.astro` (copy an existing one), an entry in
   `src/data/projects.ts`, and an OG image in `public/assets/img/`. The sitemap picks up new pages automatically.
 - **Client logos:** add the file to `public/assets/img/clients/` and an entry in `src/data/clients.ts`.
+  Each logo also needs a beige twin for the dark theme, named `<name>.dark.webp`
+  (e.g. `fedex.svg` → `fedex.dark.webp`): the logo's ink recoloured to `#e2d3b0`
+  on a transparent background, with white details left knocked out.
 - **Replacing any image:** give the new file a new name (e.g. `logo.v3.webp`) instead of overwriting it.
   `vercel.json` lets browsers cache `/assets/img/*` for 30 days, so an overwritten file keeps showing the old version.
 - **Resume:** replace `public/assets/files/abdulaziz-abudhair-resume.pdf` with a file of the same name.

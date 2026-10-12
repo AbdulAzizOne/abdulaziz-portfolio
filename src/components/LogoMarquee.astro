@@ -2,13 +2,20 @@
 import { clientRows } from "../data/clients";
 // Static grid by default; main.js turns it into a two-way marquee
 // (skipped when the visitor prefers reduced motion).
+
+// Each logo has a beige twin for the dark theme (name.dark.webp); CSS shows
+// one or the other, and the hidden one is lazy so it is never downloaded.
+const darkSrc = (src: string) => src.replace(/(\.v\d+)?\.(webp|svg)$/, ".dark.webp");
 ---
 <div class="logo-marquee" data-marquee>
   {clientRows.map((row, i) => (
     <div class="logo-marquee__viewport">
       <ul class="logo-marquee__row" data-reverse={i % 2 === 1 ? "" : undefined}>
         {row.map((logo) => (
-          <li><img src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} decoding="async"></li>
+          <li>
+            <img class="logo--light" src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} loading="lazy" decoding="async">
+            <img class="logo--dark" src={darkSrc(logo.src)} width={logo.width} height={logo.height} alt={logo.alt} loading="lazy" decoding="async">
+          </li>
         ))}
       </ul>
     </div>

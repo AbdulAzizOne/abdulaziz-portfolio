@@ -73,10 +73,14 @@
   --btn-primary-ink: #fff;
   --btn-primary-hover: var(--ink-brown);
   --footer-bg: var(--btn-dark);
+  --btn-bg: var(--surface);
+  --btn-border: rgb(67 55 23 / 0.6);   /* 3:1 against the beige, WCAG 1.4.11 */
   --logo-filter: grayscale(1);
   --logo-opacity: 0.6;
   --logo-filter-hover: none;
   --logo-opacity-hover: 1;
+  --logo-light: block;              /* which logo twin shows (see LogoMarquee) */
+  --logo-dark: none;
 
   color-scheme: light;
 }
@@ -91,30 +95,34 @@
     --bg-alt: #1b1710;
     --bg-contact: #211c14;
     --bg-footer: #262017;
-    --line: #2f2920;
-    --surface: #221d15;
-    --line-strong: #3d3628;
+    --line: #3a3327;
+    --surface: #241f16;
+    --line-strong: #4a4233;
     --ink: #f4efe4;
-    --ink-strong: #e8e2d4;
-    --ink-body: #d6cebd;
-    --ink-soft: #c2b9a5;
-    --ink-muted: #aea48f;
+    --ink-strong: #ebe5d8;
+    --ink-body: #ddd5c4;
+    --ink-soft: #cfc6b2;
+    --ink-muted: #c2b8a2;
     --ink-brown: #eadcbc;
     --gold: #d4ab52;
     --gold-bright: #e2b84f;
     --gold-logo: #c9a24a;
     --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -22px rgb(0 0 0 / 0.75);
     --tint: 0 0 0;
-    --hairline: #2f2920;
+    --hairline: #3a3327;
     --rule: rgb(234 220 188 / 0.25);
     --btn-primary-bg: #eadcbc;
     --btn-primary-ink: #1b1710;
     --btn-primary-hover: #f7eedb;
     --footer-bg: #0e0c08;
-    --logo-filter: grayscale(1) brightness(0) invert(1);
-    --logo-opacity: 0.55;
-    --logo-filter-hover: grayscale(1) brightness(0) invert(1);
-    --logo-opacity-hover: 0.95;
+    --btn-bg: transparent;
+    --btn-border: rgb(234 220 188 / 0.45);
+    --logo-filter: none;
+    --logo-opacity: 0.75;
+    --logo-filter-hover: none;
+    --logo-opacity-hover: 1;
+    --logo-light: none;
+    --logo-dark: block;
     color-scheme: dark;
   }
 }
@@ -123,30 +131,34 @@
   --bg-alt: #1b1710;
   --bg-contact: #211c14;
   --bg-footer: #262017;
-  --line: #2f2920;
-  --surface: #221d15;
-  --line-strong: #3d3628;
+  --line: #3a3327;
+  --surface: #241f16;
+  --line-strong: #4a4233;
   --ink: #f4efe4;
-  --ink-strong: #e8e2d4;
-  --ink-body: #d6cebd;
-  --ink-soft: #c2b9a5;
-  --ink-muted: #aea48f;
+  --ink-strong: #ebe5d8;
+  --ink-body: #ddd5c4;
+  --ink-soft: #cfc6b2;
+  --ink-muted: #c2b8a2;
   --ink-brown: #eadcbc;
   --gold: #d4ab52;
   --gold-bright: #e2b84f;
   --gold-logo: #c9a24a;
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -22px rgb(0 0 0 / 0.75);
   --tint: 0 0 0;
-  --hairline: #2f2920;
+  --hairline: #3a3327;
   --rule: rgb(234 220 188 / 0.25);
   --btn-primary-bg: #eadcbc;
   --btn-primary-ink: #1b1710;
   --btn-primary-hover: #f7eedb;
   --footer-bg: #0e0c08;
-  --logo-filter: grayscale(1) brightness(0) invert(1);
-  --logo-opacity: 0.55;
-  --logo-filter-hover: grayscale(1) brightness(0) invert(1);
-  --logo-opacity-hover: 0.95;
+  --btn-bg: transparent;
+  --btn-border: rgb(234 220 188 / 0.45);
+  --logo-filter: none;
+  --logo-opacity: 0.75;
+  --logo-filter-hover: none;
+  --logo-opacity-hover: 1;
+  --logo-light: none;
+  --logo-dark: block;
   color-scheme: dark;
 }
 
@@ -262,7 +274,7 @@ button { font: inherit; color: inherit; }
   justify-content: center;
   width: 40px; height: 40px;
   padding: 0;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--btn-border);
   background: transparent;
   color: var(--ink-brown);
   cursor: pointer;
@@ -299,7 +311,7 @@ button { font: inherit; color: inherit; }
   justify-content: center;
   width: 44px; height: 44px;
   padding: 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--btn-border);
   background: transparent;
   cursor: pointer;
 }
@@ -327,8 +339,8 @@ button { font: inherit; color: inherit; }
   justify-content: center;
   min-height: 56px;
   padding: 0 24px;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
   color: var(--ink-strong);
   font-size: 1.0625rem;
   letter-spacing: 0.02em;
@@ -430,6 +442,8 @@ button { font: inherit; color: inherit; }
   transition: filter 0.4s ease, opacity 0.4s ease;
 }
 .logo-marquee__row li:hover img { filter: var(--logo-filter-hover); opacity: var(--logo-opacity-hover); }
+.logo-marquee__row .logo--light { display: var(--logo-light); }
+.logo-marquee__row .logo--dark { display: var(--logo-dark); }
 
 .logo-marquee.is-animated .logo-marquee__viewport {
   overflow: hidden;
@@ -781,7 +795,7 @@ button { font: inherit; color: inherit; }
 .site-footer {
   /* Always dark, in both themes. */
   --footer-ink: #eceae4;
-  --footer-muted: rgb(236 234 228 / 0.66);
+  --footer-muted: rgb(236 234 228 / 0.72);
   --footer-line: rgb(236 234 228 / 0.14);
   background: var(--footer-bg);
   color: var(--footer-ink);
