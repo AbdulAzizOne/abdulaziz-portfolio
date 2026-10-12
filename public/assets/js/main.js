@@ -43,28 +43,6 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // Theme toggle: an explicit choice is stored and set as data-theme (the
-  // inline head script restores it before paint); otherwise the OS decides.
-  const themeToggle = document.querySelector(".theme-toggle");
-  if (themeToggle) {
-    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const isDark = () => (root.dataset.theme || (darkQuery.matches ? "dark" : "light")) === "dark";
-    const sync = () => {
-      const dark = isDark();
-      themeToggle.classList.toggle("is-dark", dark);
-      themeToggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-    };
-    themeToggle.hidden = false;
-    sync();
-    themeToggle.addEventListener("click", () => {
-      const next = isDark() ? "light" : "dark";
-      root.dataset.theme = next;
-      try { localStorage.setItem("theme", next); } catch (e) { /* private mode: not remembered */ }
-      sync();
-    });
-    darkQuery.addEventListener("change", sync);
-  }
-
   // Current year in footer
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = String(new Date().getFullYear());

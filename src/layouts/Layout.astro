@@ -46,8 +46,7 @@ const image = `${site}/assets/img/${ogImage}`;
     <>
       <meta name="description" content={description}>
       <meta name="author" content="Abdulaziz Abu Dhair">
-      <meta name="theme-color" content="#eceae4" media="(prefers-color-scheme: light)">
-      <meta name="theme-color" content="#1b1710" media="(prefers-color-scheme: dark)">
+      <meta name="theme-color" content="#eceae4">
       <link rel="canonical" href={url}>
 
       <meta property="og:type" content={ogType}>
@@ -72,7 +71,7 @@ const image = `${site}/assets/img/${ogImage}`;
   <link rel="preload" href="/assets/fonts/noto-serif-500.woff2" as="font" type="font/woff2" crossorigin>
   {/* The two inline scripts below are allowed by SHA-256 hash in the CSP (vercel.json).
       Editing either one means regenerating its hash. */}
-  <script is:inline>(function(d){d.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement);</script>
+  <script is:inline>document.documentElement.classList.add("js");</script>
   <script is:inline src="/assets/js/main.js" defer></script>
   <script is:inline>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
   <script is:inline defer src="/_vercel/insights/script.js"></script>
