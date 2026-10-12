@@ -79,6 +79,16 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true
+    },
+    {
+      "source": "/work/vbooking-community",
+      "destination": "/work/vbooking",
+      "permanent": true
+    },
+    {
+      "source": "/work/vbooking-turbo-suite",
+      "destination": "/work/vbooking",
+      "permanent": true
     }
   ]
 }
