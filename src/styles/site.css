@@ -388,20 +388,6 @@ button { font: inherit; color: inherit; }
 .section-head--tight .section-sub { margin-top: 16px; }
 
 /* ---------- Case study ---------- */
-/* Badge for unfinished work (card and case-study header). */
-.status-pill {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 4px 10px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: var(--surface);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
 .case__num {
   font-family: var(--font-mono);
   font-size: 1.5rem;
