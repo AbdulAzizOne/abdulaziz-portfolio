@@ -1,0 +1,199 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import NextProject from "../../components/NextProject.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "RADX — An AI assistant that gets things done",
+    "description": "Redesigning a Dubai voice assistant that books on the user's behalf — Arabic-first, light and dark, with the user approving every action. Work in progress.",
+    "url": "https://abdulazizabudhair-portfolio.vercel.app/work/radx",
+    "image": "https://abdulazizabudhair-portfolio.vercel.app/assets/img/radx/radx-themes.webp",
+    "author": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Abdulaziz Abu Dhair",
+      "url": "https://abdulazizabudhair-portfolio.vercel.app/"
+    },
+    "genre": "AI assistant, iOS",
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/#case-studies"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "RADX",
+        "item": "https://abdulazizabudhair-portfolio.vercel.app/work/radx"
+      }
+    ]
+  }
+];
+---
+<Layout
+  title="RADX — Case Study · Abdulaziz Abu Dhair"
+  description="Redesigning a Dubai voice assistant that books on the user's behalf — Arabic-first, light and dark, with the user approving every action."
+  path="/work/radx"
+  ogType="article"
+  jsonLd={jsonLd}
+>
+<article class="band band--light case" aria-labelledby="case-title">
+  <div class="container">
+    <a class="back-link" href="/#case-studies"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <header>
+      <p class="case__eyebrow">AI Assistant · iOS · Arabic-first</p>
+      <h1 class="case__title" id="case-title">RADX <span>An AI assistant that gets things done — not one that just answers</span></h1>
+      <p class="status-pill">In progress · Phase 2 of 4</p>
+      <dl class="case__meta">
+        <div><dt>Role</dt><dd>UX/UI Designer, solo end-to-end</dd></div>
+        <div><dt>Platform</dt><dd>iOS (iPhone) · Arabic-first, RTL · light and dark</dd></div>
+        <div><dt>Timeline</dt><dd>Oct – Nov 2026 · four phases, each signed off by the client</dd></div>
+      </dl>
+    </header>
+
+    <div class="case__media">
+      <img src="/assets/img/radx/radx-themes.webp" srcset="/assets/img/radx/radx-themes-sm.webp 522w, /assets/img/radx/radx-themes.webp 1045w" sizes="(min-width: 1448px) 1045px, 94vw" width="1045" height="675" fetchpriority="high" decoding="async" alt="RADX home screen in light and dark themes, and a chat where RADX offers two restaurants and a “Do it for me” button.">
+    </div>
+
+    <div class="case__body">
+      <div class="prose">
+        <h2>Context</h2>
+        <p>RADX is a Dubai-based assistant that takes a request by voice or text, searches the options, then contacts the restaurant or hotel over WhatsApp or a call and confirms the booking.</p>
+        <h2>Problem</h2>
+        <p>The existing app talked like a guide, not an agent: it answered, then left the user to finish alone. Booking sat behind a paywall, the Arabic and right-to-left layout were incomplete, voice-only sessions lost context easily, and the brand was split across five wordmarks and a single dark theme.</p>
+      </div>
+      <div class="prose">
+        <h2>My Role</h2>
+        <p>The only designer on the project, from auditing the current app to handing files to the developer.</p>
+        <h2>Design goal</h2>
+        <p>Every answer is one tap away from being done — and the user stays the one who decides on anything done in their name.</p>
+      </div>
+    </div>
+
+    <!-- 01 Audit -->
+    <section class="cs-section" aria-labelledby="s-audit">
+      <div class="cs-section__head">
+        <div>
+          <p class="cs-eyebrow">01 — Strategy · Phase 1, approved</p>
+          <h2 class="cs-title" id="s-audit">86 findings, 10 competitors, four principles</h2>
+        </div>
+        <p class="cs-lead">An audit of 19 screens and states — 9 critical, 52 medium, 25 improvements — and a study of ten AI assistants and booking apps turned into four rules every screen follows.</p>
+      </div>
+      <div class="case__body">
+        <div class="prose">
+          <ul>
+            <li><strong>From answer to action.</strong> Every actionable answer ends in a “Do it for me” button.</li>
+            <li><strong>No contact before approval.</strong> An approval card comes before any message or call made in the user's name — the pattern the best agents use.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong>One clear status.</strong> Sixteen technical task states became one status under the mascot and six for tasks.</li>
+            <li><strong>Requests never get lost.</strong> A request is saved on a dropped connection or error and sent when it's back.</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="cs-figure">
+        <img src="/assets/img/radx/radx-wire.webp" srcset="/assets/img/radx/radx-wire-sm.webp 790w, /assets/img/radx/radx-wire.webp 1580w" sizes="(min-width: 1448px) 1368px, 94vw" width="1580" height="585" loading="lazy" decoding="async" alt="Wireframes beside final designs for the home screen and a chat answer: the structure held, the details matured with each review.">
+        <figcaption>Wireframe to final — the 40-screen structure held; the details matured with each review.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 02 Conversation -->
+    <section class="cs-section" aria-labelledby="s-chat">
+      <div class="cs-section__head">
+        <div>
+          <p class="cs-eyebrow">02 — Conversation · Phase 2, in progress</p>
+          <h2 class="cs-title" id="s-chat">From a question to a booking in three steps</h2>
+        </div>
+        <p class="cs-lead">RADX shows its steps while it works, asks one question only when the request is missing something, then offers two options to compare and a single action to book.</p>
+      </div>
+      <figure class="cs-figure">
+        <img src="/assets/img/radx/radx-chat.webp" srcset="/assets/img/radx/radx-chat-sm.webp 740w, /assets/img/radx/radx-chat.webp 1480w" sizes="(min-width: 1448px) 1368px, 94vw" width="1480" height="645" loading="lazy" decoding="async" alt="Three chat screens: RADX thinking through its steps, asking for a time with ready-made options, then offering two restaurants and a “Do it for me” button.">
+      </figure>
+      <div class="case__body">
+        <div class="prose">
+          <ul>
+            <li>Voice is a mode inside the same conversation, not a separate screen: speech appears as large text while listening, cards show up mid-sentence, and ending a voice session keeps everything in the chat.</li>
+            <li>No dead ends: when there are no results, RADX explains why and offers three alternatives in one tap instead of an error.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <ul>
+            <li>The home screen shows what's happening now, not a feature list — the latest tasks with their status, then suggested tasks.</li>
+            <li>A task that needs the user arrives as a notification and appears on the home screen at the same time.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="media-row media-row--2">
+        <img src="/assets/img/radx/radx-home.webp" srcset="/assets/img/radx/radx-home-sm.webp 517w, /assets/img/radx/radx-home.webp 1035w" sizes="(min-width: 1448px) 674px, (min-width: 721px) 47vw, 94vw" width="1035" height="645" loading="lazy" decoding="async" alt="Three home screen states: ready, a task in progress, and a task that needs the user's decision.">
+        <img src="/assets/img/radx/radx-owl.webp" srcset="/assets/img/radx/radx-owl-sm.webp 248w, /assets/img/radx/radx-owl.webp 497w" sizes="(min-width: 721px) 30vw, 94vw" width="497" height="716" loading="lazy" decoding="async" alt="The owl mascot in nine states — ready, listening, thinking, acting, speaking, needs you, done, muted and failed — each with a coloured ring and a text label." style="max-width:360px; justify-self:center">
+      </div>
+    </section>
+
+    <!-- 03 System -->
+    <section class="cs-section" aria-labelledby="s-system">
+      <div class="cs-section__head">
+        <div>
+          <p class="cs-eyebrow">03 — Design system v3</p>
+          <h2 class="cs-title" id="s-system">One system that switches theme and language without duplicate files</h2>
+        </div>
+        <p class="cs-lead">After the first navy-heavy direction was rejected, I explored three and the client chose “pearl and charcoal” — then rebuilt the system around it.</p>
+      </div>
+      <div class="case__body">
+        <div class="prose">
+          <ul>
+            <li>211 variables in four groups, 29 components bound to them, 61 icons and Noto for Arabic and English.</li>
+            <li>Theme and language are variable modes on the frame, not duplicate variants — English is a full left-to-right mirror.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <ul>
+            <li>Every colour role has a code-ready name for the developer, and text holds at least 4.5:1 contrast in both themes.</li>
+            <li>The mascot changed from a robot to an owl mid-project; nine states in one component made it part of the interface, not decoration — the status is always written too, so colour is never the only cue.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="case__body">
+      <div class="prose">
+        <h2>Where it stands</h2>
+        <p>Phase 1 (strategy and structure) was approved; phase 2 (design system and core screens) is in progress, with the home screen approved. Next: onboarding, camera, map, booking and account in phase 3, then an interactive prototype and developer handoff in phase 4.</p>
+        <p><strong>Not measured yet:</strong> the experience hasn't been tested with users. I've proposed usability testing on the prototype in phase 4 to measure booking completion and time.</p>
+      </div>
+      <div class="prose">
+        <h2>Lessons so far</h2>
+        <p><strong>Decisions, not questions.</strong> Every open point went to the client with a proposed answer and its reason, so reviews became approvals instead of research.</p>
+        <p><strong>Design for change.</strong> The mascot and then the visual direction changed mid-project; variables and components made the switch fast, without redrawing screens.</p>
+        <p><strong>Arabic isn't a translation.</strong> Direction, Latin word order and arrow direction are design rules, written into the system from the start.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<NextProject current="radx" />
+
+<Testimonials band="light" />
+
+</Layout>

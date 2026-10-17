@@ -18,6 +18,8 @@ export interface Project {
   summary: string;
   role: string;
   outcome: string;
+  /** Optional badge for unfinished work, e.g. "In progress · Phase 2 of 4". */
+  status?: string;
   /** "wide": one screenshot; "tablets": three portrait screens side by side. */
   layout: "wide" | "tablets";
   images: ProjectImage[];
@@ -25,6 +27,28 @@ export interface Project {
 
 /** Home-page case studies, in display order (numbered 01, 02, … from this order). */
 export const projects: Project[] = [
+  {
+    id: "radx",
+    page: "radx",
+    eyebrow: "AI Assistant · iOS · Arabic-first",
+    title: "RADX",
+    subtitle: "An AI assistant that gets things done — not one that just answers",
+    summary: "Redesigning a Dubai voice assistant that books restaurants and hotels on the user's behalf — Arabic-first, in light and dark, with the user approving every action taken in their name.",
+    role: "UX/UI Designer, solo end-to-end",
+    outcome: "40-screen structure approved; 36 final screens in two themes",
+    status: "In progress · Phase 2 of 4",
+    layout: "wide",
+    images: [
+      {
+        src: "/assets/img/radx/radx-themes-sm.webp",
+        srcset: "/assets/img/radx/radx-themes-sm.webp 522w, /assets/img/radx/radx-themes.webp 1045w",
+        sizes: "(min-width: 1448px) 790px, (min-width: 961px) 55vw, 94vw",
+        width: 1045,
+        height: 675,
+        alt: "RADX home screen in light and dark themes, and a chat where RADX offers two restaurants and a “Do it for me” button."
+      }
+    ]
+  },
   {
     id: "crpton",
     page: "crpton",

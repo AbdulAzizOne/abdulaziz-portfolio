@@ -18,6 +18,7 @@ const num = String(index).padStart(2, "0");
   </div>
   <div class="showcase__body">
     <p class="case__num" aria-hidden="true">{num}</p>
+    {project.status && <p class="status-pill">{project.status}</p>}
     <p class="case__eyebrow">{project.eyebrow}</p>
     <h3 class="showcase__title">{project.title} <span>{project.subtitle}</span></h3>
     <p class="showcase__text">{project.summary}</p>
