@@ -29,5 +29,6 @@ export const clientRows: ClientLogo[][] = [
     { src: "/assets/img/clients/qetaf.svg", width: 300, height: 160, alt: "Qetaf Medical" },
     { src: "/assets/img/clients/ourverse.svg", width: 300, height: 160, alt: "OurVerse" },
     { src: "/assets/img/clients/arch.svg", width: 300, height: 160, alt: "Arch — digital document archiving system" },
+    { src: "/assets/img/clients/radx.webp", width: 408, height: 210, alt: "RADX" },
   ],
 ];
