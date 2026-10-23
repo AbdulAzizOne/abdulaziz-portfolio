@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://abdulazizabudhair-portfolio.vercel.app",
+  site: "https://abdulazizabudhair.com",
   // Vercel serves clean URLs (/work/alard) from work/alard.html (see vercel.json).
   trailingSlash: "never",
   build: {
