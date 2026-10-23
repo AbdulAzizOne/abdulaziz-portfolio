@@ -71,6 +71,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "abdulazizabudhair-portfolio.vercel.app"
+        }
+      ],
+      "destination": "https://abdulazizabudhair.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/work/qetaf-medical",
       "destination": "/#case-studies",
       "permanent": true

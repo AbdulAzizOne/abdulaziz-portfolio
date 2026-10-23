@@ -57,7 +57,7 @@ npm run preview   # serve the build
 `vercel.json` sets the framework (Astro), build command and output directory, so pushing to `main`
 deploys without dashboard changes. It also enables clean URLs (`/work/alard`), security headers and caching.
 
-The site assumes the domain `https://abdulazizabudhair-portfolio.vercel.app` (`site` in `astro.config.mjs`,
+The site assumes the domain `https://abdulazizabudhair.com` (`site` in `astro.config.mjs`,
 plus the `Sitemap:` line in `public/robots.txt`). Update those if the domain changes.
 
 ## Maintenance notes
