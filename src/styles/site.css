@@ -660,6 +660,9 @@ button { font: inherit; color: inherit; }
   list-style: none;
 }
 .quotes > li { border-top: 1px solid var(--line); }
+/* A lone quote on the last row spans it, with a readable line length. */
+.quotes > li:last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+.quotes > li:last-child:nth-child(3n + 1) blockquote p { max-width: 68ch; }
 .quote {
   display: flex;
   flex-direction: column;
@@ -784,6 +787,8 @@ button { font: inherit; color: inherit; }
 
   .case__body { grid-template-columns: 1fr; }
   .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quotes > li:last-child:nth-child(3n + 1) { grid-column: auto; }
+  .quotes > li:last-child:nth-child(2n + 1) { grid-column: 1 / -1; }
   .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
 }
@@ -801,6 +806,7 @@ button { font: inherit; color: inherit; }
   .media-row--3 { grid-template-columns: 1fr 1fr; }
   .media-row--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
   .quotes { grid-template-columns: 1fr; }
+  .quotes > li:last-child:nth-child(2n + 1) { grid-column: auto; }
   .quote { padding-block: 24px; }
   .chips { flex-direction: column; align-items: center; gap: 10px; }
   .chip { font-size: 0.75rem; }
