@@ -35,4 +35,9 @@ export const testimonials: Testimonial[] = [
     name: "Ahmad AlNimr",
     role: "Digital Marketing Manager, AL'ARD",
   },
+  {
+    quote: "Abdulaziz redesigned the RADX app end to end. He quickly understood our vision and turned it into a clear Arabic-first experience that makes users trust an assistant acting on their behalf. He met every deadline and backed each decision with a reason, which made approvals fast. I highly recommend working with him.",
+    name: "Mansour Marzouk",
+    role: "Founder, RADX",
+  },
 ];
