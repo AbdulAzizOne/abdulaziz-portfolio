@@ -51,6 +51,7 @@ export const projects: Project[] = [
     outcome: "Live and in daily use in real clinics",
     layout: "wide",
     ar: {
+      page: true,
       eyebrow: "الرعاية الصحية · إدارة العيادات",
       subtitle: "نقل نظام العيادات من جهاز المكتب إلى أي جهاز",
       summary: "إعادة بناء نظام عيادات كان حبيس أجهزة المكتب ليصبح تطبيق ويب يعمل من المتصفح، مع تطبيق جوال مرافق — سجلات المرضى، ومخطط أسنان تفاعلي، وخطط العلاج، والفواتير في مكان واحد ومن أي جهاز.",
@@ -80,6 +81,7 @@ export const projects: Project[] = [
     outcome: "Live on the App Store, in use at real events",
     layout: "tablets",
     ar: {
+      page: true,
       eyebrow: "تطبيق تابلت · جمع التبرعات",
       subtitle: "من صندوق نقود إلى نظام تبرعات موثّق ومتكرر",
       summary: "تطبيق تابلت يستطيع أي موظف إعداده في أقل من دقيقة — كل تبرع مرتبط بفعاليته، والتبرع المتكرر في الواجهة، والمتبرع العائد يُعرف من رقم هاتفه.",
