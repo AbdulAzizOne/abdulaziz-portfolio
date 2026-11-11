@@ -1,22 +1,28 @@
 ---
 import { testimonials } from "../data/testimonials";
+import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
   /** Background band; alternates with the section above it. */
   band?: "light" | "alt";
+  lang?: Lang;
 }
-const { band = "alt" } = Astro.props;
+const { band = "alt", lang = "en" } = Astro.props;
+const t = ui[lang];
+// Quotes stay in the words they were given, so on Arabic pages they are
+// marked as English and keep their own direction.
+const quoteLang = lang === "en" ? undefined : "en";
 ---
 <section class={`band band--${band}`} id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
     <div class="section-head section-head--tight reveal">
-      <h2 class="section-title" id="testimonials-title">What people say</h2>
-      <p class="section-sub">A few words from the people I've had the pleasure of working with.</p>
+      <h2 class="section-title" id="testimonials-title">{t.testimonialsTitle}</h2>
+      <p class="section-sub">{t.testimonialsSub}</p>
     </div>
     <ul class="quotes">
       {testimonials.map((t) => (
         <li class="reveal">
-          <figure class="quote">
+          <figure class="quote" lang={quoteLang} dir={quoteLang && "ltr"}>
             <blockquote><p>“{t.quote.replace(/\s*\n\s*/g, " ")}”</p></blockquote>
             <figcaption><cite>{t.name}</cite><span>{t.role}</span></figcaption>
           </figure>

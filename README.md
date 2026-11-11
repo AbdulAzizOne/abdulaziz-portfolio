@@ -8,14 +8,16 @@ src/
   components/                 Header, Footer (with contact links), Testimonials, LogoMarquee, ProjectCard, NextProject
   data/projects.ts            Home-page case-study cards (order = display order, numbered 01…)
   data/clients.ts             Client logos, one array per marquee row
+  i18n/ui.ts                  Shared interface text (header, footer, cards) in English and Arabic
   pages/index.astro           Home
+  pages/ar/index.astro        Arabic home (/ar)
   pages/work/*.astro          Case studies (/work/<slug>)
   pages/404.astro
   styles/global.css           Tailwind (theme + utilities) and the site's design tokens
   styles/site.css             Site styles (design tokens at the top)
 public/
   assets/img/                 WebP/SVG images, client logos, share (OG) images
-  assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (WOFF2, latin)
+  assets/fonts/               Self-hosted Inter, Noto Serif, IBM Plex Mono (latin); IBM Plex Sans Arabic, Noto Naskh Arabic (arabic)
   assets/files/               Résumé PDF
   assets/js/main.js           Mobile menu, header state, footer year, logo marquee, scroll reveal
   favicon.svg  robots.txt     (sitemap-index.xml is generated at build time by @astrojs/sitemap)
@@ -50,6 +52,11 @@ npm run preview   # serve the build
 - **Replacing any image:** give the new file a new name (e.g. `logo.v3.webp`) instead of overwriting it.
   `vercel.json` lets browsers cache `/assets/img/*` for 30 days, so an overwritten file keeps showing the old version.
 - **Resume:** replace `public/assets/files/abdulaziz-abudhair-resume.pdf` with a file of the same name.
+- **Arabic pages:** English lives at the root, Arabic under `/ar` (`src/pages/ar/`). Pass `lang="ar"` to
+  `Layout` and to the shared components, and `alternate` with the other language's path on both pages of a
+  pair: that adds the hreflang links and points the language switch at it (otherwise it goes to the other
+  home). Card text in Arabic is the `ar` field in `src/data/projects.ts`; interface text is in `src/i18n/ui.ts`.
+  Styles use logical properties (`padding-inline-start`, `inset-inline-start`) so they mirror under `dir="rtl"`.
 - **Removed pages** should get a redirect in `vercel.json` (see the Qetaf example) so old links don't 404.
 
 ## Deploy (Vercel)

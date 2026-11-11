@@ -28,6 +28,34 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Arabic (pages under /ar). Arabic glyphs only: Latin text on those pages
+   keeps the fonts above, and English pages never download these. */
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/ibm-plex-sans-arabic-600.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "Noto Naskh Arabic";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/noto-naskh-arabic-500.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #f7f6f2;
@@ -113,7 +141,7 @@ button { font: inherit; color: inherit; }
 
 .skip-link {
   position: absolute;
-  left: 16px; top: -100px;
+  inset-inline-start: 16px; top: -100px;
   z-index: 100;
   padding: 12px 20px;
   background: var(--btn-dark);
@@ -466,7 +494,7 @@ button { font: inherit; color: inherit; }
 }
 .prose :is(h2, h3, h4) + p,
 .prose :is(h2, h3, h4) + ul { margin-top: 0; }
-.prose ul { padding-left: 1.4em; }
+.prose ul { padding-inline-start: 1.4em; }
 .prose a { text-underline-offset: 3px; }
 
 .case__footnote { margin-top: clamp(56px, 6vw, 96px); max-width: 460px; line-height: 1.35; }
@@ -914,7 +942,7 @@ button { font: inherit; color: inherit; }
 .type-list span { font-size: 0.9375rem; }
 .type-list small { display: block; color: var(--ink-muted); font-size: 0.8125rem; }
 
-.pull-quote { margin-top: 48px; padding: 32px; background: var(--bg-alt); border-left: 3px solid var(--gold); }
+.pull-quote { margin-top: 48px; padding: 32px; background: var(--bg-alt); border-inline-start: 3px solid var(--gold); }
 .pull-quote p { font-family: var(--font-serif); font-size: clamp(1.125rem, 1.8vw, 1.375rem); line-height: 1.45; color: var(--ink-brown); }
 .pull-quote footer { margin-top: 16px; font-size: 0.875rem; }
 .pull-quote cite { font-style: normal; font-weight: 600; }
@@ -953,3 +981,29 @@ button { font: inherit; color: inherit; }
 .case__permalink { margin-top: 24px; font-size: 0.9375rem; }
 .case__permalink a { color: var(--ink-brown); text-underline-offset: 4px; }
 
+
+/* ---------- Arabic (right-to-left) ---------- */
+/* Arabic fonts first; their unicode-range is Arabic only, so Latin words
+   (Figma, UX/UI, client names) still use Inter and Noto Serif. */
+:root:lang(ar) {
+  --font-serif: "Noto Naskh Arabic", "Noto Serif", Georgia, serif;
+  --font-sans: "IBM Plex Sans Arabic", "Inter", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  /* Arabic has no monospace face: the small labels use the Arabic sans. */
+  --font-mono: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+}
+/* Letter-spacing breaks the joins between Arabic letters, and Arabic has no
+   capitals: labels that are spaced and uppercase in English are neither here. */
+:root:lang(ar) body * { letter-spacing: 0 !important; text-transform: none !important; }
+/* The small mono labels become small Arabic labels: a touch larger and bolder. */
+:root:lang(ar) :is(.chip, .showcase__meta dt, .about__facts dt, .role-card__kicker) { font-size: 0.875rem; font-weight: 600; }
+/* Naskh has tall ascenders and dots below the line: open up tight headings. */
+:root:lang(ar) :is(.hero__title, .section-title, .showcase__title, .about__subtitle, .role-card__title) { line-height: 1.45; }
+:root:lang(ar) .showcase__title span { line-height: 1.5; }
+:root:lang(ar) :is(.hero__lead, .section-sub, .clients__intro, .showcase__text, .about__bio p, .role-card__text) { line-height: 1.75; }
+
+/* Mirror the motion that points forward and the hover underline. */
+[dir="rtl"] .nav__link { background-position: 100% 100%; }
+[dir="rtl"] .showcase:hover .showcase__link span { transform: translateX(-4px); }
+
+/* The link to the other language: a quieter nav item. */
+.lang-switch { color: var(--ink-brown); }
