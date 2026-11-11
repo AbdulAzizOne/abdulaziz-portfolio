@@ -1,0 +1,109 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Testimonials from "../../../components/Testimonials.astro";
+import NextProject from "../../../components/NextProject.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "ZenRaise — من صندوق نقود إلى نظام تبرعات موثّق ومتكرر",
+    "description": "تطبيق تابلت يحوّل جمع التبرعات النقدية إلى نظام موثّق ومتكرر — إعداد موجّه، وربط قارئ البطاقات، وإجماليات كل فعالية.",
+    "url": "https://abdulazizabudhair.com/ar/work/zenraise",
+    "image": "https://abdulazizabudhair.com/assets/img/og-zenraise.jpg",
+    "author": {
+      "@type": "Person",
+      "@id": "https://abdulazizabudhair.com/#person",
+      "name": "عبدالعزيز أبو ضهير",
+      "url": "https://abdulazizabudhair.com/ar"
+    },
+    "genre": "تطبيق تابلت، جمع التبرعات",
+    "inLanguage": "ar"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://abdulazizabudhair.com/ar" },
+      { "@type": "ListItem", "position": 2, "name": "الأعمال", "item": "https://abdulazizabudhair.com/ar#case-studies" },
+      { "@type": "ListItem", "position": 3, "name": "ZenRaise", "item": "https://abdulazizabudhair.com/ar/work/zenraise" }
+    ]
+  }
+];
+---
+<Layout
+  title="ZenRaise — دراسة حالة · عبدالعزيز أبو ضهير"
+  description="تطبيق تابلت يحوّل جمع التبرعات النقدية إلى نظام موثّق ومتكرر — إعداد موجّه، وربط قارئ البطاقات، وإجماليات كل فعالية."
+  path="/ar/work/zenraise"
+  alternate="/work/zenraise"
+  lang="ar"
+  ogType="article"
+  ogImage="og-zenraise.jpg"
+  jsonLd={jsonLd}
+>
+<article class="band band--light case" aria-labelledby="case-title">
+    <div class="container">
+      <a class="back-link" href="/ar#case-studies"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
+      <header>
+        <p class="case__eyebrow">تطبيق تابلت</p>
+        <h1 class="case__title" id="case-title">ZenRaise <span>من صندوق نقود إلى نظام تبرعات موثّق ومتكرر</span></h1>
+        <dl class="case__meta">
+          <div><dt>الدور</dt><dd>مصمم UX/UI، المصمم الوحيد من البداية إلى النهاية</dd></div>
+          <div><dt>المنصة</dt><dd>تطبيق تابلت</dd></div>
+          <div><dt>الأدوات</dt><dd>Figma · FigJam</dd></div>
+        </dl>
+      </header>
+
+      <div class="media-row media-row--3">
+        <img src="/assets/img/zenraise-1-445.webp" srcset="/assets/img/zenraise-1-445.webp 445w, /assets/img/zenraise-1-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1425" loading="lazy" decoding="async" alt="شاشة البدء في ZenRaise: ثلاث خطوات لبدء جمع التبرعات — اختيار الفعالية، وربط قارئ البطاقات، وبدء الجمع.">
+        <img src="/assets/img/zenraise-2-446.webp" srcset="/assets/img/zenraise-2-446.webp 446w, /assets/img/zenraise-2-892.webp 892w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="892" height="1424" loading="lazy" decoding="async" alt="الخطوة الثانية من الإعداد في ZenRaise: قارئ بطاقات متصل عبر البلوتوث وجاهز، مع زرّي المتابعة وإعادة البحث.">
+        <img src="/assets/img/zenraise-3-445.webp" srcset="/assets/img/zenraise-3-445.webp 445w, /assets/img/zenraise-3-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1424" loading="lazy" decoding="async" alt="شاشة التبرع في ZenRaise: اختيار البرنامج، وتحديد عدد الأطفال، واختيار تبرع شهري أو سنوي أو لمرة واحدة، وإدخال رقم الهاتف.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>السياق</h2>
+          <p>يحلّ ZenRaise محل الورقة وصندوق النقود في الطريقة التي تجمع بها المساجد والمؤسسات المجتمعية التبرعات في الفعاليات. يدير الطاقم في الليلة نفسها عشرات المتبرعين، وعدة برامج للتبرع، وقارئ بطاقات — وغالبًا دون وجود شخص تقني متفرغ.</p>
+          <h2>المشكلة</h2>
+          <p>لم يكن الجمع اليدوي يترك سجلًا حقيقيًا: لا طريقة موثوقة لمعرفة ما جُمع، ولا لمقارنة أداء فعالية بأخرى، ولا لإعداد تبرعات متكررة بدل النقد لمرة واحدة. وحين تنتهي الفعالية، كان المنظمون ينتظرون من يجمع الأرقام يدويًا قبل أن يستطيعوا إعلان أي رقم. وفوق ذلك، كان على من يدير التابلت تلك الليلة أن يشغّل قارئ البطاقات خلال دقائق دون أي خلفية تقنية، وكان المتبرعون بحاجة إلى شاشة بسيطة بما يكفي ليفهموا لمن يتبرعون وكم مرة، دون خلط بين البرامج.</p>
+          <h2>دوري</h2>
+          <p>مصمم UX/UI، ومسؤول وحدي عن تصميم ZenRaise من البداية إلى النهاية — مسارات الاستخدام، والواجهات، والنموذج الأولي التفاعلي، بما فيها التفاعلات الدقيقة وحركات الانتقال المستخدمة في التطبيق كله.</p>
+        </div>
+        <div class="prose">
+          <h2>القرارات الأساسية</h2>
+          <ul>
+            <li>صمّمتُ إعدادًا موجّهًا من 3 خطوات — اختيار الفعالية، وربط القارئ، والجاهزية للجمع — مع حالة حيّة لربط البلوتوث، ليستطيع أي موظف، لا التقني وحده، تشغيل التابلت وبدء جمع التبرعات في أقل من دقيقة.</li>
+            <li>ربطتُ كل تبرع بالفعالية المختارة عند الإعداد، فتبقى إجماليات كل فعالية منفصلة تلقائيًا، ويتحول سؤال «أي فعالية أنجح؟» من تخمين إلى رقم حقيقي قابل للمقارنة.</li>
+            <li>فصلتُ طريقة إدخال التبرع حسب نوع البرنامج بدل فرض نمط واحد على الاثنين: مبلغ بالدولار مع خيارات جاهزة لبرنامج، وعدّاد لكل مستفيد بسعر ثابت لبرنامج آخر — لأنهما نوعان مختلفان جوهريًا من العطاء.</li>
+            <li>جعلتُ تكرار التبرع (شهري / سنوي) خيارًا ظاهرًا على شاشة التبرع الرئيسية نفسها لا إعدادًا ثانويًا، لأن تحويل الناس من التبرع لمرة واحدة إلى التبرع المتكرر كان من أهم أهداف العميل.</li>
+            <li>أضفتُ التعرّف على رقم الهاتف — «<bdi>Is this you?</bdi>» — ليُرحَّب بالمتبرع العائد باسمه بدل معاملته كمتبرع جديد في كل مرة، فيصبح لدى المؤسسة سجل واحد ونظيف لكل متبرع بدل سجلات مكررة موزعة على الفعاليات.</li>
+            <li>وفّرتُ شاشة تفاصيل للفعالية متاحة دائمًا — إجمالي التبرعات موزعًا حسب البرنامج والتكرار، وعدد العملاء المحتملين — يُوصل إليها من تسجيل الخروج، فينتج إنهاء المناوبة فورًا الرقم الذي كان المنظمون ينتظرون من يجمعه يدويًا.</li>
+            <li>بنيتُ النظام كله على Material Theme Builder بمكونات متجهية بالكامل، لأن هدف العميل المُعلن كان أن يبيع ZenRaise لاحقًا لمؤسسات شريكة بعلامتها التجارية وألوانها الخاصة (<bdi>white-label</bdi>).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="media-row media-row--3">
+        <img src="/assets/img/zenraise-4-445.webp" srcset="/assets/img/zenraise-4-445.webp 445w, /assets/img/zenraise-4-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="شاشة التبرع في ZenRaise مع اختيار برنامج كفالة الأيتام، وعدّاد لكل طفل، وخيارات التكرار.">
+        <img src="/assets/img/zenraise-5-445.webp" srcset="/assets/img/zenraise-5-445.webp 445w, /assets/img/zenraise-5-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="نافذة «Is this you?» في ZenRaise تتعرف على متبرع عائد من رقم هاتفه.">
+        <img src="/assets/img/zenraise-6-445.webp" srcset="/assets/img/zenraise-6-445.webp 445w, /assets/img/zenraise-6-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ملخص الفعالية في ZenRaise: إجمالي التبرعات موزعًا حسب البرنامج والتكرار، وعدد العملاء المحتملين.">
+      </div>
+
+      <div class="case__body">
+        <div class="prose">
+          <h2>النتيجة</h2>
+          <p>ZenRaise منشور على App Store — ويُستخدم في فعاليات حقيقية، ويجمع تبرعات حقيقية من متبرعين حقيقيين.</p>
+        </div>
+        <div class="prose">
+          <h2>ما تعلّمته</h2>
+          <p>قراران خارج الشاشات نفسها شكّلا هذا المشروع بقدر أي مسار استخدام. فالبناء على Material Theme Builder منذ اليوم الأول جعل طلب العلامة البيضاء، حين جاء، مجرد تبديل للألوان والخطوط في التطبيق كله لا إعادة تصميم — وأتى الاستثمار ثماره كما خُطط له تمامًا. والعمل بحلقات ملاحظات سريعة فعلًا مع العميل — لقاءات قصيرة متكررة بدل دورات عمل طويلة صامتة — كشف أي انحراف في الاتجاه مبكرًا، بدل اكتشافه بعد أسبوع من تحسين شيء لم يطلبه أحد. وبدأتُ أيضًا أستخدم أدوات الذكاء الاصطناعي لمراجعة الشاشات النهائية بحثًا عن الأخطاء الإملائية والتناقضات الصغيرة قبل التسليم — مراجعة من خمس دقائق وفّرت بهدوء جولات من التصحيحات المحرجة.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<NextProject current="zenraise" lang="ar" />
+
+<Testimonials band="light" lang="ar" />
+
+</Layout>
