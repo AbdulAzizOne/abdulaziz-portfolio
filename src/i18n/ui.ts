@@ -81,7 +81,7 @@ export const ui = {
     arrowBack: "→",
     arrow: "←",
     testimonialsTitle: "ماذا يقولون عني",
-    testimonialsSub: "كلمات من أشخاص سعدتُ بالعمل معهم، بلغتها الأصلية.",
+    testimonialsSub: "كلمات من أشخاص سعدتُ بالعمل معهم — ترجمة عربية لكلماتهم الأصلية بالإنجليزية.",
   },
 } as const;
 
