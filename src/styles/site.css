@@ -265,28 +265,41 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Hero ---------- */
 .hero {
-  display: grid;
-  align-items: center;
-  min-height: min(calc(82svh - var(--header-h)), 760px);
   background: var(--bg-alt);
-  padding-block: clamp(56px, 8vw, 112px);
+  padding-block: clamp(48px, 6vw, 88px) clamp(40px, 5vw, 72px);
+  overflow: hidden;
 }
-
-.hero__inner { max-width: 940px; margin-inline: auto; text-align: center; }
+/* Text beside a collage of real work, so the first screen shows the design
+   itself. Below 961px the two stack and the text is centered. */
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+}
+.hero__inner { text-align: start; }
+.hero__visual { position: relative; padding-block-end: 9%; padding-inline-start: 7%; }
+.hero__shot { width: 100%; box-shadow: 0 1px 2px rgb(67 55 23 / 0.08), 0 32px 64px -28px rgb(67 55 23 / 0.45); }
+.hero__phone {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 27%;
+  filter: drop-shadow(0 18px 28px rgb(31 27 18 / 0.32));
+}
 
 .hero__title {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 4.3vw, 3.75rem);
+  line-height: 1.05;
   letter-spacing: -0.005em;
   color: var(--ink-brown);
 }
 .hero__title em { font-style: normal; color: var(--gold-bright); }
 
 .hero__lead {
-  margin: 32px auto 0;
-  max-width: 760px;
+  margin-top: 28px;
+  max-width: 600px;
   font-size: clamp(1.125rem, 1.6vw, 1.375rem);
   line-height: 1.3;
   letter-spacing: 0.02em;
@@ -297,7 +310,6 @@ button { font: inherit; color: inherit; }
 .chips {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 8px 0;
   margin-top: 32px;
   list-style: none;
@@ -319,7 +331,7 @@ button { font: inherit; color: inherit; }
   background: rgb(67 55 23 / 0.3);
 }
 
-.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 24px; margin-top: 48px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-top: 40px; }
 
 
 /* ---------- Clients ---------- */
@@ -521,17 +533,17 @@ button { font: inherit; color: inherit; }
 .showcase:nth-child(even) .showcase__media { order: 2; }
 .showcase__media {
   display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 11;
-  padding: clamp(20px, 3.4vw, 48px);
+  align-items: start;
+  aspect-ratio: 16 / 10;
+  padding: clamp(16px, 2.4vw, 36px) clamp(16px, 2.4vw, 36px) 0;
   background: var(--bg-alt);
   overflow: hidden;
 }
+/* The screenshot fills the frame and runs off its bottom edge, like a window
+   onto the product, rather than floating small in the middle. */
 .showcase__media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   box-shadow: var(--shadow-soft);
   transition: transform 0.8s var(--ease-out), box-shadow 0.8s var(--ease-out);
 }
@@ -539,7 +551,7 @@ button { font: inherit; color: inherit; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: clamp(8px, 1vw, 14px);
-  padding: clamp(16px, 2vw, 28px);
+  padding: clamp(14px, 1.8vw, 26px);
 }
 .showcase__media--tablets img { height: auto; max-height: 100%; object-fit: contain; }
 .showcase:hover .showcase__media img { transform: translateY(-4px) scale(1.012); }
@@ -562,6 +574,12 @@ button { font: inherit; color: inherit; }
 .showcase__link::after { content: ""; position: absolute; inset: 0; }
 .showcase__link span { display: inline-block; transition: transform 0.2s ease; }
 .showcase:hover .showcase__link span { transform: translateX(4px); }
+/* The whole card is the link (see ::after above): say so on hover and focus. */
+.showcase__title { text-decoration: underline transparent 1px; text-underline-offset: 6px; transition: text-decoration-color 0.3s ease; }
+.showcase__title span { text-decoration: none; display: block; }
+.showcase:hover .showcase__title, .showcase:focus-within .showcase__title { text-decoration-color: currentColor; }
+.showcase__link:focus-visible { outline: none; }
+.showcase__link:focus-visible::after { outline: 2px solid var(--ink-brown); outline-offset: 6px; }
 
 /* ---------- Next case study ---------- */
 .next-project { background: var(--bg-alt); border-top: 1px solid var(--line); }
@@ -715,6 +733,33 @@ button { font: inherit; color: inherit; }
   color: var(--footer-ink);
 }
 .site-footer a { color: inherit; text-decoration: none; }
+/* Contact: the page's closing call to action, above the link row. */
+.contact {
+  padding-block: clamp(64px, 8vw, 112px) clamp(48px, 6vw, 80px);
+  border-bottom: 1px solid var(--footer-line);
+}
+.contact__title {
+  max-width: 18ch;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.125rem, 4.6vw, 3.75rem);
+  line-height: 1.08;
+  color: var(--footer-ink);
+}
+.contact__text {
+  max-width: 56ch;
+  margin-top: 24px;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.45;
+  color: var(--footer-muted);
+}
+.contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+.site-footer .contact__btn { gap: 12px; min-height: 60px; padding-inline: 28px; border-color: var(--surface); color: var(--ink); }
+.site-footer .contact__btn:hover { background: var(--gold-logo); border-color: var(--gold-logo); }
+.site-footer .contact__btn--ghost { background: transparent; border-color: rgb(236 234 228 / 0.4); color: var(--footer-ink); }
+.site-footer .contact__btn--ghost:hover { background: transparent; border-color: var(--footer-ink); }
+.contact__btn .icon-brand { width: 20px; height: 20px; flex: none; }
+.contact__btn--ghost .icon-brand { color: var(--gold-logo); }
 .site-footer__main {
   display: flex;
   flex-wrap: wrap;
@@ -757,6 +802,7 @@ button { font: inherit; color: inherit; }
 .site-footer__top { transition: color 0.3s ease; }
 .site-footer__top:hover { color: var(--footer-ink); }
 @media (max-width: 720px) {
+  .contact__actions .btn { flex: 1 1 100%; }
   .site-footer__main { flex-direction: column; text-align: center; }
   .site-footer__links { justify-content: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; }
@@ -811,7 +857,12 @@ button { font: inherit; color: inherit; }
   .showcase,
   .showcase:nth-child(even) { grid-template-columns: 1fr; }
   .showcase:nth-child(even) .showcase__media { order: 0; }
-  .hero__actions { margin-top: 40px; }
+  .hero { padding-bottom: 72px; }
+  .hero__grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero__inner { max-width: 760px; margin-inline: auto; text-align: center; }
+  .hero__lead { margin-inline: auto; }
+  .chips, .hero__actions { justify-content: center; }
+  .hero__visual { max-width: 640px; margin-inline: auto; width: 100%; }
 
   .case__body { grid-template-columns: 1fr; }
   .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -999,6 +1050,8 @@ button { font: inherit; color: inherit; }
 /* Naskh has tall ascenders and dots below the line: open up tight headings. */
 :root:lang(ar) :is(.hero__title, .section-title, .showcase__title, .about__subtitle, .role-card__title, .case__title, .cs-title, .next-project__title) { line-height: 1.45; }
 :root:lang(ar) .showcase__title span { line-height: 1.5; }
+:root:lang(ar) .contact__title { line-height: 1.45; max-width: 20ch; }
+:root:lang(ar) .contact__text { line-height: 1.75; }
 :root:lang(ar) :is(.hero__lead, .section-sub, .clients__intro, .showcase__text, .about__bio p, .role-card__text, .prose, .cs-lead) { line-height: 1.75; }
 
 /* Short English phrases quoted in Arabic text (<bdi>): keep each on one line
