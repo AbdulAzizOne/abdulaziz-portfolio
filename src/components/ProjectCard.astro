@@ -30,6 +30,7 @@ const toEnglish = lang === "ar" && !project.ar?.page;
     <p class="case__num" aria-hidden="true">{num}</p>
     <p class="case__eyebrow">{text.eyebrow}</p>
     <h3 class="showcase__title">{project.title} <span>{text.subtitle}</span></h3>
+    {text.status && <p class="status-pill">{text.status}</p>}
     <p class="showcase__text">{text.summary}</p>
     <dl class="showcase__meta">
       <div><dt>{t.role}</dt><dd>{text.role}</dd></div>
