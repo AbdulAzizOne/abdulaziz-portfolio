@@ -36,6 +36,13 @@ export const ui = {
     role: "Role",
     outcome: "Outcome",
     readCase: "Read the case study",
+    readCaseEnglish: "Read the case study",
+    nextCase: "Next case study",
+    /** Added to a link from an Arabic page to an English-only one. */
+    inEnglish: "",
+    backToWork: "Back to portfolio",
+    /** Arrow that points "back" in the reading direction. */
+    arrowBack: "←",
     /** Arrow that points "forward" in the reading direction. */
     arrow: "→",
     testimonialsTitle: "What people say",
@@ -66,7 +73,12 @@ export const ui = {
     logosPlay: "تشغيل الشعارات",
     role: "الدور",
     outcome: "النتيجة",
-    readCase: "اقرأ دراسة الحالة (بالإنجليزية)",
+    readCase: "اقرأ دراسة الحالة",
+    readCaseEnglish: "اقرأ دراسة الحالة (بالإنجليزية)",
+    nextCase: "دراسة الحالة التالية",
+    inEnglish: " (بالإنجليزية)",
+    backToWork: "العودة إلى الأعمال",
+    arrowBack: "→",
     arrow: "←",
     testimonialsTitle: "ماذا يقولون عني",
     testimonialsSub: "كلمات من أشخاص سعدتُ بالعمل معهم، بلغتها الأصلية.",

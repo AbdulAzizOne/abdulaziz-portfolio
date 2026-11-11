@@ -1,23 +1,28 @@
 ---
-import { projects } from "../data/projects";
+import { projects, caseHref } from "../data/projects";
+import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
   /** Slug of the current case-study page, e.g. "crpton". */
   current: string;
+  lang?: Lang;
 }
 
-const { current } = Astro.props;
+const { current, lang = "en" } = Astro.props;
+const t = ui[lang];
 const i = projects.findIndex((p) => p.page === current);
 // Loop back to the first project after the last one.
 const next = projects[(i + 1) % projects.length];
 const img = next.images[0];
+const subtitle = (lang === "ar" && next.ar?.subtitle) || next.subtitle;
+const toEnglish = lang === "ar" && !next.ar?.page;
 ---
-<nav class="next-project" aria-label="Next case study">
-  <a class="next-project__link container" href={`/work/${next.page}`}>
+<nav class="next-project" aria-label={t.nextCase}>
+  <a class="next-project__link container" href={caseHref(next, lang)} hreflang={toEnglish ? "en" : undefined}>
     <span class="next-project__text">
-      <span class="next-project__kicker">Next case study <span aria-hidden="true">→</span></span>
+      <span class="next-project__kicker">{t.nextCase}{toEnglish && t.inEnglish} <span aria-hidden="true">{t.arrow}</span></span>
       <span class="next-project__title">{next.title}</span>
-      <span class="next-project__subtitle">{next.subtitle}</span>
+      <span class="next-project__subtitle">{subtitle}</span>
     </span>
     <span class:list={["next-project__media", { "next-project__media--tablets": next.layout === "tablets" }]}>
       {(next.layout === "tablets" ? next.images : [img]).map((im) => (
