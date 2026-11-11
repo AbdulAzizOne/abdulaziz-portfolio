@@ -576,7 +576,8 @@ button { font: inherit; color: inherit; }
 .showcase:hover .showcase__link span { transform: translateX(4px); }
 /* The whole card is the link (see ::after above): say so on hover and focus. */
 .showcase__title { text-decoration: underline transparent 1px; text-underline-offset: 6px; transition: text-decoration-color 0.3s ease; }
-.showcase__title span { text-decoration: none; display: block; }
+/* inline-block: the underline stays on the project name, not the subtitle. */
+.showcase__title span { display: inline-block; width: 100%; }
 .showcase:hover .showcase__title, .showcase:focus-within .showcase__title { text-decoration-color: currentColor; }
 .showcase__link:focus-visible { outline: none; }
 .showcase__link:focus-visible::after { outline: 2px solid var(--ink-brown); outline-offset: 6px; }
