@@ -10,7 +10,7 @@ export interface ProjectImage {
 export interface Project {
   /** Anchor id on the home page. */
   id: string;
-  /** Case-study page path under /work, e.g. "crpton" or "radx/assistant". */
+  /** Case-study page slug under /work. */
   page: string;
   eyebrow: string;
   title: string;
@@ -18,8 +18,6 @@ export interface Project {
   summary: string;
   role: string;
   outcome: string;
-  /** Optional badge for unfinished work, e.g. "In progress · Prototype". */
-  status?: string;
   /** "wide": one screenshot; "tablets": three portrait screens side by side. */
   layout: "wide" | "tablets";
   images: ProjectImage[];
@@ -32,7 +30,6 @@ export interface Project {
     summary: string;
     role: string;
     outcome: string;
-    status?: string;
     alts: string[];
   };
 }
@@ -43,38 +40,6 @@ export const caseHref = (project: Project, lang: "en" | "ar" = "en") =>
 
 /** Home-page case studies, in display order (numbered 01, 02, … from this order). */
 export const projects: Project[] = [
-  {
-    id: "radx",
-    page: "radx/assistant",
-    eyebrow: "AI Assistant · Mobile App",
-    title: "RADX",
-    subtitle: "An Arabic assistant that doesn't just answer — it gets it done",
-    summary: "Redesigning a Dubai AI assistant that books restaurants, hotels and more in the user's name — Arabic-first, in light and dark, with the user approving every action it takes.",
-    role: "UX/UI Designer, solo end-to-end",
-    outcome: "Developers are building from the approved screens",
-    status: "In progress · Prototype",
-    layout: "wide",
-    ar: {
-      page: true,
-      eyebrow: "ذكاء اصطناعي · تطبيق جوال",
-      subtitle: "مساعد عربي لا يكتفي بالإجابة، بل ينفّذ عنك",
-      summary: "إعادة تصميم مساعد ذكي من دبي يحجز المطاعم والفنادق وغيرها باسم المستخدم — عربي أولاً، بثيمين فاتح وداكن، ولا ينفّذ شيئاً قبل موافقة المستخدم.",
-      role: "مصمم UX/UI، المصمم الوحيد من البداية إلى النهاية",
-      outcome: "المطورون يبنون من الشاشات المعتمدة",
-      status: "قيد التنفيذ · مرحلة البروتوتايب",
-      alts: ["الصفحة الرئيسية لتطبيق RADX بالثيمين الفاتح والداكن: الصقر اللؤلؤي يرحّب بالمستخدم، وتحته آخر المهام والمهام المقترحة."]
-    },
-    images: [
-      {
-        src: "/assets/img/radx/radx-a-hero-1368.webp",
-        srcset: "/assets/img/radx/radx-a-hero-1368.webp 1368w, /assets/img/radx/radx-a-hero-2736.webp 2736w",
-        sizes: "(min-width: 1448px) 790px, (min-width: 961px) 55vw, 94vw",
-        width: 2736,
-        height: 1400,
-        alt: "RADX home screen in light and dark themes: the pearl falcon greets the user, with recent tasks and suggested tasks below."
-      }
-    ]
-  },
   {
     id: "crpton",
     page: "crpton",

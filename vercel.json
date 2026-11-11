@@ -7,10 +7,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/ar",
-      "destination": "/ar.html"
-    }
+    { "source": "/ar", "destination": "/ar.html" }
   ],
   "headers": [
     {
@@ -106,16 +103,6 @@
       "source": "/work/vbooking-turbo-suite",
       "destination": "/work/vbooking",
       "permanent": true
-    },
-    {
-      "source": "/work/radx",
-      "destination": "/work/radx/assistant",
-      "permanent": false
-    },
-    {
-      "source": "/ar/work/radx",
-      "destination": "/ar/work/radx/assistant",
-      "permanent": false
     }
   ]
 }
