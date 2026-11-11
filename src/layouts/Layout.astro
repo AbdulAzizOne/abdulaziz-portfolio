@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { type Lang, dir, homePath, ui } from "../i18n/ui";
 
 interface Props {
   title: string;
@@ -17,6 +18,10 @@ interface Props {
   home?: boolean;
   /** Error pages: no header/footer, not indexed. */
   bare?: boolean;
+  lang?: Lang;
+  /** Path of this page in the other language, if it has one. Adds hreflang
+      links; the language switch falls back to the other language's home. */
+  alternate?: string;
 }
 
 const {
@@ -28,14 +33,21 @@ const {
   jsonLd,
   home = false,
   bare = false,
+  lang = "en",
+  alternate,
 } = Astro.props;
 
 const site = Astro.site!.origin;
 const url = site + path;
 const image = `${site}/assets/img/${ogImage}`;
+const t = ui[lang];
+const other: Lang = lang === "en" ? "ar" : "en";
+const switchHref = alternate ?? homePath[other];
+// Both language versions of this page, for hreflang (x-default is English).
+const pair = alternate ? { [lang]: path, [other]: alternate } as Record<Lang, string> : undefined;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang} dir={dir[lang]}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,13 +57,22 @@ const image = `${site}/assets/img/${ogImage}`;
   ) : (
     <>
       <meta name="description" content={description}>
-      <meta name="author" content="Abdulaziz Abu Dhair">
+      <meta name="author" content={t.name}>
       <meta name="google-site-verification" content="-nG1wKJtrmgK22AbvAJdpewyquqKT23dPthQsD787BU">
       <meta name="theme-color" content="#eceae4">
       <link rel="canonical" href={url}>
+      {pair && (
+        <>
+          <link rel="alternate" hreflang="en" href={site + pair.en}>
+          <link rel="alternate" hreflang="ar" href={site + pair.ar}>
+          <link rel="alternate" hreflang="x-default" href={site + pair.en}>
+        </>
+      )}
 
       <meta property="og:type" content={ogType}>
-      <meta property="og:site_name" content="Abdulaziz Abu Dhair">
+      <meta property="og:site_name" content={t.name}>
+      <meta property="og:locale" content={lang === "ar" ? "ar_AR" : "en_US"}>
+      {pair && <meta property="og:locale:alternate" content={lang === "ar" ? "en_US" : "ar_AR"}>}
       <meta property="og:url" content={url}>
       <meta property="og:title" content={title}>
       <meta property="og:description" content={description}>
@@ -69,7 +90,14 @@ const image = `${site}/assets/img/${ogImage}`;
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
   <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/noto-serif-500.woff2" as="font" type="font/woff2" crossorigin>
+  {lang === "ar" ? (
+    <>
+      <link rel="preload" href="/assets/fonts/ibm-plex-sans-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="/assets/fonts/noto-naskh-arabic-500.woff2" as="font" type="font/woff2" crossorigin>
+    </>
+  ) : (
+    <link rel="preload" href="/assets/fonts/noto-serif-500.woff2" as="font" type="font/woff2" crossorigin>
+  )}
   {/* The two inline scripts below are allowed by SHA-256 hash in the CSP (vercel.json).
       Editing either one means regenerating its hash. */}
   <script is:inline>document.documentElement.classList.add("js");</script>
@@ -83,12 +111,12 @@ const image = `${site}/assets/img/${ogImage}`;
     <slot />
   ) : (
     <>
-      <a class="skip-link" href="#main">Skip to content</a>
-      <Header home={home} />
+      <a class="skip-link" href="#main">{t.skipLink}</a>
+      <Header home={home} lang={lang} switchHref={switchHref} />
       <main id="main">
         <slot />
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </>
   )}
 </body>

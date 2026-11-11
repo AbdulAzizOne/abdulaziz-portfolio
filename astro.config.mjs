@@ -22,6 +22,8 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.includes("/404"),
       lastmod: new Date(),
+      // Pairs /x with /ar/x and adds hreflang alternates to both entries.
+      i18n: { defaultLocale: "en", locales: { en: "en", ar: "ar" } },
     }),
   ],
   vite: {

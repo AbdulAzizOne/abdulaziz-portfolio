@@ -1,0 +1,143 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LogoMarquee from "../../components/LogoMarquee.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import { projects } from "../../data/projects";
+
+// Same person as the English home page (@id), described in Arabic.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://abdulazizabudhair.com/#person",
+  "name": "عبدالعزيز أبو ضهير",
+  "alternateName": ["Abdulaziz Abu Dhair", "عبد العزيز أبو ضهير", "Abdulaziz Abudhair"],
+  "jobTitle": "مصمم منتجات أول (UX/UI)",
+  "image": "https://abdulazizabudhair.com/assets/img/abdulaziz-portrait-v4-960.webp",
+  "url": "https://abdulazizabudhair.com/ar",
+  "email": "mailto:abdulaziz.abudhair@gmail.com",
+  "telephone": "+970599835978",
+  "sameAs": [
+    "https://linkedin.com/in/abdulaziz-abudhair",
+    "https://www.behance.net/abdulazizabudhair",
+    "https://www.upwork.com/freelancers/~01608bf0df4b2dc6fd"
+  ]
+};
+---
+<Layout
+  title="عبدالعزيز أبو ضهير — مصمم منتجات أول (UX/UI)"
+  description="مصمم منتجات أول بخبرة تزيد على 15 عامًا في تصميم منتجات المؤسسات والرعاية الصحية والسفر والتقنية المالية، لفرق البحث والتطوير في شركات Fortune 500 وللشركات الناشئة."
+  path="/ar"
+  alternate="/"
+  lang="ar"
+  jsonLd={jsonLd}
+  home
+>
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__inner">
+      <h1 class="hero__title" id="hero-title">تصميم يجمع بين <em>سلوك الإنسان</em> وأهداف العمل.</h1>
+      <p class="hero__lead">أكثر من 15 عامًا في تصميم المنتجات لشركات Fortune 500 والشركات الناشئة — أحوّل المشكلات المعقدة إلى منتجات يرغب الناس فعلًا في استخدامها.</p>
+      <ul class="chips" aria-label="أبرز المؤهلات">
+        <li class="chip">حاصل على شهادة Google في تصميم تجربة المستخدم</li>
+        <li class="chip">محاضر جامعي في UX/UI</li>
+      </ul>
+      <div class="hero__actions">
+        <a class="btn" href="#case-studies">تصفّح دراسات الحالة</a>
+        <a class="btn btn--dark" href="#contact">لنتحدث</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients -->
+<section class="clients" aria-labelledby="clients-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="clients-title">العملاء والشركاء</h2>
+    <p class="clients__intro">فرق صمّمتُ لها — من برمجيات المؤسسات والبنوك وأسواق المال إلى الرعاية الصحية والسفر والتجارة الإلكترونية والاتصالات والخدمات اللوجستية. ولا يزال عدد من المشاريع العالمية خاضعًا لاتفاقيات عدم الإفصاح.</p>
+    <LogoMarquee lang="ar" />
+  </div>
+</section>
+
+<!-- Case studies -->
+<section class="band band--light" id="case-studies" aria-labelledby="case-studies-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title" id="case-studies-title">أربع مشكلات تستحق أن أحدّثك عنها</h2>
+      <p class="section-sub">كل مشروع هنا عمل حقيقي مع مستخدمين حقيقيين — من نظام تدير به العيادات يومها كاملًا، إلى تطبيق تبرعات يعمل في فعاليات حقيقية، ومتجر يبيع في ثلاث مناطق. وكل دراسة حالة تشرح التفكير الذي يقف وراء التصميم، لا الشاشات وحدها. دراسات الحالة متاحة حاليًا بالإنجليزية.</p>
+    </div>
+
+    <ol class="showcases">
+      {projects.map((project, i) => <ProjectCard project={project} index={i + 1} lang="ar" />)}
+    </ol>
+  </div>
+</section>
+
+<!-- About (with Beyond design) -->
+<section class="band band--alt" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about">
+      <figure class="about__photo reveal">
+        <img src="/assets/img/abdulaziz-portrait-v4-480.webp" srcset="/assets/img/abdulaziz-portrait-v4-480.webp 480w, /assets/img/abdulaziz-portrait-v4-960.webp 960w" sizes="(min-width: 961px) 420px, (min-width: 721px) 300px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="صورة شخصية لعبدالعزيز أبو ضهير">
+      </figure>
+      <div class="about__body reveal">
+        <h2 class="section-title" id="about-title">نبذة عني</h2>
+        <div class="about__bio">
+          <p class="about__lead">أنا عبدالعزيز — مصمم منتجات أول، أعيش في نابلس، فلسطين.</p>
+          <p>بدأتُ في التصميم المطبوع، أصمّم الهويات البصرية والتقارير السنوية، ثم انتقلتُ إلى تصميم المنتجات الرقمية عام 2011 في شركة EXALT Technologies. وعلى مدى قرابة 13 عامًا هناك، تدرّجتُ من مصمم واجهات إلى مصمم UX/UI الوحيد في الشركة، مسؤولًا عن التصميم من البداية إلى النهاية لعملاء مؤسسيين عالميين وشركات ناشئة — من برمجيات تشغيل الطابعات الصناعية الكبيرة إلى التطبيقات الطبية المعقدة.</p>
+          <p>ومنذ عام 2023 أعمل مستقلًا مع شركات ناشئة وفرق منتجات في الرعاية الصحية والسفر والتجارة الإلكترونية والتقنية المالية والقطاع العام — وبشكل متزايد على منتجات يؤدي فيها الذكاء الاصطناعي جزءًا من العمل ويبقى القرار فيها للإنسان. أتعلّم المجال قبل أن أثق بحدسي، وأعمل عن قرب مع أصحاب القرار والمطورين، وأسلّم أنظمة تصميم متكاملة، لا شاشات فقط.</p>
+        </div>
+        <dl class="about__facts">
+          <div><dt>المكان</dt><dd>نابلس، فلسطين</dd></div>
+          <div><dt>الخبرة</dt><dd>أكثر من 15 عامًا، منها أكثر من 12 عامًا في EXALT Technologies</dd></div>
+          <div><dt>التعليم</dt><dd>بكالوريوس التصميم الجرافيكي، جامعة النجاح الوطنية</dd></div>
+          <div><dt>الشهادات</dt><dd>شهادة Google في تصميم تجربة المستخدم</dd></div>
+          <div><dt>اللغات</dt><dd>العربية (اللغة الأم)، والإنجليزية (بطلاقة)</dd></div>
+          <div><dt>الأدوات</dt><dd>Figma وAdobe Illustrator وPhotoshop وInDesign وأدوات الذكاء الاصطناعي</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="about__beyond">
+      <h3 class="about__subtitle reveal" id="beyond-design">ما وراء التصميم</h3>
+      <p class="section-sub reveal">تدريس التصميم وتقييمه يُبقيان طريقتي في العمل صادقة — إنه الجزء من عملي الذي لا يظهر في ملف Figma.</p>
+    <ul class="roles">
+      <li class="role-card reveal">
+        <p class="role-card__kicker">محاضر في التصميم الجرافيكي وUX/UI</p>
+        <h4 class="role-card__title">جامعة النجاح الوطنية</h4>
+        <p class="role-card__text">درّستُ التصميم الجرافيكي وUX/UI لطلبة البكالوريوس، ونقلتُ إلى القاعة المنهجية نفسها التي أعمل بها مع العملاء.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">شهادة تقدير</p>
+        <h4 class="role-card__title">معرض TEDI Najah Expo</h4>
+        <p class="role-card__text">تقديرًا لإرشاد الطلبة في مشاريع تخرجهم.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">مقيّم خارجي لمشاريع UX/UI</p>
+        <h4 class="role-card__title">جامعة بيرزيت · 2023–2026</h4>
+        <p class="role-card__text">قيّمتُ مشاريع UX/UI لطلبة التخرج ثلاث سنوات متتالية.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">مدرّب ورشة الذكاء الاصطناعي في التصميم</p>
+        <h4 class="role-card__title">تدريب مستقل</h4>
+        <p class="role-card__text">درّبتُ مصممين على الذكاء الاصطناعي التوليدي وهندسة الأوامر كجزء من طريقة عمل حديثة في التصميم.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">لجنة تطوير المناهج</p>
+        <h4 class="role-card__title">جامعة النجاح الوطنية</h4>
+        <p class="role-card__text">عضو في اللجنة التي ترسم كيف يُدرَّس UX/UI للجيل القادم من المصممين.</p>
+      </li>
+      <li class="role-card reveal">
+        <p class="role-card__kicker">مرشد UX/UI</p>
+        <h4 class="role-card__title">Startup Weekend، نابلس</h4>
+        <p class="role-card__text">أرشدتُ فرق الشركات الناشئة في استراتيجية تجربة المستخدم ومسارات الاستخدام وتصميم الواجهات.</p>
+      </li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<Testimonials band="light" lang="ar" />
+
+</Layout>

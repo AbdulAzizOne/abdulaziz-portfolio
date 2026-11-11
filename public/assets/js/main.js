@@ -11,7 +11,7 @@
   if (toggle && nav) {
     const setOpen = (open) => {
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggle.setAttribute("aria-label", (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) || (open ? "Close menu" : "Open menu"));
       nav.classList.toggle("is-open", open);
     };
 
@@ -104,7 +104,7 @@
       toggle.addEventListener("click", () => {
         const paused = marquee.classList.toggle("is-paused");
         toggle.setAttribute("aria-pressed", String(paused));
-        if (toggleLabel) toggleLabel.textContent = paused ? "Play logos" : "Pause logos";
+        if (toggleLabel) toggleLabel.textContent = (paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause) || (paused ? "Play logos" : "Pause logos");
       });
     }
   }
