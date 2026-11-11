@@ -21,8 +21,10 @@ export interface Project {
   /** "wide": one screenshot; "tablets": three portrait screens side by side. */
   layout: "wide" | "tablets";
   images: ProjectImage[];
-  /** Arabic card text for /ar; `alts` follow the order of `images`. */
+  /** Arabic card text for /ar; `alts` follow the order of `images`.
+      `page`: the case study also exists in Arabic, at /ar/work/<page>. */
   ar?: {
+    page?: boolean;
     eyebrow: string;
     subtitle: string;
     summary: string;
@@ -31,6 +33,10 @@ export interface Project {
     alts: string[];
   };
 }
+
+/** Case-study URL in the given language: Arabic when that version exists, else English. */
+export const caseHref = (project: Project, lang: "en" | "ar" = "en") =>
+  lang === "ar" && project.ar?.page ? `/ar/work/${project.page}` : `/work/${project.page}`;
 
 /** Home-page case studies, in display order (numbered 01, 02, … from this order). */
 export const projects: Project[] = [
@@ -152,6 +158,7 @@ export const projects: Project[] = [
     outcome: "Both sides live in beta with real travelers and agents",
     layout: "wide",
     ar: {
+      page: true,
       eyebrow: "تقنيات السفر · للمسافرين والشركات",
       subtitle: "منصة سفر واحدة بوجهين — للمسافرين ولوكلاء السفر",
       summary: "مجتمع للمسافرين فيه تخطيط للرحلات بالذكاء الاصطناعي وخبراء سفر حقيقيون، ومساحة عمل للوكلاء تجمع الحجز ومسار المبيعات (CRM) ومساعد Ask Genie الذكي — صُمّمت كلها كنظام واحد من البداية إلى النهاية.",

@@ -9,9 +9,14 @@ interface Props {
 }
 const { band = "alt", lang = "en" } = Astro.props;
 const t = ui[lang];
-// Quotes stay in the words they were given, so on Arabic pages they are
-// marked as English and keep their own direction.
-const quoteLang = lang === "en" ? undefined : "en";
+// On Arabic pages, the translation where there is one (the section intro says
+// so); a quote without one stays in English, marked as such.
+const items = testimonials.map((q) => {
+  const tr = lang === "ar" ? q.ar : undefined;
+  return { ...q, ...tr, original: lang === "ar" && !tr ? "en" : undefined };
+});
+// Arabic quotation marks for translated quotes.
+const marks = (original?: string) => (lang === "ar" && !original ? ["«", "»"] : ["“", "”"]);
 ---
 <section class={`band band--${band}`} id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
@@ -20,11 +25,11 @@ const quoteLang = lang === "en" ? undefined : "en";
       <p class="section-sub">{t.testimonialsSub}</p>
     </div>
     <ul class="quotes">
-      {testimonials.map((t) => (
+      {items.map((q) => (
         <li class="reveal">
-          <figure class="quote" lang={quoteLang} dir={quoteLang && "ltr"}>
-            <blockquote><p>“{t.quote.replace(/\s*\n\s*/g, " ")}”</p></blockquote>
-            <figcaption><cite>{t.name}</cite><span>{t.role}</span></figcaption>
+          <figure class="quote" lang={q.original} dir={q.original && "ltr"}>
+            <blockquote><p>{marks(q.original)[0]}{q.quote.replace(/\s*\n\s*/g, " ")}{marks(q.original)[1]}</p></blockquote>
+            <figcaption><cite>{q.name}</cite><span>{q.role}</span></figcaption>
           </figure>
         </li>
       ))}

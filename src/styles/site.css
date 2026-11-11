@@ -995,15 +995,16 @@ button { font: inherit; color: inherit; }
    capitals: labels that are spaced and uppercase in English are neither here. */
 :root:lang(ar) body * { letter-spacing: 0 !important; text-transform: none !important; }
 /* The small mono labels become small Arabic labels: a touch larger and bolder. */
-:root:lang(ar) :is(.chip, .showcase__meta dt, .about__facts dt, .role-card__kicker) { font-size: 0.875rem; font-weight: 600; }
+:root:lang(ar) :is(.chip, .showcase__meta dt, .about__facts dt, .role-card__kicker, .case__meta dt, .cs-eyebrow, .next-project__kicker) { font-size: 0.875rem; font-weight: 600; }
 /* Naskh has tall ascenders and dots below the line: open up tight headings. */
-:root:lang(ar) :is(.hero__title, .section-title, .showcase__title, .about__subtitle, .role-card__title) { line-height: 1.45; }
+:root:lang(ar) :is(.hero__title, .section-title, .showcase__title, .about__subtitle, .role-card__title, .case__title, .cs-title, .next-project__title) { line-height: 1.45; }
 :root:lang(ar) .showcase__title span { line-height: 1.5; }
-:root:lang(ar) :is(.hero__lead, .section-sub, .clients__intro, .showcase__text, .about__bio p, .role-card__text) { line-height: 1.75; }
+:root:lang(ar) :is(.hero__lead, .section-sub, .clients__intro, .showcase__text, .about__bio p, .role-card__text, .prose, .cs-lead) { line-height: 1.75; }
 
 /* Mirror the motion that points forward and the hover underline. */
 [dir="rtl"] .nav__link { background-position: 100% 100%; }
 [dir="rtl"] .showcase:hover .showcase__link span { transform: translateX(-4px); }
+[dir="rtl"] .next-project__link:hover .next-project__kicker span { transform: translateX(-6px); }
 
 /* The link to the other language: a quieter nav item. */
 .lang-switch { color: var(--ink-brown); }

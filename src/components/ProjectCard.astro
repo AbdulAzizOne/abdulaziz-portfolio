@@ -1,5 +1,5 @@
 ---
-import type { Project } from "../data/projects";
+import { type Project, caseHref } from "../data/projects";
 import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
@@ -12,10 +12,13 @@ interface Props {
 const { project, index, lang = "en" } = Astro.props;
 const num = String(index).padStart(2, "0");
 const t = ui[lang];
-// Arabic text where it exists; the case studies themselves are English only.
+// Arabic text where it exists.
 const tr = lang === "ar" ? project.ar : undefined;
 const text = { ...project, ...tr };
 const alts = tr?.alts ?? [];
+const href = caseHref(project, lang);
+// Arabic card pointing at the English case study: say so, and mark the link.
+const toEnglish = lang === "ar" && !project.ar?.page;
 ---
 <li class="showcase reveal" id={project.id}>
   <div class:list={["showcase__media", { "showcase__media--tablets": project.layout === "tablets" }]}>
@@ -32,6 +35,6 @@ const alts = tr?.alts ?? [];
       <div><dt>{t.role}</dt><dd>{text.role}</dd></div>
       <div><dt>{t.outcome}</dt><dd>{text.outcome}</dd></div>
     </dl>
-    <a class="showcase__link" href={`/work/${project.page}`} hreflang={lang === "ar" ? "en" : undefined}>{t.readCase} <span aria-hidden="true">{t.arrow}</span><span class="visually-hidden">: {project.title}</span></a>
+    <a class="showcase__link" href={href} hreflang={toEnglish ? "en" : undefined}>{toEnglish ? t.readCaseEnglish : t.readCase} <span aria-hidden="true">{t.arrow}</span><span class="visually-hidden">: {project.title}</span></a>
   </div>
 </li>
