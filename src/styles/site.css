@@ -715,6 +715,33 @@ button { font: inherit; color: inherit; }
   color: var(--footer-ink);
 }
 .site-footer a { color: inherit; text-decoration: none; }
+/* Contact: the page's closing call to action, above the link row. */
+.contact {
+  padding-block: clamp(64px, 8vw, 112px) clamp(48px, 6vw, 80px);
+  border-bottom: 1px solid var(--footer-line);
+}
+.contact__title {
+  max-width: 18ch;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.125rem, 4.6vw, 3.75rem);
+  line-height: 1.08;
+  color: var(--footer-ink);
+}
+.contact__text {
+  max-width: 56ch;
+  margin-top: 24px;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.45;
+  color: var(--footer-muted);
+}
+.contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+.site-footer .contact__btn { gap: 12px; min-height: 60px; padding-inline: 28px; border-color: var(--surface); color: var(--ink); }
+.site-footer .contact__btn:hover { background: var(--gold-logo); border-color: var(--gold-logo); }
+.site-footer .contact__btn--ghost { background: transparent; border-color: rgb(236 234 228 / 0.4); color: var(--footer-ink); }
+.site-footer .contact__btn--ghost:hover { background: transparent; border-color: var(--footer-ink); }
+.contact__btn .icon-brand { width: 20px; height: 20px; flex: none; }
+.contact__btn--ghost .icon-brand { color: var(--gold-logo); }
 .site-footer__main {
   display: flex;
   flex-wrap: wrap;
@@ -757,6 +784,7 @@ button { font: inherit; color: inherit; }
 .site-footer__top { transition: color 0.3s ease; }
 .site-footer__top:hover { color: var(--footer-ink); }
 @media (max-width: 720px) {
+  .contact__actions .btn { flex: 1 1 100%; }
   .site-footer__main { flex-direction: column; text-align: center; }
   .site-footer__links { justify-content: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; }
@@ -999,6 +1027,8 @@ button { font: inherit; color: inherit; }
 /* Naskh has tall ascenders and dots below the line: open up tight headings. */
 :root:lang(ar) :is(.hero__title, .section-title, .showcase__title, .about__subtitle, .role-card__title, .case__title, .cs-title, .next-project__title) { line-height: 1.45; }
 :root:lang(ar) .showcase__title span { line-height: 1.5; }
+:root:lang(ar) .contact__title { line-height: 1.45; max-width: 20ch; }
+:root:lang(ar) .contact__text { line-height: 1.75; }
 :root:lang(ar) :is(.hero__lead, .section-sub, .clients__intro, .showcase__text, .about__bio p, .role-card__text, .prose, .cs-lead) { line-height: 1.75; }
 
 /* Short English phrases quoted in Arabic text (<bdi>): keep each on one line
