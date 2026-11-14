@@ -742,6 +742,25 @@ button { font: inherit; color: inherit; }
 .site-footer .contact__btn--ghost:hover { background: transparent; border-color: var(--footer-ink); }
 .contact__btn .icon-brand { width: 20px; height: 20px; flex: none; }
 .contact__btn--ghost .icon-brand { color: var(--gold-logo); }
+/* Two levels only: Email (with its Copy segment) is the primary, filled
+   action; WhatsApp is the secondary, outlined one. Same height, icon size
+   and gap on all three, so labels share one baseline. */
+.contact__email { display: inline-flex; }
+.site-footer .contact__copy {
+  gap: 8px;
+  /* Wide enough for "Copied" too, so the swap doesn't shift WhatsApp. */
+  min-width: 8.5rem;
+  padding-inline: 20px;
+  border-inline-start-color: rgb(31 27 18 / 0.16);
+  background: var(--surface);
+  cursor: pointer;
+}
+.site-footer .contact__copy[hidden] { display: none; }
+.contact__copy-icon, .contact__check-icon { width: 20px; height: 20px; flex: none; }
+.contact__check-icon,
+.contact__copy.is-copied .contact__copy-icon { display: none; }
+.contact__copy.is-copied .contact__check-icon { display: block; }
+.contact__btn:focus-visible { outline-color: var(--gold-logo); outline-offset: 3px; position: relative; z-index: 1; }
 .site-footer__main {
   display: flex;
   flex-wrap: wrap;
@@ -784,7 +803,8 @@ button { font: inherit; color: inherit; }
 .site-footer__top { transition: color 0.3s ease; }
 .site-footer__top:hover { color: var(--footer-ink); }
 @media (max-width: 720px) {
-  .contact__actions .btn { flex: 1 1 100%; }
+  .contact__actions > .btn, .contact__email { flex: 1 1 100%; }
+  .contact__email > .contact__btn:first-child { flex: 1 1 auto; }
   .site-footer__main { flex-direction: column; text-align: center; }
   .site-footer__links { justify-content: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; }
