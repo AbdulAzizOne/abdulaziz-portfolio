@@ -1,43 +1,35 @@
 ---
 import { testimonials } from "../data/testimonials";
 import { type Lang, ui } from "../i18n/ui";
-import FeaturedQuote from "./FeaturedQuote.astro";
 
 interface Props {
+  /** Background band; alternates with the section above it. */
+  band?: "light" | "alt";
   lang?: Lang;
-  /** "inline": the featured quote opens this section. "none": the page shows it elsewhere (home). */
-  featured?: "inline" | "none";
 }
-const { lang = "en", featured = "inline" } = Astro.props;
+const { band = "alt", lang = "en" } = Astro.props;
 const t = ui[lang];
 // On Arabic pages, the translation where there is one (the section intro says
 // so); a quote without one stays in English, marked as such.
-const items = testimonials
-  .filter((q) => !q.featured)
-  .map((q) => {
-    const tr = lang === "ar" ? q.ar : undefined;
-    const name = tr?.name ?? q.name;
-    return { ...q, ...tr, name, initials: name.split(/\s+/).map((w) => w[0]).slice(0, 2).join(""), original: lang === "ar" && !tr ? "en" : undefined };
-  });
+const items = testimonials.map((q) => {
+  const tr = lang === "ar" ? q.ar : undefined;
+  return { ...q, ...tr, original: lang === "ar" && !tr ? "en" : undefined };
+});
+// Arabic quotation marks for translated quotes.
+const marks = (original?: string) => (lang === "ar" && !original ? ["«", "»"] : ["“", "”"]);
 ---
-<section class="band band--sage" id="testimonials" aria-labelledby="testimonials-title">
+<section class={`band band--${band}`} id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
     <div class="section-head section-head--tight reveal">
-      <p class="eyebrow">{t.testimonialsEyebrow}</p>
       <h2 class="section-title" id="testimonials-title">{t.testimonialsTitle}</h2>
       <p class="section-sub">{t.testimonialsSub}</p>
     </div>
-    {featured === "inline" && <div class="reveal"><FeaturedQuote lang={lang} tone="light" /></div>}
     <ul class="quotes">
       {items.map((q) => (
         <li class="reveal">
           <figure class="quote" lang={q.original} dir={q.original && "ltr"}>
-            <span class="quote__mark" aria-hidden="true">“</span>
-            <blockquote><p>{q.quote.replace(/\s*\n\s*/g, " ")}</p></blockquote>
-            <figcaption class="quote-person">
-              <span class="quote-person__avatar" aria-hidden="true">{q.initials}</span>
-              <span><cite>{q.name}</cite><span>{q.role}</span></span>
-            </figcaption>
+            <blockquote><p>{marks(q.original)[0]}{q.quote.replace(/\s*\n\s*/g, " ")}{marks(q.original)[1]}</p></blockquote>
+            <figcaption><cite>{q.name}</cite><span>{q.role}</span></figcaption>
           </figure>
         </li>
       ))}

@@ -19,32 +19,22 @@ const alts = tr?.alts ?? [];
 const href = caseHref(project, lang);
 // Arabic card pointing at the English case study: say so, and mark the link.
 const toEnglish = lang === "ar" && !project.ar?.page;
-const tablets = project.layout === "tablets";
-// Tablet apps show two screens in device frames; web apps one screenshot.
-const shots = (tablets ? project.images.slice(0, 2) : project.images.slice(0, 1)).map((img, i) => ({ ...img, alt: alts[i] ?? img.alt }));
-const sizes = tablets ? "(min-width: 961px) 200px, 30vw" : "(min-width: 1448px) 570px, (min-width: 961px) 40vw, 86vw";
 ---
-<li class="work-card reveal" id={project.id} style={`--tint: ${project.tint}`}>
-  <div class:list={["work-card__media", { "work-card__media--tablets": tablets }]} dir="ltr">
-    <span class="work-card__num" aria-hidden="true">{num} /</span>
-    {shots.map((img) => tablets ? (
-      <span class="work-card__device"><img src={img.src} srcset={img.srcset} sizes={sizes} width={img.width} height={img.height} loading="lazy" decoding="async" alt={img.alt}></span>
-    ) : (
-      <img src={img.src} srcset={img.srcset} sizes={sizes} width={img.width} height={img.height} loading="lazy" decoding="async" alt={img.alt}>
+<li class="showcase reveal" id={project.id}>
+  <div class:list={["showcase__media", { "showcase__media--tablets": project.layout === "tablets" }]}>
+    {project.images.map((img, i) => (
+      <img src={img.src} srcset={img.srcset} sizes={img.sizes} width={img.width} height={img.height} loading="lazy" decoding="async" alt={alts[i] ?? img.alt}>
     ))}
   </div>
-  <div class="work-card__body">
-    <div class="work-card__head">
-      {/* The title link covers the whole card (::after). */}
-      <h3 class="work-card__title"><a class="work-card__link" href={href} hreflang={toEnglish ? "en" : undefined}>{project.title}{toEnglish && <span class="visually-hidden">{t.inEnglish}</span>}</a></h3>
-      <span class="work-card__arrow" aria-hidden="true">{t.arrowOut}</span>
-    </div>
-    <p class="work-card__eyebrow">{text.eyebrow}</p>
-    <p class="work-card__subtitle">{text.subtitle}</p>
-    <p class="work-card__text">{text.summary}</p>
-    <dl class="work-card__meta">
-      <div><dt class="visually-hidden">{t.role}</dt><dd>{text.role}</dd></div>
-      <div class="work-card__status"><dt class="visually-hidden">{t.outcome}</dt><dd>{text.outcome}</dd></div>
+  <div class="showcase__body">
+    <p class="case__num" aria-hidden="true">{num}</p>
+    <p class="case__eyebrow">{text.eyebrow}</p>
+    <h3 class="showcase__title">{project.title} <span>{text.subtitle}</span></h3>
+    <p class="showcase__text">{text.summary}</p>
+    <dl class="showcase__meta">
+      <div><dt>{t.role}</dt><dd>{text.role}</dd></div>
+      <div><dt>{t.outcome}</dt><dd>{text.outcome}</dd></div>
     </dl>
+    <a class="showcase__link" href={href} hreflang={toEnglish ? "en" : undefined}>{toEnglish ? t.readCaseEnglish : t.readCase} <span aria-hidden="true">{t.arrow}</span><span class="visually-hidden">: {project.title}</span></a>
   </div>
 </li>
