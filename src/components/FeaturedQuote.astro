@@ -1,0 +1,30 @@
+---
+import { testimonials } from "../data/testimonials";
+import { type Lang, ui } from "../i18n/ui";
+
+interface Props {
+  lang?: Lang;
+  /** "dark" on the forest band (home), "light" at the top of the testimonials. */
+  tone?: "dark" | "light";
+}
+const { lang = "en", tone = "dark" } = Astro.props;
+const t = ui[lang];
+const q = testimonials.find((x) => x.featured);
+const tr = lang === "ar" ? q?.ar : undefined;
+const quote = (tr?.quote ?? q?.quote ?? "").replace(/\s*\n\s*/g, " ");
+const highlight = (tr ? tr.highlight : q?.highlight) ?? "";
+const [before, after = ""] = highlight && quote.includes(highlight) ? quote.split(highlight) : [quote];
+const name = tr?.name ?? q?.name ?? "";
+const role = tr?.role ?? q?.role ?? "";
+const initials = name.split(/\s+/).map((w) => w[0]).slice(0, 2).join("");
+---
+{q && (
+  <figure class={`quote-feature quote-feature--${tone}`}>
+    <span class="quote-feature__mark" aria-hidden="true">“</span>
+    <blockquote><p>{before}{highlight && quote.includes(highlight) && <strong>{highlight}</strong>}{after}</p></blockquote>
+    <figcaption class="quote-person">
+      <span class="quote-person__avatar" aria-hidden="true">{initials}</span>
+      <span><cite>{name}</cite><span>{role}{tr && t.quoteTranslated && <> · {t.quoteTranslated}</>}</span></span>
+    </figcaption>
+  </figure>
+)}

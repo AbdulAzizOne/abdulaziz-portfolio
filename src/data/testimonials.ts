@@ -2,8 +2,11 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  /** Shown large on its own; `highlight` is a sentence of the quote set in gold. */
+  featured?: boolean;
+  highlight?: string;
   /** Arabic translation for /ar pages. */
-  ar?: { name: string; quote: string; role: string };
+  ar?: { name: string; quote: string; role: string; highlight?: string };
 }
 
 export const testimonials: Testimonial[] = [
@@ -31,7 +34,10 @@ export const testimonials: Testimonial[] = [
     quote: "Abdulaziz is not just a UI/UX designer; he has a unique ability to turn ideas into elegant, intuitive, and meaningful digital experiences.\nHis work stands out through its attention to detail, creative thinking, and deep understanding of how users interact with products.\nSimply put, Abdulaziz designs experiences that people don’t just use — they remember.",
     name: "Tareq Nassif",
     role: "Founder, RIS Enterprise Solutions",
+    featured: true,
+    highlight: "Simply put, Abdulaziz designs experiences that people don’t just use — they remember.",
     ar: {
+      highlight: "باختصار، يصمم عبدالعزيز تجارب لا يكتفي الناس باستخدامها — بل يتذكرونها.",
       name: "طارق ناصيف",
       quote: "عبدالعزيز ليس مجرد مصمم UI/UX؛ فلديه قدرة فريدة على تحويل الأفكار إلى تجارب رقمية أنيقة وسهلة الاستخدام وذات معنى. يتميز عمله بالاهتمام بالتفاصيل، والتفكير الإبداعي، والفهم العميق لطريقة تفاعل المستخدمين مع المنتجات. باختصار، يصمم عبدالعزيز تجارب لا يكتفي الناس باستخدامها — بل يتذكرونها.",
       role: "مؤسس RIS Enterprise Solutions",

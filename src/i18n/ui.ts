@@ -11,6 +11,7 @@ export const dir: Record<Lang, "ltr" | "rtl"> = { en: "ltr", ar: "rtl" };
 export const ui = {
   en: {
     name: "Abdulaziz Abu Dhair",
+    tagline: "Senior Product Designer",
     homeLabel: "Abdulaziz Abu Dhair — home",
     skipLink: "Skip to content",
     navWork: "Work",
@@ -23,7 +24,9 @@ export const ui = {
     switchLabel: "العربية",
     switchAria: "اقرأ الموقع بالعربية",
     contact: "Contact",
-    contactTitle: "Have a product to design? Let’s talk.",
+    contactEyebrow: "Good products start with a conversation",
+    contactTitle: "Have a product to design?",
+    contactTitleEm: "Let’s talk.",
     contactText: "I work with startups and product teams on new products and redesigns — from a single flow to the whole system. Tell me what you’re building.",
     contactEmail: "Email me",
     copyEmail: "Copy",
@@ -52,11 +55,16 @@ export const ui = {
     arrowBack: "←",
     /** Arrow that points "forward" in the reading direction. */
     arrow: "→",
+    /** Arrow on a card that opens another page. */
+    arrowOut: "↗",
+    testimonialsEyebrow: "In good company",
     testimonialsTitle: "What people say",
+    quoteTranslated: "",
     testimonialsSub: "A few words from the people I've had the pleasure of working with.",
   },
   ar: {
     name: "عبدالعزيز أبو ضهير",
+    tagline: "مصمم منتجات أول",
     homeLabel: "عبدالعزيز أبو ضهير — الصفحة الرئيسية",
     skipLink: "تخطَّ إلى المحتوى",
     navWork: "أعمالي",
@@ -68,7 +76,9 @@ export const ui = {
     switchLabel: "English",
     switchAria: "Read the site in English",
     contact: "تواصل معي",
-    contactTitle: "عندك منتج يحتاج إلى تصميم؟ لنتحدث.",
+    contactEyebrow: "المنتجات الجيدة تبدأ بمحادثة",
+    contactTitle: "عندك منتج يحتاج إلى تصميم؟",
+    contactTitleEm: "لنتحدث.",
     contactText: "أعمل مع الشركات الناشئة وفرق المنتجات على منتجات جديدة وعلى إعادة تصميم القائم منها — من مسار واحد إلى النظام كاملًا. أخبرني بما تبنيه.",
     contactEmail: "راسلني بالبريد الإلكتروني",
     copyEmail: "نسخ",
@@ -94,7 +104,10 @@ export const ui = {
     backToWork: "العودة إلى الأعمال",
     arrowBack: "→",
     arrow: "←",
+    arrowOut: "↖",
+    testimonialsEyebrow: "بكلماتهم",
     testimonialsTitle: "ماذا يقولون عني",
+    quoteTranslated: "ترجمة عن الإنجليزية",
     testimonialsSub: "كلمات من أشخاص سعدتُ بالعمل معهم — ترجمة عربية لكلماتهم الأصلية بالإنجليزية.",
   },
 } as const;

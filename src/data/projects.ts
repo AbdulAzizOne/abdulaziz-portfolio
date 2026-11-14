@@ -18,8 +18,10 @@ export interface Project {
   summary: string;
   role: string;
   outcome: string;
-  /** "wide": one screenshot; "tablets": three portrait screens side by side. */
+  /** "wide": one screenshot; "tablets": portrait screens in device frames. */
   layout: "wide" | "tablets";
+  /** Soft background behind the card image, taken from the product's own colour. */
+  tint: string;
   images: ProjectImage[];
   /** Arabic card text for /ar; `alts` follow the order of `images`.
       `page`: the case study also exists in Arabic, at /ar/work/<page>. */
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     role: "UX/UI Designer, solo end-to-end",
     outcome: "Live and in daily use in real clinics",
     layout: "wide",
+    tint: "#dbeae6",
     ar: {
       page: true,
       eyebrow: "الرعاية الصحية · إدارة العيادات",
@@ -80,6 +83,7 @@ export const projects: Project[] = [
     role: "UX/UI Designer, solo end-to-end",
     outcome: "Live on the App Store, in use at real events",
     layout: "tablets",
+    tint: "#e6e2f1",
     ar: {
       page: true,
       eyebrow: "تطبيق تابلت · جمع التبرعات",
@@ -130,6 +134,7 @@ export const projects: Project[] = [
     role: "UX/UI Designer",
     outcome: "Redesign now live",
     layout: "wide",
+    tint: "#efe7d2",
     ar: {
       page: true,
       eyebrow: "تجارة إلكترونية · إعادة تصميم لرفع المبيعات",
@@ -160,6 +165,7 @@ export const projects: Project[] = [
     role: "Lead UX/UI Designer, solo end-to-end",
     outcome: "Both sides live in beta with real travelers and agents",
     layout: "wide",
+    tint: "#dde8f4",
     ar: {
       page: true,
       eyebrow: "تقنيات السفر · للمسافرين والشركات",
