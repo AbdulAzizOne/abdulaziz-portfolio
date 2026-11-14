@@ -109,6 +109,33 @@
     }
   }
 
+  // Copy email: revealed only where the Clipboard API is available.
+  const copyBtn = document.querySelector("[data-copy]");
+  if (copyBtn && navigator.clipboard && window.isSecureContext) {
+    const label = copyBtn.querySelector("[data-copy-label]");
+    const status = document.querySelector("[data-copy-status]");
+    const original = label ? label.textContent : "";
+    let timer;
+    copyBtn.hidden = false;
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(copyBtn.dataset.copy);
+      } catch {
+        return;
+      }
+      const done = copyBtn.dataset.labelCopied || "Copied";
+      copyBtn.classList.add("is-copied");
+      if (label) label.textContent = done;
+      if (status) status.textContent = done;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        copyBtn.classList.remove("is-copied");
+        if (label) label.textContent = original;
+        if (status) status.textContent = "";
+      }, 2000);
+    });
+  }
+
   // Reveal on scroll
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const targets = document.querySelectorAll(".reveal");

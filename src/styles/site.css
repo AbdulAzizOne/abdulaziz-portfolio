@@ -742,6 +742,25 @@ button { font: inherit; color: inherit; }
 .site-footer .contact__btn--ghost:hover { background: transparent; border-color: var(--footer-ink); }
 .contact__btn .icon-brand { width: 20px; height: 20px; flex: none; }
 .contact__btn--ghost .icon-brand { color: var(--gold-logo); }
+/* Copy email: a quiet text button beside "Email me", for webmail users. */
+.contact__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 60px;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  font-size: 1rem;
+  color: var(--footer-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.contact__copy[hidden] { display: none; }
+.contact__copy:hover, .contact__copy.is-copied { color: var(--footer-ink); }
+.contact__copy:focus-visible { outline-color: var(--footer-ink); }
+.contact__copy-icon { width: 18px; height: 18px; flex: none; }
+.contact__copy.is-copied .contact__copy-icon { color: var(--gold-logo); }
 .site-footer__main {
   display: flex;
   flex-wrap: wrap;
@@ -785,6 +804,7 @@ button { font: inherit; color: inherit; }
 .site-footer__top:hover { color: var(--footer-ink); }
 @media (max-width: 720px) {
   .contact__actions .btn { flex: 1 1 100%; }
+  .contact__copy { min-height: 44px; margin-block: -8px; justify-content: center; flex: 1 1 100%; }
   .site-footer__main { flex-direction: column; text-align: center; }
   .site-footer__links { justify-content: center; }
   .site-footer__bottom { flex-direction: column; text-align: center; }
