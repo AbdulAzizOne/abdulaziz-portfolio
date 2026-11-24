@@ -3,20 +3,30 @@
    ========================================================================== */
 
 /* ---------- Fonts (self-hosted, latin subset) ---------- */
+/* EN headings — Space Grotesk, variable (weights 500-700) */
 @font-face {
-  font-family: "Inter";
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("/assets/fonts/space-grotesk-variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* EN body — DM Sans, variable (weights 400-600) plus italic (blockquote) */
+@font-face {
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: 400 600;
   font-display: swap;
-  src: url("/assets/fonts/inter-variable.woff2") format("woff2");
+  src: url("/assets/fonts/dm-sans-variable.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "Noto Serif";
-  font-style: normal;
-  font-weight: 500;
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/noto-serif-500.woff2") format("woff2");
+  src: url("/assets/fonts/dm-sans-italic-400.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -30,6 +40,25 @@
 
 /* Arabic (pages under /ar). Arabic glyphs only: Latin text on those pages
    keeps the fonts above, and English pages never download these. */
+/* AR headings — Almarai (Figma's typography frame labels say "Alexandria",
+   but the actual exported font tokens are Almarai: Bold for h2-h4, ExtraBold
+   for display/h1 — treating the tokens, not the label, as source of truth). */
+@font-face {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/almarai-700.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/fonts/almarai-800.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
 @font-face {
   font-family: "IBM Plex Sans Arabic";
   font-style: normal;
@@ -46,43 +75,75 @@
   src: url("/assets/fonts/ibm-plex-sans-arabic-600.woff2") format("woff2");
   unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
 }
-@font-face {
-  font-family: "Noto Naskh Arabic";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/assets/fonts/noto-naskh-arabic-500.woff2") format("woff2");
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
-}
 
 
-/* ---------- Tokens ---------- */
+/* ---------- Tokens (from Figma: Foundations / Colors + Theme token map) ---------- */
 :root {
-  --bg: #f7f6f2;
-  --bg-alt: #eceae4;
-  --bg-contact: #e1dfd6;
-  --bg-footer: #d9d6cd;
-  --line: #dedcd7;
+  /* Primitives — emerald (primary), gold (accent), neutral (surfaces/ink) */
+  --emerald-50: #e9f8f0;  --emerald-100: #d5efe3; --emerald-200: #b8dfcc;
+  --emerald-300: #90c6ad; --emerald-400: #69ab8f; --emerald-500: #448f71;
+  --emerald-600: #2b7257; --emerald-700: #1c5a43; --emerald-800: #144a37;
+  --emerald-900: #0c3a2a; --emerald-950: #05271a;
+  --gold-50: #fbf8ed;  --gold-100: #f5eed7; --gold-200: #e9dcb2;
+  --gold-300: #d7c7a1; --gold-400: #c7ab5a; --gold-500: #b18f3c;
+  --gold-600: #a07d2c; --gold-700: #8b6c28; --gold-800: #705522;
+  --gold-900: #58441f; --gold-950: #33270f;
+  --neutral-50: #f7f6f2;  --neutral-100: #eeede6; --neutral-200: #d9e0d6;
+  --neutral-300: #c0ccc2; --neutral-400: #9fb1a7; --neutral-500: #7f9589;
+  --neutral-600: #60776b; --neutral-700: #485d52; --neutral-800: #35463d;
+  --neutral-900: #27352e; --neutral-950: #1d2622;
 
-  --surface: #fffdf9; /* buttons, chips: a warm white instead of pure #fff */
-  --line-strong: #d3cfc4;
+  /* Semantic tokens — Light mode (the site's default theme) */
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-950);
+  --card: #ffffff;
+  --card-foreground: var(--neutral-950);
+  --popover: #ffffff;
+  --popover-foreground: var(--neutral-950);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-700);
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  --ring: var(--emerald-700);
 
-  /* Warm ink scale, tinted toward the brand brown so text sits naturally on
-     the beige backgrounds. Ratios: on --bg / --bg-alt / --bg-contact. */
-  --ink: #1f1b12;        /* headings      15.9 / 14.3 / 12.9 */
-  --ink-strong: #2e2a21; /* body copy     13.2 / 11.9 / 10.7 */
-  --ink-body: #3d3729;   /* secondary     10.9 /  9.8 /  8.9 */
-  --ink-soft: #51493a;   /* supporting     8.2 /  7.4 /  6.7 */
-  --ink-muted: #5f5745;  /* captions       6.6 /  6.0 /  5.4 */
-  --ink-brown: #433717;
-  --gold: #7a5c14;        /* small text & icons: 5.8 / 5.2 / 4.7 */
-  --gold-bright: #a17300; /* large display text only: 3.9 / 3.5 */
-  --gold-logo: #b18f3c;   /* logo, accents on dark */
-  --btn-dark: #2a2313;    /* warm near-black: white text 15.6:1 */
+  --primary: var(--emerald-900);
+  --primary-foreground: var(--neutral-50);
+  --primary-hover: var(--emerald-700);
+  --secondary: var(--emerald-100);
+  --secondary-foreground: var(--emerald-900);
+  --accent: var(--emerald-50);
+  --accent-foreground: var(--emerald-900);
 
-  --font-serif: "Noto Serif", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --highlight: var(--gold-400);
+  --highlight-foreground: var(--emerald-950);
+  --highlight-hover: var(--gold-300);
+  --highlight-subtle: var(--gold-100);
+  --gold-text: var(--gold-800);
+  --link: var(--emerald-700);
+  --logo-gold: var(--gold-500);
+  --icon: var(--emerald-500);
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  /* Dark green bands within light pages (hero/footer-style sections) —
+     scope .theme-inverse over a band to switch its subtree to these. */
+  --section-dark: var(--emerald-900);
+  --section-dark-foreground: var(--neutral-50);
+  --footer: var(--emerald-950);
+
+  /* Per-project tile backgrounds (home cards, case headers) */
+  --project-crpton: #e7ece5;
+  --project-zenraise: #ebe8f1;
+  --project-alard: #ede8dc;
+  --project-vbooking: #e4eaef;
+  --project-radx: #e6e8f1;
+
+  --font-en-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-en-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: var(--font-en-heading); /* legacy alias during the redesign migration */
+  --font-sans: var(--font-en-body);     /* legacy alias during the redesign migration */
 
   --container: 1368px;
   --gutter: clamp(16px, 4vw, 40px);
@@ -90,9 +151,43 @@
   --header-h: 72px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-soft: 0 1px 2px rgb(67 55 23 / 0.06), 0 18px 40px -22px rgb(67 55 23 / 0.28);
+  --shadow-soft: 0 1px 2px rgb(12 58 42 / 0.06), 0 18px 40px -22px rgb(12 58 42 / 0.28);
 
   color-scheme: light;
+}
+
+/* Dark green bands (hero/contact/footer-style sections) use the Figma
+   "Inverse" token set: same role names, swapped to their inverse values. */
+.theme-inverse {
+  --background: var(--emerald-900);
+  --foreground: var(--neutral-50);
+  --card: var(--neutral-900);
+  --card-foreground: var(--neutral-50);
+  --popover: var(--neutral-900);
+  --popover-foreground: var(--neutral-50);
+  --muted: var(--neutral-900);
+  --muted-foreground: var(--neutral-400);
+  --border: var(--neutral-800);
+  --input: var(--neutral-800);
+  --ring: var(--emerald-400);
+
+  --primary: var(--emerald-200);
+  --primary-foreground: var(--emerald-950);
+  --primary-hover: var(--emerald-100);
+  --secondary: var(--emerald-800);
+  --secondary-foreground: var(--emerald-100);
+  --accent: var(--emerald-900);
+  --accent-foreground: var(--emerald-100);
+
+  --highlight: var(--gold-300);
+  --highlight-foreground: var(--emerald-950);
+  --highlight-hover: var(--gold-200);
+  --highlight-subtle: var(--gold-950);
+  --gold-text: var(--gold-300);
+  --link: var(--emerald-300);
+  --icon: var(--emerald-400);
+
+  color-scheme: dark;
 }
 
 /* ---------- Reset ---------- */
@@ -1034,10 +1129,10 @@ button { font: inherit; color: inherit; }
 /* Arabic fonts first; their unicode-range is Arabic only, so Latin words
    (Figma, UX/UI, client names) still use Inter and Noto Serif. */
 :root:lang(ar) {
-  --font-serif: "Noto Naskh Arabic", "Noto Serif", Georgia, serif;
-  --font-sans: "IBM Plex Sans Arabic", "Inter", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  --font-serif: "Almarai", "DM Sans", system-ui, sans-serif; /* legacy alias: AR headings */
+  --font-sans: "IBM Plex Sans Arabic", "DM Sans", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif; /* legacy alias: AR body */
   /* Arabic has no monospace face: the small labels use the Arabic sans. */
-  --font-mono: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Sans Arabic", "DM Sans", system-ui, sans-serif;
 }
 /* Letter-spacing breaks the joins between Arabic letters, and Arabic has no
    capitals: labels that are spaced and uppercase in English are neither here. */
