@@ -7,17 +7,13 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "Crpton — نقل نظام العيادات من جهاز المكتب إلى أي جهاز",
-    "description": "إعادة بناء نظام عيادات كان حبيس أجهزة المكتب ليصبح تطبيق ويب مع تطبيق جوال مرافق — سجلات المرضى، ومخطط الأسنان، وخطط العلاج، والفواتير.",
+    "name": "Crpton — إخراج نظام العيادة من سطح المكتب",
+    "description": "إعادة بناء نظام عيادة كان مرتبطًا بسطح مكتب واحد كتطبيق ويب وتطبيق جوال مرافق — سجلات المرضى، ومخطط الأسنان، وخطط العلاج، والفوترة.",
     "url": "https://abdulazizabudhair.com/ar/work/crpton",
     "image": "https://abdulazizabudhair.com/assets/img/og-crpton.jpg",
-    "author": {
-      "@type": "Person",
-      "@id": "https://abdulazizabudhair.com/#person",
-      "name": "عبدالعزيز أبو ضهير",
-      "url": "https://abdulazizabudhair.com/ar"
-    },
-    "genre": "الرعاية الصحية، إدارة العيادات",
+    "author": { "@type": "Person", "name": "عبدالعزيز أبو ضهير", "url": "https://abdulazizabudhair.com/ar" },
+    "creator": { "@type": "Person", "name": "عبدالعزيز أبو ضهير", "url": "https://abdulazizabudhair.com/ar" },
+    "genre": "إدارة ممارسات الرعاية الصحية",
     "inLanguage": "ar"
   },
   {
@@ -25,7 +21,7 @@ const jsonLd = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://abdulazizabudhair.com/ar" },
-      { "@type": "ListItem", "position": 2, "name": "الأعمال", "item": "https://abdulazizabudhair.com/ar#case-studies" },
+      { "@type": "ListItem", "position": 2, "name": "أعمالي", "item": "https://abdulazizabudhair.com/ar#work" },
       { "@type": "ListItem", "position": 3, "name": "Crpton", "item": "https://abdulazizabudhair.com/ar/work/crpton" }
     ]
   }
@@ -33,7 +29,7 @@ const jsonLd = [
 ---
 <Layout
   title="Crpton — دراسة حالة · عبدالعزيز أبو ضهير"
-  description="إعادة بناء نظام عيادات كان حبيس أجهزة المكتب ليصبح تطبيق ويب مع تطبيق جوال مرافق — سجلات المرضى، ومخطط الأسنان، وخطط العلاج، والفواتير."
+  description="إعادة بناء نظام عيادة كان مرتبطًا بسطح مكتب واحد، كتطبيق ويب وتطبيق جوال مرافق — سجلات المرضى، ومخطط الأسنان، وخطط العلاج، والفوترة."
   path="/ar/work/crpton"
   alternate="/work/crpton"
   lang="ar"
@@ -41,66 +37,190 @@ const jsonLd = [
   ogImage="og-crpton.jpg"
   jsonLd={jsonLd}
 >
-<article class="band band--light case" aria-labelledby="case-title">
-    <div class="container">
-      <a class="back-link" href="/ar#case-studies"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
-      <header>
-        <p class="case__eyebrow">الرعاية الصحية · إدارة العيادات</p>
-        <h1 class="case__title" id="case-title">Crpton <span>نقل نظام العيادات من جهاز المكتب إلى أي جهاز</span></h1>
-        <dl class="case__meta">
-          <div><dt>الدور</dt><dd>مصمم UX/UI، المصمم الوحيد من البداية إلى النهاية</dd></div>
-          <div><dt>المنصة</dt><dd>تطبيق ويب + تطبيق جوال مرافق</dd></div>
-          <div><dt>الأدوات</dt><dd>Figma</dd></div>
-        </dl>
-      </header>
+<article class="case" aria-labelledby="case-title">
+  <div class="container cs-hero">
+    <a class="back-link text-link" href="/ar/#work"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
+    <p class="cs-hero__eyebrow">دراسة حالة · رعاية صحية · إدارة عيادات</p>
+    <h1 class="cs-hero__title" id="case-title">Crpton</h1>
+    <p class="cs-hero__subtitle">إخراج نظام العيادة من سطح المكتب — برنامج إدارة عيادات كان مرتبطًا بجهاز واحد، أعدنا بناءه كتطبيق ويب يعمل في المتصفح وتطبيق جوال مرافق، ليصل إليه الطبيب وفريق الدعم من أي مكان.</p>
+    <dl class="cs-hero__facts">
+      <div><dt>دوري</dt><dd>مصمم UX/UI، منفردًا من البداية إلى النهاية</dd></div>
+      <div><dt>المنصة</dt><dd>تطبيق ويب + تطبيق جوال مرافق</dd></div>
+      <div><dt>المدة</dt><dd>9 أشهر · مايو 2025 – يناير 2026</dd></div>
+      <div><dt>الحالة</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>يعمل في عيادات حقيقية</dd></div>
+    </dl>
+    <nav class="cs-onthispage" aria-label="في هذه الصفحة">
+      <span class="cs-onthispage__label">في هذه الصفحة</span>
+      <a href="#overview">نظرة عامة</a>
+      <a href="#decisions">القرارات الرئيسية</a>
+      <a href="#before-after">قبل وبعد</a>
+      <a href="#mobile-app">تطبيق الجوال</a>
+      <a href="#outcome">النتيجة</a>
+    </nav>
+  </div>
 
-      <div class="case__media">
-        <img src="/assets/img/crpton-1-1368.webp" srcset="/assets/img/crpton-1-1368.webp 1368w, /assets/img/crpton-1-2736.webp 2736w" sizes="(min-width: 1448px) 1368px, 94vw" width="2736" height="1778" fetchpriority="high" decoding="async" alt="تطبيق Crpton على الويب: تبويب الحسابات المالية لمريض، ويعرض إجمالي الرسوم والدفعات والتأمين والرصيد، مع قائمة قابلة للتوسيع بالعلاجات وتوزيع الدفعات.">
+  <div class="container">
+    <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+      <img src="/assets/img/crpton-cs-hero-1040.webp" srcset="/assets/img/crpton-cs-hero-1040.webp 1040w, /assets/img/crpton-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="659" fetchpriority="high" decoding="async" alt="تطبيق Crpton: تبويب الشؤون المالية لمريض يعرض إجمالي الرسوم والدفعات والتأمين والرصيد.">
+    </div>
+  </div>
+
+  <div class="container cs-section">
+    <p class="fact-card__label">المشروع في لمحة</p>
+    <div class="cs-glance">
+      <div class="fact-card">
+        <p class="fact-card__value">منصتان</p>
+        <p class="fact-card__text">تطبيق ويب يعمل في المتصفح + تطبيق جوال مرافق</p>
       </div>
-
-      <div class="case__body">
-        <div class="prose">
-          <h2>السياق</h2>
-          <p>كان Crpton برنامجًا لإدارة العيادات يُثبَّت على أجهزة الكمبيوتر المكتبية في عيادات الأطباء والمراكز الطبية — يدير المرضى وخطط العلاج والفواتير. وكونه مرتبطًا بجهاز المكتب يعني أنه يعيش على جهاز واحد، في غرفة واحدة.</p>
-          <h2>المشكلة</h2>
-          <p>حين يتعطّل شيء، لم يكن هناك حل سهل. فإما أن يُرسل الدعم الفني شخصًا إلى العيادة، أو يرشد الطبيب عبر مشاركة الشاشة في منتصف يوم العمل — حل بطيء ومُربك، ويعتمد على أن يكون الطبيب متفرغًا له. ولم يكن بالإمكان الوصول إلى البرنامج إلا من ذلك الجهاز، حتى لإلقاء نظرة سريعة بين مريضين.</p>
-          <h2>دوري</h2>
-          <p>مصمم UX/UI، ومسؤول وحدي عن تصميم Crpton الجديد من البداية إلى النهاية — منصة الويب وتطبيق الجوال المرافق لها — من الصفر.</p>
-        </div>
-        <div class="prose">
-          <h2>القرارات الأساسية</h2>
-          <ul>
-            <li>أعدتُ تصميم Crpton كتطبيق ويب يعمل من المتصفح بدل برنامج مثبّت على جهاز المكتب، ليستطيع الطبيب — أو الدعم الفني — فتحه من أي جهاز وفي أي مكان، دون زيارة ميدانية أو جلسة مشاركة شاشة.</li>
-            <li>صمّمتُ تطبيق جوال مرافقًا بصفحة رئيسية مختصرة (المواعيد، والتذكيرات، والتحليلات) وقائمة «<bdi>Hub</bdi>» للوصول السريع، ليطمئن الطبيب على العيادة دون أن يكون على مكتبه أصلًا.</li>
-            <li>جمعتُ سجل كل مريض في ملف واحد بتبويبات — General وDental وFinance وMedical وX-Ray وPrescription وReports وLab — فلا يضطر الطبيب إلى مغادرة ملف المريض لمجرد مراجعة الفواتير أو التاريخ المرضي.</li>
-            <li>صمّمتُ مخطط أسنان تفاعليًا لتخطيط العلاج: يضغط الطبيب على السن، ويحدد الإجراء، فينتقل مباشرة إلى خطة علاج مسعّرة — ليصبح المخطط الذي يُعبّأ عادةً يدويًا سريعًا بما يكفي لاستخدامه بجانب كرسي المريض.</li>
-            <li>صمّمتُ عرضًا ماليًا كاملًا لكل مريض — الرسوم والدفعات والتأمين والرصيد — إلى جانب تحليلات مصاريف العيادة كلها، لتكون الفواتير ومالية العيادة في نظام واحد بدل جدول بيانات أو برنامج محاسبة منفصل.</li>
-            <li>أضفتُ أوضاع الإضاءة الفاتح والداكن والتلقائي، مع إمكانية تكبير النص، لأن العيادات تعمل تحت إضاءات مختلفة، ولأن الطاقم من أعمار متفاوتة يقضون مناوبات طويلة أمام الشاشة.</li>
-          </ul>
-        </div>
+      <div class="fact-card">
+        <p class="fact-card__value">8 تبويبات</p>
+        <p class="fact-card__text">سجل كل مريض كاملًا في ملف واحد</p>
       </div>
-
-      <div class="media-row media-row--crpton">
-        <img src="/assets/img/crpton-2-850.webp" srcset="/assets/img/crpton-2-850.webp 850w, /assets/img/crpton-2-1701.webp 1701w" sizes="(min-width: 1448px) 873px, (min-width: 721px) 60vw, 94vw" width="1701" height="1024" loading="lazy" decoding="async" alt="تبويب الأسنان في Crpton: مخطط أسنان تفاعلي عليه الإجراءات المحددة، بجانب خطة العلاج والعلاجات المتكررة.">
-        <img src="/assets/img/crpton-3-482.webp" srcset="/assets/img/crpton-3-482.webp 482w, /assets/img/crpton-3-965.webp 965w" sizes="(min-width: 1448px) 495px, (min-width: 721px) 34vw, 94vw" width="965" height="1024" loading="lazy" decoding="async" alt="الصفحة الرئيسية لتطبيق Crpton على الجوال بالوضعين الفاتح والداكن، وتعرض سير العمل والمواعيد.">
+      <div class="fact-card">
+        <p class="fact-card__value">يعمل فعليًا</p>
+        <p class="fact-card__text">في استخدام يومي بعيادات حقيقية — لا تجربة أولية</p>
       </div>
-
-      <div class="case__body">
-        <div class="prose">
-          <h2>النتيجة</h2>
-          <p>Crpton يعمل اليوم ويُستخدم يوميًا في عيادات حقيقية — ليس تجربة أولية ولا نسخة تجريبية، بل النظام الذي يدير به الأطباء وطواقمهم يومهم فعلًا.</p>
-        </div>
-        <div class="prose">
-          <h2>ما تعلّمته</h2>
-          <p>أخرجني هذا المشروع من حدود تصميم الواجهات وحده. فلكي أصمّم خطط علاج ومسارات تأمين وفواتير عيادات تصمد في الاستخدام الحقيقي، كان عليّ أن أقرأ في طب الأسنان والمحاسبة بما يكفي لأفكّر كما يفكر من يستخدمون النظام كل يوم، لا أن أكتفي بتجميل الشاشات لهم.</p>
-          <p>وهذه العادة — أن أتعلّم المجال قبل أن أثق بحدسي التصميمي — كانت أنفع ما خرجتُ به من Crpton، وهي العدسة التي أنظر بها اليوم إلى أي مجال متخصص لا أعرفه.</p>
-        </div>
+      <div class="fact-card">
+        <p class="fact-card__value">+2,000</p>
+        <p class="fact-card__text">عيادة وطبيب في فلسطين وعُمان والأردن</p>
       </div>
     </div>
-  </article>
+  </div>
+
+  <div class="container cs-section" id="overview">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>التحدي</div>
+    <h2 class="cs-title">جهاز واحد، في غرفة واحدة.</h2>
+    <div class="cs-prose">
+      <div>
+        <h3>السياق</h3>
+        <p>كان Crpton برنامج إدارة عيادات مثبّتًا على أجهزة حاسوب مكتبية في عيادات الأطباء والمراكز الطبية — يدير المرضى وخطط العلاج والفوترة. وارتباطه بسطح المكتب يعني أنه يعيش على جهاز واحد، في غرفة واحدة.</p>
+      </div>
+      <div>
+        <h3>المشكلة</h3>
+        <p>عند حدوث أي عطل، لم يكن هناك حل سهل. كان على فريق الدعم إما إرسال شخص إلى الموقع أو إرشاد الطبيب عبر مشاركة الشاشة أثناء العيادة — إجراء بطيء، ومُربك، ويعتمد على توفر الطبيب. كما تعذّر الوصول إلى البرنامج من أي مكان سوى ذلك الجهاز الواحد.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="decisions">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — القرارات الرئيسية</div>
+    <h2 class="cs-title">ستة قرارات أخرجت <em>العيادة من سطح المكتب</em></h2>
+    <p class="cs-lead">كل قرار يجيب عن السؤال نفسه: كيف يصل الطبيب إلى ما يحتاجه، من أي مكان، دون انتظار فريق الدعم؟</p>
+    <div class="cs-decisions">
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">يعمل في المتصفح، لا مثبّتًا</p><p class="fact-card__text">تطبيق ويب يعمل في المتصفح بدل برنامج مثبّت، ليفتحه الطبيب أو فريق الدعم من أي جهاز، دون زيارة ميدانية أو مشاركة شاشة.</p></div>
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">تطبيق جوال مرافق</p><p class="fact-card__text">شاشة رئيسية مختصرة (مواعيد، تذكيرات، تحليلات) وقائمة وصول سريع "Hub"، ليطمئن الطبيب على عيادته بعيدًا عن المكتب.</p></div>
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">مريض واحد، ملف واحد</p><p class="fact-card__text">كل سجل في ملف واحد بثمانية تبويبات — عام، أسنان، مالي، طبي، أشعة، وصفة، تقارير، مختبر — فلا يفقد الطبيب سياق المريض أبدًا.</p></div>
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">الفوترة داخل النظام</p><p class="fact-card__text">عرض مالي لكل مريض — رسوم، دفعات، تأمين، رصيد — إلى جانب تحليلات مصاريف العيادة، بدلًا من جدول بيانات منفصل.</p></div>
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">فاتح وداكن وخط أكبر</p><p class="fact-card__text">أوضاع فاتح/داكن/تلقائي وحجم خط قابل للتعديل، لأن العيادات تعمل تحت إضاءات مختلفة والطاقم يقضي نوبات طويلة أمام الشاشة.</p></div>
+      <div class="fact-card fact-card--decision"><p class="fact-card__label">06</p><p class="fact-card__value">مخطط أسنان تفاعلي</p><p class="fact-card__text">اضغط على السنّ، وسمّ الإجراء، فيدخل مباشرة في خطة علاج مُسعّرة — سريع بما يكفي للاستخدام على كرسي العلاج.</p></div>
+    </div>
+    <figure style={{ marginTop: "48px" }}>
+      <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+        <img src="/assets/img/crpton-cs-toothchart-1264.webp" srcset="/assets/img/crpton-cs-toothchart-1264.webp 1264w, /assets/img/crpton-cs-toothchart-2528.webp 2528w" sizes="(min-width: 1280px) 1264px, 90vw" width="1264" height="801" loading="lazy" decoding="async" alt="مخطط الأسنان التفاعلي في Crpton: اضغط على سنّ، وسمّ إجراءً، وأضفه إلى خطة العلاج.">
+      </div>
+      <figcaption>يختار الطبيب سنًا ويسمّي إجراءً. يضيفه النظام إلى خطة علاج مُسعّرة.</figcaption>
+    </figure>
+  </div>
+
+  <div class="container cs-section" id="before-after">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — قبل ← بعد</div>
+    <h2 class="cs-title">من جهاز واحد <em>إلى أي جهاز</em></h2>
+    <div class="cs-beforeafter">
+      <div>
+        <div class="cs-panel" style={{ background: "var(--muted)" }}>
+          <img src="/assets/img/crpton-cs-before-600.webp" srcset="/assets/img/crpton-cs-before-600.webp 600w, /assets/img/crpton-cs-before-1200.webp 1200w" sizes="600px" width="600" height="286" loading="lazy" decoding="async" alt="برنامج العيادة القديم المحصور بسطح المكتب، مثبّت على جهاز ويندوز واحد.">
+        </div>
+        <p class="cs-ba-tag"><span>قبل</span>مثبّت على جهاز واحد، في غرفة واحدة</p>
+      </div>
+      <div>
+        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+          <img src="/assets/img/crpton-cs-after-600.webp" srcset="/assets/img/crpton-cs-after-600.webp 600w, /assets/img/crpton-cs-after-1200.webp 1200w" sizes="600px" width="600" height="380" loading="lazy" decoding="async" alt="تطبيق Crpton الجديد، مفتوحًا في متصفح.">
+        </div>
+        <p class="cs-ba-tag cs-ba-tag--after"><span>بعد</span>تطبيق يعمل في المتصفح يفتحه أي طبيب من أي مكان</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container cs-section">
+    <div class="cs-grid cs-grid--2">
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+          <img src="/assets/img/crpton-cs-platform-1-524.webp" srcset="/assets/img/crpton-cs-platform-1-524.webp 524w, /assets/img/crpton-cs-platform-1-1048.webp 1048w" sizes="524px" width="524" height="329" loading="lazy" decoding="async" alt="ملف مريض في Crpton بثمانية تبويبات: عام، أسنان، مالي، طبي، أشعة، وصفة، تقارير، مختبر.">
+        </div>
+        <figcaption>ملف واحد، ثمانية تبويبات — قصة المريض كاملة دون مغادرة السجل.</figcaption>
+      </figure>
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+          <img src="/assets/img/crpton-cs-platform-2-524.webp" srcset="/assets/img/crpton-cs-platform-2-524.webp 524w, /assets/img/crpton-cs-platform-2-1048.webp 1048w" sizes="524px" width="524" height="332" loading="lazy" decoding="async" alt="قائمة مرضى Crpton مع فلاتر سريعة.">
+        </div>
+        <figcaption>قائمة المرضى مع فلاتر سريعة.</figcaption>
+      </figure>
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+          <img src="/assets/img/crpton-cs-platform-3-524.webp" srcset="/assets/img/crpton-cs-platform-3-524.webp 524w, /assets/img/crpton-cs-platform-3-1048.webp 1048w" sizes="524px" width="524" height="332" loading="lazy" decoding="async" alt="تقرير مصاريف ومعاملات العيادة بالكامل في Crpton.">
+        </div>
+        <figcaption>مصاريف ومعاملات العيادة بالكامل.</figcaption>
+      </figure>
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
+          <img src="/assets/img/crpton-cs-platform-4-524.webp" srcset="/assets/img/crpton-cs-platform-4-524.webp 524w, /assets/img/crpton-cs-platform-4-1048.webp 1048w" sizes="524px" width="524" height="329" loading="lazy" decoding="async" alt="تقارير Crpton مع فلاتر للعيادة، بالعربية.">
+        </div>
+        <figcaption>تقارير مع فلاتر للعيادة.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="mobile-app">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — التطبيق المرافق</div>
+    <h2 class="cs-title">العيادة في <em>جيب الطبيب</em></h2>
+    <p class="cs-lead">المواعيد، والتذكيرات، وشؤون المرضى المالية — بالوضعين الفاتح والداكن — للحظات بين مريض وآخر.</p>
+    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-crpton)" }}>
+      <figure><img src="/assets/img/crpton-cs-mobile-1-240.webp" srcset="/assets/img/crpton-cs-mobile-1-240.webp 240w, /assets/img/crpton-cs-mobile-1-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="الشاشة الرئيسية لتطبيق Crpton الجوال، الوضع الفاتح."><figcaption>الرئيسية · فاتح</figcaption></figure>
+      <figure><img src="/assets/img/crpton-cs-mobile-2-240.webp" srcset="/assets/img/crpton-cs-mobile-2-240.webp 240w, /assets/img/crpton-cs-mobile-2-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="الشاشة الرئيسية لتطبيق Crpton الجوال، الوضع الداكن."><figcaption>الرئيسية · داكن</figcaption></figure>
+      <figure><img src="/assets/img/crpton-cs-mobile-3-240.webp" srcset="/assets/img/crpton-cs-mobile-3-240.webp 240w, /assets/img/crpton-cs-mobile-3-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="شاشة ملف المريض في تطبيق Crpton الجوال."><figcaption>ملف المريض</figcaption></figure>
+      <figure><img src="/assets/img/crpton-cs-mobile-4-240.webp" srcset="/assets/img/crpton-cs-mobile-4-240.webp 240w, /assets/img/crpton-cs-mobile-4-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="شاشة الشؤون المالية في تطبيق Crpton الجوال."><figcaption>الشؤون المالية</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="container cs-section">
+    <figure class="cs-quote">
+      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
+      <blockquote><p>وصلت لوحة تحكم Crpton إلى مستوى جديد من الجودة بفضل خبرة عبدالعزيز في UX/UI، فقد عزّزت قراراته التصميمية المدروسة تجربة المستخدم بشكل كبير.</p></blockquote>
+      <figcaption>
+        <span class="testimonial-card__avatar" aria-hidden="true">عا</span>
+        <span class="testimonial-card__who"><cite>علاء النجار</cite><span>مؤسس Crpton · بيت لحم، فلسطين</span></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="container cs-section" id="outcome">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — النتيجة</div>
+    <h2 class="cs-title">يعمل فعليًا، في استخدام يومي</h2>
+    <div class="cs-outcome">
+      <div>
+        <h3>النتيجة</h3>
+        <p>Crpton يعمل اليوم في استخدام يومي بعيادات حقيقية — ليس تجربة أولية أو نسخة اختبارية، بل النظام الذي يدير عليه الأطباء والطاقم يومهم فعليًا.</p>
+      </div>
+      <div>
+        <h3>ما تعلمته</h3>
+        <p>لتصميم خطط علاج ومسارات تأمين وفوترة عيادات تصمد في الواقع، كان عليّ أن أقرأ في طب الأسنان والمحاسبة بما يكفي لأفكر كما يفكر مستخدمو النظام يوميًا. تعلّم المجال قبل أن أثق بحدسي وحده صار العدسة التي أحمل بها أي صناعة متخصصة جديدة.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cs-cta">
+      <div>
+        <h2>برنامجك محصور بجهاز واحد؟</h2>
+        <p>أخبرني أين يقف منتجك اليوم، وكيف تحب أن يعمل.</p>
+      </div>
+      <a class="btn btn--primary btn--xl" href="/ar/#contact">لنتحدث</a>
+    </div>
+  </div>
+</article>
 
 <NextProject current="crpton" lang="ar" />
 
-<Testimonials band="light" lang="ar" />
+<Testimonials lang="ar" />
 
 </Layout>
