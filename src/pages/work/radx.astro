@@ -1,0 +1,255 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import NextProject from "../../components/NextProject.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "RADX Smart Companion — An Arabic assistant that gets things done for you",
+    "description": "Redesigned end to end in 5 weeks — an audit, 10 competitors and 40 screens built around one flow: ask, approve, track, get the result.",
+    "url": "https://abdulazizabudhair.com/work/radx",
+    "image": "https://abdulazizabudhair.com/assets/img/og-image.jpg",
+    "author": { "@type": "Person", "name": "Abdulaziz Abu Dhair", "url": "https://abdulazizabudhair.com/" },
+    "creator": { "@type": "Person", "name": "Abdulaziz Abu Dhair", "url": "https://abdulazizabudhair.com/" },
+    "genre": "AI assistant · Mobile app",
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulazizabudhair.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://abdulazizabudhair.com/#work" },
+      { "@type": "ListItem", "position": 3, "name": "RADX Smart Companion", "item": "https://abdulazizabudhair.com/work/radx" }
+    ]
+  }
+];
+---
+<Layout
+  title="RADX Smart Companion — Case Study · Abdulaziz Abu Dhair"
+  description="Redesigned end to end in 5 weeks — an audit of the old app, 10 competitors analyzed, and 40 screens built around one flow: ask, approve, track, get the result — on an Arabic-first design system in two themes."
+  path="/work/radx"
+  alternate="/ar/work/radx"
+  ogType="article"
+  jsonLd={jsonLd}
+>
+<article class="case" aria-labelledby="case-title">
+  <div class="container cs-hero">
+    <a class="back-link text-link" href="/#work"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <p class="cs-hero__eyebrow">Case study · AI assistant · Mobile app</p>
+    <h1 class="cs-hero__title" id="case-title">RADX Smart Companion</h1>
+    <p class="cs-hero__subtitle">An Arabic assistant that gets things done for you — redesigned end to end in 5 weeks: an audit of the old app, 10 competitors analyzed, and 40 screens built around one flow — ask, approve, track, get the result — on an Arabic-first design system in two themes.</p>
+    <dl class="cs-hero__facts">
+      <div><dt>My role</dt><dd>UX/UI Designer, end-to-end</dd></div>
+      <div><dt>Platform</dt><dd>iOS &amp; Android app, Arabic UI, light &amp; dark themes</dd></div>
+      <div><dt>Timeline</dt><dd>5 weeks · Oct – Nov 2026</dd></div>
+      <div><dt>Status</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>Live on the App Store &amp; Google Play</dd></div>
+    </dl>
+    <nav class="cs-onthispage" aria-label="On this page">
+      <span class="cs-onthispage__label">On this page</span>
+      <a href="#overview">Overview</a>
+      <a href="#core-flow">Core flow</a>
+      <a href="#design-system">Design system</a>
+      <a href="#store-presence">Store presence</a>
+      <a href="#outcome">Outcome</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-radx)" }}>
+      <figure><img src="/assets/img/radx-cs-hero-before-240.webp" srcset="/assets/img/radx-cs-hero-before-240.webp 240w, /assets/img/radx-cs-hero-before-480.webp 480w" sizes="240px" width="240" height="526" fetchpriority="high" decoding="async" alt="RADX old app, as reviewed in the audit."><figcaption>Before — the old app (audit).</figcaption></figure>
+      <figure><img src="/assets/img/radx-cs-hero-dark-240.webp" srcset="/assets/img/radx-cs-hero-dark-240.webp 240w, /assets/img/radx-cs-hero-dark-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="RADX redesigned home screen, dark theme."><figcaption>After — home, dark theme.</figcaption></figure>
+      <figure><img src="/assets/img/radx-cs-hero-light-240.webp" srcset="/assets/img/radx-cs-hero-light-240.webp 240w, /assets/img/radx-cs-hero-light-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="RADX redesigned home screen, light theme."><figcaption>After — home, light theme.</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="container cs-section">
+    <p class="fact-card__label">Project scope &amp; delivery</p>
+    <div class="cs-glance">
+      <div class="fact-card"><p class="fact-card__label">Duration</p><p class="fact-card__value">5 weeks</p><p class="fact-card__text">From audit to developer-ready prototype</p></div>
+      <div class="fact-card"><p class="fact-card__label">Audit</p><p class="fact-card__value">86</p><p class="fact-card__text">Findings in the audit of the old app</p></div>
+      <div class="fact-card"><p class="fact-card__label">Competitors</p><p class="fact-card__value">10</p><p class="fact-card__text">Competitors analyzed</p></div>
+      <div class="fact-card"><p class="fact-card__label">Screens</p><p class="fact-card__value">40</p><p class="fact-card__text">Screens built around one flow</p></div>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="overview">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>The challenge</div>
+    <h2 class="cs-title">An assistant people can trust to act.</h2>
+    <div class="cs-prose">
+      <div>
+        <h3>Context</h3>
+        <p>A UX and UI redesign of RADX Smart Companion, the AI assistant that books and gets tasks done on the user's behalf. From an audit of the existing app to an Arabic design system and a developer-ready prototype, in 5 weeks.</p>
+      </div>
+      <div>
+        <h3>What I did</h3>
+        <p>Audited the app (86 findings), analyzed 10 competitors, and built 40 screens around one flow: ask, approve, track, get the result.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="core-flow">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — Core flow</div>
+    <h2 class="cs-title">Ask, approve, track, get the result</h2>
+    <p class="cs-lead">Users only trust an assistant that acts for them when they can see what it will do — and say yes before it does.</p>
+    <figure style={{ marginTop: "40px" }}>
+      <div class="cs-panel" style={{ background: "#eef1f6", padding: "32px" }}>
+        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <img src="/assets/img/radx-cs-flow-4-261.webp" srcset="/assets/img/radx-cs-flow-4-261.webp 261w, /assets/img/radx-cs-flow-4-522.webp 522w" sizes="261px" width="261" height="568" loading="lazy" decoding="async" alt="RADX step 4: receive confirmation." style={{ width: "261px", borderRadius: "34px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+          <img src="/assets/img/radx-cs-flow-3-261.webp" srcset="/assets/img/radx-cs-flow-3-261.webp 261w, /assets/img/radx-cs-flow-3-522.webp 522w" sizes="261px" width="261" height="568" loading="lazy" decoding="async" alt="RADX step 3: track progress." style={{ width: "261px", borderRadius: "34px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+          <img src="/assets/img/radx-cs-flow-2-261.webp" srcset="/assets/img/radx-cs-flow-2-261.webp 261w, /assets/img/radx-cs-flow-2-522.webp 522w" sizes="261px" width="261" height="568" loading="lazy" decoding="async" alt="RADX step 2: approve action." style={{ width: "261px", borderRadius: "34px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+          <img src="/assets/img/radx-cs-flow-1-261.webp" srcset="/assets/img/radx-cs-flow-1-261.webp 261w, /assets/img/radx-cs-flow-1-522.webp 522w" sizes="261px" width="261" height="568" loading="lazy" decoding="async" alt="RADX step 1: review request." style={{ width: "261px", borderRadius: "34px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+        </div>
+      </div>
+      <div class="cs-grid cs-grid--4" style={{ background: "transparent", padding: "16px 0 0", gap: "16px" }} dir="rtl">
+        <div style={{ textAlign: "center" }}><p class="fact-card__label" style={{ color: "var(--gold-text)" }}>Step 4</p><p style={{ marginTop: "4px", fontSize: "0.875rem" }}>Receive confirmation</p></div>
+        <div style={{ textAlign: "center" }}><p class="fact-card__label" style={{ color: "var(--gold-text)" }}>Step 3</p><p style={{ marginTop: "4px", fontSize: "0.875rem" }}>Track progress</p></div>
+        <div style={{ textAlign: "center" }}><p class="fact-card__label" style={{ color: "var(--gold-text)" }}>Step 2</p><p style={{ marginTop: "4px", fontSize: "0.875rem" }}>Approve action</p></div>
+        <div style={{ textAlign: "center" }}><p class="fact-card__label" style={{ color: "var(--gold-text)" }}>Step 1</p><p style={{ marginTop: "4px", fontSize: "0.875rem" }}>Review request</p></div>
+      </div>
+      <figcaption>Booking flow, step by step — the interface is Arabic, so the steps read right to left.</figcaption>
+    </figure>
+    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
+      <figure>
+        <div class="cs-panel" style={{ background: "#eef1f6", padding: "24px" }}>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
+            <img src="/assets/img/radx-cs-hotel-payment-213.webp" srcset="/assets/img/radx-cs-hotel-payment-213.webp 213w, /assets/img/radx-cs-hotel-payment-426.webp 426w" sizes="213px" width="213" height="463" loading="lazy" decoding="async" alt="RADX hotel booking awaiting payment confirmation." style={{ width: "213px", borderRadius: "28px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+            <img src="/assets/img/radx-cs-flow-2-261.webp" srcset="/assets/img/radx-cs-flow-2-261.webp 261w" sizes="213px" width="213" height="463" loading="lazy" decoding="async" alt="RADX approve-action screen." style={{ width: "213px", borderRadius: "28px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+          </div>
+        </div>
+        <figcaption>Approval before anything is booked — and the hotel result.</figcaption>
+      </figure>
+      <figure>
+        <div class="cs-panel" style={{ background: "#eef1f6", padding: "24px" }}>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
+            <img src="/assets/img/radx-cs-voice-speaking-213.webp" srcset="/assets/img/radx-cs-voice-speaking-213.webp 213w, /assets/img/radx-cs-voice-speaking-426.webp 426w" sizes="213px" width="213" height="463" loading="lazy" decoding="async" alt="RADX voice assistant speaking." style={{ width: "213px", borderRadius: "28px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+            <img src="/assets/img/radx-cs-voice-listening-213.webp" srcset="/assets/img/radx-cs-voice-listening-213.webp 213w, /assets/img/radx-cs-voice-listening-426.webp 426w" sizes="213px" width="213" height="463" loading="lazy" decoding="async" alt="RADX voice assistant listening." style={{ width: "213px", borderRadius: "28px", border: "1px solid #e0e5ed", boxShadow: "0 12px 32px rgba(15,26,51,0.08)" }}>
+          </div>
+        </div>
+        <figcaption>Listening and voice input.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="design-system">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — Design system</div>
+    <h2 class="cs-title">An Arabic-first system, in two themes</h2>
+    <div class="cs-grid cs-grid--2" style={{ marginTop: "40px", alignItems: "start" }}>
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--muted)", height: "auto", padding: "0" }}>
+          <img src="/assets/img/radx-cs-ds-foundations-588.webp" srcset="/assets/img/radx-cs-ds-foundations-588.webp 588w, /assets/img/radx-cs-ds-foundations-1176.webp 1176w" sizes="588px" width="588" height="536" loading="lazy" decoding="async" alt="RADX design system foundations: colors, type and components." style={{ borderRadius: "20px" }}>
+        </div>
+        <figcaption>Design system foundations.</figcaption>
+      </figure>
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        <figure>
+          <div class="cs-panel" style={{ background: "var(--muted)", height: "auto", padding: "0" }}>
+            <img src="/assets/img/radx-cs-ds-appmap-588.webp" srcset="/assets/img/radx-cs-ds-appmap-588.webp 588w, /assets/img/radx-cs-ds-appmap-1176.webp 1176w" sizes="588px" width="588" height="318" loading="lazy" decoding="async" alt="RADX app map." style={{ borderRadius: "20px" }}>
+          </div>
+          <figcaption>App map.</figcaption>
+        </figure>
+        <figure>
+          <div class="cs-panel" style={{ background: "var(--muted)", height: "auto", padding: "0" }}>
+            <img src="/assets/img/radx-cs-ds-journey-588.webp" srcset="/assets/img/radx-cs-ds-journey-588.webp 588w, /assets/img/radx-cs-ds-journey-1176.webp 1176w" sizes="588px" width="588" height="191" loading="lazy" decoding="async" alt="RADX booking journey map." style={{ borderRadius: "20px" }}>
+          </div>
+          <figcaption>Journey — booking.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="container cs-section" id="store-presence">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — Store presence</div>
+    <h2 class="cs-title">Live on the App Store and Google Play</h2>
+    <div class="cs-hero__facts" style={{ border: "none", padding: "0", marginTop: "24px" }}>
+      <a class="btn btn--outline" href="https://apps.apple.com/il/app/radx-smart-companion/id6762611427" target="_blank" rel="noopener">App Store ↗</a>
+      <a class="btn btn--outline" href="https://play.google.com/store/apps/details?id=ae.radx.agent" target="_blank" rel="noopener">Google Play ↗</a>
+    </div>
+    <div class="cs-grid cs-grid--2" style={{ marginTop: "40px", alignItems: "start" }}>
+      <figure>
+        <div class="cs-panel" style={{ background: "var(--muted)", height: "auto", padding: "0" }}>
+          <img src="/assets/img/radx-cs-appstore-set-816.webp" srcset="/assets/img/radx-cs-appstore-set-816.webp 816w, /assets/img/radx-cs-appstore-set-1632.webp 1632w" sizes="816px" width="816" height="355" loading="lazy" decoding="async" alt="RADX App Store screenshot set." style={{ borderRadius: "20px" }}>
+        </div>
+        <figcaption>App Store screenshot set.</figcaption>
+      </figure>
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+        <figure>
+          <div class="cs-panel" style={{ background: "var(--muted)", height: "auto", padding: "0" }}>
+            <img src="/assets/img/radx-cs-gplay-graphic-360.webp" srcset="/assets/img/radx-cs-gplay-graphic-360.webp 360w, /assets/img/radx-cs-gplay-graphic-720.webp 720w" sizes="360px" width="360" height="176" loading="lazy" decoding="async" alt="RADX Google Play feature graphic." style={{ borderRadius: "20px" }}>
+          </div>
+          <figcaption>Google Play feature graphic.</figcaption>
+        </figure>
+        <figure>
+          <div class="cs-panel" style={{ background: "var(--project-radx)", height: "auto", padding: "24px", display: "flex", justifyContent: "center" }}>
+            <img src="/assets/img/radx-cs-app-icon-166.webp" srcset="/assets/img/radx-cs-app-icon-166.webp 166w, /assets/img/radx-cs-app-icon-332.webp 332w" sizes="83px" width="83" height="83" loading="lazy" decoding="async" alt="RADX app icon." style={{ width: "83px", borderRadius: "20px" }}>
+          </div>
+          <figcaption>App icon.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="container cs-section">
+    <figure class="cs-quote">
+      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
+      <blockquote><p>Abdulaziz redesigned the RADX app end to end. He quickly understood our vision and turned it into a clear Arabic-first experience that makes users trust an assistant acting on their behalf. He met every deadline and backed each decision with a reason, which made approvals fast.</p></blockquote>
+      <figcaption>
+        <span class="testimonial-card__avatar" aria-hidden="true">MM</span>
+        <span class="testimonial-card__who"><cite>Mansour Marzouk</cite><span>Founder, RADX · Dubai, UAE</span></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="container cs-section" id="outcome">
+    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — Outcome</div>
+    <h2 class="cs-title">Approved on time — and now live</h2>
+    <div class="cs-outcome">
+      <div>
+        <h3>Outcome</h3>
+        <p>Every phase was approved on or before its deadline, and the dev team started building from the approved screens before the project ended. I reviewed the TestFlight build against the designs and gave the team my feedback before release. RADX is now live on the App Store and Google Play.</p>
+      </div>
+      <div>
+        <h3>Credits</h3>
+        <p>Falcon concept &amp; illustration: a design team chosen by RADX's founder. Original falcon animation: the RADX dev team. Emirati falcon: the character design team — its Rive animation is still in progress.</p>
+      </div>
+    </div>
+    <div class="cs-outcome" style={{ marginTop: "48px" }}>
+      <div>
+        <h3>After delivery · Sign-in</h3>
+        <p>After delivery, the client made WhatsApp a required part of sign-in. The login flow is updated to match.</p>
+      </div>
+      <div>
+        <h3>After delivery · Character</h3>
+        <p>After delivery, the client asked for a falcon that expresses UAE identity more. The character design team drew a new Emirati falcon, and it shipped with the launch. The seven states and the interface stayed the same; the new falcon's Rive animation is still in progress.</p>
+        <div style={{ display: "flex", gap: "24px", marginTop: "16px" }}>
+          <figure>
+            <img src="/assets/img/radx-cs-falcon-before-96.webp" srcset="/assets/img/radx-cs-falcon-before-96.webp 96w, /assets/img/radx-cs-falcon-before-192.webp 192w" sizes="96px" width="96" height="96" loading="lazy" decoding="async" alt="The original RADX falcon character." style={{ width: "96px", height: "96px", borderRadius: "22px", objectFit: "cover" }}>
+            <figcaption style={{ marginTop: "10px" }}>Before</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/img/radx-cs-falcon-after-96.webp" srcset="/assets/img/radx-cs-falcon-after-96.webp 96w, /assets/img/radx-cs-falcon-after-192.webp 192w" sizes="96px" width="96" height="96" loading="lazy" decoding="async" alt="The new Emirati falcon character, live." style={{ width: "96px", height: "96px", borderRadius: "22px", objectFit: "cover" }}>
+            <figcaption style={{ marginTop: "10px" }}>After · live</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cs-cta">
+      <div>
+        <h2>Building an AI product people need to trust?</h2>
+        <p>Tell me what it does for users, and where it should ask first.</p>
+      </div>
+      <a class="btn btn--primary btn--xl" href="/#contact">Let’s talk</a>
+    </div>
+  </div>
+</article>
+
+<NextProject current="radx" />
+
+<Testimonials />
+
+</Layout>
