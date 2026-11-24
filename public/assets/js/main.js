@@ -136,6 +136,21 @@
     });
   }
 
+  // Modal dialogs (e.g. "Read all N testimonials"): open/close + backdrop click.
+  document.querySelectorAll("[data-open-modal]").forEach((trigger) => {
+    const dialog = document.getElementById(trigger.dataset.openModal);
+    if (!dialog) return;
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+    });
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.querySelectorAll("[data-close-modal]").forEach((btn) => {
+      btn.addEventListener("click", () => dialog.close());
+    });
+  });
+
   // Reveal on scroll
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const targets = document.querySelectorAll(".reveal");

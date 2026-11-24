@@ -1,0 +1,24 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  /** Two letters; Arabic initials are space-separated per the Figma spec. */
+  initials: string;
+  rtl?: boolean;
+  /** True on an /ar page when this testimonial has no Arabic translation yet. */
+  original?: boolean;
+  class?: string;
+}
+const { quote, name, role, initials, rtl = false, original = false, class: className } = Astro.props;
+---
+<figure class:list={["testimonial-card", className]} dir={original ? "ltr" : rtl ? "rtl" : "ltr"} lang={original ? "en" : undefined}>
+  <blockquote><p>{rtl && !original ? "«" : "“"}{quote}{rtl && !original ? "»" : "”"}</p></blockquote>
+  <figcaption>
+    <span class="testimonial-card__avatar" aria-hidden="true">{initials}</span>
+    <span class="testimonial-card__who">
+      <cite>{name}</cite>
+      <span>{role}</span>
+    </span>
+  </figcaption>
+</figure>

@@ -1,0 +1,41 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import { type Lang, ui } from "../i18n/ui";
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = "en" } = Astro.props;
+const t = ui[lang];
+const rtl = lang === "ar";
+const steps = [
+  { title: t.processStep1Title, text: t.processStep1Text },
+  { title: t.processStep2Title, text: t.processStep2Text },
+  { title: t.processStep3Title, text: t.processStep3Text },
+  { title: t.processStep4Title, text: t.processStep4Text },
+  { title: t.processStep5Title, text: t.processStep5Text },
+];
+---
+<section class="process theme-inverse" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="process__head reveal">
+      <div class="process__left">
+        <Eyebrow label={t.processEyebrow} rtl={rtl} dark />
+        <h2 class="process__title" id="process-title">{t.processTitle}</h2>
+      </div>
+      <div class="process__intro">
+        <p>{t.processIntro1}</p>
+        <p>{t.processIntro2}</p>
+      </div>
+    </div>
+    <ol class="process__steps">
+      {steps.map((step, i) => (
+        <li class="process__step reveal">
+          <span class="process__num">{String(i + 1).padStart(2, "0")}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

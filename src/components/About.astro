@@ -1,0 +1,56 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import { type Lang, ui } from "../i18n/ui";
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = "en" } = Astro.props;
+const t = ui[lang];
+const rtl = lang === "ar";
+const glance = [
+  [t.aboutGlance1Title, t.aboutGlance1Sub],
+  [t.aboutGlance2Title, t.aboutGlance2Sub],
+  [t.aboutGlance3Title, t.aboutGlance3Sub],
+  [t.aboutGlance4Title, t.aboutGlance4Sub],
+];
+const teaching = [
+  [t.aboutTeaching1Title, t.aboutTeaching1Sub],
+  [t.aboutTeaching2Title, t.aboutTeaching2Sub],
+  [t.aboutTeaching3Title, t.aboutTeaching3Sub],
+];
+---
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="container about__grid">
+    <figure class="about__photo reveal">
+      <img src="/assets/img/abdulaziz-portrait-v4-480.webp" srcset="/assets/img/abdulaziz-portrait-v4-480.webp 480w, /assets/img/abdulaziz-portrait-v4-960.webp 960w" sizes="(min-width: 961px) 456px, (min-width: 721px) 320px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="Portrait of Abdulaziz Abu Dhair">
+    </figure>
+    <div class="about__body reveal">
+      <Eyebrow label={t.aboutEyebrow} rtl={rtl} />
+      <h2 class="about__title" id="about-title">{t.aboutTitle1}<br><span class="about__title-accent">{t.aboutTitle2}</span></h2>
+      <p class="about__bio">{t.aboutBio}</p>
+      <div class="about__details">
+        <div class="about__col">
+          <p class="about__col-head">{t.aboutGlanceTitle}</p>
+          <dl>
+            {glance.map(([title, sub]) => (
+              <div><dt>{title}</dt><dd>{sub}</dd></div>
+            ))}
+          </dl>
+        </div>
+        <div class="about__col">
+          <p class="about__col-head">{t.aboutTeachingTitle}</p>
+          <dl>
+            {teaching.map(([title, sub]) => (
+              <div><dt>{title}</dt><dd>{sub}</dd></div>
+            ))}
+          </dl>
+        </div>
+      </div>
+      <div class="about__links">
+        <a class="text-link" href="/assets/files/abdulaziz-abudhair-resume.pdf" target="_blank" rel="noopener">{t.aboutResume} <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://linkedin.com/in/abdulaziz-abudhair" target="_blank" rel="noopener">{t.aboutLinkedin} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
