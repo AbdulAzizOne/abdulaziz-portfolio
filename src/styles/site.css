@@ -669,7 +669,8 @@ button { font: inherit; color: inherit; }
 .cs-ba-tag--after span:first-child { background: var(--secondary); color: var(--secondary-foreground); }
 
 .cs-grid { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 40px; }
-.cs-grid--2 > div { flex: 1 1 calc(50% - 12px); }
+.cs-grid--2 > figure,
+.cs-grid--2 > div { flex: 1 1 calc(50% - 12px); min-width: 0; }
 .cs-grid--4 { background: var(--project-tile, var(--muted)); border-radius: 24px; padding: clamp(24px, 4vw, 64px) clamp(16px, 3vw, 56px); gap: 28px; align-items: flex-end; }
 .cs-grid--4 > figure { flex: 1 1 0; min-width: 0; text-align: center; }
 .cs-grid--4 img { border: 1px solid var(--border); border-radius: 28px; box-shadow: 0 8px 24px rgb(12 58 42 / 0.05); width: 100%; height: auto; }
@@ -701,6 +702,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 960px) {
   .cs-prose, .cs-glance, .cs-beforeafter, .cs-outcome { flex-direction: column; gap: 32px; }
   .cs-decisions > .fact-card { flex: 1 1 100%; }
+  .cs-grid--2 > figure,
   .cs-grid--2 > div { flex: 1 1 100%; }
   .cs-grid--4 { flex-wrap: wrap; }
   .cs-grid--4 > figure { flex: 1 1 calc(50% - 14px); }
