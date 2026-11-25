@@ -104,7 +104,8 @@
       toggle.addEventListener("click", () => {
         const paused = marquee.classList.toggle("is-paused");
         toggle.setAttribute("aria-pressed", String(paused));
-        if (toggleLabel) toggleLabel.textContent = (paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause) || (paused ? "Play logos" : "Pause logos");
+        if (toggleLabel) toggleLabel.textContent = (paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause) || (paused ? "Play" : "Pause");
+        toggle.setAttribute("aria-label", (paused ? toggle.dataset.ariaPlay : toggle.dataset.ariaPause) || (paused ? "Play logos" : "Pause logos"));
       });
     }
   }
@@ -136,18 +137,16 @@
     });
   }
 
-  // Modal dialogs (e.g. "Read all N testimonials"): open/close + backdrop click.
-  document.querySelectorAll("[data-open-modal]").forEach((trigger) => {
-    const dialog = document.getElementById(trigger.dataset.openModal);
-    if (!dialog) return;
-    trigger.addEventListener("click", () => {
-      dialog.showModal();
-    });
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-    dialog.querySelectorAll("[data-close-modal]").forEach((btn) => {
-      btn.addEventListener("click", () => dialog.close());
+  // Testimonials: "Show N more" / "Show less" expands the list inline.
+  document.querySelectorAll("[data-testimonials]").forEach((box) => {
+    const btn = box.querySelector(".testimonials__toggle");
+    if (!btn) return;
+    const label = btn.querySelector("[data-toggle-label]");
+    btn.hidden = false;
+    btn.addEventListener("click", () => {
+      const open = box.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      if (label) label.textContent = open ? btn.dataset.less : btn.dataset.more;
     });
   });
 

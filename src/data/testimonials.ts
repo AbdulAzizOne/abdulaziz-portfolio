@@ -4,6 +4,8 @@ export interface Testimonial {
   role: string;
   /** Arabic translation for /ar pages. */
   ar?: { name: string; quote: string; role: string };
+  /** Not shown on the site yet (e.g. the full quote is still missing). */
+  pending?: boolean;
 }
 
 export const testimonials: Testimonial[] = [
@@ -86,5 +88,7 @@ export const testimonials: Testimonial[] = [
     quote: "It has been a great pleasure to work with Abdulaziz, he has a great eye for design…",
     name: "Mohammad A.",
     role: "Client via Upwork · Clifton, USA",
+    // Removed from the homepage display; stays here until the full quote exists.
+    pending: true,
   },
 ];

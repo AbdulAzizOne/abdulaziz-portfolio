@@ -21,35 +21,37 @@ const teaching = [
 ];
 ---
 <section class="about" id="about" aria-labelledby="about-title">
-  <div class="container about__grid">
-    <figure class="about__photo reveal">
-      <img src="/assets/img/abdulaziz-portrait-v4-480.webp" srcset="/assets/img/abdulaziz-portrait-v4-480.webp 480w, /assets/img/abdulaziz-portrait-v4-960.webp 960w" sizes="(min-width: 961px) 456px, (min-width: 721px) 320px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="Portrait of Abdulaziz Abu Dhair">
-    </figure>
-    <div class="about__body reveal">
-      <Eyebrow label={t.aboutEyebrow} rtl={rtl} />
-      <h2 class="about__title" id="about-title">{t.aboutTitle1}<br><span class="about__title-accent">{t.aboutTitle2}</span></h2>
-      <p class="about__bio">{t.aboutBio}</p>
-      <div class="about__details">
-        <div class="about__col">
-          <p class="about__col-head">{t.aboutGlanceTitle}</p>
-          <dl>
-            {glance.map(([title, sub]) => (
-              <div><dt>{title}</dt><dd>{sub}</dd></div>
-            ))}
-          </dl>
-        </div>
-        <div class="about__col">
-          <p class="about__col-head">{t.aboutTeachingTitle}</p>
-          <dl>
-            {teaching.map(([title, sub]) => (
-              <div><dt>{title}</dt><dd>{sub}</dd></div>
-            ))}
-          </dl>
+  <div class="container">
+    <div class="about__top">
+      <figure class="about__photo reveal">
+        <img src="/assets/img/abdulaziz-portrait-v4-480.webp" srcset="/assets/img/abdulaziz-portrait-v4-480.webp 480w, /assets/img/abdulaziz-portrait-v4-960.webp 960w" sizes="(min-width: 961px) 314px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="Portrait of Abdulaziz Abu Dhair">
+      </figure>
+      <div class="about__body reveal">
+        <Eyebrow label={t.aboutEyebrow} rtl={rtl} />
+        <h2 class="about__title" id="about-title">{t.aboutTitle1}<br><span class="about__title-accent">{t.aboutTitle2}</span></h2>
+        <p class="about__bio">{t.aboutBio}</p>
+        <div class="about__links">
+          <a class="text-link" href="/assets/files/abdulaziz-abudhair-resume.pdf" target="_blank" rel="noopener">{t.aboutResume} <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://linkedin.com/in/abdulaziz-abudhair" target="_blank" rel="noopener">{t.aboutLinkedin} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="about__links">
-        <a class="text-link" href="/assets/files/abdulaziz-abudhair-resume.pdf" target="_blank" rel="noopener">{t.aboutResume} <span aria-hidden="true">↗</span></a>
-        <a class="text-link" href="https://linkedin.com/in/abdulaziz-abudhair" target="_blank" rel="noopener">{t.aboutLinkedin} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="about__rows reveal">
+      <div class="about__col">
+        <p class="about__col-head">{t.aboutGlanceTitle}</p>
+        <dl style="--cols: 4">
+          {glance.map(([title, sub]) => (
+            <div><dt>{title}</dt><dd>{sub}</dd></div>
+          ))}
+        </dl>
+      </div>
+      <div class="about__col">
+        <p class="about__col-head">{t.aboutTeachingTitle}</p>
+        <dl style="--cols: 3">
+          {teaching.map(([title, sub]) => (
+            <div><dt>{title}</dt><dd>{sub}</dd></div>
+          ))}
+        </dl>
       </div>
     </div>
   </div>

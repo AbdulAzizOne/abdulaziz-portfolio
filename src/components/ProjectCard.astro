@@ -20,9 +20,10 @@ const cardAlts = tr?.cardAlts ?? [];
 const href = caseHref(project, lang);
 // Arabic card pointing at the English case study: say so, and mark the link.
 const toEnglish = lang === "ar" && !project.ar?.page;
-const isFeature = project.homeLayout === "feature";
+// Rows alternate: odd rows put the text first, even rows the image first.
+const mediaFirst = index % 2 === 0;
 ---
-<li class:list={["work-card", `work-card--${project.homeLayout}`, { "work-card--tablets": project.layout === "tablets" }]} id={project.id}>
+<li class:list={["work-card", { "work-card--media-first": mediaFirst, "work-card--tablets": project.layout === "tablets" }]} id={project.id}>
   <a class="work-card__link reveal" href={href} hreflang={toEnglish ? "en" : undefined}>
     <div class:list={["work-card__media", { "work-card__media--tablets": project.layout === "tablets" }]} style={{ background: project.tileBg }}>
       <span class="work-card__index" aria-hidden="true">{num} /</span>

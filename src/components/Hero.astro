@@ -1,5 +1,4 @@
 ---
-import Eyebrow from "./Eyebrow.astro";
 import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
@@ -7,40 +6,26 @@ interface Props {
 }
 const { lang = "en" } = Astro.props;
 const t = ui[lang];
-const rtl = lang === "ar";
 ---
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner">
-    <div class="hero__copy">
-      <Eyebrow label={t.heroEyebrow} rtl={rtl} />
-      <h1 class="hero__title" id="hero-title">{t.heroTitle}</h1>
-      <p class="hero__lead">{t.heroLead}</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary btn--xl" href="#work">
-          {t.heroCta1}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-        <a class="btn btn--link" href="#contact">
-          {t.heroCta2}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
-      <dl class="hero__stats">
-        <div><dt>{t.heroStat1Title}</dt><dd>{t.heroStat1Sub}</dd></div>
-        <div><dt>{t.heroStat2Title}</dt><dd>{t.heroStat2Sub}</dd></div>
-        <div><dt>{t.heroStat3Title}</dt><dd>{t.heroStat3Sub}</dd></div>
-        <div><dt>{t.heroStat4Title}</dt><dd>{t.heroStat4Sub}</dd></div>
-      </dl>
+    <h1 class="hero__title" id="hero-title">{t.heroTitle}</h1>
+    <p class="hero__lead">{t.heroLead}</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--xl" href="#work">
+        {t.heroCta1}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </a>
+      <a class="btn btn--link" href="#contact">
+        {t.heroCta2}
+        <svg class="hero__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
-    <div class="hero__visual" aria-hidden="true">
-      <div class="hero__stage">
-        <span class="hero__arch"></span>
-        <span class="hero__dot"></span>
-        <img class="hero__shot hero__shot--wide" src="/assets/img/crpton-1-1368.webp" width="475" height="309" loading="eager" decoding="async" alt="">
-        <div class="hero__tablet">
-          <img class="hero__shot" src="/assets/img/zenraise-3-445.webp" width="158" height="252" loading="eager" decoding="async" alt="">
-        </div>
-      </div>
-    </div>
+    <dl class="hero__stats">
+      <div><dt>{t.heroStat1Title}</dt><dd>{t.heroStat1Sub}</dd></div>
+      <div><dt>{t.heroStat2Title}</dt><dd>{t.heroStat2Sub}</dd></div>
+      <div><dt>{t.heroStat3Title}</dt><dd>{t.heroStat3Sub}</dd></div>
+      <div><dt>{t.heroStat4Title}</dt><dd>{t.heroStat4Sub}</dd></div>
+    </dl>
   </div>
 </section>

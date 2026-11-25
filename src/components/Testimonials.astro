@@ -11,20 +11,18 @@ const { lang = "en" } = Astro.props;
 const t = ui[lang];
 const rtl = lang === "ar";
 
-// On Arabic pages, the translation where there is one; a quote without one
-// stays in English (Mohammad A.'s — the only untranslated testimonial).
-const items = testimonials.map((q) => {
+// On Arabic pages, the translation where there is one. Pending quotes
+// (no approved full text yet) are not displayed.
+const items = testimonials.filter((q) => !q.pending).map((q) => {
   const tr = lang === "ar" ? q.ar : undefined;
   return { ...q, ...tr, isOriginal: lang === "ar" && !tr };
 });
 const initialsOf = (name: string) => name.replace(/[^\p{L}\s]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("");
 
-const featured = items[0];
-const cardA = items[1];
-const cardB = items[2];
-// The modal's two columns mirror the Figma layout exactly (not a simple split).
-const column1 = [items[1], items[3], items[4]];
-const column2 = [items[2], items[5], items[6], items[7]];
+const [featured, ...rest] = items;
+// Two cards stay visible; the rest expand inline ("Show N more" / "Show less").
+const visible = rest.slice(0, 2);
+const extra = rest.slice(2);
 ---
 <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
@@ -32,7 +30,7 @@ const column2 = [items[2], items[5], items[6], items[7]];
       <Eyebrow label={t.testimonialsEyebrow} rtl={rtl} />
       <h2 class="testimonials__title" id="testimonials-title">{t.testimonialsTitle}</h2>
     </div>
-    <div class="testimonials__grid reveal">
+    <div class="testimonials__stack reveal">
       <figure class="testimonials__featured theme-inverse" dir={featured.isOriginal ? "ltr" : undefined} lang={featured.isOriginal ? "en" : undefined}>
         <span class="testimonials__quote-mark" aria-hidden="true">&ldquo;</span>
         <blockquote><p>{featured.quote}</p></blockquote>
@@ -44,49 +42,24 @@ const column2 = [items[2], items[5], items[6], items[7]];
           </span>
         </figcaption>
       </figure>
-      <div class="testimonials__side">
-        <TestimonialCard quote={cardA.quote} name={cardA.name} role={cardA.role} initials={initialsOf(cardA.name)} rtl={rtl} original={cardA.isOriginal} />
-        <TestimonialCard quote={cardB.quote} name={cardB.name} role={cardB.role} initials={initialsOf(cardB.name)} rtl={rtl} original={cardB.isOriginal} />
+      <div class="testimonials__more" data-testimonials>
+        <div class="testimonials__cards">
+          {visible.map((q) => (
+            <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
+          ))}
+          <div class="testimonials__extra" id="more-testimonials">
+            {extra.map((q) => (
+              <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
+            ))}
+          </div>
+        </div>
+        {extra.length > 0 && (
+          <button type="button" class="testimonials__toggle" aria-expanded="false" aria-controls="more-testimonials" data-more={t.testimonialsMore.replace("{n}", String(extra.length))} data-less={t.testimonialsLess} hidden>
+            <span data-toggle-label>{t.testimonialsMore.replace("{n}", String(extra.length))}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        )}
       </div>
     </div>
-    <button type="button" class="text-link" data-open-modal="all-testimonials">{t.testimonialsAll.replace("{n}", String(items.length))} <span aria-hidden="true">{t.arrow}</span></button>
   </div>
 </section>
-
-<dialog class="modal" id="all-testimonials" aria-labelledby="all-testimonials-title">
-  <div class="modal__inner">
-    <div class="modal__head">
-      <div>
-        <Eyebrow label={t.testimonialsEyebrow} rtl={rtl} />
-        <h2 class="testimonials__title" id="all-testimonials-title">{t.testimonialsTitle}</h2>
-        <p class="modal__sub">{t.testimonialsModalSub}</p>
-      </div>
-      <button type="button" class="modal__close" data-close-modal aria-label={t.closeModal}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <figure class="testimonials__featured theme-inverse" dir={featured.isOriginal ? "ltr" : undefined} lang={featured.isOriginal ? "en" : undefined}>
-      <span class="testimonials__quote-mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>{featured.quote}</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">{initialsOf(featured.name)}</span>
-        <span class="testimonial-card__who">
-          <cite>{featured.name}</cite>
-          <span>{featured.role}</span>
-        </span>
-      </figcaption>
-    </figure>
-    <div class="modal__columns">
-      <div class="modal__column">
-        {column1.map((q) => (
-          <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
-        ))}
-      </div>
-      <div class="modal__column">
-        {column2.map((q) => (
-          <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
-        ))}
-      </div>
-    </div>
-  </div>
-</dialog>

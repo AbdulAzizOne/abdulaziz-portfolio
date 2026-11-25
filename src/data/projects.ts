@@ -12,8 +12,8 @@ export interface Project {
   id: string;
   /** Case-study page slug under /work. */
   page: string;
-  /** "feature": wide card, media + info side by side (RADX only).
-      "card": stacked card in the 2-column grid. */
+  /** Legacy card size from the first redesign pass. The home page now shows
+      every project as an alternating media/text row, so this is unused there. */
   homeLayout: "feature" | "card";
   /** CSS var for the home/case-study media tile background. */
   tileBg: string;
@@ -82,11 +82,12 @@ export const projects: Project[] = [
     ],
     cardImages: [
       {
-        src: "/assets/img/radx-appstore-set-1400.webp",
-        srcset: "/assets/img/radx-appstore-set-700.webp 700w, /assets/img/radx-appstore-set-1400.webp 1400w",
-        sizes: "658px",
-        width: 1400,
-        height: 608,
+        // The Smart Companion falcon set, from the case study's App Store screenshots.
+        src: "/assets/img/radx-cs-appstore-set-1632.webp",
+        srcset: "/assets/img/radx-cs-appstore-set-816.webp 816w, /assets/img/radx-cs-appstore-set-1632.webp 1632w",
+        sizes: "(min-width: 961px) 640px, 90vw",
+        width: 1632,
+        height: 710,
         alt: "RADX Smart Companion: a set of App Store screenshots for the Arabic-first AI assistant app."
       }
     ]
