@@ -95,8 +95,10 @@ const pair = alternate ? { [lang]: path, [other]: alternate } as Record<Lang, st
     </>
   )}
 
+  <link rel="icon" href="/favicon-light-32.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/favicon-dark-32.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="preload" href="/assets/fonts/dm-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>

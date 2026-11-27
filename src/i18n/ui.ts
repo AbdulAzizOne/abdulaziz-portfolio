@@ -38,7 +38,7 @@ export const ui = {
     menuClose: "Close menu",
     /** The link to the other language, written in that language. */
     switchLabel: "العربية",
-    switchAria: "اقرأ الموقع بالعربية",
+    switchAria: "العربية: اقرأ الموقع بالعربية",
     contact: "Contact",
     contactTitle: "Have a product to design? ",
     contactTitleHighlight: "Let’s talk.",
@@ -152,7 +152,7 @@ export const ui = {
     menuOpen: "فتح القائمة",
     menuClose: "إغلاق القائمة",
     switchLabel: "English",
-    switchAria: "Read the site in English",
+    switchAria: "English: read the site in English",
     contact: "تواصل معي",
     contactTitle: "عندك منتج يحتاج إلى تصميم؟ ",
     contactTitleHighlight: "لنتحدث.",

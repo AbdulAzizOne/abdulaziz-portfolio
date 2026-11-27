@@ -525,16 +525,19 @@ button { font: inherit; color: inherit; }
 @media (max-width: 1023px) {
   .hero { padding-block: 64px 56px; }
   .hero__inner, .hero__intro { align-items: flex-start; text-align: start; }
-  .hero__title { font-size: 3.5rem; }
+  .hero__title { font-size: 3.75rem; }
   .hero__break { display: none; }
+  .hero__dot { width: 7px; height: 7px; border-radius: 0; }
+  .hero__location { gap: 12px; }
+  .hero__actions .btn--link { font-size: 1rem; }
   .hero__lead { max-width: none; }
   .hero__actions { justify-content: flex-start; }
   .hero__actions .btn--link { padding-inline: 0; }
 }
 @media (max-width: 767px) {
   .hero { padding-block: 48px 40px; }
-  .hero__title { font-size: 2.25rem; line-height: 1.1; }
-  .hero__lead { font-size: 1rem; line-height: 1.5; }
+  .hero__title { font-size: 2.5rem; line-height: 1.1; }
+  .hero__lead { font-size: 1.125rem; line-height: 1.4; }
   .hero__actions { flex-direction: column; align-items: stretch; width: 100%; gap: 16px; }
   .hero__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
 }
@@ -1013,8 +1016,8 @@ button { font: inherit; color: inherit; }
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "photo" "body" "glance" "band" "links";
   }
-  .about__photo { grid-row: auto; margin-bottom: 48px; }
-  .about__photo img { width: min(100%, 384px); }
+  .about__photo { grid-row: auto; margin-bottom: 40px; }
+  .about__photo img { width: min(100%, 320px); }
   .about__glance { margin-top: 48px; }
   .about__glance dl { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 0; }
   .about__glance dl > div { padding-block: 14px; border-bottom: 1px solid var(--border); }
@@ -1218,13 +1221,16 @@ button { font: inherit; color: inherit; }
   font-weight: 500;
   color: var(--muted-foreground);
 }
-.site-footer__top { transition: color 0.3s ease; }
+.site-footer__top { display: inline-block; padding-block: 4px; transition: color 0.3s ease; }
 .site-footer__top:hover { color: var(--foreground); }
-@media (max-width: 720px) {
-  .contact__actions > .btn { flex: 1 1 100%; }
-  .site-footer__main { flex-direction: column; text-align: center; }
+@media (max-width: 1023px) {
+  .site-footer__main { flex-direction: column; text-align: center; gap: 20px; }
   .site-footer__links { justify-content: center; }
-  .site-footer__bottom { flex-direction: column; text-align: center; }
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .site-footer__top { align-self: center; }
+}
+@media (max-width: 767px) {
+  .contact__actions > .btn { flex: 1 1 100%; }
 }
 
 /* ---------- 404 ---------- */
