@@ -1,13 +1,13 @@
 ---
 import { type Lang, ui } from "../../i18n/ui";
 interface Item { label: string; value: string; text: string }
-interface Props { lang?: Lang; items: Item[] }
-const { lang = "en", items } = Astro.props;
+interface Props { lang?: Lang; label?: string; items: Item[] }
+const { lang = "en", label, items } = Astro.props;
 const t = ui[lang];
 ---
 <section class="study-glance" aria-labelledby="glance-title">
   <div class="container">
-    <h2 class="study-glance__label" id="glance-title">{t.atAGlance}</h2>
+    <h2 class="study-glance__label" id="glance-title">{label ?? t.atAGlance}</h2>
     <dl class="study-glance__grid">
       {items.map((i) => (
         <div class="fact">

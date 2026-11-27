@@ -869,6 +869,25 @@ button { font: inherit; color: inherit; }
 .study-group__captions { display: flex; gap: 5.5%; padding-inline-start: 1.75%; text-align: center; }
 .study-group__captions > span { width: 20%; }
 
+/* Steps under a flow image (RADX). DOM order is step 1 → 4; the Arabic UI
+   reads right to left, so on desktop step 1 sits under the right-most phone. */
+.study-steps { display: flex; flex-direction: row-reverse; gap: 24px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.study-steps li { display: flex; flex: 0 1 282px; flex-direction: column; align-items: center; gap: 4px; font-size: 0.875rem; font-weight: 500; line-height: 1.4; text-align: center; color: var(--foreground); }
+.study-steps span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; line-height: normal; color: var(--gold-text); }
+.study-only-compact { display: none; }
+.study-pair--after { margin-top: 48px; }
+/* Big image beside a column of two (RADX design system, store assets). */
+.study-split { display: grid; grid-template-columns: minmax(0, 588px) minmax(0, 588px); gap: 24px; align-items: start; }
+.study-split--store { grid-template-columns: minmax(0, 792px) minmax(0, 384px); }
+.study-split__col { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.study-figure--tight { gap: 12px; }
+.study-store-links { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+.study-store-links .btn { gap: 8px; padding-inline: 24px; background: var(--background); font-size: 0.875rem; }
+.study-falcons { display: flex; gap: 24px; }
+.study-falcons figure { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.study-falcons img { border-radius: 22px; }
+.study-falcons figcaption { font-size: 0.875rem; line-height: 1.43; color: var(--muted-foreground); }
+
 /* Client quote */
 .study-quote { padding-block: 96px; background: var(--section-dark); color: var(--section-dark-foreground); }
 .study-quote__inner { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; margin-block: 0; }
@@ -887,6 +906,7 @@ button { font: inherit; color: inherit; }
 .study-outcome h3 { color: var(--gold-text); }
 .study-outcome p { font-size: 1rem; line-height: 1.75; color: var(--muted-foreground); }
 .study-outcome .study-outcome__lead { font-size: 1.25rem; line-height: 1.4; color: var(--foreground); }
+.study-outcome--rows { row-gap: 48px; }
 
 /* CTA */
 .study-cta { padding-bottom: 96px; }
@@ -922,8 +942,16 @@ button { font: inherit; color: inherit; }
   .study-group { gap: 32px; }
   .study-group__captions { flex-direction: column; gap: 4px; padding: 0; text-align: start; }
   .study-group__captions > span { width: auto; }
+  .study-steps { flex-direction: row; flex-wrap: wrap; gap: 16px 24px; }
+  .study-steps li { flex: 0 0 160px; align-items: flex-start; text-align: start; }
+  .study-only-desktop { display: none; }
+  .study-only-compact { display: inline; }
+  .study-pair--after { margin-top: 32px; }
+  .study-split, .study-split--store { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .study-split__col { gap: 32px; }
   .study-quote { padding-block: 64px; }
   .study-outcome { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .study-outcome--rows { row-gap: 32px; }
   .study-cta { padding-bottom: 64px; }
   .study-cta__band { flex-direction: column; align-items: stretch; padding: 24px; gap: 24px; }
   .study-next { padding-bottom: 64px; }
