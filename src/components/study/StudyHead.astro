@@ -1,0 +1,16 @@
+---
+/* Section head: eyebrow, two-tone heading (second line in primary), lead. */
+interface Props {
+  eyebrow: string;
+  line1: string;
+  line2?: string;
+  lead?: string;
+  id?: string;
+}
+const { eyebrow, line1, line2, lead, id } = Astro.props;
+---
+<div class="study-head">
+  <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>{eyebrow}</p>
+  <h2 class="study-head__title" id={id}>{line1}{line2 && <><br><span class="study-head__accent">{line2}</span></>}</h2>
+  {lead && <p class="study-head__lead">{lead}</p>}
+</div>

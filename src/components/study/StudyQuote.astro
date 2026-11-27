@@ -1,0 +1,14 @@
+---
+interface Props { quote: string; name: string; role: string; initials: string }
+const { quote, name, role, initials } = Astro.props;
+---
+<section class="study-quote theme-inverse" aria-label={name}>
+  <figure class="container study-quote__inner">
+    <span class="study-quote__mark" aria-hidden="true">“</span>
+    <blockquote><p>{quote}</p></blockquote>
+    <figcaption>
+      <span class="study-quote__avatar" aria-hidden="true">{initials}</span>
+      <span class="study-quote__who"><cite>{name}</cite><span>{role}</span></span>
+    </figcaption>
+  </figure>
+</section>

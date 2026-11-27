@@ -1,7 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Testimonials from "../../components/Testimonials.astro";
-import NextProject from "../../components/NextProject.astro";
+import StudyHero from "../../components/study/StudyHero.astro";
+import StudyGlance from "../../components/study/StudyGlance.astro";
+import StudyHead from "../../components/study/StudyHead.astro";
+import StudyMedia from "../../components/study/StudyMedia.astro";
+import StudyQuote from "../../components/study/StudyQuote.astro";
+import StudyCta from "../../components/study/StudyCta.astro";
+import StudyNext from "../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -35,191 +40,143 @@ const jsonLd = [
   ogType="article"
   ogImage="og-crpton.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/#work"><span aria-hidden="true">←</span> Back to portfolio</a>
-    <p class="cs-hero__eyebrow">Case study · Healthcare · Practice Management</p>
-    <h1 class="cs-hero__title" id="case-title">Crpton</h1>
-    <p class="cs-hero__subtitle">Taking a clinic system off the desktop — desktop-bound clinic software, rebuilt as a browser-based web app and a companion mobile app, so doctors, and support, can reach it from anywhere.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>My role</dt><dd>UX/UI Designer, solo end-to-end</dd></div>
-      <div><dt>Platform</dt><dd>Web app + companion mobile app</dd></div>
-      <div><dt>Timeline</dt><dd>9 months · May 2025 – Jan 2026</dd></div>
-      <div><dt>Status</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>Live in real clinics</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="On this page">
-      <span class="cs-onthispage__label">On this page</span>
-      <a href="#overview">Overview</a>
-      <a href="#decisions">Key decisions</a>
-      <a href="#before-after">Before &amp; after</a>
-      <a href="#mobile-app">Mobile app</a>
-      <a href="#outcome">Outcome</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    project="crpton"
+    eyebrow="Case study · Healthcare · Practice Management"
+    title="Crpton"
+    subtitle="Taking a clinic system off the desktop"
+    lead="Desktop-bound clinic software, rebuilt as a browser-based web app and a companion mobile app — so doctors, and support, can reach it from anywhere."
+    facts={[
+      { label: "My role", value: "UX/UI Designer, solo end-to-end" },
+      { label: "Platform", value: "Web app + companion mobile app" },
+      { label: "Timeline", value: "9 months · May 2025 – Jan 2026" },
+      { label: "Status", value: "Live in real clinics", status: true },
+    ]}
+    coverAlt="Crpton web app: the interactive tooth chart beside a patient's treatment plan."
+  />
 
-  <div class="container">
-    <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-      <img src="/assets/img/crpton-cs-hero-1040.webp" srcset="/assets/img/crpton-cs-hero-1040.webp 1040w, /assets/img/crpton-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="659" fetchpriority="high" decoding="async" alt="Crpton web app: a patient's finance tab showing total fees, payments, insurance and balance.">
-    </div>
-  </div>
+  <StudyGlance items={[
+    { label: "Scope", value: "2 platforms", text: "Browser-based web app + companion mobile app" },
+    { label: "Scope", value: "8 tabs", text: "Every patient record in one profile" },
+    { label: "Status", value: "Live", text: "In daily use in real clinics — not a pilot" },
+    { label: "Reach", value: "2,000+", text: "Clinics & clinicians across Palestine, Oman and Jordan" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">Project at a glance</p>
-    <div class="cs-glance">
-      <div class="fact-card">
-        <p class="fact-card__value">2 platforms</p>
-        <p class="fact-card__text">Browser-based web app + companion mobile app</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>The challenge</p>
+        <h2 class="study-overview__title" id="overview-title">One machine,<br>in one room.</h2>
       </div>
-      <div class="fact-card">
-        <p class="fact-card__value">8 tabs</p>
-        <p class="fact-card__text">Every patient record in one profile</p>
-      </div>
-      <div class="fact-card">
-        <p class="fact-card__value">Live</p>
-        <p class="fact-card__text">In daily use in real clinics — not a pilot</p>
-      </div>
-      <div class="fact-card">
-        <p class="fact-card__value">2,000+</p>
-        <p class="fact-card__text">Clinics &amp; clinicians across Palestine, Oman and Jordan</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>The challenge</div>
-    <h2 class="cs-title">One machine, in one room.</h2>
-    <div class="cs-prose">
-      <div>
-        <h3>Context</h3>
-        <p>Crpton was clinic-management software installed on desktop computers in doctors’ clinics and medical centers — handling patients, treatment plans and billing. Being desktop-bound meant it lived on one machine, in one room.</p>
-      </div>
-      <div>
-        <h3>Problem</h3>
-        <p>When something broke, there was no easy fix. Support either had to send someone on-site or walk a doctor through a screen-share session mid-clinic — slow, disruptive, and dependent on the doctor being free. The software also couldn’t be reached from anywhere but that one desktop.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="decisions">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — Key decisions</div>
-    <h2 class="cs-title">Six decisions that took <em>the clinic off the desktop</em></h2>
-    <p class="cs-lead">Each one answers the same question: how does a doctor get to what they need, from wherever they are, without waiting on support?</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Browser-based, not installed</p><p class="fact-card__text">A browser-based web app instead of installed software, so a doctor — or support — can open it from any device, without a site visit or screen-share.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">A companion mobile app</p><p class="fact-card__text">A condensed home (appointments, recalls, analytics) and a quick-access “Hub” menu, so a doctor can check on the clinic away from the desk.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">One patient, one profile</p><p class="fact-card__text">Every record in one profile with eight tabs — General, Dental, Finance, Medical, X-Ray, Prescription, Reports, Lab — so a doctor never loses the patient’s context.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Billing inside the system</p><p class="fact-card__text">A per-patient finance view — fees, payments, insurance, balance — plus clinic-wide expense analytics, instead of a separate spreadsheet.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">Light, dark and larger text</p><p class="fact-card__text">Light/Dark/Auto themes and adjustable text size, since clinics run under different lighting and staff spend long shifts at the screen.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">06</p><p class="fact-card__value">An interactive tooth chart</p><p class="fact-card__text">Tap a tooth, tag the procedure, and it flows straight into a priced treatment plan — fast enough for chairside use.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-        <img src="/assets/img/crpton-cs-toothchart-1264.webp" srcset="/assets/img/crpton-cs-toothchart-1264.webp 1264w, /assets/img/crpton-cs-toothchart-2528.webp 2528w" sizes="(min-width: 1280px) 1264px, 90vw" width="1264" height="801" loading="lazy" decoding="async" alt="Crpton's interactive tooth chart: tap a tooth, tag a procedure, add it to the treatment plan.">
-      </div>
-      <figcaption>The doctor selects a tooth and tags a procedure. The system adds it to a priced treatment plan.</figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="before-after">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — Before → after</div>
-    <h2 class="cs-title">From one desktop <em>to any device</em></h2>
-    <div class="cs-beforeafter">
-      <div>
-        <div class="cs-panel" style={{ background: "var(--muted)" }}>
-          <img src="/assets/img/crpton-cs-before-600.webp" srcset="/assets/img/crpton-cs-before-600.webp 600w, /assets/img/crpton-cs-before-1200.webp 1200w" sizes="600px" width="600" height="286" loading="lazy" decoding="async" alt="The old desktop-only clinic software, installed on a single Windows machine.">
+      <div class="study-overview__body">
+        <div>
+          <h3>Context</h3>
+          <p>Crpton was clinic-management software installed on desktop computers in doctors’ clinics and medical centers — handling patients, treatment plans and billing. Being desktop-bound meant it lived on one machine, in one room.</p>
         </div>
-        <p class="cs-ba-tag"><span>Before</span>Installed on one desktop, in one room</p>
-      </div>
-      <div>
-        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-          <img src="/assets/img/crpton-cs-after-600.webp" srcset="/assets/img/crpton-cs-after-600.webp 600w, /assets/img/crpton-cs-after-1200.webp 1200w" sizes="600px" width="600" height="380" loading="lazy" decoding="async" alt="The new Crpton web app, opened in a browser.">
+        <div>
+          <h3>Problem</h3>
+          <p>When something broke, there was no easy fix. Support either had to send someone on-site or walk a doctor through a screen-share session mid-clinic — slow, disruptive, and dependent on the doctor being free. The software also couldn’t be reached from anywhere but that one desktop.</p>
         </div>
-        <p class="cs-ba-tag cs-ba-tag--after"><span>After</span>A browser-based app any doctor can open from anywhere</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <div class="cs-grid cs-grid--2">
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-          <img src="/assets/img/crpton-cs-platform-1-524.webp" srcset="/assets/img/crpton-cs-platform-1-524.webp 524w, /assets/img/crpton-cs-platform-1-1048.webp 1048w" sizes="524px" width="524" height="329" loading="lazy" decoding="async" alt="Crpton patient profile with eight tabs: General, Dental, Finance, Medical, X-Ray, Prescription, Reports, Lab.">
-        </div>
+  <section class="study-section study-section--muted" aria-labelledby="decisions-title">
+    <div class="container">
+      <StudyHead id="decisions-title" eyebrow="01 — Key decisions" line1="Six decisions that took" line2="the clinic off the desktop" lead="Each one answers the same question: how does a doctor get to what they need, from wherever they are, without waiting on support?" />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Browser-based, not installed</h3><p class="fact__text">A browser-based web app instead of installed software, so a doctor — or support — can open it from any device, without a site visit or screen-share.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">A companion mobile app</h3><p class="fact__text">A condensed home (appointments, recalls, analytics) and a quick-access “Hub” menu, so a doctor can check on the clinic away from the desk.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">One patient, one profile</h3><p class="fact__text">Every record in one profile with eight tabs — General, Dental, Finance, Medical, X-Ray, Prescription, Reports, Lab — so a doctor never loses the patient’s context.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Billing inside the system</h3><p class="fact__text">A per-patient finance view — fees, payments, insurance, balance — plus clinic-wide expense analytics, instead of a separate spreadsheet.</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">Light, dark and larger text</h3><p class="fact__text">Light/Dark/Auto themes and adjustable text size, since clinics run under different lighting and staff spend long shifts at the screen.</p></li>
+        <li class="fact fact--md"><span class="fact__label">06</span><h3 class="fact__value">An interactive tooth chart</h3><p class="fact__text">Tap a tooth, tag the procedure, and it flows straight into a priced treatment plan — fast enough for chairside use.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-list">
+        <StudyMedia project="crpton" name="02-tooth-chart" desktop={[1200, 759]} tablet={[704, 445]} mobile={[358, 236]} alt="Crpton's interactive tooth chart: the upper arch with procedure tags, beside the patient's priced treatment plan." />
+        <figcaption>The doctor selects a tooth and tags a procedure. The system adds it to a priced treatment plan.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="study-section study-section--tight-bottom" aria-labelledby="before-after-title">
+    <div class="container">
+      <StudyHead id="before-after-title" eyebrow="02 — Before → after" line1="From one desktop" line2="to any device" />
+      <div class="study-pair">
+        <figure class="study-figure">
+          <StudyMedia project="crpton" name="03-old-desktop-software" desktop={[588, 396]} tablet={[704, 474]} mobile={[358, 187]} alt="The old desktop-only clinic software: a dense Windows receipt-voucher form." />
+          <figcaption class="study-tag"><span class="study-tag__pill">Before</span>Installed on one desktop, in one room</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="crpton" name="04-browser-app" desktop={[588, 396]} tablet={[704, 474]} mobile={[358, 238]} alt="The new Crpton web app in a browser: a patient's finance tab with fees, payments, insurance and balance." />
+          <figcaption class="study-tag study-tag--after"><span class="study-tag__pill">After</span>A browser-based app any doctor can open from anywhere</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--grid" aria-label="Web platform">
+    <div class="container study-pair study-pair--rows">
+      <figure class="study-figure">
+        <StudyMedia project="crpton" name="05-patient-profile" desktop={[588, 409]} tablet={[704, 490]} mobile={[358, 248]} alt="Crpton patient profile with eight tabs: General, Dental, Finance, Medical, X-Ray, Prescription, Reports, Lab." />
         <figcaption>One profile, eight tabs — the patient’s whole story without leaving the record.</figcaption>
       </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-          <img src="/assets/img/crpton-cs-platform-2-524.webp" srcset="/assets/img/crpton-cs-platform-2-524.webp 524w, /assets/img/crpton-cs-platform-2-1048.webp 1048w" sizes="524px" width="524" height="332" loading="lazy" decoding="async" alt="Crpton patient list with quick filters.">
-        </div>
+      <figure class="study-figure">
+        <StudyMedia project="crpton" name="06-patient-list" desktop={[588, 412]} tablet={[704, 493]} mobile={[358, 249]} alt="Crpton patient list with quick filters." />
         <figcaption>Patient list with quick filters.</figcaption>
       </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-          <img src="/assets/img/crpton-cs-platform-3-524.webp" srcset="/assets/img/crpton-cs-platform-3-524.webp 524w, /assets/img/crpton-cs-platform-3-1048.webp 1048w" sizes="524px" width="524" height="332" loading="lazy" decoding="async" alt="Crpton clinic-wide expenses and transactions report.">
-        </div>
+      <figure class="study-figure">
+        <StudyMedia project="crpton" name="07-expenses-transactions" desktop={[588, 412]} tablet={[704, 493]} mobile={[358, 249]} alt="Crpton clinic-wide expenses and transactions." />
         <figcaption>Clinic-wide expenses and transactions.</figcaption>
       </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-crpton)" }}>
-          <img src="/assets/img/crpton-cs-platform-4-524.webp" srcset="/assets/img/crpton-cs-platform-4-524.webp 524w, /assets/img/crpton-cs-platform-4-1048.webp 1048w" sizes="524px" width="524" height="329" loading="lazy" decoding="async" alt="Crpton reports with filters for the practice, in Arabic.">
-        </div>
+      <figure class="study-figure">
+        <StudyMedia project="crpton" name="08-reports" desktop={[588, 409]} tablet={[704, 490]} mobile={[358, 248]} alt="Crpton reports with filters for the practice, in Arabic." />
         <figcaption>Reports with filters for the practice.</figcaption>
       </figure>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section" id="mobile-app">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — Companion app</div>
-    <h2 class="cs-title">The clinic in <em>a doctor’s pocket</em></h2>
-    <p class="cs-lead">Appointments, recalls and patient finances — in light and dark — for the moments between patients.</p>
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-crpton)" }}>
-      <figure><img src="/assets/img/crpton-cs-mobile-1-240.webp" srcset="/assets/img/crpton-cs-mobile-1-240.webp 240w, /assets/img/crpton-cs-mobile-1-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="Crpton mobile app home screen, light theme."><figcaption>Home · light</figcaption></figure>
-      <figure><img src="/assets/img/crpton-cs-mobile-2-240.webp" srcset="/assets/img/crpton-cs-mobile-2-240.webp 240w, /assets/img/crpton-cs-mobile-2-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="Crpton mobile app home screen, dark theme."><figcaption>Home · dark</figcaption></figure>
-      <figure><img src="/assets/img/crpton-cs-mobile-3-240.webp" srcset="/assets/img/crpton-cs-mobile-3-240.webp 240w, /assets/img/crpton-cs-mobile-3-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="Crpton mobile app patient profile screen."><figcaption>Patient profile</figcaption></figure>
-      <figure><img src="/assets/img/crpton-cs-mobile-4-240.webp" srcset="/assets/img/crpton-cs-mobile-4-240.webp 240w, /assets/img/crpton-cs-mobile-4-480.webp 480w" sizes="240px" width="240" height="522" loading="lazy" decoding="async" alt="Crpton mobile app finance screen."><figcaption>Finance</figcaption></figure>
+  <section class="study-section study-section--card" aria-labelledby="mobile-title">
+    <div class="container">
+      <StudyHead id="mobile-title" eyebrow="03 — Companion app" line1="The clinic in" line2="a doctor’s pocket" lead="Appointments, recalls and patient finances — in light and dark — for the moments between patients." />
+      <figure class="study-figure study-group">
+        <StudyMedia project="crpton" name="09-mobile-app" desktop={[1200, 642]} tablet={[704, 377]} mobile={[358, 211]} alt="Four screens of the Crpton mobile app: home in light, home in dark, a patient profile and finance." />
+        <figcaption class="study-group__captions study-group__captions--4">
+          <span>Home · light</span><span>Home · dark</span><span>Patient profile</span><span>Finance</span>
+        </figcaption>
+      </figure>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>The Crpton dashboard reached a new level of quality thanks to Abdulaziz’s UX/UI expertise. His thoughtful design decisions greatly enhanced the overall user experience.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">AA</span>
-        <span class="testimonial-card__who"><cite>Alaa Al-Najjar</cite><span>Founder, Crpton · Bethlehem, Palestine</span></span>
-      </figcaption>
-    </figure>
-  </div>
+  <StudyQuote
+    quote="The Crpton dashboard reached a new level of quality thanks to Abdulaziz’s UX/UI expertise. His thoughtful design decisions greatly enhanced the overall user experience."
+    name="Alaa Al-Najjar"
+    role="Founder, Crpton · Bethlehem, Palestine"
+    initials="AA"
+  />
 
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — Outcome</div>
-    <h2 class="cs-title">Live, and in daily use</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>Outcome</h3>
-        <p>Crpton is live and in daily use in real clinics today — not a pilot or a beta, but the system doctors and staff actually run their day on.</p>
-      </div>
-      <div>
-        <h3>What I learned</h3>
-        <p>To design treatment plans, insurance flows and clinic billing that held up, I had to read into dentistry and accounting well enough to think like the people using the system every day. Learning the domain before trusting my own instincts is the lens I now bring to any specialized industry.</p>
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="04 — Outcome" line1="Live, and in daily use" />
+      <div class="study-outcome">
+        <div>
+          <h3>Outcome</h3>
+          <p class="study-outcome__lead">Crpton is live and in daily use in real clinics today — not a pilot or a beta, but the system doctors and staff actually run their day on.</p>
+        </div>
+        <div>
+          <h3>What I learned</h3>
+          <p>To design treatment plans, insurance flows and clinic billing that held up, I had to read into dentistry and accounting well enough to think like the people using the system every day. Learning the domain before trusting my own instincts is the lens I now bring to any specialized industry.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>Running software stuck on one machine?</h2>
-        <p>Tell me where your product is today, and how you’d like it to work.</p>
-      </div>
-      <a class="btn btn--primary btn--xl" href="/#contact">Let’s talk</a>
-    </div>
-  </div>
+  <StudyCta title="Running software stuck on one machine?" text="Tell me where your product is today, and how you’d like it to work." />
 </article>
 
-<NextProject current="crpton" />
-
-<Testimonials />
+<StudyNext current="crpton" />
 
 </Layout>
