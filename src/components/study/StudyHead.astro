@@ -13,6 +13,6 @@ const { eyebrow, line1, line2, lead, id, accent = true } = Astro.props;
 ---
 <div class="study-head">
   <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>{eyebrow}</p>
-  <h2 class="study-head__title" id={id}>{line1}{line2 && <><br><span class:list={[accent && "study-head__accent"]}>{line2}</span></>}</h2>
+  <h2 class="study-head__title" id={id}>{line1}{line2 && <>{" "}<br class:list={[!accent && "study-head__br"]}><span class:list={[accent && "study-head__accent"]}>{line2}</span></>}</h2>
   {lead && <p class="study-head__lead">{lead}</p>}
 </div>

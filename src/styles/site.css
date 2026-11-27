@@ -841,6 +841,7 @@ button { font: inherit; color: inherit; }
 .study-head .eyebrow, .study-overview__head .eyebrow { margin: 0; text-transform: uppercase; }
 .study-head__title { max-width: 820px; font-family: var(--font-en-heading); font-weight: 700; font-size: var(--study-h2); line-height: 1.15; letter-spacing: var(--study-h2-track); color: var(--foreground); }
 .study-head__accent { color: var(--primary); }
+@media (max-width: 767px) { .study-head__br { display: none; } }
 .study-head__lead { max-width: 680px; font-size: 1.25rem; line-height: 1.4; color: var(--muted-foreground); }
 .study-section--muted .study-head { margin-bottom: 56px; }
 
@@ -895,6 +896,11 @@ button { font: inherit; color: inherit; }
 .study-split { display: grid; grid-template-columns: minmax(0, 588px) minmax(0, 588px); gap: 24px; align-items: start; }
 .study-split--store { grid-template-columns: minmax(0, 792px) minmax(0, 384px); }
 .study-split__col { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.study-split--marketing { grid-template-columns: minmax(0, 588px) minmax(0, 572px); column-gap: 40px; }
+.study-decisions--stack { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+.study-sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin: 0; padding: 0; list-style: none; }
+.study-sides .fact { gap: 8px; }
+.study-overview__body .study-sides p { font-size: 1.125rem; line-height: 1.556; }
 .study-figure--tight { gap: 12px; }
 .study-store-links { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
 .study-store-links .btn { gap: 8px; padding-inline: 24px; background: var(--background); font-size: 0.875rem; }
@@ -962,7 +968,9 @@ button { font: inherit; color: inherit; }
   .study-only-desktop { display: none; }
   .study-only-compact { display: inline; }
   .study-pair--after { margin-top: 32px; }
-  .study-split, .study-split--store { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .study-split, .study-split--store, .study-split--marketing { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .study-decisions--stack { gap: 24px; }
+  .study-sides { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .study-split__col { gap: 32px; }
   .study-facts--3, .study-facts--4 { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .study-facts--5 { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px; }

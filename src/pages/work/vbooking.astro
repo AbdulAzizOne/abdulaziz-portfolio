@@ -1,7 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Testimonials from "../../components/Testimonials.astro";
-import NextProject from "../../components/NextProject.astro";
+import StudyHero from "../../components/study/StudyHero.astro";
+import StudyGlance from "../../components/study/StudyGlance.astro";
+import StudyHead from "../../components/study/StudyHead.astro";
+import StudyMedia from "../../components/study/StudyMedia.astro";
+import StudyQuote from "../../components/study/StudyQuote.astro";
+import StudyCta from "../../components/study/StudyCta.astro";
+import StudyNext from "../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -35,184 +40,143 @@ const jsonLd = [
   ogType="article"
   ogImage="og-vbooking.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/#work"><span aria-hidden="true">←</span> Back to portfolio</a>
-    <p class="cs-hero__eyebrow">Case study · Travel tech · B2C + B2B</p>
-    <h1 class="cs-hero__title" id="case-title">VBooking</h1>
-    <p class="cs-hero__subtitle">One travel platform, two sides — travelers and travel agents. A traveler community with AI trip planning and real travel experts, and a workspace for agents that unifies booking, a CRM pipeline and the Ask Genie AI assistant.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>My role</dt><dd>Lead UX/UI Designer, solo end-to-end</dd></div>
-      <div><dt>Platform</dt><dd>Community (web + mobile), Turbo Suite for agents, and the marketing site</dd></div>
-      <div><dt>Timeline</dt><dd>11 months · Aug 2024 – Jun 2025</dd></div>
-      <div><dt>Status</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>Both sides live in beta</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="On this page">
-      <span class="cs-onthispage__label">On this page</span>
-      <a href="#overview">Overview</a>
-      <a href="#community">Community</a>
-      <a href="#turbo-suite">Turbo Suite</a>
-      <a href="#marketing-site">Marketing site</a>
-      <a href="#outcome">Outcome</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    project="vbooking"
+    eyebrow="Case study · Travel tech · B2C + B2B"
+    title="VBooking"
+    subtitle="One travel platform, two sides — travelers and travel agents"
+    lead="A traveler community with AI trip planning and real travel experts, and a workspace for agents that unifies booking, a CRM pipeline and the Ask Genie AI assistant."
+    facts={[
+      { label: "My role", value: "Lead UX/UI Designer, solo end-to-end" },
+      { label: "Platform", value: "Community (web + mobile), Turbo Suite for agents, and the marketing site" },
+      { label: "Timeline", value: "11 months · Aug 2024 – Jun 2025" },
+      { label: "Status", value: "Both sides live in beta", status: true },
+    ]}
+    coverAlt="VBooking Community trip page for a 7-day Tokyo and Japan city adventure, over the Turbo Suite CRM pipeline."
+  />
 
-  <div class="container">
-    <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-      <img src="/assets/img/vbooking-cs-hero-1040.webp" srcset="/assets/img/vbooking-cs-hero-1040.webp 1040w, /assets/img/vbooking-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="676" fetchpriority="high" decoding="async" alt="VBooking Community trip page for a 7-day Tokyo and Japan city adventure.">
-    </div>
-  </div>
+  <StudyGlance items={[
+    { label: "Scope", value: "2 platforms", text: "Community for travelers + Turbo Suite for agents" },
+    { label: "Status", value: "Live beta", text: "Live in beta for travelers and agents" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">Project at a glance</p>
-    <div class="cs-glance">
-      <div class="fact-card"><p class="fact-card__value">2 platforms</p><p class="fact-card__text">Community for travelers + Turbo Suite for agents</p></div>
-      <div class="fact-card"><p class="fact-card__value">Live beta</p><p class="fact-card__text">Live in beta for travelers and agents</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>The challenge</div>
-    <h2 class="cs-title">Travelers want trust. Agents want speed.</h2>
-    <div class="cs-prose">
-      <div>
-        <h3>Context</h3>
-        <p>VBooking set out to unify a fragmented travel industry under one platform with two sides: Community, where travelers plan and book trips, and Turbo Suite, where travel agents build and sell them. Both sides meet on the same trip — a request from a traveler in Community lands as a lead in an agent's pipeline.</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>The challenge</p>
+        <h2 class="study-overview__title" id="overview-title">Travelers want trust.<br>Agents want speed.</h2>
       </div>
-      <div>
-        <h3>Problem</h3>
-        <p>Travelers didn't know whose advice to trust, and putting a full trip together meant jumping between disconnected sites. Agents had the mirror problem: separate tools for search, quoting, CRM and finance, prices that went stale, and no single place to follow a lead from first contact to payment.</p>
-      </div>
-    </div>
-    <div class="cs-glance" style={{ marginTop: "32px" }}>
-      <div class="fact-card">
-        <p class="fact-card__label">For travelers</p>
-        <p class="fact-card__value" style={{ fontSize: "1.5rem", marginTop: "10px" }}>Trust, and one place to plan.</p>
-      </div>
-      <div class="fact-card">
-        <p class="fact-card__label">For agents</p>
-        <p class="fact-card__value" style={{ fontSize: "1.5rem", marginTop: "10px" }}>Speed, and control over their own numbers.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="community">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — Community · For travelers</div>
-    <h2 class="cs-title">Three ways into a trip — and a real person behind every quote</h2>
-    <p class="cs-lead">The gap wasn't information — it was trust, and the lack of one recognized route to a real answer.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Three ways into planning</p><p class="fact-card__text">AI, manual, or a real travel expert — from the same entry point, after exploring three layouts for surfacing the choice and reviewing them with stakeholders. A single buried link meant people defaulted to browsing alone.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">AI draft, human price</p><p class="fact-card__text">The AI planner produces a full day-by-day itinerary with a map before asking for payment, then “Send Request” turns that draft into a real, human-priced offer.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Destination pages as one hub</p><p class="fact-card__text">Hotels, activities, restaurants, car rental and articles together — instead of scattered across sections.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Experts with a public profile</p><p class="fact-card__text">Reviews, followers and their own packages, so “who do I trust” is answered with the social proof people already rely on.</p></div>
-    </div>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-community-1-524.webp" srcset="/assets/img/vbooking-cs-community-1-524.webp 524w, /assets/img/vbooking-cs-community-1-1048.webp 1048w" sizes="524px" width="524" height="396" loading="lazy" decoding="async" alt="VBooking destination hub for Tokyo with facts, AI summary and shortcuts to hotels and things to do.">
+      <div class="study-overview__body">
+        <div>
+          <h3>Context</h3>
+          <p>VBooking set out to unify a fragmented travel industry under one platform with two sides: Community, where travelers plan and book trips, and Turbo Suite, where travel agents build and sell them. Both sides meet on the same trip — a request from a traveler in Community lands as a lead in an agent’s pipeline.</p>
         </div>
-        <figcaption>Destination hub for Tokyo — facts, AI summary and shortcuts to hotels, things to do and more.</figcaption>
-      </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-community-2-524.webp" srcset="/assets/img/vbooking-cs-community-2-524.webp 524w, /assets/img/vbooking-cs-community-2-1048.webp 1048w" sizes="524px" width="524" height="397" loading="lazy" decoding="async" alt="VBooking travel expert profile with ratings, followers and packages.">
+        <div>
+          <h3>Problem</h3>
+          <p>Travelers didn’t know whose advice to trust, and putting a full trip together meant jumping between disconnected sites. Agents had the mirror problem: separate tools for search, quoting, CRM and finance, prices that went stale, and no single place to follow a lead from first contact to payment.</p>
         </div>
-        <figcaption>Travel expert profile — ratings, followers and packages.</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="turbo-suite">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — Turbo Suite · For travel agents</div>
-    <h2 class="cs-title">One workspace from first contact to payment</h2>
-    <p class="cs-lead">Agents don't want delight — they want speed and control over their own numbers. Every decision was weighed against “does this save a step”.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">One CRM pipeline</p><p class="fact-card__text">Every incoming lead in one Kanban view, so an agent never checks two systems to know where a deal stands.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Real-time numbers up front</p><p class="fact-card__text">Inventory and financial exposure — unpaid orders, contract limits, cancellations — on the home dashboard, since stale numbers were the exact complaint.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Itinerary builder, day by day</p><p class="fact-card__text">Flights, hotels, restaurants, transport — with a “Generate with AI” shortcut, so a client's ask becomes a priced package in minutes.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Ask Genie as a first-class tab</p><p class="fact-card__text">Not a side panel: agents describe what a customer needs in plain language and get offers back immediately.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-        <img src="/assets/img/vbooking-cs-crm-1264.webp" srcset="/assets/img/vbooking-cs-crm-1264.webp 1264w, /assets/img/vbooking-cs-crm-2528.webp 2528w" sizes="(min-width: 1280px) 1264px, 90vw" width="1264" height="822" loading="lazy" decoding="async" alt="VBooking Turbo Suite CRM pipeline: every lead in one Kanban view from New to Paid.">
+        <ul class="study-sides">
+          <li class="fact"><span class="fact__label">Community · For travelers</span><p>Trust, and one place to plan.</p></li>
+          <li class="fact"><span class="fact__label">Turbo Suite · For agents</span><p>Speed, and control over their own numbers.</p></li>
+        </ul>
       </div>
-      <figcaption>CRM pipeline — every lead in one Kanban view: New → Sent → Follow ups → Viewed → Paid.</figcaption>
-    </figure>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-itinerary-524.webp" srcset="/assets/img/vbooking-cs-itinerary-524.webp 524w, /assets/img/vbooking-cs-itinerary-1048.webp 1048w" sizes="524px" width="524" height="396" loading="lazy" decoding="async" alt="VBooking Turbo Suite itinerary builder: a day-by-day Tokyo quotation.">
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="community-title">
+    <div class="container">
+      <StudyHead id="community-title" eyebrow="01 — Community · For travelers" line1="Three ways into a trip — and a real" line2="person behind every quote" lead="The gap wasn’t information — it was trust, and the lack of one recognized route to a real answer." accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Three ways into planning</h3><p class="fact__text">AI, manual, or a real travel expert — from the same entry point, after exploring three layouts for surfacing the choice and reviewing them with stakeholders. A single buried link meant people defaulted to browsing alone.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">AI draft, human price</h3><p class="fact__text">The AI planner produces a full day-by-day itinerary with a map before asking for payment, then “Send Request” turns that draft into a real, human-priced offer.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Destination pages as one hub</h3><p class="fact__text">Hotels, activities, restaurants, car rental and articles together — instead of scattered across sections.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Experts with a public profile</h3><p class="fact__text">Reviews, followers and their own packages, so “who do I trust” is answered with the social proof people already rely on.</p></li>
+      </ol>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="02-destination-hub-tokyo" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="VBooking destination hub for Tokyo with facts, AI summary and shortcuts to hotels and things to do." />
+          <figcaption>Destination hub for Tokyo — facts, AI summary and shortcuts to hotels, things to do and more.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="03-travel-expert-profile" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="VBooking travel expert profile with ratings, followers and packages." />
+          <figcaption>Travel expert profile — ratings, followers and packages.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section" aria-labelledby="turbo-title">
+    <div class="container">
+      <StudyHead id="turbo-title" eyebrow="02 — Turbo Suite · For travel agents" line1="One workspace from first contact" line2="to payment" lead="Agents don’t want delight — they want speed and control over their own numbers. Every decision was weighed against “does this save a step”." accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">One CRM pipeline</h3><p class="fact__text">Every incoming lead in one Kanban view, so an agent never checks two systems to know where a deal stands.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Real-time numbers up front</h3><p class="fact__text">Inventory and financial exposure — unpaid orders, contract limits, cancellations — on the home dashboard, since stale numbers were the exact complaint.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Itinerary builder, day by day</h3><p class="fact__text">Flights, hotels, restaurants, transport — with a “Generate with AI” shortcut, so a client’s ask becomes a priced package in minutes.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Ask Genie as a first-class tab</h3><p class="fact__text">Not a side panel: agents describe what a customer needs in plain language and get offers back immediately.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="vbooking" name="05-turbo-crm-pipeline" desktop={[1200, 775]} tablet={[704, 455]} mobile={[358, 241]} alt="VBooking Turbo Suite CRM pipeline: every lead in one Kanban view from New to Paid." />
+        <figcaption>CRM pipeline — every lead in one Kanban view: New → Sent → Follow ups → Viewed → Paid.</figcaption>
+      </figure>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="04-itinerary-builder" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="VBooking Turbo Suite itinerary builder: a day-by-day Tokyo quotation." />
+          <figcaption>Itinerary builder — a day-by-day Tokyo quotation with Generate with AI.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="06-turbo-suite-home" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="VBooking Turbo Suite home: Ask Genie, latest offers and sales analytics." />
+          <figcaption>Turbo Suite home — Ask Genie, latest offers and sales analytics.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="marketing-title">
+    <div class="container">
+      <StudyHead id="marketing-title" eyebrow="03 — Marketing site · The front door" line1="One front door for a" line2="multi-product platform" lead="VBooking sells many products to very different businesses. The homepage had to let each visitor find their own way in within a scroll." accent={false} />
+      <div class="study-split study-split--marketing">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="07-marketing-homepage" desktop={[588, 627]} tablet={[704, 751]} mobile={[358, 380]} alt="The VBooking marketing homepage: product tiles, Turbo Suite by business type, and role-based entry points." />
+          <figcaption>VBooking homepage.</figcaption>
+        </figure>
+        <ol class="study-decisions study-decisions--stack">
+          <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Products as one row of tiles</h3><p class="fact__text">Search engine, AI agent, holiday builder, CRM and more — the breadth of the platform reads at a glance before any detail.</p></li>
+          <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Turbo Suite by who is buying</h3><p class="fact__text">Wholesale tour operators, incoming agencies, online travel agencies, holiday rental managers — each with its own pitch and a “Book Demo”.</p></li>
+          <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Role-based entry points</h3><p class="fact__text">Traveler, Travel Expert, Travel Agent — the site hands each visitor straight into the right side of the platform.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <StudyQuote
+    quote="Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. I highly recommend working with him."
+    name="Omrie Abu Madi"
+    role="Founder, VBooking · Dubai, UAE"
+    initials="OA"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="04 — Outcome" line1="Both sides live in beta" />
+      <div class="study-outcome">
+        <div>
+          <h3>Outcome</h3>
+          <p class="study-outcome__lead">Both sides shipped as live betas, active but not yet open to the general market. Throughout the project I reviewed each stage with VBooking’s stakeholders — their feedback shaped the three-entry-point approach to planning and showed where the old tool-hopping workflow still leaked into the new one, and it now guides the run-up to a full launch.</p>
         </div>
-        <figcaption>Itinerary builder — a day-by-day Tokyo quotation with Generate with AI.</figcaption>
-      </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-turbohome-524.webp" srcset="/assets/img/vbooking-cs-turbohome-524.webp 524w, /assets/img/vbooking-cs-turbohome-1048.webp 1048w" sizes="524px" width="524" height="397" loading="lazy" decoding="async" alt="VBooking Turbo Suite home: Ask Genie, latest offers and sales analytics.">
+        <div>
+          <h3>What I learned</h3>
+          <p>Designing both platforms at once made it clear that a traveler, a travel expert and a travel agent are three different people even when they’re looking at the same trip. Heavy competitor analysis shaped where VBooking chose to differentiate: pairing AI planning with a real human behind every quote, and a unified CRM pipeline instead of copying what every other booking tool already did.</p>
         </div>
-        <figcaption>Turbo Suite home — Ask Genie, latest offers and sales analytics.</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="marketing-site">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — Marketing site · The front door</div>
-    <h2 class="cs-title">One front door for a multi-product platform</h2>
-    <p class="cs-lead">VBooking sells many products to very different businesses. The homepage had to let each visitor find their own way in within a scroll.</p>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "40px", alignItems: "start" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-marketing-524.webp" srcset="/assets/img/vbooking-cs-marketing-524.webp 524w, /assets/img/vbooking-cs-marketing-1048.webp 1048w" sizes="524px" width="524" height="547" loading="lazy" decoding="async" alt="VBooking marketing homepage.">
-        </div>
-        <figcaption>VBooking homepage.</figcaption>
-      </figure>
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Products as one row of tiles</p><p class="fact-card__text">Search engine, AI agent, holiday builder, CRM and more — the breadth of the platform reads at a glance before any detail.</p></div>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Turbo Suite by who is buying</p><p class="fact-card__text">Wholesale tour operators, incoming agencies, online travel agencies, holiday rental managers — each with its own pitch and a “Book Demo”.</p></div>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Role-based entry points</p><p class="fact-card__text">Traveler, Travel Expert, Travel Agent — the site hands each visitor straight into the right side of the platform.</p></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>Based on my long-term experience working with him, I can truly say that his creative touches are always flawless and well-crafted. He is highly professional, exceptionally cooperative, and has never fallen short at any stage. I highly recommend working with him.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">OA</span>
-        <span class="testimonial-card__who"><cite>Omrie Abu Madi</cite><span>Founder, VBooking · Dubai, UAE</span></span>
-      </figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — Outcome</div>
-    <h2 class="cs-title">Both sides live in beta</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>Outcome</h3>
-        <p>Both sides shipped as live betas, active but not yet open to the general market. Throughout the project I reviewed each stage with VBooking's stakeholders — their feedback shaped the three-entry-point approach to planning and showed where the old tool-hopping workflow still leaked into the new one, and it now guides the run-up to a full launch.</p>
-      </div>
-      <div>
-        <h3>What I learned</h3>
-        <p>Designing both platforms at once made it clear that a traveler, a travel expert and a travel agent are three different people even when they're looking at the same trip. Heavy competitor analysis shaped where VBooking chose to differentiate: pairing AI planning with a real human behind every quote, and a unified CRM pipeline instead of copying what every other booking tool already did.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>Building a platform with more than one side?</h2>
-        <p>Tell me who it serves, and where their journeys meet.</p>
-      </div>
-      <a class="btn btn--primary btn--xl" href="/#contact">Let’s talk</a>
-    </div>
-  </div>
+  <StudyCta title="Building a platform with more than one side?" text="Tell me who it serves, and where their journeys meet." />
 </article>
 
-<NextProject current="vbooking" />
-
-<Testimonials />
+<StudyNext current="vbooking" />
 
 </Layout>
