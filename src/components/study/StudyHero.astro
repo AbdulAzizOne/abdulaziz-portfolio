@@ -1,0 +1,50 @@
+---
+import { type Lang, ui } from "../../i18n/ui";
+
+interface Fact { label: string; value: string; status?: boolean }
+interface Props {
+  lang?: Lang;
+  /** Project id: the hero image is the approved homepage cover. */
+  project: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  lead: string;
+  facts: Fact[];
+  coverAlt: string;
+  /** Facts in one column below 1024 (Figma: pages with long fact values). */
+  stackFacts?: boolean;
+}
+const { lang = "en", project, eyebrow, title, subtitle, lead, facts, coverAlt, stackFacts = false } = Astro.props;
+const t = ui[lang];
+const home = lang === "ar" ? "/ar#work" : "/#work";
+const c = (bp: string, dark = false) => `/assets/covers/${project}-${bp}${dark ? "-dark" : ""}.webp`;
+---
+<header class="study-hero">
+  <div class="container study-hero__inner">
+    <a class="study-hero__back text-link" href={home}><span aria-hidden="true">{lang === "ar" ? "→" : "←"}</span> {t.allWork}</a>
+    <p class="study-hero__eyebrow">{eyebrow}</p>
+    <h1 class="study-hero__title" id="case-title">{title}</h1>
+    <p class="study-hero__subtitle">{subtitle}</p>
+    <p class="study-hero__lead">{lead}</p>
+    <dl class:list={["study-hero__facts", stackFacts && "study-hero__facts--stack"]}>
+      {facts.map((f) => (
+        <div>
+          <dt>{f.label}</dt>
+          <dd>{f.status && <span class="work-card__dot" aria-hidden="true"></span>}{f.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+  <div class="container">
+    {/* Desktop shows the tablet cover (1408px source) at 1200×798, as in Figma. */}
+    <picture class="study-hero__media">
+      <source media="(prefers-color-scheme: dark) and (min-width: 1024px)" srcset={`${c("tablet", true)} 1408w`} sizes="1200px" width="1200" height="798">
+      <source media="(min-width: 1024px)" srcset={`${c("tablet")} 1408w`} sizes="1200px" width="1200" height="798">
+      <source media="(prefers-color-scheme: dark) and (min-width: 768px)" srcset={`${c("tablet", true)} 2x`} width="704" height="468">
+      <source media="(min-width: 768px)" srcset={`${c("tablet")} 2x`} width="704" height="468">
+      <source media="(prefers-color-scheme: dark)" srcset={`${c("mobile", true)} 3x`} width="358" height="238">
+      <img src={c("mobile")} srcset={`${c("mobile")} 3x`} width="358" height="238" fetchpriority="high" decoding="async" alt={coverAlt}>
+    </picture>
+  </div>
+</header>

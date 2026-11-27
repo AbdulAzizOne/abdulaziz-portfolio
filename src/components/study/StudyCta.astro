@@ -1,0 +1,20 @@
+---
+import { type Lang, ui } from "../../i18n/ui";
+interface Props { lang?: Lang; title: string; text: string }
+const { lang = "en", title, text } = Astro.props;
+const t = ui[lang];
+---
+<section class="study-cta" aria-labelledby="study-cta-title">
+  <div class="container">
+    <div class="study-cta__band">
+      <div class="study-cta__text">
+        <h2 id="study-cta-title">{title}</h2>
+        <p>{text}</p>
+      </div>
+      <a class="btn btn--primary btn--xl study-cta__btn" href="#contact">
+        {t.letsTalkCta}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18" class="study-cta__icon"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

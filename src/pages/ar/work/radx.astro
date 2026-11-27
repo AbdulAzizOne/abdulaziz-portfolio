@@ -1,0 +1,206 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import StudyHero from "../../../components/study/StudyHero.astro";
+import StudyGlance from "../../../components/study/StudyGlance.astro";
+import StudyHead from "../../../components/study/StudyHead.astro";
+import StudyMedia from "../../../components/study/StudyMedia.astro";
+import StudyQuote from "../../../components/study/StudyQuote.astro";
+import StudyCta from "../../../components/study/StudyCta.astro";
+import StudyNext from "../../../components/study/StudyNext.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "RADX Smart Companion — مساعد عربي ينجز المهام نيابةً عنك",
+    "description": "أعيد تصميمه بالكامل خلال 5 أسابيع — تدقيق، ودراسة 10 منافسين، و40 شاشة مبنية حول مسار واحد: اطلب، وافق، تابع، واحصل على النتيجة.",
+    "url": "https://abdulazizabudhair.com/ar/work/radx",
+    "image": "https://abdulazizabudhair.com/assets/img/og-radx.jpg",
+    "author": { "@type": "Person", "name": "عبدالعزيز أبو ضهير", "url": "https://abdulazizabudhair.com/ar" },
+    "creator": { "@type": "Person", "name": "عبدالعزيز أبو ضهير", "url": "https://abdulazizabudhair.com/ar" },
+    "genre": "مساعد ذكاء اصطناعي · تطبيق جوال",
+    "inLanguage": "ar"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://abdulazizabudhair.com/ar" },
+      { "@type": "ListItem", "position": 2, "name": "أعمالي", "item": "https://abdulazizabudhair.com/ar#work" },
+      { "@type": "ListItem", "position": 3, "name": "RADX Smart Companion", "item": "https://abdulazizabudhair.com/ar/work/radx" }
+    ]
+  }
+];
+---
+<Layout
+  title="RADX Smart Companion — دراسة حالة · عبدالعزيز أبو ضهير"
+  description="إعادة تصميم شاملة في 5 أسابيع: تدقيق للتطبيق القديم، وتحليل 10 منافسين، و40 شاشة مبنية حول مسار واحد — اطلب، وافق، تابع، واستلم النتيجة — على نظام تصميم يبدأ بالعربية بوضعين."
+  path="/ar/work/radx"
+  alternate="/work/radx"
+  lang="ar"
+  ogType="article"
+  ogImage="og-radx.jpg"
+  jsonLd={jsonLd}
+  study
+>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    lang="ar"
+    project="radx"
+    eyebrow="دراسة حالة · مساعد ذكي · تطبيق موبايل"
+    title="RADX Smart Companion"
+    subtitle="مساعد عربي ينجز المهام عنك"
+    lead="إعادة تصميم شاملة في 5 أسابيع: تدقيق للتطبيق القديم، وتحليل 10 منافسين، و40 شاشة مبنية حول مسار واحد — اطلب، وافق، تابع، واستلم النتيجة — على نظام تصميم يبدأ بالعربية بوضعين."
+    facts={[
+      { label: "دوري", value: "مصمم UX/UI، من البداية للنهاية" },
+      { label: "المنصة", value: "تطبيق iOS وAndroid، واجهة عربية، وضع فاتح وداكن" },
+      { label: "المدة", value: "5 أسابيع · أكتوبر – نوفمبر 2026" },
+      { label: "الحالة", value: "متاح على App Store وGoogle Play", status: true },
+    ]}
+    coverAlt="ثلاث شاشات من RADX على App Store: اطلب وRADX ينجزها، لا شيء يحدث دون موافقتك، محجوز ومؤكَّد مع تذكير."
+  />
+
+  <StudyGlance lang="ar" label="نطاق المشروع والتسليم" tabletRow items={[
+    { label: "المدة", value: "5 أسابيع", text: "من التدقيق إلى نموذج أولي جاهز للمطوّرين" },
+    { label: "التدقيق", value: "86", text: "ملاحظة في تدقيق التطبيق القديم" },
+    { label: "المنافسون", value: "10", text: "منافسين تم تحليلهم" },
+    { label: "الشاشات", value: "40", text: "شاشة مبنية حول مسار واحد" },
+  ]} />
+
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>التحدي</p>
+        <h2 class="study-overview__title" id="overview-title">مساعد يثق الناس<br>بتصرّفه نيابةً عنهم.</h2>
+      </div>
+      <div class="study-overview__body">
+        <div>
+          <h3>السياق</h3>
+          <p>إعادة تصميم UX وUI لتطبيق RADX Smart Companion، المساعد الذكي الذي يحجز وينجز المهام نيابةً عن المستخدم. من تدقيق التطبيق الحالي إلى نظام تصميم عربي ونموذج أولي جاهز للمطوّرين، في 5 أسابيع.</p>
+        </div>
+        <div>
+          <h3>ماذا فعلت</h3>
+          <p>دقّقت التطبيق (86 ملاحظة)، وحلّلت 10 منافسين، وبنيت 40 شاشة حول مسار واحد: اطلب، وافق، تابع، واستلم النتيجة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--card" aria-labelledby="flow-title">
+    <div class="container">
+      <StudyHead id="flow-title" eyebrow="01 — المسار الأساسي" line1="اطلب، وافق، تابع،" line2="واستلم النتيجة" lead="لا يثق المستخدمون بمساعد يتصرّف عنهم إلا حين يرون ما سيفعله — ويوافقون قبل أن يفعله." accent={false} />
+      <figure class="study-figure">
+        <StudyMedia project="radx" name="02-core-flow" desktop={[1200, 674]} tablet={[704, 395]} mobile={[358, 211]} alt="مسار الحجز في RADX بأربع شاشات عربية من اليمين إلى اليسار: مراجعة الطلب، والموافقة على الإجراء، ومتابعة التقدّم، واستلام التأكيد." />
+        <ol class="study-steps">
+          <li><span>الخطوة 1</span>مراجعة الطلب</li>
+          <li><span>الخطوة 2</span>الموافقة على الإجراء</li>
+          <li><span>الخطوة 3</span>متابعة التقدّم</li>
+          <li><span>الخطوة 4</span>استلام التأكيد</li>
+        </ol>
+        <figcaption>مسار الحجز خطوة بخطوة — الواجهة عربية، لذا تُقرأ الخطوات من اليمين إلى اليسار.</figcaption>
+      </figure>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="radx" name="03-approval" desktop={[588, 537]} tablet={[704, 643]} mobile={[358, 394]} alt="RADX يطلب الموافقة قبل الحجز، بجانب حجز الفندق بانتظار الدفع." />
+          <figcaption>الموافقة قبل حجز أي شيء — ونتيجة الفندق.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="radx" name="04-voice" desktop={[588, 537]} tablet={[704, 643]} mobile={[358, 394]} alt="الإدخال الصوتي في RADX: المساعد يستمع، والمساعد يتحدث." />
+          <figcaption>الاستماع والإدخال الصوتي.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="system-title">
+    <div class="container">
+      <StudyHead id="system-title" eyebrow="02 — نظام التصميم" line1="نظام يبدأ بالعربية،" line2="بوضعين" accent={false} />
+      <div class="study-split">
+        <figure class="study-figure">
+          <StudyMedia project="radx" name="05-design-system-foundations" desktop={[588, 540]} tablet={[704, 647]} mobile={[358, 329]} alt="أساسيات نظام تصميم RADX: مكوّنات المحادثة العربية نفسها بالوضع الداكن والفاتح." />
+          <figcaption>أساسيات نظام التصميم.</figcaption>
+        </figure>
+        <div class="study-split__col">
+          <figure class="study-figure">
+            <StudyMedia project="radx" name="06-app-map" desktop={[588, 340]} tablet={[704, 407]} mobile={[358, 205]} alt="خريطة تطبيق RADX." />
+            <figcaption>خريطة التطبيق.</figcaption>
+          </figure>
+          <figure class="study-figure">
+            <StudyMedia project="radx" name="07-journey-booking" desktop={[588, 223]} tablet={[704, 267]} mobile={[358, 133]} alt="خريطة رحلة الحجز في RADX." />
+            <figcaption>رحلة المستخدم — الحجز.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--card" aria-labelledby="store-title">
+    <div class="container">
+      <div class="study-head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>03 — الظهور في المتاجر</p>
+        <h2 class="study-head__title" id="store-title">متاح الآن على<br>App Store وGoogle Play</h2>
+        <div class="study-store-links">
+          <a class="btn btn--outline btn--lg" href="https://apps.apple.com/il/app/radx-smart-companion/id6762611427" target="_blank" rel="noopener">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><span class="visually-hidden"> (يفتح في تبويب جديد)</span></a>
+          <a class="btn btn--outline btn--lg" href="https://play.google.com/store/apps/details?id=ae.radx.agent" target="_blank" rel="noopener">Google Play <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><span class="visually-hidden"> (يفتح في تبويب جديد)</span></a>
+        </div>
+      </div>
+      <div class="study-split study-split--store">
+        <figure class="study-figure study-figure--tight">
+          <StudyMedia project="radx" name="08-app-store-set" desktop={[792, 372]} tablet={[704, 331]} mobile={[358, 169]} alt="مجموعة صور RADX على App Store: خمس شاشات من الطلب إلى الحجز." />
+          <figcaption>مجموعة صور App Store.</figcaption>
+        </figure>
+        <div class="study-split__col">
+          <figure class="study-figure study-figure--tight">
+            <StudyMedia project="radx" name="09-google-play-feature-graphic" desktop={[384, 212]} tablet={[340, 188]} mobile={[358, 187]} alt="صورة العرض لـ RADX في Google Play مع الصقر." />
+            <figcaption>صورة العرض في Google Play.</figcaption>
+          </figure>
+          <figure class="study-figure study-figure--tight">
+            <StudyMedia project="radx" name="10-app-icon" desktop={[384, 123]} tablet={[340, 109]} mobile={[358, 115]} alt="أيقونة تطبيق RADX مع الصقر الإماراتي." />
+            <figcaption>أيقونة التطبيق.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <StudyQuote
+    quote="أعاد عبدالعزيز تصميم تطبيق RADX بالكامل. فهم رؤيتنا بسرعة وحوّلها إلى تجربة واضحة تبدأ بالعربية، تجعل المستخدمين يثقون بمساعد يتصرّف نيابةً عنهم. التزم بكل موعد، ودعم كل قرار بسبب واضح، ما سرّع الموافقات."
+    name="منصور مرزوق"
+    role="مؤسس RADX · دبي، الإمارات"
+    initials="م م"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="04 — النتيجة" line1="اعتُمد في موعده —" line2="وأُطلق الآن" accent={false} />
+      <div class="study-outcome study-outcome--rows">
+        <div>
+          <h3>النتيجة</h3>
+          <p class="study-outcome__lead">اعتُمدت كل مرحلة في موعدها أو قبله، وبدأ فريق التطوير البناء من الشاشات المعتمدة قبل انتهاء المشروع. راجعتُ نسخة TestFlight مقابل التصاميم وأرسلت ملاحظاتي للفريق قبل الإطلاق. وRADX متاح الآن على App Store وGoogle Play.</p>
+        </div>
+        <div>
+          <h3>المساهمون</h3>
+          <p>فكرة الصقر ورسمه: فريق تصميم اختاره مؤسس RADX. تحريك الصقر الأصلي: فريق تطوير RADX. الصقر الإماراتي: فريق تصميم الشخصيات — وتحريكه على Rive ما زال قيد العمل.</p>
+        </div>
+        <div>
+          <h3>بعد التسليم · تسجيل الدخول</h3>
+          <p>بعد التسليم، جعل العميل واتساب جزءاً إلزامياً من تسجيل الدخول، وتم تحديث مسار الدخول ليتوافق مع ذلك.</p>
+        </div>
+        <div>
+          <h3>بعد التسليم · الشخصية</h3>
+          <p>بعد التسليم، طلب العميل صقراً يعبّر عن الهوية الإماراتية أكثر. رسم فريق تصميم الشخصيات صقراً إماراتياً جديداً، وأُطلق مع التطبيق. بقيت الحالات السبع والواجهة كما هي، وتحريك الصقر الجديد على Rive ما زال قيد العمل.</p>
+          <div class="study-falcons">
+            <figure><img src="/assets/case-study/radx/11-falcon-before.webp" width="96" height="96" loading="lazy" decoding="async" alt="أيقونة تطبيق RADX الأصلية بالصقر القديم."><figcaption>قبل</figcaption></figure>
+            <figure><img src="/assets/case-study/radx/11-falcon-after.webp" width="96" height="96" loading="lazy" decoding="async" alt="أيقونة التطبيق الجديدة بالصقر الإماراتي، منشورة."><figcaption>بعد · منشور</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <StudyCta lang="ar" title="تبني منتج ذكاء اصطناعي يحتاج ثقة الناس؟" text="أخبرني ماذا يفعل للمستخدمين، ومتى يجب أن يسأل أولاً." />
+</article>
+
+<StudyNext current="radx" lang="ar" />
+
+</Layout>

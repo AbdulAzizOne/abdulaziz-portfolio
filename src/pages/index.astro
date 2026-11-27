@@ -1,9 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
 import LogoMarquee from "../components/LogoMarquee.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import Process from "../components/Process.astro";
+import About from "../components/About.astro";
 import Testimonials from "../components/Testimonials.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 import { projects } from "../data/projects";
+import { ui } from "../i18n/ui";
+
+const t = ui.en;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -31,111 +38,30 @@ const jsonLd = {
   jsonLd={jsonLd}
   home
 >
-<!-- Hero -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="container">
-    <div class="hero__inner">
-      <h1 class="hero__title" id="hero-title">Design that bridges <em>human behavior</em> &amp; business goals.</h1>
-      <p class="hero__lead">15+ years designing products for Fortune 500 companies and startups — turning complex problems into products people actually want to use.</p>
-      <ul class="chips" aria-label="Highlights">
-        <li class="chip">Google UX Design Certified</li>
-        <li class="chip">University Lecturer, UX/UI</li>
-      </ul>
-      <div class="hero__actions">
-        <a class="btn" href="#case-studies">View case studies</a>
-        <a class="btn btn--dark" href="#contact">Let’s talk</a>
-      </div>
-    </div>
-  </div>
-</section>
+<Hero />
 
 <!-- Clients -->
 <section class="clients" aria-labelledby="clients-title">
-  <div class="container">
-    <h2 class="visually-hidden" id="clients-title">Clients and partners</h2>
-    <p class="clients__intro">Teams I've designed for — from enterprise software, banking and capital markets to healthcare, travel, e-commerce, telecom and logistics. Several global engagements remain under NDA.</p>
-    <LogoMarquee />
-  </div>
+  <h2 class="visually-hidden" id="clients-title">Clients and partners</h2>
+  <LogoMarquee />
 </section>
 
-<!-- Case studies -->
-<section class="band band--light" id="case-studies" aria-labelledby="case-studies-title">
+<!-- Selected work -->
+<section class="work" id="work" aria-labelledby="work-title">
+  <span id="case-studies" aria-hidden="true"></span>{/* old links to /#case-studies */}
   <div class="container">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="case-studies-title">Four problems worth telling you about</h2>
-      <p class="section-sub">Every one of these reflects real work with real users — from a system clinics run their whole day on, to a donation app live at real events and a store selling across three regions. Each case study walks through the thinking behind it, not just the pixels.</p>
+    <div class="work__head reveal">
+      <Eyebrow label={t.workEyebrow} />
+      <h2 class="work__title" id="work-title">{t.workTitle}</h2>
     </div>
-
-    <ol class="showcases">
+    <ol class="work__grid">
       {projects.map((project, i) => <ProjectCard project={project} index={i + 1} />)}
     </ol>
   </div>
 </section>
 
-<!-- About (with Beyond design) -->
-<section class="band band--alt" id="about" aria-labelledby="about-title">
-  <div class="container">
-    <div class="about">
-      <figure class="about__photo reveal">
-        <img src="/assets/img/abdulaziz-portrait-v4-480.webp" srcset="/assets/img/abdulaziz-portrait-v4-480.webp 480w, /assets/img/abdulaziz-portrait-v4-960.webp 960w" sizes="(min-width: 961px) 420px, (min-width: 721px) 300px, 240px" width="960" height="960" loading="lazy" decoding="async" alt="Portrait of Abdulaziz Abu Dhair">
-      </figure>
-      <div class="about__body reveal">
-        <h2 class="section-title" id="about-title">About</h2>
-        <div class="about__bio">
-          <p class="about__lead">I'm Abdulaziz — a senior product designer based in Nablus, Palestine.</p>
-          <p>I started in print, designing brand identities and annual reports, and moved into product design in 2011 at EXALT Technologies. Over nearly 13 years there I grew from UI designer to the company's sole UX/UI designer, owning design end to end for global enterprise clients and startups — from on-screen software for large-format industrial printers to complex medical applications.</p>
-          <p>Since 2023 I've worked independently with startups and product teams across healthcare, travel, e-commerce, fintech and the public sector — more and more on products where AI does part of the work and people stay in control. I learn the domain before trusting my instincts, work closely with stakeholders and engineers, and hand off systems — not just screens.</p>
-        </div>
-        <dl class="about__facts">
-          <div><dt>Based in</dt><dd>Nablus, Palestine</dd></div>
-          <div><dt>Experience</dt><dd>15+ years, 12+ at EXALT Technologies</dd></div>
-          <div><dt>Education</dt><dd>BA in Graphic Design, An-Najah National University</dd></div>
-          <div><dt>Certification</dt><dd>Google UX Design Certificate</dd></div>
-          <div><dt>Languages</dt><dd>Arabic (native), English (proficient)</dd></div>
-          <div><dt>Tools</dt><dd>Figma, Adobe Illustrator, Photoshop, InDesign, AI tools</dd></div>
-        </dl>
-      </div>
-    </div>
-
-    <div class="about__beyond">
-      <h3 class="about__subtitle reveal" id="beyond-design">Beyond design</h3>
-      <p class="section-sub reveal">Teaching and evaluating design keeps my own process honest — it's the part of the work that doesn't show up in a Figma file.</p>
-    <ul class="roles">
-      <li class="role-card reveal">
-        <p class="role-card__kicker">Lecturer, Graphic Design &amp; UX/UI</p>
-        <h4 class="role-card__title">An-Najah National University</h4>
-        <p class="role-card__text">Taught graphic design and UX/UI to undergraduate students, bringing the same process used across client work into the classroom.</p>
-      </li>
-      <li class="role-card reveal">
-        <p class="role-card__kicker">Certificate of Appreciation</p>
-        <h4 class="role-card__title">TEDI Najah Expo</h4>
-        <p class="role-card__text">Recognized for mentoring students through their graduation projects.</p>
-      </li>
-      <li class="role-card reveal">
-        <p class="role-card__kicker">External UX/UI Projects Evaluator</p>
-        <h4 class="role-card__title">Birzeit University · 2023–2026</h4>
-        <p class="role-card__text">Evaluated graduating students' UX/UI projects for three consecutive years.</p>
-      </li>
-      <li class="role-card reveal">
-        <p class="role-card__kicker">AI-in-Design Workshop Trainer</p>
-        <h4 class="role-card__title">Independent training</h4>
-        <p class="role-card__text">Trained designers on generative AI and prompt engineering as part of a modern design workflow.</p>
-      </li>
-      <li class="role-card reveal">
-        <p class="role-card__kicker">Curriculum Redevelopment Committee</p>
-        <h4 class="role-card__title">An-Najah National University</h4>
-        <p class="role-card__text">Committee member shaping how UX/UI is taught to the next generation of designers.</p>
-      </li>
-      <li class="role-card reveal">
-        <p class="role-card__kicker">UX/UI Mentor</p>
-        <h4 class="role-card__title">Startup Weekend, Nablus</h4>
-        <p class="role-card__text">Mentored startup teams on UX strategy, user flows, and interface design.</p>
-      </li>
-    </ul>
-    </div>
-  </div>
-</section>
-
-<Testimonials band="light" />
+<Process />
+<About />
+<Testimonials />
 
 </Layout>

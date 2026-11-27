@@ -1,0 +1,33 @@
+---
+import { projects, caseHref } from "../../data/projects";
+import { type Lang, ui } from "../../i18n/ui";
+interface Props { current: string; lang?: Lang }
+const { current, lang = "en" } = Astro.props;
+const t = ui[lang];
+const i = projects.findIndex((p) => p.page === current);
+const next = projects[(i + 1) % projects.length];
+const eyebrow = (lang === "ar" && next.ar?.eyebrow) || next.eyebrow;
+const subtitle = (lang === "ar" && next.ar?.subtitle) || next.subtitle;
+const toEnglish = lang === "ar" && !next.ar?.page;
+const c = (bp: string, dark = false) => `/assets/covers/${next.id}-${bp}${dark ? "-dark" : ""}.webp`;
+---
+<nav class="study-next" aria-label={t.nextCase}>
+  <div class="container">
+    <a class="study-next__card" href={caseHref(next, lang)} hreflang={toEnglish ? "en" : undefined}>
+      <span class="study-next__text">
+        <span class="study-next__eyebrow">{t.nextCase}{toEnglish && t.inEnglish} · {eyebrow}</span>
+        <span class="study-next__title">{next.title}</span>
+        <span class="study-next__subtitle">{subtitle}</span>
+        <span class="text-link study-next__link">{t.readCase} <span aria-hidden="true">{t.arrow}</span></span>
+      </span>
+      <picture class="study-next__media">
+        <source media="(prefers-color-scheme: dark) and (min-width: 1024px)" srcset={`${c("desktop", true)} 2x`} width="588" height="391">
+        <source media="(min-width: 1024px)" srcset={`${c("desktop")} 2x`} width="588" height="391">
+        <source media="(prefers-color-scheme: dark) and (min-width: 768px)" srcset={`${c("tablet", true)} 2x`} width="704" height="468">
+        <source media="(min-width: 768px)" srcset={`${c("tablet")} 2x`} width="704" height="468">
+        <source media="(prefers-color-scheme: dark)" srcset={`${c("mobile", true)} 3x`} width="358" height="238">
+        <img src={c("mobile")} srcset={`${c("mobile")} 3x`} width="358" height="238" loading="lazy" decoding="async" alt="">
+      </picture>
+    </a>
+  </div>
+</nav>

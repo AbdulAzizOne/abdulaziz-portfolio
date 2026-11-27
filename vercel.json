@@ -45,6 +45,15 @@
       ]
     },
     {
+      "source": "/assets/covers/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
       "source": "/assets/js/(.*)",
       "headers": [
         {
@@ -86,7 +95,7 @@
     },
     {
       "source": "/work/qetaf-medical",
-      "destination": "/#case-studies",
+      "destination": "/#work",
       "permanent": true
     },
     {

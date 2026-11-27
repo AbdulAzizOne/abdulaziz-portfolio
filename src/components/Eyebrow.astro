@@ -1,0 +1,16 @@
+---
+interface Props {
+  label: string;
+  /** RTL puts the gold square after the label (Arabic). */
+  rtl?: boolean;
+  /** Set on dark bands (Process, Testimonials featured quote) to lighten the label color. */
+  dark?: boolean;
+  class?: string;
+}
+const { label, rtl = false, dark = false, class: className } = Astro.props;
+---
+<p class:list={["eyebrow", { "eyebrow--dark": dark, "eyebrow--rtl": rtl }, className]}>
+  {!rtl && <span class="eyebrow__square" aria-hidden="true"></span>}
+  {label}
+  {rtl && <span class="eyebrow__square" aria-hidden="true"></span>}
+</p>

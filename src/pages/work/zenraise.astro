@@ -1,127 +1,151 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Testimonials from "../../components/Testimonials.astro";
-import NextProject from "../../components/NextProject.astro";
+import StudyHero from "../../components/study/StudyHero.astro";
+import StudyGlance from "../../components/study/StudyGlance.astro";
+import StudyHead from "../../components/study/StudyHead.astro";
+import StudyMedia from "../../components/study/StudyMedia.astro";
+import StudyQuote from "../../components/study/StudyQuote.astro";
+import StudyCta from "../../components/study/StudyCta.astro";
+import StudyNext from "../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": "ZenRaise — Turning cash-in-a-box collection into a documented, recurring system",
-    "description": "A tablet app that turns cash-in-a-box donations into a documented, recurring system — guided setup, card reader pairing and event totals.",
+    "description": "A tablet app designed to get staff ready to collect in under a minute — every donation tied to its event, recurring giving front and center.",
     "url": "https://abdulazizabudhair.com/work/zenraise",
     "image": "https://abdulazizabudhair.com/assets/img/og-zenraise.jpg",
-    "author": {
-      "@type": "Person",
-      "name": "Abdulaziz Abu Dhair",
-      "url": "https://abdulazizabudhair.com/"
-    },
-    "creator": {
-      "@type": "Person",
-      "name": "Abdulaziz Abu Dhair",
-      "url": "https://abdulazizabudhair.com/"
-    },
-    "genre": "Donation tablet app",
+    "author": { "@type": "Person", "name": "Abdulaziz Abu Dhair", "url": "https://abdulazizabudhair.com/" },
+    "creator": { "@type": "Person", "name": "Abdulaziz Abu Dhair", "url": "https://abdulazizabudhair.com/" },
+    "genre": "Tablet app · Fundraising",
     "inLanguage": "en"
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://abdulazizabudhair.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Work",
-        "item": "https://abdulazizabudhair.com/#case-studies"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "ZenRaise",
-        "item": "https://abdulazizabudhair.com/work/zenraise"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulazizabudhair.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://abdulazizabudhair.com/#work" },
+      { "@type": "ListItem", "position": 3, "name": "ZenRaise", "item": "https://abdulazizabudhair.com/work/zenraise" }
     ]
   }
 ];
 ---
 <Layout
   title="ZenRaise — Case Study · Abdulaziz Abu Dhair"
-  description="A tablet app that turns cash-in-a-box donations into a documented, recurring system — guided setup, card reader pairing and event totals."
+  description="A tablet app designed to get staff ready to collect in under a minute — every donation tied to its event, recurring giving front and center, and returning donors recognized by phone number."
   path="/work/zenraise"
   alternate="/ar/work/zenraise"
   ogType="article"
   ogImage="og-zenraise.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="band band--light case" aria-labelledby="case-title">
-    <div class="container">
-      <a class="back-link" href="/#case-studies"><span aria-hidden="true">←</span> Back to portfolio</a>
-      <header>
-        <p class="case__eyebrow">Tablet App</p>
-        <h1 class="case__title" id="case-title">ZenRaise <span>Turning cash-in-a-box collection into a documented, recurring system</span></h1>
-        <dl class="case__meta">
-          <div><dt>Role</dt><dd>UX/UI Designer, solo end-to-end</dd></div>
-          <div><dt>Platform</dt><dd>Tablet app</dd></div>
-          <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
-        </dl>
-      </header>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    project="zenraise"
+    eyebrow="Case study · Tablet app · Fundraising"
+    title="ZenRaise"
+    subtitle="Turning cash-in-a-box collection into a documented, recurring system"
+    lead="A tablet app designed to get staff ready to collect in under a minute — every donation tied to its event, recurring giving front and center, and returning donors recognized by phone number."
+    facts={[
+      { label: "My role", value: "UX/UI Designer, solo end-to-end" },
+      { label: "Platform", value: "Tablet app" },
+      { label: "Timeline", value: "7 weeks · April – May 2026" },
+      { label: "Status", value: "Live on the App Store", status: true },
+    ]}
+    coverAlt="Three ZenRaise tablet screens: getting started, a donation with a per-child stepper, and the thank-you screen."
+  />
 
-      <div class="media-row media-row--3">
-        <img src="/assets/img/zenraise-1-445.webp" srcset="/assets/img/zenraise-1-445.webp 445w, /assets/img/zenraise-1-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1425" loading="lazy" decoding="async" alt="ZenRaise onboarding: three steps to start collecting — select your event, pair a card reader, start collecting donations.">
-        <img src="/assets/img/zenraise-2-446.webp" srcset="/assets/img/zenraise-2-446.webp 446w, /assets/img/zenraise-2-892.webp 892w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="892" height="1424" loading="lazy" decoding="async" alt="ZenRaise setup step 2: a connected Bluetooth card reader marked ready, with continue and scan again actions.">
-        <img src="/assets/img/zenraise-3-445.webp" srcset="/assets/img/zenraise-3-445.webp 445w, /assets/img/zenraise-3-891.webp 891w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="891" height="1424" loading="lazy" decoding="async" alt="ZenRaise donation screen: choose a program, set the number of children, pick monthly, yearly or one-time, and enter a phone number.">
+  <StudyGlance items={[
+    { label: "Scope", value: "7 weeks", text: "Solo, end to end — flows, UI, prototype & micro-interactions" },
+    { label: "Design goal", value: "< 1 min", text: "Designed to get staff ready to collect in under a minute." },
+    { label: "Status", value: "Live", text: "On the App Store, used at real events" },
+  ]} />
+
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>The challenge</p>
+        <h2 class="study-overview__title" id="overview-title">A cashbox,<br>and no real record.</h2>
       </div>
-
-      <div class="case__body">
-        <div class="prose">
-          <h2>Context</h2>
+      <div class="study-overview__body">
+        <div>
+          <h3>Context</h3>
           <p>ZenRaise replaces the clipboard-and-cashbox way mosques and community organizations collect donations at events. Staff run the same night with dozens of donors, multiple giving programs, and a card reader — often with no dedicated tech person on hand.</p>
-          <h2>Problem</h2>
-          <p>Manual collection left no real record: no reliable way to see how much came in, no way to compare one event's performance against another's, and no way to set up recurring gifts instead of one-off cash. When an event ended, organizers had to wait on someone to tally totals by hand before they could report a number. On top of that, whoever was running the tablet that night needed to get a card reader working in minutes with no technical background, and donors themselves needed a screen simple enough to understand what they were giving to and how often, without confusion between programs.</p>
-          <h2>My Role</h2>
-          <p>UX/UI designer, solely responsible for the end-to-end design of ZenRaise — flows, UI, and the interactive prototype, including the micro-interactions and transition animations used throughout the app.</p>
         </div>
-        <div class="prose">
-          <h2>Key Decisions</h2>
-          <ul>
-            <li>Designed a guided 3-step setup — select event, pair reader, ready to collect — with a live Bluetooth pairing state, so any staff member, not just a technical one, could get a tablet collecting money in under a minute.</li>
-            <li>Tied every donation to the event selected at setup, so totals for each event stay separated automatically, turning "which event performs better" from a guess into a real, comparable number.</li>
-            <li>Split the donation input by program type instead of forcing one pattern on both: a dollar amount with quick presets for one program, and a per-recipient stepper at a fixed rate for another — since the two are fundamentally different kinds of giving.</li>
-            <li>Made recurring frequency (monthly / yearly) a visible choice on the main donation screen itself, not a secondary setting, since moving people from one-time to recurring giving was one of the client's core goals.</li>
-            <li>Added phone-number recognition — "Is this you?" — that greets a returning donor by name instead of treating them as new every time, giving the organization one clean donor record instead of duplicates scattered across events.</li>
-            <li>Surfaced an always-available event-details screen — total raised, broken down by program and frequency, plus leads captured — reachable from sign out, so ending a shift instantly produces the number organizers used to wait on someone to tally by hand.</li>
-            <li>Designed the entire system on Material Theme Builder with vector-based components throughout, since the client's stated goal was to eventually white-label ZenRaise and resell it to partner organizations under their own colors and branding.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="media-row media-row--3">
-        <img src="/assets/img/zenraise-4-445.webp" srcset="/assets/img/zenraise-4-445.webp 445w, /assets/img/zenraise-4-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise donation screen with the Orphan program selected, per-child stepper and frequency options.">
-        <img src="/assets/img/zenraise-5-445.webp" srcset="/assets/img/zenraise-5-445.webp 445w, /assets/img/zenraise-5-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise “Is this you?” dialog recognizing a returning donor by phone number.">
-        <img src="/assets/img/zenraise-6-445.webp" srcset="/assets/img/zenraise-6-445.webp 445w, /assets/img/zenraise-6-890.webp 890w" sizes="(min-width: 1448px) 445px, (min-width: 721px) 31vw, 47vw" width="890" height="1422" loading="lazy" decoding="async" alt="ZenRaise event summary: total raised broken down by program and frequency, plus leads captured.">
-      </div>
-
-      <div class="case__body">
-        <div class="prose">
-          <h2>Outcome</h2>
-          <p>ZenRaise is live on the App Store — in use at real events, collecting real donations from real donors.</p>
-        </div>
-        <div class="prose">
-          <h2>Reflection</h2>
-          <p>Two decisions outside the screens themselves shaped this project as much as any single flow. Building on Material Theme Builder from day one meant that when the white-label ask came up, it was a token and font swap across the whole app, not a redesign — the investment paid off exactly as intended. And working in genuinely fast feedback loops with the client — quick check-ins instead of long silent build cycles — caught misdirection early instead of after a week of polishing something nobody asked for. I also started using AI tools to sanity-check finished screens for typos and small inconsistencies before handoff, a five-minute pass that quietly saved a few rounds of embarrassing fixes.</p>
+        <div>
+          <h3>Problem</h3>
+          <p>Manual collection left no real record: no reliable way to see how much came in, no way to compare one event against another, and no way to set up recurring gifts instead of one-off cash. Whoever ran the tablet needed a card reader working in minutes with no technical background, and donors needed a screen simple enough to understand what they were giving to and how often.</p>
         </div>
       </div>
     </div>
-  </article>
+  </section>
 
-<NextProject current="zenraise" />
+  <section class="study-section study-section--muted" aria-labelledby="decisions-title">
+    <div class="container">
+      <StudyHead id="decisions-title" eyebrow="01 — Key decisions" line1="Seven decisions behind a tablet" line2="anyone on staff can run" lead="From pairing a card reader to closing out the night — each one removes a step that used to need a technical person or a manual tally." accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">A guided 3-step setup</h3><p class="fact__text">Select event, pair reader, ready to collect — with a live Bluetooth pairing state, so any staff member, not just a technical one, can get ready to collect. Designed for under a minute.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Every donation tied to its event</h3><p class="fact__text">Totals for each event stay separated automatically, turning “which event performs better” from a guess into a real, comparable number.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Input shaped by the program</h3><p class="fact__text">A dollar amount with quick presets for one program, and a per-recipient stepper at a fixed rate for another — since the two are fundamentally different kinds of giving.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Recurring giving up front</h3><p class="fact__text">Monthly / yearly is a visible choice on the main donation screen, not a secondary setting, since moving people from one-time to recurring giving was a core goal.</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">“Is this you?”</h3><p class="fact__text">Phone-number recognition greets a returning donor by name, giving the organization one clean donor record instead of duplicates scattered across events.</p></li>
+        <li class="fact fact--md"><span class="fact__label">06</span><h3 class="fact__value">The night’s number, instantly</h3><p class="fact__text">An always-available event-details screen — total raised by program and frequency, plus leads captured — so ending a shift produces the number organizers used to wait for.</p></li>
+        <li class="fact fact--md"><span class="fact__label">07</span><h3 class="fact__value">Built to be white-labeled</h3><p class="fact__text">The whole system on Material Theme Builder with vector components, since the client planned to resell ZenRaise to partner organizations under their own colors and branding.</p></li>
+      </ol>
+    </div>
+  </section>
 
-<Testimonials band="light" />
+  <section class="study-section study-section--card" aria-labelledby="tablet-title">
+    <div class="container study-stack">
+      <StudyHead id="tablet-title" eyebrow="02 — The tablet app" line1="From the first donor" line2="to the night’s total" accent={false} />
+      <figure class="study-figure study-group">
+        <StudyMedia project="zenraise" name="02-programs" desktop={[1200, 600]} tablet={[704, 352]} mobile={[358, 213]} alt="Three ZenRaise tablet screens: selecting the event, a Food Aid donation with quick presets, and the Orphan program with a per-child stepper and yearly frequency." />
+        <figcaption class="study-group__captions study-group__captions--3 study-group__captions--center">
+          <span>Select the event — every donation is tied to it.</span>
+          <span>Food Aid — a dollar amount with quick presets.</span>
+          <span>Orphan program — per-child stepper with yearly frequency selected.</span>
+        </figcaption>
+      </figure>
+      <figure class="study-figure study-group">
+        <StudyMedia project="zenraise" name="03-after-payment" desktop={[1200, 600]} tablet={[704, 352]} mobile={[358, 213]} alt="Three ZenRaise tablet screens: a returning donor recognized by phone number, payment processed, and event details with the total raised." />
+        <figcaption class="study-group__captions study-group__captions--3 study-group__captions--center">
+          <span>A returning donor recognized by phone number.</span>
+          <span>Payment processed.</span>
+          <span>Event details — total raised by program and frequency, plus leads.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <StudyQuote
+    quote="Great UX/UI design and wireframing. He provided multiple prototypes in Figma and delivered high-fidelity designs for our tablet app, creating the best possible user experience. I highly recommend hiring him and would definitely work with Abdulaziz again."
+    name="Ameed J."
+    role="Founder, ZenRaise · USA"
+    initials="AJ"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="03 — Outcome" line1="Live on the App Store" />
+      <div class="study-outcome">
+        <div>
+          <h3>Outcome</h3>
+          <p class="study-outcome__lead">ZenRaise is live on the App Store — in use at real events, collecting real donations from real donors.</p>
+        </div>
+        <div>
+          <h3>What I learned</h3>
+          <p>Building on Material Theme Builder from day one meant that when the white-label ask came up, it was a token and font swap across the whole app, not a redesign. Working in fast feedback loops with the client — quick check-ins instead of long silent build cycles — caught misdirection early. I also started using AI tools to sanity-check finished screens for typos and small inconsistencies before handoff, a five-minute pass that saved a few rounds of fixes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <StudyCta title="Collecting donations or payments in person?" text="Tell me how it works today, and where it slows your team down." />
+</article>
+
+<StudyNext current="zenraise" />
 
 </Layout>

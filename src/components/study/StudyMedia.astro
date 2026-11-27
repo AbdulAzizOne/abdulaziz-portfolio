@@ -1,0 +1,29 @@
+---
+/* One finished case-study image per breakpoint and theme (Figma:
+   <project>/case-study-media/<NN-slug>). Exported @2x (desktop, tablet) and
+   @3x (mobile) and shown at the component's 1x size: no crop, no scale-up,
+   no extra frame. Groups of screens use the -rtl file on Arabic pages. */
+interface Props {
+  project: string;
+  name: string;
+  /** 1x sizes [width, height] per breakpoint. */
+  desktop: [number, number];
+  tablet: [number, number];
+  mobile: [number, number];
+  alt: string;
+  /** Use the Arabic-order (-rtl) files. */
+  rtl?: boolean;
+  class?: string;
+}
+const { project, name, desktop, tablet, mobile, alt, rtl = false, class: className } = Astro.props;
+const f = (bp: string, dark = false) =>
+  `/assets/case-study/${project}/${name}-${bp}${dark ? "-dark" : ""}${rtl ? "-rtl" : ""}.webp`;
+---
+<picture class:list={["study-media", className]}>
+  <source media="(prefers-color-scheme: dark) and (min-width: 1024px)" srcset={`${f("desktop", true)} 2x`} width={desktop[0]} height={desktop[1]}>
+  <source media="(min-width: 1024px)" srcset={`${f("desktop")} 2x`} width={desktop[0]} height={desktop[1]}>
+  <source media="(prefers-color-scheme: dark) and (min-width: 768px)" srcset={`${f("tablet", true)} 2x`} width={tablet[0]} height={tablet[1]}>
+  <source media="(min-width: 768px)" srcset={`${f("tablet")} 2x`} width={tablet[0]} height={tablet[1]}>
+  <source media="(prefers-color-scheme: dark)" srcset={`${f("mobile", true)} 3x`} width={mobile[0]} height={mobile[1]}>
+  <img src={f("mobile")} srcset={`${f("mobile")} 3x`} width={mobile[0]} height={mobile[1]} loading="lazy" decoding="async" alt={alt}>
+</picture>

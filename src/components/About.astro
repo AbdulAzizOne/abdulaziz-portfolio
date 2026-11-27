@@ -1,0 +1,62 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import { type Lang, ui } from "../i18n/ui";
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = "en" } = Astro.props;
+const t = ui[lang];
+const rtl = lang === "ar";
+const glance = [
+  [t.aboutGlance1Title, t.aboutGlance1Sub],
+  [t.aboutGlance2Title, t.aboutGlance2Sub],
+  [t.aboutGlance3Title, t.aboutGlance3Sub],
+  [t.aboutGlance4Title, t.aboutGlance4Sub],
+];
+const teaching = [
+  [t.aboutTeaching1Title, t.aboutTeaching1Sub, t.aboutTeaching1Text],
+  [t.aboutTeaching2Title, t.aboutTeaching2Sub, t.aboutTeaching2Text],
+  [t.aboutTeaching3Title, t.aboutTeaching3Sub, t.aboutTeaching3Text],
+];
+---
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="container about__grid">
+    <figure class="about__photo reveal">
+      <img src="/assets/img/abdulaziz-portrait-v5-768.webp" width="384" height="472" loading="lazy" decoding="async" alt={rtl ? "صورة عبدالعزيز أبو ضهير" : "Portrait of Abdulaziz Abu Dhair"}>
+    </figure>
+    <div class="about__body reveal">
+      <Eyebrow label={t.aboutEyebrow} rtl={rtl} />
+      <h2 class="about__title" id="about-title">{t.aboutTitle1}<br><span class="about__title-accent">{t.aboutTitle2}</span></h2>
+      <p class="about__bio">{t.aboutBio}</p>
+    </div>
+    {/* Desktop: beside the bio. Tablet and phone: after the teaching band. */}
+    <div class="about__links">
+      <a class="text-link" href="/assets/files/abdulaziz-abudhair-resume.pdf" target="_blank" rel="noopener">{t.aboutResume} <span aria-hidden="true">{rtl ? "↖" : "↗"}</span></a>
+      <a class="text-link" href="https://linkedin.com/in/abdulaziz-abudhair" target="_blank" rel="noopener">{t.aboutLinkedin} <span aria-hidden="true">{rtl ? "↖" : "↗"}</span></a>
+    </div>
+    <div class="about__glance reveal">
+      <h3 class="about__col-head">{t.aboutGlanceTitle}</h3>
+      <dl>
+        {glance.map(([title, sub]) => (
+          <div><dt>{title}</dt><dd>{sub}</dd></div>
+        ))}
+      </dl>
+    </div>
+    <div class="about__band reveal">
+      <div class="about__band-head">
+        <h3 class="about__band-label">{t.aboutTeachingTitle}</h3>
+        <p class="about__band-title">{t.aboutTeachingHeading}</p>
+      </div>
+      <ul class="about__band-items">
+        {teaching.map(([title, sub, desc]) => (
+          <li>
+            <p class="about__band-item-title">{title}</p>
+            <p class="about__band-item-sub">{sub}</p>
+            <p class="about__band-item-text">{desc}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

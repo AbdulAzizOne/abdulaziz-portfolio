@@ -66,15 +66,16 @@
       return clone;
     };
 
-    // One layout read (viewport and item width; items have a fixed CSS width),
-    // then writes only: each row is rebuilt from a fragment in a single DOM op.
+    // Layout reads first (viewport and each row's set width; logos have
+    // different widths), then writes only: each row is rebuilt from a
+    // fragment in a single DOM op.
     const build = () => {
       marquee.classList.add("is-animated");
       const viewportWidth = marquee.clientWidth;
-      const itemWidth = originals[0][0].getBoundingClientRect().width;
+      const setWidths = originals.map((items) => items.reduce((sum, item) => sum + item.getBoundingClientRect().width, 0));
       rows.forEach((row, i) => {
         const items = originals[i];
-        const setWidth = items.length * itemWidth;
+        const setWidth = setWidths[i];
         // Repeat the set until one half of the track is wider than the viewport,
         // then duplicate that half so translating by -50% loops without a gap.
         const repeats = Math.max(1, Math.ceil(viewportWidth / setWidth));
@@ -82,7 +83,9 @@
         track.append(...items);
         for (let n = 1; n < repeats * 2; n++) items.forEach((item) => track.append(cloneItem(item)));
         row.replaceChildren(track);
-        row.style.setProperty("--marquee-duration", `${(setWidth * repeats) / pxPerSecond}s`);
+        // Row 2 runs a little slower so the rows never line up (Figma dev note).
+        const speed = i % 2 ? pxPerSecond * 0.89 : pxPerSecond;
+        row.style.setProperty("--marquee-duration", `${(setWidth * repeats) / speed}s`);
       });
     };
 
@@ -104,7 +107,8 @@
       toggle.addEventListener("click", () => {
         const paused = marquee.classList.toggle("is-paused");
         toggle.setAttribute("aria-pressed", String(paused));
-        if (toggleLabel) toggleLabel.textContent = (paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause) || (paused ? "Play logos" : "Pause logos");
+        if (toggleLabel) toggleLabel.textContent = (paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause) || (paused ? "Play" : "Pause");
+        toggle.setAttribute("aria-label", (paused ? toggle.dataset.ariaPlay : toggle.dataset.ariaPause) || (paused ? "Play logos" : "Pause logos"));
       });
     }
   }
@@ -135,6 +139,22 @@
       }, 2000);
     });
   }
+
+  // Testimonials: "Show N more" / "Show less" expands the list inline.
+  document.querySelectorAll("[data-testimonials]").forEach((box) => {
+    const btn = box.querySelector(".testimonials__toggle");
+    if (!btn) return;
+    const label = btn.querySelector("[data-toggle-label]");
+    // Tablet and phone show the toggle as a text link ("Read all testimonials").
+    const labelSmall = btn.querySelector("[data-toggle-label-sm]");
+    btn.hidden = false;
+    btn.addEventListener("click", () => {
+      const open = box.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      if (label) label.textContent = open ? btn.dataset.less : btn.dataset.more;
+      if (labelSmall) labelSmall.textContent = open ? btn.dataset.less : btn.dataset.all;
+    });
+  });
 
   // Reveal on scroll
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

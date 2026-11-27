@@ -11,24 +11,52 @@
 @source not inline("container");
 
 /* Expose the site's design tokens as Tailwind utilities
-   (bg-bg-alt, text-ink-brown, text-gold, border-line, …). */
+   (bg-background, text-foreground, text-gold-text, border-border, …). */
 @theme inline {
-  --color-bg: var(--bg);
-  --color-bg-alt: var(--bg-alt);
-  --color-bg-contact: var(--bg-contact);
-  --color-bg-footer: var(--bg-footer);
-  --color-line: var(--line);
-  --color-surface: var(--surface);
-  --color-line-strong: var(--line-strong);
-  --color-ink: var(--ink);
-  --color-ink-strong: var(--ink-strong);
-  --color-ink-body: var(--ink-body);
-  --color-ink-brown: var(--ink-brown);
-  --color-ink-muted: var(--ink-muted);
-  --color-ink-soft: var(--ink-soft);
-  --color-gold: var(--gold);
-  --color-gold-bright: var(--gold-bright);
-  --color-gold-logo: var(--gold-logo);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-highlight-hover: var(--highlight-hover);
+  --color-highlight-subtle: var(--highlight-subtle);
+  --color-gold-text: var(--gold-text);
+  --color-link: var(--link);
+  --color-logo-gold: var(--logo-gold);
+  --color-icon: var(--icon);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-section-dark: var(--section-dark);
+  --color-section-dark-foreground: var(--section-dark-foreground);
+  --color-footer: var(--footer);
+
+  --color-project-crpton: var(--project-crpton);
+  --color-project-zenraise: var(--project-zenraise);
+  --color-project-alard: var(--project-alard);
+  --color-project-vbooking: var(--project-vbooking);
+  --color-project-radx: var(--project-radx);
+
+  --font-en-heading: var(--font-en-heading);
+  --font-en-body: var(--font-en-body);
 }
 /* Fonts need no mapping: site.css redefines --font-sans/--font-serif/--font-mono
    in a later layer, so font-sans, font-serif and font-mono use the site fonts. */
