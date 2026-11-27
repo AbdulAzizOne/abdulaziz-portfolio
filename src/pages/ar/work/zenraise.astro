@@ -1,7 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import Testimonials from "../../../components/Testimonials.astro";
-import NextProject from "../../../components/NextProject.astro";
+import StudyHero from "../../../components/study/StudyHero.astro";
+import StudyGlance from "../../../components/study/StudyGlance.astro";
+import StudyHead from "../../../components/study/StudyHead.astro";
+import StudyMedia from "../../../components/study/StudyMedia.astro";
+import StudyQuote from "../../../components/study/StudyQuote.astro";
+import StudyCta from "../../../components/study/StudyCta.astro";
+import StudyNext from "../../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -29,136 +34,120 @@ const jsonLd = [
 ---
 <Layout
   title="ZenRaise — دراسة حالة · عبدالعزيز أبو ضهير"
-  description="تطبيق تابلت صُمم ليصبح الطاقم جاهزًا للجمع في أقل من دقيقة — كل تبرع مرتبط بفعاليته، والعطاء المتكرر في الواجهة الأمامية، والمتبرع العائد معروف برقم هاتفه."
+  description="تطبيق تابلت مصمَّم ليجهّز الموظفين للجمع في أقل من دقيقة — كل تبرع مرتبط بفعاليته، والتبرع المتكرر في الواجهة، والمتبرعون العائدون يُعرفون من رقم الهاتف."
   path="/ar/work/zenraise"
   alternate="/work/zenraise"
   lang="ar"
   ogType="article"
   ogImage="og-zenraise.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/ar/#work"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
-    <p class="cs-hero__eyebrow">دراسة حالة · تطبيق تابلت · جمع تبرعات</p>
-    <h1 class="cs-hero__title" id="case-title">ZenRaise</h1>
-    <p class="cs-hero__subtitle">تحويل جمع التبرعات من صندوق نقدي إلى نظام موثّق ومتكرر — تطبيق تابلت صُمم ليصبح الطاقم جاهزًا للجمع في أقل من دقيقة، وكل تبرع مرتبط بفعاليته، والعطاء المتكرر في الواجهة الأمامية، والمتبرع العائد معروف برقم هاتفه.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>دوري</dt><dd>مصمم UX/UI، منفردًا من البداية إلى النهاية</dd></div>
-      <div><dt>المنصة</dt><dd>تطبيق تابلت</dd></div>
-      <div><dt>المدة</dt><dd>7 أسابيع · أبريل – مايو 2026</dd></div>
-      <div><dt>الحالة</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>منشور على App Store</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="في هذه الصفحة">
-      <span class="cs-onthispage__label">في هذه الصفحة</span>
-      <a href="#overview">نظرة عامة</a>
-      <a href="#decisions">القرارات الرئيسية</a>
-      <a href="#tablet-app">تطبيق التابلت</a>
-      <a href="#outcome">النتيجة</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    lang="ar"
+    project="zenraise"
+    eyebrow="دراسة حالة · تطبيق تابلت · جمع التبرعات"
+    title="ZenRaise"
+    subtitle="من صندوق نقود إلى نظام تبرعات موثّق ومتكرر"
+    lead="تطبيق تابلت مصمَّم ليجهّز الموظفين للجمع في أقل من دقيقة — كل تبرع مرتبط بفعاليته، والتبرع المتكرر في الواجهة، والمتبرعون العائدون يُعرفون من رقم الهاتف."
+    facts={[
+      { label: "دوري", value: "مصمم UX/UI، وحدي من البداية للنهاية" },
+      { label: "المنصة", value: "تطبيق تابلت" },
+      { label: "المدة", value: "7 أسابيع · أبريل – مايو 2026" },
+      { label: "الحالة", value: "متاح على App Store", status: true },
+    ]}
+    coverAlt="ثلاث شاشات من تطبيق ZenRaise للتابلت: البدء، وتبرع بعدّاد لكل طفل، وشاشة الشكر."
+  />
 
-  <div class="container">
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-zenraise)" }}>
-      <figure><img src="/assets/img/zenraise-cs-hero-1-300.webp" srcset="/assets/img/zenraise-cs-hero-1-300.webp 300w, /assets/img/zenraise-cs-hero-1-600.webp 600w" sizes="300px" width="300" height="480" fetchpriority="high" decoding="async" alt="بدء استخدام ZenRaise: ثلاث خطوات لبدء الجمع — اختيار الفعالية، إقران القارئ، الجمع."><figcaption>ثلاث خطوات لبدء الجمع — اختيار الفعالية، إقران القارئ، الجمع.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-hero-2-300.webp" srcset="/assets/img/zenraise-cs-hero-2-300.webp 300w, /assets/img/zenraise-cs-hero-2-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="قارئ بطاقات ZenRaise مقترن وجاهز، بحالة بلوتوث حيّة."><figcaption>قارئ البطاقة مقترن وجاهز، بحالة بلوتوث حيّة.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-hero-3-300.webp" srcset="/assets/img/zenraise-cs-hero-3-300.webp 300w, /assets/img/zenraise-cs-hero-3-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="شاشة التبرع في ZenRaise: البرنامج، عدد الأطفال، التكرار، الهاتف."><figcaption>شاشة التبرع — البرنامج، عدد الأطفال، التكرار، الهاتف.</figcaption></figure>
-    </div>
-  </div>
+  <StudyGlance lang="ar" items={[
+    { label: "النطاق", value: "7 أسابيع", text: "وحدي من البداية للنهاية — المسارات والواجهات والنموذج الأولي والتفاعلات الدقيقة" },
+    { label: "هدف التصميم", value: "أقل من دقيقة", text: "مصمَّم ليجهّز الموظفين للجمع في أقل من دقيقة." },
+    { label: "الحالة", value: "منشور", text: "على App Store، ويُستخدم في فعاليات حقيقية" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">المشروع في لمحة</p>
-    <div class="cs-glance">
-      <div class="fact-card"><p class="fact-card__value">7 أسابيع</p><p class="fact-card__text">منفردًا من البداية إلى النهاية — المسارات، الواجهة، النموذج الأولي والتفاعلات الدقيقة</p></div>
-      <div class="fact-card"><p class="fact-card__value">أقل من دقيقة</p><p class="fact-card__text">صُمم ليصبح الطاقم جاهزًا للجمع في أقل من دقيقة.</p></div>
-      <div class="fact-card"><p class="fact-card__value">يعمل فعليًا</p><p class="fact-card__text">منشور على App Store، ومستخدم في فعاليات حقيقية</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>التحدي</div>
-    <h2 class="cs-title">صندوق نقدي، ولا سجل حقيقي.</h2>
-    <div class="cs-prose">
-      <div>
-        <h3>السياق</h3>
-        <p>يستبدل ZenRaise طريقة اللوح والصندوق النقدي التي تجمع بها المساجد والمنظمات المجتمعية التبرعات في فعالياتها. يدير الطاقم الليلة نفسها مع عشرات المتبرعين، وبرامج عطاء متعددة، وقارئ بطاقات — غالبًا دون وجود شخص تقني متفرغ.</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>التحدي</p>
+        <h2 class="study-overview__title" id="overview-title">صندوق نقود،<br>بلا سجل حقيقي.</h2>
       </div>
-      <div>
-        <h3>المشكلة</h3>
-        <p>الجمع اليدوي لم يترك سجلًا حقيقيًا: لا طريقة موثوقة لمعرفة المبلغ الذي جُمع، ولا طريقة لمقارنة فعالية بأخرى، ولا طريقة لإعداد عطاء متكرر بدل تبرع نقدي لمرة واحدة. من يُدير التابلت يحتاج قارئ بطاقات يعمل خلال دقائق دون خلفية تقنية، والمتبرع يحتاج شاشة بسيطة بما يكفي ليفهم ما يتبرع له وبأي تكرار.</p>
+      <div class="study-overview__body">
+        <div>
+          <h3>السياق</h3>
+          <p>يستبدل ZenRaise طريقة اللوح الورقي وصندوق النقود التي تجمع بها المساجد والمؤسسات المجتمعية التبرعات في الفعاليات. يدير الطاقم الليلة نفسها مع عشرات المتبرعين، وعدة برامج تبرع، وقارئ بطاقات — غالباً دون وجود شخص تقني مخصص.</p>
+        </div>
+        <div>
+          <h3>المشكلة</h3>
+          <p>لم يترك الجمع اليدوي أي سجل حقيقي: لا طريقة موثوقة لمعرفة كم جُمع، ولا لمقارنة فعالية بأخرى، ولا لإعداد تبرعات متكررة بدل النقد لمرة واحدة. ومن يدير التابلت كان يحتاج قارئ بطاقات يعمل خلال دقائق دون خلفية تقنية، والمتبرعون يحتاجون شاشة بسيطة تكفي لفهم لمن يتبرعون وبأي تكرار.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section" id="decisions">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — القرارات الرئيسية</div>
-    <h2 class="cs-title">سبعة قرارات خلف تابلت <em>يستطيع أي موظف تشغيله</em></h2>
-    <p class="cs-lead">من إقران قارئ البطاقات إلى إغلاق الليلة — كل قرار يزيل خطوة كانت تحتاج شخصًا تقنيًا أو جردًا يدويًا.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">إعداد موجَّه بثلاث خطوات</p><p class="fact-card__text">اختر الفعالية، أقرِن القارئ، جاهز للجمع — بحالة إقران بلوتوث حيّة، ليجهز أي موظف، لا التقني فقط، للجمع. صُمم ليستغرق أقل من دقيقة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">كل تبرع مرتبط بفعاليته</p><p class="fact-card__text">تبقى إجماليات كل فعالية منفصلة تلقائيًا، فيتحول "أي فعالية أفضل أداءً" من تخمين إلى رقم حقيقي قابل للمقارنة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">إدخال يتبع شكل البرنامج</p><p class="fact-card__text">مبلغ بالدولار مع خيارات سريعة لبرنامج، وعدّاد لكل مستفيد بسعر ثابت لبرنامج آخر — لأن النوعين مختلفان جوهريًا في طريقة العطاء.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">العطاء المتكرر في الواجهة الأمامية</p><p class="fact-card__text">شهري / سنوي خيار ظاهر في شاشة التبرع الرئيسية، لا إعدادًا ثانويًا، لأن تحويل الناس من عطاء لمرة واحدة إلى عطاء متكرر كان هدفًا أساسيًا.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">"هل هذا أنت؟"</p><p class="fact-card__text">التعرف برقم الهاتف يستقبل المتبرع العائد باسمه، فتحصل المنظمة على سجل متبرع واحد نظيف بدل نسخ مكررة متناثرة بين الفعاليات.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">06</p><p class="fact-card__value">رقم الليلة، فورًا</p><p class="fact-card__text">شاشة تفاصيل فعالية متاحة دائمًا — الإجمالي المجموع حسب البرنامج والتكرار، إضافة إلى العملاء المحتملين — فينتج عن إنهاء المناوبة الرقم الذي كان المنظمون ينتظرونه سابقًا.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">07</p><p class="fact-card__value">مبني ليُباع بعلامة أخرى</p><p class="fact-card__text">النظام بالكامل على Material Theme Builder بعناصر متجهة، لأن العميل خطط لإعادة بيع ZenRaise لمنظمات شريكة بألوانها وهويتها الخاصة.</p></div>
+  <section class="study-section study-section--muted" aria-labelledby="decisions-title">
+    <div class="container">
+      <StudyHead id="decisions-title" eyebrow="01 — القرارات الرئيسية" line1="سبعة قرارات خلف تابلت" line2="يستطيع أي موظف تشغيله" lead="من ربط قارئ البطاقات إلى إغلاق الليلة — كل قرار يلغي خطوة كانت تحتاج شخصاً تقنياً أو عدّاً يدوياً." accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">إعداد موجَّه من 3 خطوات</h3><p class="fact__text">اختر الفعالية، اربط القارئ، جاهز للجمع — مع حالة ربط Bluetooth مباشرة، ليتمكّن أي موظف، لا التقني فقط، من التجهيز للجمع. مصمَّم ليتم ذلك في أقل من دقيقة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">كل تبرع مرتبط بفعاليته</h3><p class="fact__text">مجاميع كل فعالية تبقى منفصلة تلقائياً، فيتحوّل سؤال "أي فعالية أفضل أداءً" من تخمين إلى رقم حقيقي قابل للمقارنة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">إدخال يتشكّل حسب البرنامج</h3><p class="fact__text">مبلغ بالدولار مع خيارات سريعة لبرنامج، وعدّاد لكل مستفيد بسعر ثابت لبرنامج آخر — لأنهما نوعان مختلفان جذرياً من العطاء.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">التبرع المتكرر في المقدمة</h3><p class="fact__text">شهري / سنوي خيار ظاهر في شاشة التبرع الرئيسية، لا إعداد ثانوي، لأن تحويل الناس من التبرع لمرة واحدة إلى التبرع المتكرر كان هدفاً أساسياً.</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">"هل هذا أنت؟"</h3><p class="fact__text">التعرّف على رقم الهاتف يرحّب بالمتبرع العائد باسمه، ويمنح المؤسسة سجلاً واحداً نظيفاً لكل متبرع بدل نسخ مكررة موزعة على الفعاليات.</p></li>
+        <li class="fact fact--md"><span class="fact__label">06</span><h3 class="fact__value">رقم الليلة، فوراً</h3><p class="fact__text">شاشة تفاصيل فعالية متاحة دائماً — إجمالي ما جُمع حسب البرنامج والتكرار، مع العملاء المحتملين — فإنهاء الوردية يعطي الرقم الذي كان المنظمون ينتظرونه.</p></li>
+        <li class="fact fact--md"><span class="fact__label">07</span><h3 class="fact__value">مبني ليُعاد تخصيصه بعلامات أخرى</h3><p class="fact__text">النظام كاملاً مبني على Material Theme Builder بمكوّنات Vector، لأن العميل خطّط لإعادة بيع ZenRaise لمؤسسات شريكة بألوانها وهويتها.</p></li>
+      </ol>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section" id="tablet-app">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — تطبيق التابلت</div>
-    <h2 class="cs-title">من أول متبرع إلى إجمالي الليلة</h2>
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-zenraise)", marginTop: "40px" }}>
-      <figure><img src="/assets/img/zenraise-cs-app-1-300.webp" srcset="/assets/img/zenraise-cs-app-1-300.webp 300w, /assets/img/zenraise-cs-app-1-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="ZenRaise: اختيار الفعالية — كل تبرع مرتبط بها."><figcaption>اختيار الفعالية — كل تبرع مرتبط بها.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-app-2-300.webp" srcset="/assets/img/zenraise-cs-app-2-300.webp 300w, /assets/img/zenraise-cs-app-2-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="برنامج المساعدات الغذائية في ZenRaise: مبلغ بالدولار مع خيارات سريعة."><figcaption>المساعدات الغذائية — مبلغ بالدولار مع خيارات سريعة.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-app-3-300.webp" srcset="/assets/img/zenraise-cs-app-3-300.webp 300w, /assets/img/zenraise-cs-app-3-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="برنامج كفالة اليتيم في ZenRaise: عدّاد لكل طفل مع تحديد التكرار السنوي."><figcaption>كفالة اليتيم — عدّاد لكل طفل مع تحديد التكرار السنوي.</figcaption></figure>
+  <section class="study-section study-section--card" aria-labelledby="tablet-title">
+    <div class="container study-stack">
+      <StudyHead id="tablet-title" eyebrow="02 — تطبيق التابلت" line1="من أول متبرع" line2="إلى إجمالي الليلة" accent={false} />
+      <figure class="study-figure study-group">
+        <StudyMedia project="zenraise" name="02-programs" rtl desktop={[1200, 600]} tablet={[704, 352]} mobile={[358, 213]} alt="ثلاث شاشات من تطبيق ZenRaise للتابلت: اختيار الفعالية، وتبرع للمساعدات الغذائية بخيارات سريعة، وبرنامج الأيتام بعدّاد لكل طفل وتكرار سنوي." />
+        <figcaption class="study-group__captions study-group__captions--3">
+          <span>اختر الفعالية — كل تبرع يرتبط بها.</span>
+          <span>المساعدات الغذائية — مبلغ بالدولار مع خيارات سريعة.</span>
+          <span>برنامج الأيتام — عدّاد لكل طفل مع اختيار التكرار السنوي.</span>
+        </figcaption>
+      </figure>
+      <figure class="study-figure study-group">
+        <StudyMedia project="zenraise" name="03-after-payment" rtl desktop={[1200, 600]} tablet={[704, 352]} mobile={[358, 213]} alt="ثلاث شاشات من تطبيق ZenRaise للتابلت: متبرع عائد تم التعرّف عليه من رقم الهاتف، وتمت معالجة الدفع، وتفاصيل الفعالية مع إجمالي ما جُمع." />
+        <figcaption class="study-group__captions study-group__captions--3">
+          <span>متبرع عائد تم التعرّف عليه من رقم الهاتف.</span>
+          <span>تمت معالجة الدفع.</span>
+          <span>تفاصيل الفعالية — إجمالي ما جُمع حسب البرنامج والتكرار، مع العملاء المحتملين.</span>
+        </figcaption>
+      </figure>
     </div>
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-zenraise)", marginTop: "24px" }}>
-      <figure><img src="/assets/img/zenraise-cs-app-4-300.webp" srcset="/assets/img/zenraise-cs-app-4-300.webp 300w, /assets/img/zenraise-cs-app-4-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="ZenRaise: متبرع عائد معروف برقم هاتفه."><figcaption>متبرع عائد معروف برقم هاتفه.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-app-5-300.webp" srcset="/assets/img/zenraise-cs-app-5-300.webp 300w, /assets/img/zenraise-cs-app-5-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="تأكيد معالجة الدفع في ZenRaise."><figcaption>تمت معالجة الدفع.</figcaption></figure>
-      <figure><img src="/assets/img/zenraise-cs-app-6-300.webp" srcset="/assets/img/zenraise-cs-app-6-300.webp 300w, /assets/img/zenraise-cs-app-6-600.webp 600w" sizes="300px" width="300" height="480" loading="lazy" decoding="async" alt="تفاصيل الفعالية في ZenRaise: الإجمالي حسب البرنامج والتكرار، إضافة إلى العملاء المحتملين."><figcaption>تفاصيل الفعالية — الإجمالي حسب البرنامج والتكرار، إضافة إلى العملاء المحتملين.</figcaption></figure>
-    </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>تصميم UX/UI وإطارات أولية رائعة. قدّم عدة نماذج أولية في Figma، وسلّم تصاميم عالية الدقة لتطبيقنا على التابلت، بأفضل تجربة مستخدم ممكنة. أنصح بشدة بالتعاقد معه، وسأعمل مع عبدالعزيز مجددًا بالتأكيد.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">عج</span>
-        <span class="testimonial-card__who"><cite>عميد ج.</cite><span>مؤسس ZenRaise · الولايات المتحدة</span></span>
-      </figcaption>
-    </figure>
-  </div>
+  <StudyQuote
+    quote="تصميم UX/UI وWireframes رائعة. قدّم نماذج أولية متعددة على Figma وسلّم تصاميم عالية الدقة لتطبيق التابلت، ما أنتج أفضل تجربة مستخدم ممكنة. أنصح بشدة بالتعامل معه، وسأعمل مع عبدالعزيز مجدداً بالتأكيد."
+    name="عميد ج."
+    role="مؤسس ZenRaise · الولايات المتحدة"
+    initials="ع ج"
+  />
 
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — النتيجة</div>
-    <h2 class="cs-title">منشور على App Store</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>النتيجة</h3>
-        <p>ZenRaise منشور على App Store — قيد الاستخدام في فعاليات حقيقية، يجمع تبرعات حقيقية من متبرعين حقيقيين.</p>
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="03 — النتيجة" line1="متاح على App Store" />
+      <div class="study-outcome">
+        <div>
+          <h3>النتيجة</h3>
+          <p class="study-outcome__lead">ZenRaise متاح على App Store — يُستخدم في فعاليات حقيقية، ويجمع تبرعات حقيقية من متبرعين حقيقيين.</p>
+        </div>
+        <div>
+          <h3>ماذا تعلّمت</h3>
+          <p>البناء على Material Theme Builder منذ اليوم الأول جعل طلب إعادة التخصيص، حين جاء، مجرد تبديل Tokens وخطوط في التطبيق كله، لا إعادة تصميم. والعمل بحلقات ملاحظات سريعة مع العميل — مراجعات قصيرة بدل دورات بناء طويلة صامتة — كشف الانحراف مبكراً. كما بدأت استخدام أدوات الذكاء الاصطناعي لمراجعة الشاشات النهائية بحثاً عن الأخطاء الإملائية والتناقضات الصغيرة قبل التسليم، مراجعة من خمس دقائق وفّرت عدة جولات تصحيح.</p>
+        </div>
       </div>
-      <div>
-        <h3>ما تعلمته</h3>
-        <p>البناء على Material Theme Builder منذ اليوم الأول عنى أنه حين جاء طلب العلامة البيضاء، كان الأمر استبدال رموز وخطوط عبر التطبيق كاملًا، لا إعادة تصميم. العمل بحلقات تغذية راجعة سريعة مع العميل — متابعات قصيرة بدل دورات بناء صامتة طويلة — كشف سوء الاتجاه مبكرًا. بدأتُ أيضًا باستخدام أدوات الذكاء الاصطناعي لمراجعة الشاشات النهائية بحثًا عن أخطاء إملائية وتناقضات صغيرة قبل التسليم، مراجعة من خمس دقائق وفّرت بضع جولات من الإصلاحات.</p>
-      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>تجمع تبرعات أو دفعات وجهًا لوجه؟</h2>
-        <p>أخبرني كيف يعمل الأمر اليوم، وأين يُبطئ فريقك.</p>
-      </div>
-      <a class="btn btn--primary btn--xl" href="/ar/#contact">لنتحدث</a>
-    </div>
-  </div>
+  <StudyCta lang="ar" title="تجمع تبرعات أو مدفوعات حضورياً؟" text="أخبرني كيف يتم الأمر اليوم، وأين يبطئ فريقك." />
 </article>
 
-<NextProject current="zenraise" lang="ar" />
-
-<Testimonials lang="ar" />
+<StudyNext current="zenraise" lang="ar" />
 
 </Layout>

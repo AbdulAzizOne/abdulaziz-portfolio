@@ -1,7 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import Testimonials from "../../../components/Testimonials.astro";
-import NextProject from "../../../components/NextProject.astro";
+import StudyHero from "../../../components/study/StudyHero.astro";
+import StudyGlance from "../../../components/study/StudyGlance.astro";
+import StudyHead from "../../../components/study/StudyHead.astro";
+import StudyMedia from "../../../components/study/StudyMedia.astro";
+import StudyQuote from "../../../components/study/StudyQuote.astro";
+import StudyCta from "../../../components/study/StudyCta.astro";
+import StudyNext from "../../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -29,191 +34,151 @@ const jsonLd = [
 ---
 <Layout
   title="VBooking — دراسة حالة · عبدالعزيز أبو ضهير"
-  description="مجتمع للمسافرين مع تخطيط رحلات بالذكاء الاصطناعي وخبراء سفر حقيقيين، ومساحة عمل لوكلاء السفر توحّد الحجز ومسار CRM ومساعد Ask Genie الذكي — صُممت كنظام واحد من البداية إلى النهاية."
+  description="مجتمع للمسافرين يجمع تخطيط الرحلات بالذكاء الاصطناعي وخبراء سفر حقيقيين، ومساحة عمل للوكلاء توحّد الحجز وخط مبيعات CRM والمساعد الذكي Ask Genie."
   path="/ar/work/vbooking"
   alternate="/work/vbooking"
   lang="ar"
   ogType="article"
   ogImage="og-vbooking.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/ar/#work"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
-    <p class="cs-hero__eyebrow">دراسة حالة · تقنيات السفر · مستهلكين وشركات</p>
-    <h1 class="cs-hero__title" id="case-title">VBooking</h1>
-    <p class="cs-hero__subtitle">منصة سفر واحدة، بوجهين — المسافرون ووكلاء السفر. مجتمع للمسافرين مع تخطيط رحلات بالذكاء الاصطناعي وخبراء سفر حقيقيين، ومساحة عمل للوكلاء توحّد الحجز ومسار CRM ومساعد Ask Genie الذكي.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>دوري</dt><dd>مصمم UX/UI رئيسي، منفردًا من البداية إلى النهاية</dd></div>
-      <div><dt>المنصة</dt><dd>المجتمع (ويب وجوال)، Turbo Suite للوكلاء، والموقع التسويقي</dd></div>
-      <div><dt>المدة</dt><dd>11 شهرًا · أغسطس 2024 – يونيو 2025</dd></div>
-      <div><dt>الحالة</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>الوجهان يعملان بنسخة تجريبية</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="في هذه الصفحة">
-      <span class="cs-onthispage__label">في هذه الصفحة</span>
-      <a href="#overview">نظرة عامة</a>
-      <a href="#community">المجتمع</a>
-      <a href="#turbo-suite">Turbo Suite</a>
-      <a href="#marketing-site">الموقع التسويقي</a>
-      <a href="#outcome">النتيجة</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    lang="ar"
+    project="vbooking"
+    eyebrow="دراسة حالة · تقنيات السفر · B2C + B2B"
+    title="VBooking"
+    subtitle="منصة سفر واحدة بجانبين — المسافرون ووكلاء السفر"
+    lead="مجتمع للمسافرين يجمع تخطيط الرحلات بالذكاء الاصطناعي وخبراء سفر حقيقيين، ومساحة عمل للوكلاء توحّد الحجز وخط مبيعات CRM والمساعد الذكي Ask Genie."
+    facts={[
+      { label: "دوري", value: "مصمم UX/UI رئيسي، وحدي من البداية للنهاية" },
+      { label: "المنصة", value: "Community (ويب + موبايل)، وTurbo Suite للوكلاء، والموقع التسويقي" },
+      { label: "المدة", value: "11 شهراً · أغسطس 2024 – يونيو 2025" },
+      { label: "الحالة", value: "الجانبان متاحان بنسخة تجريبية", status: true },
+    ]}
+    coverAlt="صفحة رحلة في VBooking Community لمغامرة 7 أيام في طوكيو ومدن اليابان، فوق خط مبيعات CRM في Turbo Suite."
+  />
 
-  <div class="container">
-    <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-      <img src="/assets/img/vbooking-cs-hero-1040.webp" srcset="/assets/img/vbooking-cs-hero-1040.webp 1040w, /assets/img/vbooking-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="676" fetchpriority="high" decoding="async" alt="صفحة رحلة في مجتمع VBooking: مغامرة 7 أيام في طوكيو ومدن اليابان.">
-    </div>
-  </div>
+  <StudyGlance lang="ar" items={[
+    { label: "النطاق", value: "منصتان", text: "Community للمسافرين + Turbo Suite للوكلاء" },
+    { label: "الحالة", value: "نسخة تجريبية منشورة", text: "منشور بنسخة تجريبية للمسافرين والوكلاء" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">المشروع في لمحة</p>
-    <div class="cs-glance">
-      <div class="fact-card"><p class="fact-card__value">منصتان</p><p class="fact-card__text">مجتمع للمسافرين + Turbo Suite للوكلاء</p></div>
-      <div class="fact-card"><p class="fact-card__value">نسخة تجريبية فعّالة</p><p class="fact-card__text">تعمل بنسخة تجريبية للمسافرين والوكلاء</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>التحدي</div>
-    <h2 class="cs-title">المسافرون يريدون الثقة. الوكلاء يريدون السرعة.</h2>
-    <div class="cs-prose">
-      <div>
-        <h3>السياق</h3>
-        <p>سعت VBooking لتوحيد صناعة سفر مجزّأة تحت منصة واحدة بوجهين: Community، حيث يخطط المسافرون رحلاتهم ويحجزونها، وTurbo Suite، حيث يبنيها وكلاء السفر ويبيعونها. يلتقي الوجهان في الرحلة نفسها — طلب من مسافر في Community يصل كفرصة بيع في مسار وكيل.</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>التحدي</p>
+        <h2 class="study-overview__title" id="overview-title">المسافرون يريدون الثقة.<br>الوكلاء يريدون السرعة.</h2>
       </div>
-      <div>
-        <h3>المشكلة</h3>
-        <p>لم يكن المسافرون يعرفون بمن يثقون، وتجميع رحلة كاملة يعني التنقل بين مواقع منفصلة. وكان لدى الوكلاء المشكلة المعاكسة: أدوات منفصلة للبحث والتسعير وCRM والمالية، أسعار تصبح قديمة، ولا مكان واحد لمتابعة فرصة بيع من أول تواصل حتى الدفع.</p>
-      </div>
-    </div>
-    <div class="cs-glance" style={{ marginTop: "32px" }}>
-      <div class="fact-card">
-        <p class="fact-card__label">للمسافرين</p>
-        <p class="fact-card__value" style={{ fontSize: "1.5rem", marginTop: "10px" }}>ثقة، ومكان واحد للتخطيط.</p>
-      </div>
-      <div class="fact-card">
-        <p class="fact-card__label">للوكلاء</p>
-        <p class="fact-card__value" style={{ fontSize: "1.5rem", marginTop: "10px" }}>سرعة، وتحكّم بأرقامهم الخاصة.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="community">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — Community · للمسافرين</div>
-    <h2 class="cs-title">ثلاث طرق لبدء رحلة — وشخص حقيقي خلف كل عرض سعر</h2>
-    <p class="cs-lead">الفجوة لم تكن في المعلومات — بل في الثقة، وغياب مسار واحد معروف للوصول إلى إجابة حقيقية.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">ثلاث طرق للتخطيط</p><p class="fact-card__text">ذكاء اصطناعي، يدوي، أو خبير سفر حقيقي — من نقطة دخول واحدة، بعد تجربة ثلاثة تخطيطات لإظهار الخيار ومراجعتها مع أصحاب القرار. رابط واحد مدفون كان يجعل الناس يكتفون بالتصفح وحدهم.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">مسودة ذكاء اصطناعي، سعر بشري</p><p class="fact-card__text">يُنتج مخطط الذكاء الاصطناعي خط سير كاملًا يومًا بيوم مع خريطة قبل طلب الدفع، ثم يحوّل زر "أرسل الطلب" تلك المسودة إلى عرض حقيقي مُسعّر من إنسان.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">صفحات الوجهات كمركز واحد</p><p class="fact-card__text">الفنادق والأنشطة والمطاعم وتأجير السيارات والمقالات معًا — بدل تفرقها بين أقسام.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">خبراء بملف شخصي عام</p><p class="fact-card__text">تقييمات، متابعون، وباقاتهم الخاصة، فيُجاب سؤال "بمن أثق" بالدليل الاجتماعي الذي يعتمد عليه الناس أصلًا.</p></div>
-    </div>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-community-1-524.webp" srcset="/assets/img/vbooking-cs-community-1-524.webp 524w, /assets/img/vbooking-cs-community-1-1048.webp 1048w" sizes="524px" width="524" height="396" loading="lazy" decoding="async" alt="مركز وجهة طوكيو في VBooking مع معلومات وملخص ذكاء اصطناعي واختصارات للفنادق والأنشطة.">
+      <div class="study-overview__body">
+        <div>
+          <h3>السياق</h3>
+          <p>هدفت VBooking إلى توحيد قطاع سفر مجزّأ في منصة واحدة بجانبين: Community، حيث يخطط المسافرون رحلاتهم ويحجزونها، وTurbo Suite، حيث يبني وكلاء السفر الرحلات ويبيعونها. يلتقي الجانبان على الرحلة نفسها — طلب من مسافر في Community يصل كعميل محتمل في خط مبيعات الوكيل.</p>
         </div>
-        <figcaption>مركز وجهة طوكيو — معلومات، ملخص ذكاء اصطناعي، واختصارات للفنادق والأنشطة وأكثر.</figcaption>
-      </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-community-2-524.webp" srcset="/assets/img/vbooking-cs-community-2-524.webp 524w, /assets/img/vbooking-cs-community-2-1048.webp 1048w" sizes="524px" width="524" height="397" loading="lazy" decoding="async" alt="ملف خبير سفر في VBooking مع التقييمات والمتابعين والباقات.">
+        <div>
+          <h3>المشكلة</h3>
+          <p>لم يعرف المسافرون نصيحة من يثقون بها، وتجميع رحلة كاملة كان يعني التنقّل بين مواقع منفصلة. وكان لدى الوكلاء المشكلة المعاكسة: أدوات منفصلة للبحث والتسعير وCRM والمالية، وأسعار تتقادم، ولا مكان واحد لمتابعة العميل من أول تواصل حتى الدفع.</p>
         </div>
-        <figcaption>ملف خبير السفر — التقييمات والمتابعون والباقات.</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="turbo-suite">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — Turbo Suite · لوكلاء السفر</div>
-    <h2 class="cs-title">مساحة عمل واحدة من أول تواصل حتى الدفع</h2>
-    <p class="cs-lead">الوكلاء لا يريدون بهجة — يريدون سرعة وتحكمًا بأرقامهم. كل قرار قِيس بمقياس واحد: "هل يوفّر هذا خطوة؟"</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">مسار CRM واحد</p><p class="fact-card__text">كل فرصة واردة في عرض Kanban واحد، فلا يحتاج الوكيل أبدًا لفحص نظامين ليعرف أين تقف الصفقة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">أرقام لحظية في الواجهة</p><p class="fact-card__text">المخزون والتعرض المالي — طلبات غير مدفوعة، حدود العقود، الإلغاءات — في لوحة التحكم الرئيسية، لأن الأرقام القديمة كانت الشكوى بالذات.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">باني خط سير، يومًا بيوم</p><p class="fact-card__text">طيران، فنادق، مطاعم، نقل — مع اختصار "أنشئ بالذكاء الاصطناعي"، فيتحول طلب عميل إلى باقة مُسعّرة خلال دقائق.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Ask Genie كتبويب أساسي</p><p class="fact-card__text">ليس لوحة جانبية: يصف الوكلاء ما يحتاجه العميل بلغة بسيطة ويحصلون على عروض فورًا.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-        <img src="/assets/img/vbooking-cs-crm-1264.webp" srcset="/assets/img/vbooking-cs-crm-1264.webp 1264w, /assets/img/vbooking-cs-crm-2528.webp 2528w" sizes="(min-width: 1280px) 1264px, 90vw" width="1264" height="822" loading="lazy" decoding="async" alt="مسار CRM في Turbo Suite: كل فرصة بيع في عرض Kanban واحد من جديد إلى مدفوع.">
+        <ul class="study-sides">
+          <li class="fact"><span class="fact__label">COMMUNITY · للمسافرين</span><p>الثقة، ومكان واحد للتخطيط.</p></li>
+          <li class="fact"><span class="fact__label">TURBO SUITE · للوكلاء</span><p>السرعة، والتحكم بأرقامهم.</p></li>
+        </ul>
       </div>
-      <figcaption>مسار CRM — كل فرصة بيع في عرض Kanban واحد: جديد ← مُرسَل ← متابعات ← مُشاهَد ← مدفوع.</figcaption>
-    </figure>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-itinerary-524.webp" srcset="/assets/img/vbooking-cs-itinerary-524.webp 524w, /assets/img/vbooking-cs-itinerary-1048.webp 1048w" sizes="524px" width="524" height="396" loading="lazy" decoding="async" alt="باني خط سير في Turbo Suite: عرض سعر يومي لرحلة طوكيو.">
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="community-title">
+    <div class="container">
+      <StudyHead id="community-title" eyebrow="01 — COMMUNITY · للمسافرين" line1="ثلاث طرق لبدء الرحلة — وشخص حقيقي" line2="خلف كل عرض سعر" lead="لم تكن الفجوة في المعلومات — بل في الثقة، وغياب طريق واحد معروف للوصول إلى إجابة حقيقية." accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">ثلاث طرق للتخطيط</h3><p class="fact__text">بالذكاء الاصطناعي، أو يدوياً، أو مع خبير سفر حقيقي — من نقطة الدخول نفسها، بعد استكشاف ثلاثة تصاميم لإبراز الخيار ومراجعتها مع أصحاب القرار. فرابط واحد مدفون كان يعني أن الناس يكتفون بالتصفح وحدهم.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">مسودة بالذكاء الاصطناعي، وسعر من إنسان</h3><p class="fact__text">يُنتج المخطِّط الذكي برنامجاً كاملاً يوماً بيوم مع خريطة قبل طلب الدفع، ثم يحوّل زر "Send Request" تلك المسودة إلى عرض حقيقي يسعّره إنسان.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">صفحات الوجهات كمركز واحد</h3><p class="fact__text">الفنادق، والأنشطة، والمطاعم، وتأجير السيارات، والمقالات معاً — بدل أن تتوزّع على أقسام متفرقة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">خبراء بملفات عامة</h3><p class="fact__text">تقييمات ومتابعون وباقاتهم الخاصة، فيُجاب عن سؤال "بمن أثق" بالدليل الاجتماعي الذي يعتمد عليه الناس أصلاً.</p></li>
+      </ol>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="02-destination-hub-tokyo" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="مركز وجهة طوكيو في VBooking مع المعلومات وملخص بالذكاء الاصطناعي واختصارات للفنادق والأنشطة." />
+          <figcaption>مركز وجهة طوكيو — معلومات، وملخص بالذكاء الاصطناعي، واختصارات للفنادق والأنشطة وغيرها.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="03-travel-expert-profile" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="ملف خبير سفر في VBooking مع التقييمات والمتابعين والباقات." />
+          <figcaption>ملف خبير السفر — التقييمات والمتابعون والباقات.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section" aria-labelledby="turbo-title">
+    <div class="container">
+      <StudyHead id="turbo-title" eyebrow="02 — TURBO SUITE · لوكلاء السفر" line1="مساحة عمل واحدة من أول تواصل" line2="حتى الدفع" lead={'لا يبحث الوكلاء عن المتعة — بل عن السرعة والتحكم بأرقامهم. وُزن كل قرار بسؤال: "هل يوفّر هذا خطوة؟"'} accent={false} />
+      <ol class="study-decisions">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">خط مبيعات CRM واحد</h3><p class="fact__text">كل عميل محتمل في عرض Kanban واحد، فلا يحتاج الوكيل لفتح نظامين ليعرف أين وصلت الصفقة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">أرقام لحظية في الواجهة</h3><p class="fact__text">المخزون والانكشاف المالي — الطلبات غير المدفوعة، وحدود العقود، والإلغاءات — على لوحة التحكم الرئيسية، لأن الأرقام القديمة كانت الشكوى بالضبط.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">منشئ البرامج، يوماً بيوم</h3><p class="fact__text">رحلات طيران وفنادق ومطاعم ومواصلات — مع اختصار "Generate with AI"، فيتحوّل طلب العميل إلى باقة مسعّرة خلال دقائق.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Ask Genie كتبويب أساسي</h3><p class="fact__text">ليس لوحة جانبية: يصف الوكلاء ما يحتاجه العميل بلغة بسيطة ويحصلون على العروض فوراً.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="vbooking" name="05-turbo-crm-pipeline" desktop={[1200, 775]} tablet={[704, 455]} mobile={[358, 241]} alt="خط مبيعات CRM في Turbo Suite من VBooking: كل عميل محتمل في عرض Kanban واحد من New إلى Paid." />
+        <figcaption>خط مبيعات CRM — كل عميل محتمل في عرض Kanban واحد: New ← Sent ← Follow ups ← Viewed ← Paid.</figcaption>
+      </figure>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="04-itinerary-builder" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="منشئ البرامج في Turbo Suite من VBooking: عرض سعر لطوكيو يوماً بيوم." />
+          <figcaption>منشئ البرامج — عرض سعر لطوكيو يوماً بيوم مع Generate with AI.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="06-turbo-suite-home" desktop={[588, 477]} tablet={[704, 571]} mobile={[358, 288]} alt="الصفحة الرئيسية لـ Turbo Suite من VBooking: Ask Genie وأحدث العروض وتحليلات المبيعات." />
+          <figcaption>الصفحة الرئيسية لـ Turbo Suite — Ask Genie، وأحدث العروض، وتحليلات المبيعات.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="marketing-title">
+    <div class="container">
+      <StudyHead id="marketing-title" eyebrow="03 — الموقع التسويقي · الباب الأمامي" line1="باب أمامي واحد" line2="لمنصة متعددة المنتجات" lead="تبيع VBooking منتجات كثيرة لأعمال مختلفة جداً. وكان على الصفحة الرئيسية أن تتيح لكل زائر إيجاد طريقه خلال تمرير واحد." accent={false} />
+      <div class="study-split study-split--marketing">
+        <figure class="study-figure">
+          <StudyMedia project="vbooking" name="07-marketing-homepage" desktop={[588, 627]} tablet={[704, 751]} mobile={[358, 380]} alt="الصفحة الرئيسية لموقع VBooking التسويقي: بطاقات المنتجات، وTurbo Suite حسب نوع العمل، ونقاط دخول حسب الدور." />
+          <figcaption>الصفحة الرئيسية لـ VBooking.</figcaption>
+        </figure>
+        <ol class="study-decisions study-decisions--stack">
+          <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">المنتجات كصف واحد من البطاقات</h3><p class="fact__text">محرك بحث، ووكيل ذكي، ومنشئ عطلات، وCRM وغيرها — اتساع المنصة يُقرأ بنظرة قبل أي تفاصيل.</p></li>
+          <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Turbo Suite حسب نوع المشتري</h3><p class="fact__text">منظمو الرحلات بالجملة، ووكالات الاستقبال، ووكالات السفر الإلكترونية، ومديرو الإيجارات السياحية — لكل منهم رسالته وزر "Book Demo".</p></li>
+          <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">نقاط دخول حسب الدور</h3><p class="fact__text">مسافر، خبير سفر، وكيل سفر — يوجّه الموقع كل زائر مباشرة إلى الجانب الصحيح من المنصة.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <StudyQuote
+    quote="بناءً على تجربتي الطويلة في العمل معه، أستطيع القول بصدق إن لمساته الإبداعية دائماً متقنة ومدروسة. هو محترف للغاية، ومتعاون بشكل استثنائي، ولم يقصّر في أي مرحلة. أنصح بشدة بالعمل معه."
+    name="عمري أبو ماضي"
+    role="مؤسس VBooking · دبي، الإمارات"
+    initials="ع أ"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="04 — النتيجة" line1="الجانبان متاحان بنسخة تجريبية" />
+      <div class="study-outcome">
+        <div>
+          <h3>النتيجة</h3>
+          <p class="study-outcome__lead">أُطلق الجانبان كنسخ تجريبية منشورة، نشطة لكنها غير مفتوحة للسوق العام بعد. وطوال المشروع راجعت كل مرحلة مع أصحاب القرار في VBooking — ملاحظاتهم شكّلت فكرة نقاط الدخول الثلاث للتخطيط، وأظهرت أين ما زال التنقّل القديم بين الأدوات يتسرّب إلى سير العمل الجديد، وهي توجّه الآن التحضير للإطلاق الكامل.</p>
         </div>
-        <figcaption>باني خط السير — عرض سعر يومي لرحلة طوكيو مع ميزة "أنشئ بالذكاء الاصطناعي".</figcaption>
-      </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-turbohome-524.webp" srcset="/assets/img/vbooking-cs-turbohome-524.webp 524w, /assets/img/vbooking-cs-turbohome-1048.webp 1048w" sizes="524px" width="524" height="397" loading="lazy" decoding="async" alt="الصفحة الرئيسية لـTurbo Suite: Ask Genie، أحدث العروض وتحليلات المبيعات.">
+        <div>
+          <h3>ماذا تعلّمت</h3>
+          <p>تصميم المنصتين معاً أوضح أن المسافر وخبير السفر ووكيل السفر ثلاثة أشخاص مختلفين حتى وهم ينظرون إلى الرحلة نفسها. وحدّد التحليل المكثّف للمنافسين أين اختارت VBooking أن تتميّز: الجمع بين التخطيط بالذكاء الاصطناعي وإنسان حقيقي خلف كل عرض سعر، وخط مبيعات CRM موحّد بدل تكرار ما تفعله كل أداة حجز أخرى.</p>
         </div>
-        <figcaption>الصفحة الرئيسية لـTurbo Suite — Ask Genie، أحدث العروض وتحليلات المبيعات.</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="marketing-site">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — الموقع التسويقي · الباب الأمامي</div>
-    <h2 class="cs-title">باب أمامي واحد لمنصة متعددة المنتجات</h2>
-    <p class="cs-lead">تبيع VBooking منتجات كثيرة لأنواع مختلفة جدًا من الأعمال. كان على الصفحة الرئيسية أن تمنح كل زائر طريقه الخاص خلال تمريرة واحدة.</p>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "40px", alignItems: "start" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-vbooking)" }}>
-          <img src="/assets/img/vbooking-cs-marketing-524.webp" srcset="/assets/img/vbooking-cs-marketing-524.webp 524w, /assets/img/vbooking-cs-marketing-1048.webp 1048w" sizes="524px" width="524" height="547" loading="lazy" decoding="async" alt="الصفحة الرئيسية التسويقية لـVBooking.">
-        </div>
-        <figcaption>الصفحة الرئيسية لـVBooking.</figcaption>
-      </figure>
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">المنتجات كصف بلاطات واحد</p><p class="fact-card__text">محرك بحث، وكيل ذكاء اصطناعي، باني عطلات، CRM وأكثر — يظهر اتساع المنصة بنظرة واحدة قبل أي تفصيل.</p></div>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Turbo Suite حسب المشتري</p><p class="fact-card__text">منظمو جولات بالجملة، وكالات استقبال، وكالات سفر إلكترونية، مدراء تأجير عطلات — لكل منهم عرضه الخاص وزر "احجز عرضًا تجريبيًا".</p></div>
-        <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">نقاط دخول حسب الدور</p><p class="fact-card__text">مسافر، خبير سفر، وكيل سفر — يسلّم الموقع كل زائر مباشرة إلى الجانب الصحيح من المنصة.</p></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>من خلال تجربتي الطويلة في العمل معه، أستطيع القول بصدق إن لمساته الإبداعية دائمًا متقنة ومدروسة بعناية. هو محترف للغاية، ومتعاون بشكل استثنائي، ولم يقصّر في أي مرحلة. أنصح بشدة بالعمل معه.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">عأ</span>
-        <span class="testimonial-card__who"><cite>عمري أبو ماضي</cite><span>مؤسس VBooking · دبي، الإمارات</span></span>
-      </figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — النتيجة</div>
-    <h2 class="cs-title">الوجهان يعملان بنسخة تجريبية</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>النتيجة</h3>
-        <p>انطلق الوجهان كنسختين تجريبيتين فعّالتين، نشطتين لكن لم تُفتحا بعد للسوق العام. راجعتُ كل مرحلة طوال المشروع مع أصحاب القرار في VBooking — شكّلت ملاحظاتهم نهج نقاط الدخول الثلاث للتخطيط، وكشفت أين ما زال تنقل الأدوات القديم يتسرب إلى النظام الجديد، وهي الآن توجّه التحضير للإطلاق الكامل.</p>
-      </div>
-      <div>
-        <h3>ما تعلمته</h3>
-        <p>تصميم المنصتين معًا أوضح أن المسافر وخبير السفر ووكيل السفر ثلاثة أشخاص مختلفين حتى وهم ينظرون إلى الرحلة نفسها. تحليل منافسين مكثّف وجّه أين اختارت VBooking أن تتميز: قرن تخطيط الذكاء الاصطناعي بإنسان حقيقي خلف كل عرض سعر، ومسار CRM موحّد بدل تكرار ما تفعله كل أداة حجز أخرى.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>تبني منصة بأكثر من وجه؟</h2>
-        <p>أخبرني من تخدم، وأين تلتقي مساراتهم.</p>
-      </div>
-      <a class="btn btn--primary btn--xl" href="/ar/#contact">لنتحدث</a>
-    </div>
-  </div>
+  <StudyCta lang="ar" title="تبني منصة بأكثر من جانب؟" text="أخبرني من تخدم، وأين تلتقي رحلاتهم." />
 </article>
 
-<NextProject current="vbooking" lang="ar" />
-
-<Testimonials lang="ar" />
+<StudyNext current="vbooking" lang="ar" />
 
 </Layout>

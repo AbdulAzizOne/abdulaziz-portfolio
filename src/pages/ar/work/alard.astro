@@ -1,7 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import Testimonials from "../../../components/Testimonials.astro";
-import NextProject from "../../../components/NextProject.astro";
+import StudyHero from "../../../components/study/StudyHero.astro";
+import StudyGlance from "../../../components/study/StudyGlance.astro";
+import StudyHead from "../../../components/study/StudyHead.astro";
+import StudyMedia from "../../../components/study/StudyMedia.astro";
+import StudyQuote from "../../../components/study/StudyQuote.astro";
+import StudyCta from "../../../components/study/StudyCta.astro";
+import StudyNext from "../../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -29,209 +34,177 @@ const jsonLd = [
 ---
 <Layout
   title="AL'ARD — دراسة حالة · عبدالعزيز أبو ضهير"
-  description="إعادة تصميم تركّز على رفع التحويل لمتجر AL'ARD الأمريكي الإلكتروني لزيت الزيتون والمنتجات التراثية الفلسطينية — صفحة رئيسية أهدأ، وكل فئة على بُعد نقرة واحدة، وصفحة منتج أُعيد بناؤها حول الجزء الظاهر من الشاشة."
+  description="إعادة تصميم تركّز على رفع المبيعات لمتجر AL'ARD الأمريكي لزيت الزيتون والمنتجات التراثية الفلسطينية — صفحة رئيسية أهدأ، وكل فئة على بُعد نقرة، وصفحة منتج أُعيد بناؤها حول الجزء الظاهر من الشاشة."
   path="/ar/work/alard"
   alternate="/work/alard"
   lang="ar"
   ogType="article"
   ogImage="og-alard.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/ar/#work"><span aria-hidden="true">→</span> العودة إلى الأعمال</a>
-    <p class="cs-hero__eyebrow">دراسة حالة · تجارة إلكترونية · إعادة تصميم لرفع التحويل</p>
-    <h1 class="cs-hero__title" id="case-title">AL'ARD</h1>
-    <p class="cs-hero__subtitle">جعل قصة جميلة سهلة الشراء — إعادة تصميم تركّز على رفع التحويل لمتجر AL'ARD الأمريكي الإلكتروني لزيت الزيتون والمنتجات التراثية الفلسطينية، صفحة رئيسية أهدأ، وكل فئة على بُعد نقرة واحدة، وصفحة منتج أُعيد بناؤها حول الجزء الظاهر من الشاشة.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>دوري</dt><dd>مصمم UX/UI</dd></div>
-      <div><dt>المنصة</dt><dd>ويب متجاوب — متجر أمريكي على Shopify</dd></div>
-      <div><dt>المدة</dt><dd>12 شهرًا · سبتمبر 2025 – أغسطس 2026</dd></div>
-      <div><dt>الحالة</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>التصميم الجديد منشور الآن</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="في هذه الصفحة">
-      <span class="cs-onthispage__label">في هذه الصفحة</span>
-      <a href="#overview">نظرة عامة</a>
-      <a href="#the-problem">المشكلة</a>
-      <a href="#navigation">التنقل</a>
-      <a href="#homepage">الصفحة الرئيسية</a>
-      <a href="#product-page">صفحة المنتج</a>
-      <a href="#mobile">الجوال</a>
-      <a href="#conversion">التحويل والبيع للشركات</a>
-      <a href="#outcome">النتيجة</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    lang="ar"
+    project="alard"
+    eyebrow="دراسة حالة · تجارة إلكترونية · إعادة تصميم لرفع المبيعات"
+    title="AL’ARD"
+    subtitle="قصة جميلة يسهل الشراء منها"
+    lead="إعادة تصميم تركّز على رفع المبيعات لمتجر AL’ARD الأمريكي لزيت الزيتون والمنتجات التراثية الفلسطينية — صفحة رئيسية أهدأ، وكل فئة على بُعد نقرة، وصفحة منتج أُعيد بناؤها حول الجزء الظاهر من الشاشة."
+    facts={[
+      { label: "دوري", value: "مصمم UX/UI" },
+      { label: "المنصة", value: "ويب متجاوب — متجر الولايات المتحدة على Shopify" },
+      { label: "المدة", value: "12 شهراً · سبتمبر 2025 – أغسطس 2026" },
+      { label: "الحالة", value: "التصميم الجديد منشور الآن", status: true },
+    ]}
+    coverAlt="متجر AL’ARD بتصميمه الجديد: القائمة الموسّعة لزيت الزيتون فوق مجموعة زيت الزيتون الفلسطيني."
+  />
 
-  <div class="container">
-    <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-      <img src="/assets/img/alard-cs-hero-1040.webp" srcset="/assets/img/alard-cs-hero-1040.webp 1040w, /assets/img/alard-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="589" fetchpriority="high" decoding="async" alt="الصفحة الرئيسية الجديدة لمتجر AL'ARD لزيت الزيتون والمنتجات التراثية الفلسطينية.">
-    </div>
-  </div>
+  <StudyGlance lang="ar" items={[
+    { label: "النطاق", value: "متجر أمريكا", text: "ديسكتوب وموبايل، مبني على Shopify" },
+    { label: "الحالة", value: "منشور", text: "التصميم الجديد منشور على alardproducts.com" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">المشروع في لمحة</p>
-    <div class="cs-glance">
-      <div class="fact-card"><p class="fact-card__value">متجر أمريكي</p><p class="fact-card__text">لسطح المكتب والجوال، مبني على Shopify</p></div>
-      <div class="fact-card"><p class="fact-card__value">يعمل فعليًا</p><p class="fact-card__text">التصميم الجديد منشور على alardproducts.com</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>التحدي</div>
-    <h2 class="cs-title">قصة جميلة — <em>وكانت صعبة الشراء</em></h2>
-    <div class="cs-prose">
-      <div>
-        <h3>السياق</h3>
-        <p>يبيع AL'ARD زيت الزيتون الفلسطيني والمنتجات الحرفية — منتجات تراثية مرتبطة ارتباطًا وثيقًا بالهوية الفلسطينية. غطّت إعادة تصميمي متجره الإلكتروني الأمريكي.</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>التحدي</p>
+        <h2 class="study-overview__title" id="overview-title">قصة جميلة —<br>كان الشراء منها صعباً</h2>
       </div>
-      <div>
-        <h3>الموجز</h3>
-        <p>إعادة تصميم تركّز على رفع التحويل تجعل التسوق سهلًا على سطح المكتب والجوال — دون تخفيف هوية العلامة التراثية الفلسطينية.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="the-problem">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — المشكلة</div>
-    <h2 class="cs-title">ما الذي جعل المتجر القديم صعب التسوق</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">فيض من النوافذ المنبثقة</p><p class="fact-card__text">صفحات رئيسية مزدحمة بنوافذ منبثقة متراكمة تتنافس على الانتباه.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">تنقل مدفون</p><p class="fact-card__text">الفئات الأساسية مخفية داخل قائمة جانبية في سطح المكتب.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">تحت الجزء الظاهر</p><p class="fact-card__text">صورة المنتج والسعر وخيارات الحجم كلها تحت الجزء الظاهر من الشاشة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">ديون SEO</p><p class="fact-card__text">مراجعات SEO للمتجر كشفت مشكلات بنيوية.</p></div>
-    </div>
-    <div class="cs-eyebrow" style={{ marginTop: "32px" }}><span class="cs-eyebrow__square"></span>كيف عملت</div>
-    <div class="cs-decisions" style={{ marginTop: "24px" }}>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">تدقيق</p><p class="fact-card__text">نقاط ألم تجربة المستخدم ونتائج SEO</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">إعادة هيكلة</p><p class="fact-card__text">الكتالوج وبنية المعلومات حول طريقة تسوق الناس</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">تصميم</p><p class="fact-card__text">شاشات سطح المكتب والجوال</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">نموذج أولي</p><p class="fact-card__text">نموذج تفاعلي في Figma</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">تكرار</p><p class="fact-card__text">ملاحظات فريق التسويق، ميزات جديدة ومراجعات SEO</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="navigation">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — قرار رئيسي · التنقل وبنية المعلومات</div>
-    <h2 class="cs-title">كل فئة على بُعد نقرة واحدة — <em>من أي موضع تمرير</em></h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">رأس ثابت</p><p class="fact-card__text">انتقل التنقل الأساسي من القائمة الجانبية إلى رأس يبقى مع المتسوق أثناء التمرير.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">قائمة ضخمة حسب الهدف</p><p class="fact-card__text">تسوّق حسب الحاجة، أو الحجم، أو النوع — بالطريقة التي يقرر بها الناس فعليًا.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">بلاطة تسويقية</p><p class="fact-card__text">عروض موسمية مثل "أول عصرة الموسم" تعيش داخل القائمة نفسها.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">رأس يبدأ بالبحث</p><p class="fact-card__text">شريط بحث عريض مع اقتراحات مفيدة: زيت زيتون، زعتر، صناديق هدايا.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-        <img src="/assets/img/alard-cs-megamenu-1104.webp" srcset="/assets/img/alard-cs-megamenu-1104.webp 1104w, /assets/img/alard-cs-megamenu-2208.webp 2208w" sizes="(min-width: 1280px) 1104px, 90vw" width="1104" height="744" loading="lazy" decoding="async" alt="القائمة الضخمة لزيت الزيتون الفلسطيني في AL'ARD، منظمة حسب الحاجة والحجم والنوع.">
-      </div>
-      <figcaption>القائمة الضخمة لزيت الزيتون الفلسطيني — حسب الحاجة والحجم والنوع.</figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="homepage">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — قرار رئيسي · الصفحة الرئيسية</div>
-    <h2 class="cs-title">صفحة رئيسية أهدأ، وتبيع</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">نوافذ منبثقة أقل</p><p class="fact-card__text">رسالة واحدة واضحة في كل مرة بدل طبقات متراكمة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">منتجات أكثر فوق الطي</p><p class="fact-card__text">الأكثر مبيعًا يظهر من أول تمريرة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">"قارن الهدايا"</p><p class="fact-card__text">يوجّه المشترين حسب الميزانية والمناسبة — صغيرة، تموينية، زيت زيتون، فاخرة.</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="product-page">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — قرار رئيسي · صفحة المنتج</div>
-    <h2 class="cs-title">صفحة المنتج، أُعيد بناؤها حول الجزء الظاهر</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">معرض فوق الطي</p><p class="fact-card__text">الصورة الرئيسية والصور المصغرة ظاهرة دون تمرير.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">العنوان والتقييم والإثبات</p><p class="fact-card__text">وسوم حلال والموسم، والتقييم و"أكثر من 300 عملية شراء" في الأعلى.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">تسعير لكل وحدة</p><p class="fact-card__text">السعر لكل مل يجعل خصم الكمية واضحًا بذاته.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">خيارات الحجم كبطاقات</p><p class="fact-card__text">كل حجم يعرض سعره ووفره الخاص.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">اشترك ووفّر</p><p class="fact-card__text">توصيل لمرة واحدة أو متكرر في خطوة واحدة.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">06</p><p class="fact-card__value">شارات ثقة دائمة</p><p class="fact-card__text">أصل فلسطيني أصيل + حد الشحن المجاني.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-        <img src="/assets/img/alard-cs-productpage-1104.webp" srcset="/assets/img/alard-cs-productpage-1104.webp 1104w, /assets/img/alard-cs-productpage-2208.webp 2208w" sizes="(min-width: 1280px) 1104px, 90vw" width="1104" height="833" loading="lazy" decoding="async" alt="صفحة منتج AL'ARD مع المعرض والوسوم والتقييم وتسعير لكل مل وبطاقات الحجم والاشتراك والتوفير وشارات الثقة فوق الطي.">
-      </div>
-      <figcaption>المعرض، الوسوم، التقييم، التسعير لكل مل، بطاقات الحجم، اشترك ووفّر وشارات الثقة — كلها فوق الطي.</figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="mobile">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>05 — الجوال</div>
-    <h2 class="cs-title">مصمّم للجوال أيضًا</h2>
-    <p class="cs-lead">صُممت الشاشات الأساسية للهاتف أيضًا — الرئيسية، القائمة الضخمة، صفحة المنتج والفلاتر.</p>
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-alard)", marginTop: "40px" }}>
-      <figure><img src="/assets/img/alard-cs-mobile-1-216.webp" srcset="/assets/img/alard-cs-mobile-1-216.webp 216w, /assets/img/alard-cs-mobile-1-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="الصفحة الرئيسية لتطبيق AL'ARD على الجوال."><figcaption>الرئيسية</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-2-216.webp" srcset="/assets/img/alard-cs-mobile-2-216.webp 216w, /assets/img/alard-cs-mobile-2-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="القائمة الضخمة لزيت الزيتون الفلسطيني على جوال AL'ARD."><figcaption>القائمة الضخمة — زيت الزيتون الفلسطيني</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-3-216.webp" srcset="/assets/img/alard-cs-mobile-3-216.webp 216w, /assets/img/alard-cs-mobile-3-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="صفحة منتج على جوال AL'ARD بالأحجام والتسعير لكل مل."><figcaption>صفحة المنتج — الأحجام والتسعير لكل مل</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-4-216.webp" srcset="/assets/img/alard-cs-mobile-4-216.webp 216w, /assets/img/alard-cs-mobile-4-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="صفحة كل المنتجات على جوال AL'ARD مع الفلاتر."><figcaption>كل المنتجات — الفلاتر</figcaption></figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="conversion">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>06 — التحويل والإهداء والبيع للشركات</div>
-    <h2 class="cs-title">أنماط لطلبات أكثر — <em>وأكبر</em></h2>
-    <p class="cs-lead">اشترك ووفّر، باقات، تقييمات، صندوق هدايا مخصص وشريط شحن مجاني — إضافة إلى مسار مخصص للإهداء والطلبات المؤسسية.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">فئات الهدايا</p><p class="fact-card__text">حسب الميزانية والمناسبة، بمقارنة جنبًا إلى جنب.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">إضافات</p><p class="fact-card__text">كوفية، تمر، صابون نابلسي، رعاية شجرة، بطاقة هدايا.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">بيع للشركات</p><p class="fact-card__text">هدايا مؤسسية وبالجملة، مع هوية مخصصة وشحن لعدة عناوين.</p></div>
-    </div>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-          <img src="/assets/img/alard-cs-conv-1-524.webp" srcset="/assets/img/alard-cs-conv-1-524.webp 524w, /assets/img/alard-cs-conv-1-1048.webp 1048w" sizes="524px" width="524" height="348" loading="lazy" decoding="async" alt="اقتراح باقة 'يُشترى معًا غالبًا' في AL'ARD.">
+      <div class="study-overview__body">
+        <div>
+          <h3>السياق</h3>
+          <p>تبيع AL’ARD زيت الزيتون الفلسطيني والأطعمة الحرفية — منتجات تراثية مرتبطة بعمق بالهوية الفلسطينية. وشملت إعادة التصميم متجرها الإلكتروني في الولايات المتحدة.</p>
         </div>
-        <figcaption>يُشترى معًا غالبًا.</figcaption>
+        <div>
+          <h3>المطلوب</h3>
+          <p>إعادة تصميم تركّز على رفع المبيعات وتجعل التسوق سهلاً على الديسكتوب والموبايل — دون أن تُضعف هوية العلامة التراثية الفلسطينية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="problem-title">
+    <div class="container">
+      <StudyHead id="problem-title" eyebrow="01 — المشكلة" line1="ما الذي جعل التسوق" line2="في المتجر القديم صعباً" accent={false} />
+      <ol class="study-facts study-facts--4">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">نوافذ منبثقة كثيرة</h3><p class="fact__text">صفحات رئيسية مزدحمة بنوافذ منبثقة متراكمة تتنافس على الانتباه.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">تنقّل مدفون</h3><p class="fact__text">الفئات الرئيسية مخفية داخل قائمة جانبية على الديسكتوب.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">أسفل الجزء الظاهر</h3><p class="fact__text">صورة المنتج والسعر وخيارات الحجم كلها أسفل الجزء الظاهر من الشاشة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">مشكلات SEO متراكمة</h3><p class="fact__text">كشف تدقيق SEO للمتجر مشكلات هيكلية.</p></li>
+      </ol>
+      <h3 class="eyebrow study-subhead" id="worked-title"><span class="eyebrow__square" aria-hidden="true"></span>كيف عملت</h3>
+      <ol class="study-facts study-facts--5">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">التدقيق</h3><p class="fact__text">نقاط الألم في UX ونتائج SEO</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">إعادة الهيكلة</h3><p class="fact__text">الكتالوج وهيكلة المعلومات حسب طريقة تسوق الناس</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">التصميم</h3><p class="fact__text">شاشات ديسكتوب + موبايل</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">النموذج الأولي</h3><p class="fact__text">نموذج تفاعلي على Figma</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">التحسين المستمر</h3><p class="fact__text">ملاحظات التسويق، وميزات جديدة، ومراجعات SEO</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="study-section study-section--card" aria-labelledby="nav-title">
+    <div class="container">
+      <StudyHead id="nav-title" eyebrow="02 — قرار رئيسي · التنقّل وهيكلة المعلومات" line1="كل فئة على بُعد نقرة —" line2="من أي مكان في الصفحة" accent={false} />
+      <ol class="study-facts study-facts--4">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">هيدر ثابت</h3><p class="fact__text">نُقل التنقّل الرئيسي من القائمة الجانبية إلى هيدر يرافق المتسوّق.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">قائمة موسّعة حسب النية</h3><p class="fact__text">تسوّق حسب الحاجة أو الحجم أو النوع — بالطريقة التي يقرّر بها الناس فعلاً.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">بطاقة ترويجية</h3><p class="fact__text">عروض موسمية مثل "أول عصرة في الموسم" داخل القائمة نفسها.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">هيدر يبدأ بالبحث</h3><p class="fact__text">شريط بحث عريض مع اقتراحات مفيدة: زيت زيتون، زعتر، صناديق هدايا.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="alard" name="02-mega-menu-olive-oil" desktop={[1200, 487]} tablet={[704, 287]} mobile={[358, 145]} alt="القائمة الموسّعة لزيت الزيتون الفلسطيني في AL’ARD: تسوّق حسب الحاجة والحجم والنوع، مع بطاقة أول عصرة في الموسم." />
+        <figcaption>القائمة الموسّعة لزيت الزيتون الفلسطيني — حسب الحاجة والحجم والنوع.</figcaption>
       </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-          <img src="/assets/img/alard-cs-conv-2-524.webp" srcset="/assets/img/alard-cs-conv-2-524.webp 524w, /assets/img/alard-cs-conv-2-1048.webp 1048w" sizes="524px" width="524" height="353" loading="lazy" decoding="async" alt="درج سلة AL'ARD مع تقدّم الشحن المجاني ونقاط الولاء.">
-        </div>
-        <figcaption>درج السلة — تقدّم الشحن المجاني ونقاط الولاء.</figcaption>
+      <div class="study-next-block">
+        <StudyHead id="home-title" eyebrow="03 — قرار رئيسي · الصفحة الرئيسية" line1="صفحة رئيسية أهدأ تبيع أكثر" />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">نوافذ منبثقة أقل</h3><p class="fact__text">رسالة واضحة واحدة في كل مرة بدل طبقات متراكمة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">منتجات أكثر في الجزء الظاهر</h3><p class="fact__text">الأكثر مبيعاً يظهر من أول تمرير.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">"قارن الهدايا"</h3><p class="fact__text">يرشد المشترين حسب الميزانية والمناسبة — Mini، وPantry، وOlive Oil، وPremium.</p></li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="pdp-title">
+    <div class="container">
+      <StudyHead id="pdp-title" eyebrow="04 — قرار رئيسي · صفحة المنتج" line1="صفحة المنتج،" line2="أُعيد بناؤها حول الجزء الظاهر" accent={false} />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">المعرض في الجزء الظاهر</h3><p class="fact__text">الصورة الرئيسية والمصغّرات ظاهرة دون تمرير.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">العنوان والتقييم والدليل</h3><p class="fact__text">وسوم حلال والحصاد، والتقييم، و"اشتراه +300" في الأعلى.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">السعر لكل وحدة</h3><p class="fact__text">السعر لكل مل يجعل خصم الكمية واضحاً بذاته.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">أحجام على شكل بطاقات</h3><p class="fact__text">كل حجم يعرض سعره وتوفيره الخاص.</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">اشترك ووفّر</h3><p class="fact__text">توصيل لمرة واحدة أو متكرر في خطوة واحدة.</p></li>
+        <li class="fact fact--md"><span class="fact__label">06</span><h3 class="fact__value">شارات ثقة دائمة</h3><p class="fact__text">منشأ فلسطيني أصيل + حدّ الشحن المجاني.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="alard" name="03-product-page" desktop={[1200, 894]} tablet={[704, 524]} mobile={[358, 281]} alt="صفحة منتج AL’ARD: المعرض، ووسوم حلال والحصاد، والتقييم، والسعر لكل مل، وبطاقات الأحجام، واشترك ووفّر، وشارات الثقة في الجزء الظاهر." />
+        <figcaption>المعرض، والوسوم، والتقييم، والسعر لكل مل، وبطاقات الأحجام، واشترك ووفّر، وشارات الثقة — كلها في الجزء الظاهر.</figcaption>
       </figure>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>يفهم التوجه جيدًا، ويتجاوب مع الملاحظات، ويساعدنا على تحويل أفكارنا إلى تجربة موقع أوضح وأسهل في الاستخدام.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">أا</span>
-        <span class="testimonial-card__who"><cite>أحمد النمر</cite><span>مدير التسويق الرقمي، AL'ARD · نابلس، فلسطين</span></span>
-      </figcaption>
-    </figure>
-  </div>
+  <section class="study-section study-section--card" aria-labelledby="mobile-title">
+    <div class="container">
+      <StudyHead id="mobile-title" eyebrow="05 — الموبايل" line1="مصمَّم للموبايل أيضاً" lead="صُمّمت الشاشات الرئيسية للهاتف أيضاً — الرئيسية، والقائمة الموسّعة، وصفحة المنتج، والفلاتر." />
+      <figure class="study-figure study-group">
+        <StudyMedia project="alard" name="04-mobile-screens" rtl desktop={[1200, 590]} tablet={[704, 346]} mobile={[358, 211]} alt="أربع شاشات موبايل من AL’ARD: الرئيسية، والقائمة الموسّعة لزيت الزيتون، وصفحة المنتج بالأحجام، وفلاتر كل المنتجات." />
+        <figcaption class="study-group__captions study-group__captions--4">
+          <span>الرئيسية</span><span>القائمة الموسّعة — زيت الزيتون الفلسطيني</span><span>صفحة المنتج — الأحجام والسعر لكل مل</span><span>كل المنتجات — الفلاتر</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>07 — النتيجة</div>
-    <h2 class="cs-title">رُوجع قبل سطر برمجة واحد — ومنشور الآن</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>النتيجة</h3>
-        <p>بنيتُ نموذجًا أوليًا تفاعليًا في Figma قبل التطوير. راجعته مديرة التسويق في AL'ARD وأرسلت تعديلات وطلبات ميزات جديدة، وراجع فريق SEO الموقع — حوّلتُ الاثنين إلى تحديثات تصميمية، والمتجر الأمريكي الجديد منشور الآن على alardproducts.com.</p>
-      </div>
-      <div>
-        <h3>ما تعلمته</h3>
-        <p>إعادة التصميم لرفع التحويل ليست مجرد تجديد بصري. أهداف العمل، وسهولة استخدام حقيقية لجمهور واسع، ومتطلبات SEO، وما تستطيع بنية التطوير دعمه — كلها كانت تشدّ في اتجاهات مختلفة. كان معظم العمل في ضمان ألا تفوز أولوية واحدة على حساب البقية، مع إبقاء التراث الفلسطيني للعلامة في الواجهة دائمًا.</p>
+  <section class="study-section study-section--muted" aria-labelledby="conversion-title">
+    <div class="container">
+      <StudyHead id="conversion-title" eyebrow="06 — رفع المبيعات والهدايا وB2B" line1="أنماط لطلبات أكثر —" line2="وأكبر" lead="اشترك ووفّر، والحزم، والتقييمات، وصندوق تختار محتواه بنفسك، وشريط الشحن المجاني — مع مسار مخصص للهدايا وطلبات الشركات." accent={false} />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">فئات الهدايا</h3><p class="fact__text">حسب الميزانية والمناسبة، مقارنةً جنباً إلى جنب.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">إضافات</h3><p class="fact__text">كوفية، وتمر، وصابون نابلسي، ورعاية شجرة، وبطاقة هدية.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">B2B</h3><p class="fact__text">هدايا الشركات والكميات مع علامة مخصصة وشحن لعناوين متعددة.</p></li>
+      </ol>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="alard" name="05-frequently-bought-together" desktop={[588, 447]} tablet={[704, 535]} mobile={[358, 271]} alt="يُشترى معاً عادةً في AL’ARD: طحينة وتمر مجهول، بسعر حزمة مخفّض 10%." />
+          <figcaption>يُشترى معاً عادةً.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="alard" name="06-cart-drawer-free-shipping" desktop={[588, 447]} tablet={[704, 535]} mobile={[358, 271]} alt="درج السلة في AL’ARD مع تقدّم الشحن المجاني ونقاط الولاء." />
+          <figcaption>درج السلة — تقدّم الشحن المجاني ونقاط الولاء.</figcaption>
+        </figure>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>تبيع أونلاين، لكن تخسر الزوار قبل الدفع؟</h2>
-        <p>أخبرني عن متجرك، وأين ينسحب الناس.</p>
+  <StudyQuote
+    quote="يفهم التوجّه جيداً، ويتجاوب مع الملاحظات، ويساعد في ترجمة أفكارنا إلى تجربة موقع أوضح وأسهل للمستخدم."
+    name="أحمد النمر"
+    role="مدير التسويق الرقمي، AL’ARD · نابلس، فلسطين"
+    initials="أ ن"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="07 — النتيجة" line1="رُوجع قبل سطر برمجة واحد —" line2="ومنشور الآن" accent={false} />
+      <div class="study-outcome">
+        <div>
+          <h3>النتيجة</h3>
+          <p class="study-outcome__lead">بنيت نموذجاً تفاعلياً على Figma قبل التطوير. راجعه مدير التسويق في AL’ARD وأرسل تعديلات وطلبات ميزات جديدة، ودقّق فريق SEO الموقع — فحوّلت الاثنين إلى تحديثات تصميم، والمتجر الأمريكي بتصميمه الجديد منشور الآن على alardproducts.com.</p>
+        </div>
+        <div>
+          <h3>ماذا تعلّمت</h3>
+          <p>إعادة التصميم لرفع المبيعات ليست مجرد تحديث بصري. أهداف العمل، وسهولة الاستخدام الحقيقية لجمهور واسع، ومتطلبات SEO، وما تدعمه بيئة التطوير — كلها شدّت في اتجاهات مختلفة. ومعظم العمل كان ضمان ألا تفوز أولوية على حساب الأخرى، مع إبقاء التراث الفلسطيني للعلامة في المقدمة.</p>
+        </div>
       </div>
-      <a class="btn btn--primary btn--xl" href="/ar/#contact">لنتحدث</a>
     </div>
-  </div>
+  </section>
+
+  <StudyCta lang="ar" title="تبيع أونلاين، لكنك تخسر المتسوّقين قبل الدفع؟" text="أخبرني عن متجرك، وأين يتوقف الناس." />
 </article>
 
-<NextProject current="alard" lang="ar" />
-
-<Testimonials lang="ar" />
+<StudyNext current="alard" lang="ar" />
 
 </Layout>
