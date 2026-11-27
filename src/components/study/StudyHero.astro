@@ -12,8 +12,10 @@ interface Props {
   lead: string;
   facts: Fact[];
   coverAlt: string;
+  /** Facts in one column below 1024 (Figma: pages with long fact values). */
+  stackFacts?: boolean;
 }
-const { lang = "en", project, eyebrow, title, subtitle, lead, facts, coverAlt } = Astro.props;
+const { lang = "en", project, eyebrow, title, subtitle, lead, facts, coverAlt, stackFacts = false } = Astro.props;
 const t = ui[lang];
 const home = lang === "ar" ? "/ar#work" : "/#work";
 const c = (bp: string, dark = false) => `/assets/covers/${project}-${bp}${dark ? "-dark" : ""}.webp`;
@@ -25,7 +27,7 @@ const c = (bp: string, dark = false) => `/assets/covers/${project}-${bp}${dark ?
     <h1 class="study-hero__title" id="case-title">{title}</h1>
     <p class="study-hero__subtitle">{subtitle}</p>
     <p class="study-hero__lead">{lead}</p>
-    <dl class="study-hero__facts">
+    <dl class:list={["study-hero__facts", stackFacts && "study-hero__facts--stack"]}>
       {facts.map((f) => (
         <div>
           <dt>{f.label}</dt>

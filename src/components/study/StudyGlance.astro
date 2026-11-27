@@ -1,14 +1,14 @@
 ---
 import { type Lang, ui } from "../../i18n/ui";
 interface Item { label: string; value: string; text: string }
-interface Props { lang?: Lang; label?: string; items: Item[] }
-const { lang = "en", label, items } = Astro.props;
+interface Props { lang?: Lang; label?: string; items: Item[]; tabletRow?: boolean }
+const { lang = "en", label, items, tabletRow = false } = Astro.props;
 const t = ui[lang];
 ---
 <section class="study-glance" aria-labelledby="glance-title">
   <div class="container">
     <h2 class="study-glance__label" id="glance-title">{label ?? t.atAGlance}</h2>
-    <dl class:list={["study-glance__grid", items.length === 3 && "study-glance__grid--3", items.length === 2 && "study-glance__grid--2"]}>
+    <dl class:list={["study-glance__grid", items.length === 3 && "study-glance__grid--3", items.length === 2 && "study-glance__grid--2", tabletRow && "study-glance__grid--tablet-row"]}>
       {items.map((i) => (
         <div class="fact">
           <dt class="fact__label">{i.label}</dt>
