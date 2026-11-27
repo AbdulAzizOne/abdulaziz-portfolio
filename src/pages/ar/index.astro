@@ -44,19 +44,16 @@ const jsonLd = {
 
 <!-- Clients -->
 <section class="clients" aria-labelledby="clients-title">
-  <div class="container">
-    <h2 class="visually-hidden" id="clients-title">العملاء والشركاء</h2>
-    <LogoMarquee lang="ar" label="فرق صمّمتُ لها" />
-  </div>
+  <h2 class="visually-hidden" id="clients-title">العملاء والشركاء</h2>
+  <LogoMarquee lang="ar" />
 </section>
 
 <!-- Selected work -->
 <section class="work" id="work" aria-labelledby="work-title">
   <div class="container">
     <div class="work__head reveal">
-        <Eyebrow label={t.workEyebrow} rtl />
-        <h2 class="work__title" id="work-title">{t.workTitle1}<br>{t.workTitle2}</h2>
-      <p class="work__intro">{t.workIntro}</p>
+      <Eyebrow label={t.workEyebrow} rtl />
+      <h2 class="work__title" id="work-title">{t.workTitle}</h2>
     </div>
     <ol class="work__grid">
       {projects.map((project, i) => <ProjectCard project={project} index={i + 1} lang="ar" />)}

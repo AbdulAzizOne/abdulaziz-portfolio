@@ -1,7 +1,7 @@
 ---
 import Eyebrow from "./Eyebrow.astro";
 import TestimonialCard from "./TestimonialCard.astro";
-import { testimonials } from "../data/testimonials";
+import { homeOrder, testimonials } from "../data/testimonials";
 import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
@@ -11,18 +11,24 @@ const { lang = "en" } = Astro.props;
 const t = ui[lang];
 const rtl = lang === "ar";
 
-// On Arabic pages, the translation where there is one. Pending quotes
-// (no approved full text yet) are not displayed.
-const items = testimonials.filter((q) => !q.pending).map((q) => {
-  const tr = lang === "ar" ? q.ar : undefined;
-  return { ...q, ...tr, isOriginal: lang === "ar" && !tr };
-});
-const initialsOf = (name: string) => name.replace(/[^\p{L}\s]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("");
+// Home-page order and excerpts (Figma v3); Arabic where there is a translation.
+// Pending quotes (no approved full text yet) are not displayed.
+const items = homeOrder
+  .map((name) => testimonials.find((q) => q.name === name && !q.pending))
+  .filter((q) => q !== undefined)
+  .map((q) => {
+    const tr = lang === "ar" ? q.ar : undefined;
+    const quote = tr ? q.arExcerpt ?? tr.quote : q.excerpt ?? q.quote;
+    return { name: tr?.name ?? q.name, role: tr?.role ?? q.role, quote, isOriginal: lang === "ar" && !tr };
+  });
+// Arabic initials: two letters separated by a space (Figma Testimonial Card spec).
+const initialsOf = (name: string) => name.replace(/[^\p{L}\s]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join(rtl ? " " : "");
 
 const [featured, ...rest] = items;
-// Two cards stay visible; the rest expand inline ("Show N more" / "Show less").
+// Featured + two stacked beside it; the rest expand inline ("Show N more").
 const visible = rest.slice(0, 2);
 const extra = rest.slice(2);
+const more = t.testimonialsMore.replace("{n}", String(extra.length));
 ---
 <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
@@ -30,36 +36,38 @@ const extra = rest.slice(2);
       <Eyebrow label={t.testimonialsEyebrow} rtl={rtl} />
       <h2 class="testimonials__title" id="testimonials-title">{t.testimonialsTitle}</h2>
     </div>
-    <div class="testimonials__stack reveal">
-      <figure class="testimonials__featured theme-inverse" dir={featured.isOriginal ? "ltr" : undefined} lang={featured.isOriginal ? "en" : undefined}>
-        <span class="testimonials__quote-mark" aria-hidden="true">&ldquo;</span>
-        <blockquote><p>{featured.quote}</p></blockquote>
-        <figcaption>
-          <span class="testimonial-card__avatar" aria-hidden="true">{initialsOf(featured.name)}</span>
-          <span class="testimonial-card__who">
-            <cite>{featured.name}</cite>
-            <span>{featured.role}</span>
-          </span>
-        </figcaption>
-      </figure>
-      <div class="testimonials__more" data-testimonials>
-        <div class="testimonials__cards">
+    <div class="testimonials__more" data-testimonials>
+      <div class="testimonials__grid reveal">
+        <figure class="testimonials__featured" dir={featured.isOriginal ? "ltr" : undefined} lang={featured.isOriginal ? "en" : undefined}>
+          <svg class="testimonials__quote-mark" viewBox="0 0 24.36 19.26" width="24.36" height="19.26" aria-hidden="true"><path fill="currentColor" d="M22.86 0V4.08H20.52C18.68 4.08 17.76 5 17.76 6.84V8.76H18.78C20.38 8.76 21.7 9.24 22.74 10.2C23.82 11.16 24.36 12.38 24.36 13.86C24.36 15.46 23.82 16.76 22.74 17.76C21.7 18.76 20.38 19.26 18.78 19.26C17.14 19.26 15.8 18.76 14.76 17.76C13.72 16.72 13.2 15.34 13.2 13.62V6.72C13.2 2.24 15.44 0 19.920 0H22.86ZM9.66 0V4.08H7.32C5.48 4.08 4.56 5 4.56 6.84V8.76H5.58C7.180 8.76 8.5 9.24 9.54 10.2C10.62 11.16 11.16 12.38 11.16 13.86C11.16 15.46 10.62 16.76 9.54 17.76C8.5 18.76 7.18 19.26 5.58 19.26C3.94 19.26 2.6 18.76 1.56 17.76C0.52 16.72 0 15.34 0 13.62V6.72C0 2.24 2.24 0 6.72 0H9.66Z"/></svg>
+          <blockquote><p>{featured.quote}</p></blockquote>
+          <figcaption>
+            <span class="testimonial-card__avatar" aria-hidden="true">{initialsOf(featured.name)}</span>
+            <span class="testimonial-card__who">
+              <cite>{featured.name}</cite>
+              <span>{featured.role}</span>
+            </span>
+          </figcaption>
+        </figure>
+        <div class="testimonials__stack">
           {visible.map((q) => (
             <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
           ))}
-          <div class="testimonials__extra" id="more-testimonials">
-            {extra.map((q) => (
-              <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
-            ))}
-          </div>
         </div>
-        {extra.length > 0 && (
-          <button type="button" class="testimonials__toggle" aria-expanded="false" aria-controls="more-testimonials" data-more={t.testimonialsMore.replace("{n}", String(extra.length))} data-less={t.testimonialsLess} hidden>
-            <span data-toggle-label>{t.testimonialsMore.replace("{n}", String(extra.length))}</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-        )}
       </div>
+      <div class="testimonials__extra" id="more-testimonials">
+        {extra.map((q) => (
+          <TestimonialCard quote={q.quote} name={q.name} role={q.role} initials={initialsOf(q.name)} rtl={rtl} original={q.isOriginal} />
+        ))}
+      </div>
+      {extra.length > 0 && (
+        <button type="button" class="testimonials__toggle" aria-expanded="false" aria-controls="more-testimonials" data-more={more} data-less={t.testimonialsLess} data-all={t.testimonialsAll} hidden>
+          <span class="testimonials__toggle-lg" data-toggle-label>{more}</span>
+          <span class="testimonials__toggle-sm" data-toggle-label-sm>{t.testimonialsAll}</span>
+          <svg class="testimonials__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          <span class="testimonials__arrow" aria-hidden="true">{t.arrow}</span>
+        </button>
+      )}
     </div>
   </div>
 </section>

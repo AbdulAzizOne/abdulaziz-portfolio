@@ -4,39 +4,46 @@ import { type Lang, ui } from "../i18n/ui";
 
 interface Props {
   project: Project;
-  /** 1-based position, shown as 01 /, 02 /, … */
+  /** 1-based position: odd rows put the text first, even rows the cover first. */
   index: number;
   lang?: Lang;
 }
 
 const { project, index, lang = "en" } = Astro.props;
-const num = String(index).padStart(2, "0");
 const t = ui[lang];
-const rtl = lang === "ar";
 // Arabic text where it exists.
 const tr = lang === "ar" ? project.ar : undefined;
 const text = { ...project, ...tr };
-const cardAlts = tr?.cardAlts ?? [];
+const alt = tr?.cardAlts?.[0] ?? project.cardImages[0]?.alt ?? project.title;
 const href = caseHref(project, lang);
 // Arabic card pointing at the English case study: say so, and mark the link.
 const toEnglish = lang === "ar" && !project.ar?.page;
-// Rows alternate: odd rows put the text first, even rows the image first.
 const mediaFirst = index % 2 === 0;
+
+// Figma "Cover / <Project>": one flattened image per breakpoint and theme,
+// exported at 2x (desktop, tablet) or 3x (mobile) and shown at its 1x size.
+// Never cropped or redrawn: CSS only lets it shrink proportionally.
+const cover = (bp: string, dark = false) => `/assets/covers/${project.id}-${bp}${dark ? "-dark" : ""}.webp`;
+const dark = "(prefers-color-scheme: dark)";
 ---
-<li class:list={["work-card", { "work-card--media-first": mediaFirst, "work-card--tablets": project.layout === "tablets" }]} id={project.id}>
+<li class:list={["work-card", { "work-card--media-first": mediaFirst }]} id={project.id}>
   <a class="work-card__link reveal" href={href} hreflang={toEnglish ? "en" : undefined}>
-    <div class:list={["work-card__media", { "work-card__media--tablets": project.layout === "tablets" }]} style={{ background: project.tileBg }}>
-      <span class="work-card__index" aria-hidden="true">{num} /</span>
-      {project.cardImages.map((img, i) => (
-        <img src={img.src} srcset={img.srcset} sizes={img.sizes} width={img.width} height={img.height} loading="lazy" decoding="async" alt={cardAlts[i] ?? img.alt}>
-      ))}
+    <h3 class="work-card__title">{project.title}</h3>
+    <div class="work-card__media">
+      <picture>
+        <source media={`${dark} and (min-width: 1024px)`} srcset={`${cover("desktop", true)} 2x`} width="588" height="391">
+        <source media="(min-width: 1024px)" srcset={`${cover("desktop")} 2x`} width="588" height="391">
+        <source media={`${dark} and (min-width: 768px)`} srcset={`${cover("tablet", true)} 2x`} width="704" height="468">
+        <source media="(min-width: 768px)" srcset={`${cover("tablet")} 2x`} width="704" height="468">
+        <source media={dark} srcset={`${cover("mobile", true)} 3x`} width="358" height="238">
+        <img src={cover("mobile")} srcset={`${cover("mobile")} 3x`} width="358" height="238" loading="lazy" decoding="async" alt={alt}>
+      </picture>
     </div>
     <div class="work-card__info">
-      <h3 class="work-card__title">{project.title}</h3>
       <div class="work-card__text">
         <p class="work-card__eyebrow">{text.eyebrow}</p>
         <p class="work-card__lede">{text.subtitle}</p>
-        <p class="work-card__summary">{text.summary}</p>
+        <p class="work-card__summary">{text.decision}</p>
       </div>
       <dl class="work-card__meta">
         <div>

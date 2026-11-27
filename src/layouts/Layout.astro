@@ -47,7 +47,9 @@ const switchHref = alternate ?? homePath[other];
 const pair = alternate ? { [lang]: path, [other]: alternate } as Record<Lang, string> : undefined;
 ---
 <!doctype html>
-<html lang={lang} dir={dir[lang]}>
+{/* Dark theme (system setting) is enabled on the home pages so far;
+    case-study pages still need their own dark review. */}
+<html lang={lang} dir={dir[lang]} data-theme={home ? "auto" : undefined}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +61,14 @@ const pair = alternate ? { [lang]: path, [other]: alternate } as Record<Lang, st
       <meta name="description" content={description}>
       <meta name="author" content={t.name}>
       <meta name="google-site-verification" content="-nG1wKJtrmgK22AbvAJdpewyquqKT23dPthQsD787BU">
-      <meta name="theme-color" content="#f7f6f2">
+      {home ? (
+        <>
+          <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+          <meta name="theme-color" content="#0e1411" media="(prefers-color-scheme: dark)">
+        </>
+      ) : (
+        <meta name="theme-color" content="#f7f6f2">
+      )}
       <link rel="canonical" href={url}>
       {pair && (
         <>
@@ -105,7 +114,7 @@ const pair = alternate ? { [lang]: path, [other]: alternate } as Record<Lang, st
   <script is:inline defer src="/_vercel/insights/script.js"></script>
   {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd, null, 2)} />}
 </head>
-<body id={bare ? undefined : "top"}>
+<body id={bare ? undefined : "top"} class={home ? "page-home" : undefined}>
   {bare ? (
     <slot />
   ) : (

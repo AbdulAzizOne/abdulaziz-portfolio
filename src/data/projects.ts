@@ -21,6 +21,8 @@ export interface Project {
   title: string;
   subtitle: string;
   summary: string;
+  /** Home card (Figma v3): the one design decision that defines the product. */
+  decision: string;
   role: string;
   outcome: string;
   /** "wide": one screenshot; "tablets": three portrait screens side by side. */
@@ -35,6 +37,7 @@ export interface Project {
     eyebrow: string;
     subtitle: string;
     summary: string;
+    decision: string;
     role: string;
     outcome: string;
     alts: string[];
@@ -57,6 +60,7 @@ export const projects: Project[] = [
     title: "RADX Smart Companion",
     subtitle: "An Arabic assistant that gets things done for you",
     summary: "Redesigned end to end in 5 weeks — an audit, 10 competitors and 40 screens built around one flow: ask, approve, track, get the result.",
+    decision: "Nothing happens without you: the assistant shows exactly what it will do, then waits for your approval before it messages or books anything.",
     role: "UX/UI Designer, end-to-end",
     outcome: "Live on iOS & Android",
     layout: "wide",
@@ -65,7 +69,8 @@ export const projects: Project[] = [
       eyebrow: "مساعد ذكي · تطبيق جوال · منشور",
       subtitle: "مساعد عربي ينجز المهام نيابةً عنك",
       summary: "أعدت تصميمه بالكامل خلال 5 أسابيع — تدقيق، ودراسة 10 منافسين، و40 شاشة مبنية حول مسار واحد: اطلب، وافق، تابع، واحصل على النتيجة.",
-      role: "مصمم UX/UI، من البداية إلى النهاية",
+      decision: "لا شيء يحدث من دونك: يعرض المساعد بالضبط ما سيفعله، ثم ينتظر موافقتك قبل أن يرسل أي رسالة أو يحجز أي شيء.",
+      role: "مصمم UX/UI، من البداية للنهاية",
       outcome: "يعمل على iOS و Android",
       alts: ["تطبيق RADX: مجموعة شاشات من متجر التطبيقات لمساعد RADX الذكي الناطق بالعربية."],
       cardAlts: ["مجموعة شاشات تطبيق RADX من متجر التطبيقات."]
@@ -101,7 +106,8 @@ export const projects: Project[] = [
     title: "Crpton",
     subtitle: "Taking a clinic system off the desktop",
     summary: "Rebuilt desktop-bound clinic software as a browser-based web app and companion mobile app — patient records, an interactive tooth chart, treatment plans and billing in one place.",
-    role: "UX/UI Designer, solo end-to-end",
+    decision: "The tooth chart is the heart of the screen. Treatments, notes and billing all start from a tap on a tooth, which is what makes it a dental system, not a generic CRM.",
+    role: "UX/UI Designer, end-to-end",
     outcome: "Live and in daily use in real clinics",
     layout: "wide",
     ar: {
@@ -109,7 +115,8 @@ export const projects: Project[] = [
       eyebrow: "الرعاية الصحية · إدارة العيادات",
       subtitle: "نقل نظام العيادات من جهاز المكتب إلى أي جهاز",
       summary: "إعادة بناء نظام عيادات كان حبيس أجهزة المكتب ليصبح تطبيق ويب يعمل من المتصفح، مع تطبيق جوال مرافق — سجلات المرضى، ومخطط أسنان تفاعلي، وخطط العلاج، والفواتير في مكان واحد.",
-      role: "مصمم UX/UI، المصمم الوحيد من البداية إلى النهاية",
+      decision: "مخطط الأسنان هو قلب الشاشة. العلاجات والملاحظات والفواتير كلها تبدأ بنقرة على سنّ، وهذا ما يجعله نظاماً لعيادات الأسنان لا نظام CRM عاماً.",
+      role: "مصمم UX/UI، من البداية للنهاية",
       outcome: "يعمل ويُستخدم يوميًا في عيادات حقيقية",
       alts: ["تطبيق Crpton على الويب: تبويب الحسابات المالية لمريض، ويعرض إجمالي الرسوم والدفعات والتأمين والرصيد."],
       cardAlts: ["مخطط أسنان تفاعلي في تطبيق Crpton لإدارة خطط العلاج."]
@@ -144,7 +151,8 @@ export const projects: Project[] = [
     title: "ZenRaise",
     subtitle: "Turning cash-in-a-box collection into a documented, recurring system",
     summary: "A tablet app designed to get staff ready to collect in under a minute — every donation tied to its event, recurring giving front and center, and returning donors recognized by phone number.",
-    role: "UX/UI Designer, solo end-to-end",
+    decision: "Returning donors are recognized by their phone number, so giving again takes seconds and every donation stays tied to its event.",
+    role: "UX/UI Designer, end-to-end",
     outcome: "Live on the App Store, in use at real events",
     layout: "tablets",
     ar: {
@@ -152,7 +160,8 @@ export const projects: Project[] = [
       eyebrow: "تطبيق تابلت · جمع التبرعات",
       subtitle: "من صندوق نقود إلى نظام تبرعات موثّق ومتكرر",
       summary: "تطبيق تابلت صُمم لتجهيز الموظفين لجمع التبرعات في أقل من دقيقة — كل تبرع مرتبط بفعاليته، والتبرع المتكرر في الواجهة، والمتبرع العائد يُعرف من رقم هاتفه.",
-      role: "مصمم UX/UI، المصمم الوحيد من البداية إلى النهاية",
+      decision: "يُعرف المتبرعون العائدون من رقم هاتفهم، فيصبح التبرع مرة أخرى مسألة ثوانٍ، ويبقى كل تبرع مرتبطاً بفعاليته.",
+      role: "مصمم UX/UI، من البداية للنهاية",
       outcome: "منشور على App Store ويُستخدم في فعاليات حقيقية",
       alts: [
         "شاشة البدء في ZenRaise: اختيار الفعالية، وربط قارئ البطاقات، وبدء جمع التبرعات.",
@@ -227,7 +236,8 @@ export const projects: Project[] = [
     title: "AL'ARD",
     subtitle: "Making a beautiful story easy to buy",
     summary: "A conversion-focused redesign of AL'ARD's US online store for Palestinian olive oil and heritage goods — calmer homepage, every category one click away, and a product page rebuilt around the fold.",
-    role: "UX/UI Designer",
+    decision: "Every category is one click away: one clear menu, grouped by need, size and type, replaced digging through nested pages.",
+    role: "UX/UI Designer, end-to-end",
     outcome: "Redesign now live",
     layout: "wide",
     ar: {
@@ -235,7 +245,8 @@ export const projects: Project[] = [
       eyebrow: "تجارة إلكترونية · إعادة تصميم لرفع المبيعات",
       subtitle: "قصة جميلة يسهل الشراء منها",
       summary: "إعادة تصميم تركّز على المبيعات لمتجر AL'ARD الأمريكي لبيع زيت الزيتون والمنتجات التراثية الفلسطينية — صفحة رئيسية أهدأ، وكل فئة على بُعد نقرة واحدة، وصفحة منتج أُعيد بناؤها حول ما يراه الزائر أولًا.",
-      role: "مصمم UX/UI",
+      decision: "كل فئة على بُعد نقرة: قائمة واحدة واضحة مقسّمة حسب الاستخدام والحجم والنوع، بدلاً من البحث بين صفحات متداخلة.",
+      role: "مصمم UX/UI، من البداية للنهاية",
       outcome: "التصميم الجديد منشور الآن",
       alts: ["الصفحة الرئيسية لمتجر الأرض بعد إعادة التصميم، لزيت الزيتون والمنتجات التراثية الفلسطينية."],
       cardAlts: ["الصفحة الرئيسية لمتجر الأرض بعد إعادة التصميم."]
@@ -270,7 +281,8 @@ export const projects: Project[] = [
     title: "VBooking",
     subtitle: "One travel platform, two sides — travelers and travel agents",
     summary: "A traveler community with AI trip planning and real travel experts, and a workspace for agents that unifies booking, a CRM pipeline and the Ask Genie AI assistant.",
-    role: "Lead UX/UI Designer, solo end-to-end",
+    decision: "One system with two sides: travelers plan with AI and real experts, while agents book, track and follow up in a single workspace.",
+    role: "UX/UI Designer, end-to-end",
     outcome: "Both sides live in beta",
     layout: "wide",
     ar: {
@@ -278,7 +290,8 @@ export const projects: Project[] = [
       eyebrow: "تقنيات السفر · للمسافرين والشركات",
       subtitle: "منصة سفر واحدة بوجهين — للمسافرين ولوكلاء السفر",
       summary: "مجتمع للمسافرين فيه تخطيط للرحلات بالذكاء الاصطناعي وخبراء سفر حقيقيون، ومساحة عمل للوكلاء تجمع الحجز ومسار المبيعات (CRM) ومساعد Ask Genie الذكي.",
-      role: "مصمم UX/UI رئيسي، المصمم الوحيد من البداية إلى النهاية",
+      decision: "نظام واحد بجانبين: يخطط المسافرون رحلاتهم بالذكاء الاصطناعي ومع خبراء حقيقيين، بينما يحجز الوكلاء ويتابعون عملاءهم في مساحة عمل واحدة.",
+      role: "مصمم UX/UI، من البداية للنهاية",
       outcome: "الوجهان يعملان بنسخة تجريبية",
       alts: ["صفحة رحلة في مجتمع VBooking لمغامرة مدتها 7 أيام في طوكيو ومدن اليابان، مع معرض صور والسعر وأزرار الحجز."],
       cardAlts: ["لوحة إدارة حجوزات الوكلاء في VBooking.", "صفحة رحلة في مجتمع VBooking للمسافرين."]

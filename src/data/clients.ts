@@ -1,36 +1,33 @@
 export interface ClientLogo {
-  src: string;
+  /** File stem in /assets/img/clients/v3: `<file>.webp` (light) and `<file>-dark.webp` (dark). */
+  file: string;
+  alt: string;
+  /** Display size in CSS px (the files are exported from Figma at 2x). */
   width: number;
   height: number;
-  alt: string;
-  /** Optional visual scale (0–1) for logos that read larger than the rest at the same box size. */
-  scale?: number;
+  /** Dark file's display size, when the Figma export differs from the light one. */
+  darkWidth?: number;
 }
 
-/** Client logos, one array per marquee row. Row 2 scrolls the other way. */
+/** Client logos (Figma: Homepage — Final v3, "Logos — marquee"), one array per
+    row; row 2 scrolls the other way. Each file is the Figma "Client Logo"
+    instance exported at 2x with the page colour baked in (light: #f7f6f2,
+    dark: #0e1411), so it sits on the page background without a visible box. */
 export const clientRows: ClientLogo[][] = [
   [
-    { src: "/assets/img/clients/exalt.v2.webp", width: 408, height: 210, alt: "EXALT Technologies" },
-    { src: "/assets/img/clients/millennium.v2.webp", width: 408, height: 210, alt: "Millennium Technology" },
-    { src: "/assets/img/clients/progmix.svg", width: 300, height: 160, alt: "ProgmiX" },
-    { src: "/assets/img/clients/crpton.svg", width: 300, height: 160, alt: "Crpton" },
-    { src: "/assets/img/clients/alard.v2.webp", width: 408, height: 210, alt: "AL'ARD" },
-    { src: "/assets/img/clients/sada.v2.webp", width: 408, height: 210, alt: "SADA Intelligence" },
-    { src: "/assets/img/clients/palestine-exchange.v2.webp", width: 408, height: 210, alt: "Palestine Exchange" },
-    { src: "/assets/img/clients/alrajhi.v2.webp", width: 408, height: 210, alt: "Al Rajhi Bank" },
-    { src: "/assets/img/clients/ris.svg", width: 300, height: 160, alt: "RIS Enterprise Solutions" },
-    { src: "/assets/img/clients/zenraise.svg", width: 300, height: 160, alt: "ZenRaise" },
+    { file: "fedex", alt: "FedEx", width: 128, height: 74 },
+    { file: "alrajhi", alt: "Al Rajhi Bank", width: 150, height: 87 },
+    { file: "palestine-exchange", alt: "Palestine Exchange", width: 163.5, height: 87 },
+    { file: "padico", alt: "PADICO Holding", width: 150, height: 87 },
+    { file: "millennium", alt: "Millennium Technology", width: 150, height: 87 },
+    { file: "newroz", alt: "Newroz Telecom", width: 120, height: 70 },
   ],
   [
-    { src: "/assets/img/clients/fedex.svg", width: 300, height: 160, alt: "FedEx", scale: 0.85 },
-    { src: "/assets/img/clients/padico.v2.webp", width: 408, height: 210, alt: "PADICO Holding" },
-    { src: "/assets/img/clients/ichr.svg", width: 300, height: 160, alt: "Independent Commission for Human Rights" },
-    { src: "/assets/img/clients/vbooking.svg", width: 300, height: 160, alt: "VBooking" },
-    { src: "/assets/img/clients/fastlink.v2.webp", width: 408, height: 210, alt: "Fastlink" },
-    { src: "/assets/img/clients/newroz.v2.webp", width: 408, height: 210, alt: "Newroz Telecom", scale: 0.8 },
-    { src: "/assets/img/clients/qetaf.svg", width: 300, height: 160, alt: "Qetaf Medical" },
-    { src: "/assets/img/clients/ourverse.svg", width: 300, height: 160, alt: "OurVerse" },
-    { src: "/assets/img/clients/arch.svg", width: 300, height: 160, alt: "Arch — digital document archiving system" },
-    { src: "/assets/img/clients/radx.webp", width: 408, height: 210, alt: "RADX" },
+    { file: "zenraise", alt: "ZenRaise", width: 150, height: 87 },
+    { file: "qetaf", alt: "Qetaf Medical", width: 150, height: 87 },
+    { file: "vbooking", alt: "VBooking", width: 150, height: 87 },
+    { file: "ris", alt: "RIS Enterprise Solutions", width: 150, height: 87 },
+    { file: "radx", alt: "RADX", width: 150, height: 87, darkWidth: 163.5 },
+    { file: "crpton", alt: "Crpton", width: 150, height: 87 },
   ],
 ];
