@@ -821,6 +821,7 @@ button { font: inherit; color: inherit; }
 .study-glance { padding-top: 80px; }
 .study-glance__label { margin-bottom: 24px; color: var(--muted-foreground); }
 .study-glance__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.study-glance__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .fact { display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border); }
 .fact__label { color: var(--muted-foreground); }
 .fact__value { font-family: var(--font-en-heading); font-weight: 700; font-size: 3rem; line-height: 1.15; letter-spacing: -0.025em; color: var(--primary); }
@@ -866,8 +867,13 @@ button { font: inherit; color: inherit; }
 .study-tag--after .study-tag__pill { background: var(--secondary); color: var(--secondary-foreground); }
 .study-group { gap: 48px; }
 /* One caption per screen, in the screens' columns (4 phones = 240 wide, 66 apart, 21 in). */
-.study-group__captions { display: flex; gap: 5.5%; padding-inline-start: 1.75%; text-align: center; }
+.study-group__captions { display: flex; width: 100%; gap: 5.5%; padding-inline-start: 1.75%; text-align: center; }
 .study-group__captions > span { width: 20%; }
+/* 3 tablets: 298 wide, 110 apart, 43 in. */
+.study-group__captions--3 { gap: 9.2%; padding-inline-start: 3.6%; }
+.study-group__captions--3 > span { width: 24.8%; }
+.study-stack { display: flex; flex-direction: column; gap: 48px; }
+.study-stack > .study-head { margin-bottom: 0; }
 
 /* Steps under a flow image (RADX). DOM order is step 1 → 4; the Arabic UI
    reads right to left, so on desktop step 1 sits under the right-most phone. */
@@ -939,7 +945,7 @@ button { font: inherit; color: inherit; }
   .study-pair { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .study-section--tight-bottom { padding-bottom: 32px; }
   .study-section--grid { padding-top: 32px; }
-  .study-group { gap: 32px; }
+  .study-group, .study-stack { gap: 32px; }
   .study-group__captions { flex-direction: column; gap: 4px; padding: 0; text-align: start; }
   .study-group__captions > span { width: auto; }
   .study-steps { flex-direction: row; flex-wrap: wrap; gap: 16px 24px; }
