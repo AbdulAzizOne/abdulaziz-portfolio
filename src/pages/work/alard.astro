@@ -1,7 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Testimonials from "../../components/Testimonials.astro";
-import NextProject from "../../components/NextProject.astro";
+import StudyHero from "../../components/study/StudyHero.astro";
+import StudyGlance from "../../components/study/StudyGlance.astro";
+import StudyHead from "../../components/study/StudyHead.astro";
+import StudyMedia from "../../components/study/StudyMedia.astro";
+import StudyQuote from "../../components/study/StudyQuote.astro";
+import StudyCta from "../../components/study/StudyCta.astro";
+import StudyNext from "../../components/study/StudyNext.astro";
 
 const jsonLd = [
   {
@@ -35,202 +40,169 @@ const jsonLd = [
   ogType="article"
   ogImage="og-alard.jpg"
   jsonLd={jsonLd}
+  study
 >
-<article class="case" aria-labelledby="case-title">
-  <div class="container cs-hero">
-    <a class="back-link text-link" href="/#work"><span aria-hidden="true">←</span> Back to portfolio</a>
-    <p class="cs-hero__eyebrow">Case study · E-commerce · Conversion redesign</p>
-    <h1 class="cs-hero__title" id="case-title">AL'ARD</h1>
-    <p class="cs-hero__subtitle">Making a beautiful story easy to buy — a conversion-focused redesign of AL'ARD's US online store for Palestinian olive oil and heritage goods, calmer homepage, every category one click away, and a product page rebuilt around the fold.</p>
-    <dl class="cs-hero__facts">
-      <div><dt>My role</dt><dd>UX/UI Designer</dd></div>
-      <div><dt>Platform</dt><dd>Responsive web — US storefront on Shopify</dd></div>
-      <div><dt>Timeline</dt><dd>12 months · Sep 2025 – Aug 2026</dd></div>
-      <div><dt>Status</dt><dd class="cs-status"><span class="work-card__dot" aria-hidden="true"></span>Redesign now live</dd></div>
-    </dl>
-    <nav class="cs-onthispage" aria-label="On this page">
-      <span class="cs-onthispage__label">On this page</span>
-      <a href="#overview">Overview</a>
-      <a href="#the-problem">The problem</a>
-      <a href="#navigation">Navigation</a>
-      <a href="#homepage">Homepage</a>
-      <a href="#product-page">Product page</a>
-      <a href="#mobile">Mobile</a>
-      <a href="#conversion">Conversion &amp; B2B</a>
-      <a href="#outcome">Outcome</a>
-    </nav>
-  </div>
+<article class="study" aria-labelledby="case-title">
+  <StudyHero
+    project="alard"
+    eyebrow="Case study · E-commerce · Conversion redesign"
+    title="AL’ARD"
+    subtitle="Making a beautiful story easy to buy"
+    lead="A conversion-focused redesign of AL’ARD’s US online store for Palestinian olive oil and heritage goods — calmer homepage, every category one click away, and a product page rebuilt around the fold."
+    facts={[
+      { label: "My role", value: "UX/UI Designer" },
+      { label: "Platform", value: "Responsive web — US storefront on Shopify" },
+      { label: "Timeline", value: "12 months · Sep 2025 – Aug 2026" },
+      { label: "Status", value: "Redesign now live", status: true },
+    ]}
+    coverAlt="The redesigned AL’ARD storefront: the olive oil mega menu over the Palestinian Olive Oil collection."
+  />
 
-  <div class="container">
-    <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-      <img src="/assets/img/alard-cs-hero-1040.webp" srcset="/assets/img/alard-cs-hero-1040.webp 1040w, /assets/img/alard-cs-hero-2080.webp 2080w" sizes="(min-width: 1280px) 1040px, 90vw" width="1040" height="589" fetchpriority="high" decoding="async" alt="The redesigned AL'ARD homepage for Palestinian olive oil and heritage goods.">
-    </div>
-  </div>
+  <StudyGlance items={[
+    { label: "Scope", value: "US store", text: "Desktop and mobile, built on Shopify" },
+    { label: "Status", value: "Live", text: "Redesign live at alardproducts.com" },
+  ]} />
 
-  <div class="container cs-section">
-    <p class="fact-card__label">Project at a glance</p>
-    <div class="cs-glance">
-      <div class="fact-card"><p class="fact-card__value">US store</p><p class="fact-card__text">Desktop and mobile, built on Shopify</p></div>
-      <div class="fact-card"><p class="fact-card__value">Live</p><p class="fact-card__text">Redesign live at alardproducts.com</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="overview">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>The challenge</div>
-    <h2 class="cs-title">A beautiful story — <em>that was hard to buy</em></h2>
-    <div class="cs-prose">
-      <div>
-        <h3>Context</h3>
-        <p>AL'ARD sells Palestinian olive oil and artisan foods — heritage products tied closely to Palestinian identity. My redesign covered its US online store.</p>
+  <section class="study-section study-overview" aria-labelledby="overview-title">
+    <div class="container study-overview__grid">
+      <div class="study-overview__head">
+        <p class="eyebrow"><span class="eyebrow__square" aria-hidden="true"></span>The challenge</p>
+        <h2 class="study-overview__title" id="overview-title">A beautiful story —<br>that was hard to buy</h2>
       </div>
-      <div>
-        <h3>The brief</h3>
-        <p>A conversion-focused redesign that makes shopping effortless on desktop and mobile — without diluting the brand's Palestinian heritage identity.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="the-problem">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>01 — The problem</div>
-    <h2 class="cs-title">What made the old store hard to shop</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Pop-up overload</p><p class="fact-card__text">Homepages cluttered with stacked pop-ups competing for attention.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Buried navigation</p><p class="fact-card__text">Key categories hidden inside a desktop side menu.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Below the fold</p><p class="fact-card__text">Product image, price and size options all sat below the fold.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">SEO debt</p><p class="fact-card__text">SEO audits of the store flagged structural issues.</p></div>
-    </div>
-    <div class="cs-eyebrow" style={{ marginTop: "32px" }}><span class="cs-eyebrow__square"></span>How I worked</div>
-    <div class="cs-decisions" style={{ marginTop: "24px" }}>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Audit</p><p class="fact-card__text">UX pain points &amp; SEO findings</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Restructure</p><p class="fact-card__text">Catalog &amp; IA around how people shop</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Design</p><p class="fact-card__text">Desktop + mobile screens</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Prototype</p><p class="fact-card__text">Interactive Figma prototype</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">Iterate</p><p class="fact-card__text">Marketing feedback, new features &amp; SEO reviews</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="navigation">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>02 — Key decision · Navigation &amp; IA</div>
-    <h2 class="cs-title">Every category, one click away — <em>from any scroll position</em></h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Sticky header</p><p class="fact-card__text">Primary navigation moved out of the side menu into a header that stays with the shopper.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Mega menu by intent</p><p class="fact-card__text">Shop by need, by size or by type — the way people actually decide.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Merchandising tile</p><p class="fact-card__text">Seasonal hooks like “First Press of the Season” live right inside the menu.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Search-first header</p><p class="fact-card__text">A wide search bar with helpful prompts: olive oil, za'atar, gift boxes.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-        <img src="/assets/img/alard-cs-megamenu-1104.webp" srcset="/assets/img/alard-cs-megamenu-1104.webp 1104w, /assets/img/alard-cs-megamenu-2208.webp 2208w" sizes="(min-width: 1280px) 1104px, 90vw" width="1104" height="744" loading="lazy" decoding="async" alt="AL'ARD's Palestinian Olive Oil mega menu, organized by need, size and type.">
-      </div>
-      <figcaption>The Palestinian Olive Oil mega menu — by need, size and type.</figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="homepage">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>03 — Key decision · Homepage</div>
-    <h2 class="cs-title">A calmer homepage that sells</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Minimized pop-ups</p><p class="fact-card__text">One clear message at a time instead of stacked overlays.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">More products above the fold</p><p class="fact-card__text">Best sellers surface in the very first scroll.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">“Compare the Gifts”</p><p class="fact-card__text">Guides buyers by budget and occasion — Mini, Pantry, Olive Oil, Premium.</p></div>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="product-page">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>04 — Key decision · Product page</div>
-    <h2 class="cs-title">The product page, rebuilt around the fold</h2>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Gallery above the fold</p><p class="fact-card__text">Hero image and thumbnails visible without scrolling.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Title, rating &amp; proof</p><p class="fact-card__text">Halal and Harvest tags, rating and “300+ bought” up top.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">Per-unit pricing</p><p class="fact-card__text">Price per ml makes the bulk discount self-evident.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">04</p><p class="fact-card__value">Size variants as cards</p><p class="fact-card__text">Every size shows its own price and saving.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">05</p><p class="fact-card__value">Subscribe &amp; Save</p><p class="fact-card__text">One-time or recurring delivery in a single step.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">06</p><p class="fact-card__value">Persistent trust badges</p><p class="fact-card__text">Authentic Palestinian origin + free-shipping threshold.</p></div>
-    </div>
-    <figure style={{ marginTop: "48px" }}>
-      <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-        <img src="/assets/img/alard-cs-productpage-1104.webp" srcset="/assets/img/alard-cs-productpage-1104.webp 1104w, /assets/img/alard-cs-productpage-2208.webp 2208w" sizes="(min-width: 1280px) 1104px, 90vw" width="1104" height="833" loading="lazy" decoding="async" alt="AL'ARD product page with gallery, tags, rating, per-ml pricing, size cards, subscribe and save, and trust badges above the fold.">
-      </div>
-      <figcaption>Gallery, tags, rating, per-ml pricing, size cards, subscribe &amp; save and trust badges — all above the fold.</figcaption>
-    </figure>
-  </div>
-
-  <div class="container cs-section" id="mobile">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>05 — Mobile</div>
-    <h2 class="cs-title">Designed for mobile, too</h2>
-    <p class="cs-lead">The key screens were designed for the phone as well — home, mega menu, product page and filters.</p>
-    <div class="cs-grid cs-grid--4" style={{ "--project-tile": "var(--project-alard)", marginTop: "40px" }}>
-      <figure><img src="/assets/img/alard-cs-mobile-1-216.webp" srcset="/assets/img/alard-cs-mobile-1-216.webp 216w, /assets/img/alard-cs-mobile-1-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="AL'ARD mobile homepage."><figcaption>Home</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-2-216.webp" srcset="/assets/img/alard-cs-mobile-2-216.webp 216w, /assets/img/alard-cs-mobile-2-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="AL'ARD mobile mega menu for Palestinian Olive Oil."><figcaption>Mega menu — Palestinian Olive Oil</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-3-216.webp" srcset="/assets/img/alard-cs-mobile-3-216.webp 216w, /assets/img/alard-cs-mobile-3-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="AL'ARD mobile product page with sizes and per-ml pricing."><figcaption>Product page — sizes &amp; per-ml pricing</figcaption></figure>
-      <figure><img src="/assets/img/alard-cs-mobile-4-216.webp" srcset="/assets/img/alard-cs-mobile-4-216.webp 216w, /assets/img/alard-cs-mobile-4-432.webp 432w" sizes="216px" width="216" height="470" loading="lazy" decoding="async" alt="AL'ARD mobile all-products page with filters."><figcaption>All Products — filters</figcaption></figure>
-    </div>
-  </div>
-
-  <div class="container cs-section" id="conversion">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>06 — Conversion, gifting &amp; B2B</div>
-    <h2 class="cs-title">Patterns for more — <em>and bigger — orders</em></h2>
-    <p class="cs-lead">Subscribe &amp; Save, bundles, reviews, a build-your-own box and a free-shipping bar — plus a dedicated path for gifting and corporate orders.</p>
-    <div class="cs-decisions">
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">01</p><p class="fact-card__value">Gift tiers</p><p class="fact-card__text">By budget &amp; occasion, compared side by side.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">02</p><p class="fact-card__value">Add-ons</p><p class="fact-card__text">Kufiya, dates, Nabulsi soap, tree sponsorship, gift card.</p></div>
-      <div class="fact-card fact-card--decision"><p class="fact-card__label">03</p><p class="fact-card__value">B2B</p><p class="fact-card__text">Corporate &amp; bulk gifting with custom branding and multi-address shipping.</p></div>
-    </div>
-    <div class="cs-grid cs-grid--2" style={{ marginTop: "48px" }}>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-          <img src="/assets/img/alard-cs-conv-1-524.webp" srcset="/assets/img/alard-cs-conv-1-524.webp 524w, /assets/img/alard-cs-conv-1-1048.webp 1048w" sizes="524px" width="524" height="348" loading="lazy" decoding="async" alt="AL'ARD 'frequently bought together' bundle suggestion.">
+      <div class="study-overview__body">
+        <div>
+          <h3>Context</h3>
+          <p>AL’ARD sells Palestinian olive oil and artisan foods — heritage products tied closely to Palestinian identity. My redesign covered its US online store.</p>
         </div>
-        <figcaption>Frequently bought together.</figcaption>
+        <div>
+          <h3>The brief</h3>
+          <p>A conversion-focused redesign that makes shopping effortless on desktop and mobile — without diluting the brand’s Palestinian heritage identity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="problem-title">
+    <div class="container">
+      <StudyHead id="problem-title" eyebrow="01 — The problem" line1="What made the old store" line2="hard to shop" accent={false} />
+      <ol class="study-facts study-facts--4">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Pop-up overload</h3><p class="fact__text">Homepages cluttered with stacked pop-ups competing for attention.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Buried navigation</h3><p class="fact__text">Key categories hidden inside a desktop side menu.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Below the fold</h3><p class="fact__text">Product image, price and size options all sat below the fold.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">SEO debt</h3><p class="fact__text">SEO audits of the store flagged structural issues.</p></li>
+      </ol>
+      <h3 class="eyebrow study-subhead" id="worked-title"><span class="eyebrow__square" aria-hidden="true"></span>How I worked</h3>
+      <ol class="study-facts study-facts--5">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Audit</h3><p class="fact__text">UX pain points &amp; SEO findings</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Restructure</h3><p class="fact__text">Catalog &amp; IA around how people shop</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Design</h3><p class="fact__text">Desktop + mobile screens</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Prototype</h3><p class="fact__text">Interactive Figma prototype</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">Iterate</h3><p class="fact__text">Marketing feedback, new features &amp; SEO reviews</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="study-section study-section--card" aria-labelledby="nav-title">
+    <div class="container">
+      <StudyHead id="nav-title" eyebrow="02 — Key decision · Navigation & IA" line1="Every category, one click away —" line2="from any scroll position" accent={false} />
+      <ol class="study-facts study-facts--4">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Sticky header</h3><p class="fact__text">Primary navigation moved out of the side menu into a header that stays with the shopper.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Mega menu by intent</h3><p class="fact__text">Shop by need, by size or by type — the way people actually decide.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Merchandising tile</h3><p class="fact__text">Seasonal hooks like “First Press of the Season” live right inside the menu.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Search-first header</h3><p class="fact__text">A wide search bar with helpful prompts: olive oil, za’atar, gift boxes.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="alard" name="02-mega-menu-olive-oil" desktop={[1200, 487]} tablet={[704, 287]} mobile={[358, 145]} alt="The AL’ARD Palestinian Olive Oil mega menu: shop by need, by size and by type, with a First Press of the Season tile." />
+        <figcaption>The Palestinian Olive Oil mega menu — by need, size and type.</figcaption>
       </figure>
-      <figure>
-        <div class="cs-panel" style={{ background: "var(--project-alard)" }}>
-          <img src="/assets/img/alard-cs-conv-2-524.webp" srcset="/assets/img/alard-cs-conv-2-524.webp 524w, /assets/img/alard-cs-conv-2-1048.webp 1048w" sizes="524px" width="524" height="353" loading="lazy" decoding="async" alt="AL'ARD cart drawer with free-shipping progress and loyalty points.">
-        </div>
-        <figcaption>Cart drawer — free-shipping progress &amp; loyalty points.</figcaption>
+      <div class="study-next-block">
+        <StudyHead id="home-title" eyebrow="03 — Key decision · Homepage" line1="A calmer homepage that sells" />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Minimized pop-ups</h3><p class="fact__text">One clear message at a time instead of stacked overlays.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">More products above the fold</h3><p class="fact__text">Best sellers surface in the very first scroll.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">“Compare the Gifts”</h3><p class="fact__text">Guides buyers by budget and occasion — Mini, Pantry, Olive Oil, Premium.</p></li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="study-section study-section--muted" aria-labelledby="pdp-title">
+    <div class="container">
+      <StudyHead id="pdp-title" eyebrow="04 — Key decision · Product page" line1="The product page," line2="rebuilt around the fold" accent={false} />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Gallery above the fold</h3><p class="fact__text">Hero image and thumbnails visible without scrolling.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Title, rating &amp; proof</h3><p class="fact__text">Halal and Harvest tags, rating and “300+ bought” up top.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">Per-unit pricing</h3><p class="fact__text">Price per ml makes the bulk discount self-evident.</p></li>
+        <li class="fact fact--md"><span class="fact__label">04</span><h3 class="fact__value">Size variants as cards</h3><p class="fact__text">Every size shows its own price and saving.</p></li>
+        <li class="fact fact--md"><span class="fact__label">05</span><h3 class="fact__value">Subscribe &amp; Save</h3><p class="fact__text">One-time or recurring delivery in a single step.</p></li>
+        <li class="fact fact--md"><span class="fact__label">06</span><h3 class="fact__value">Persistent trust badges</h3><p class="fact__text">Authentic Palestinian origin + free-shipping threshold.</p></li>
+      </ol>
+      <figure class="study-figure study-figure--after-facts">
+        <StudyMedia project="alard" name="03-product-page" desktop={[1200, 894]} tablet={[704, 524]} mobile={[358, 281]} alt="The AL’ARD product page: gallery, Halal and Harvest tags, rating, per-ml pricing, size cards, subscribe and save, and trust badges above the fold." />
+        <figcaption>Gallery, tags, rating, per-ml pricing, size cards, subscribe &amp; save and trust badges — all above the fold.</figcaption>
       </figure>
     </div>
-  </div>
+  </section>
 
-  <div class="container cs-section">
-    <figure class="cs-quote">
-      <span class="cs-quote__mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>He understands the direction well, is responsive to feedback, and has been helping translate our ideas into a clearer and more user-friendly website experience.</p></blockquote>
-      <figcaption>
-        <span class="testimonial-card__avatar" aria-hidden="true">AN</span>
-        <span class="testimonial-card__who"><cite>Ahmad Al-Nimr</cite><span>Digital Marketing Manager, AL'ARD · Nablus, Palestine</span></span>
-      </figcaption>
-    </figure>
-  </div>
+  <section class="study-section study-section--card" aria-labelledby="mobile-title">
+    <div class="container">
+      <StudyHead id="mobile-title" eyebrow="05 — Mobile" line1="Designed for mobile, too" lead="The key screens were designed for the phone as well — home, mega menu, product page and filters." />
+      <figure class="study-figure study-group">
+        <StudyMedia project="alard" name="04-mobile-screens" desktop={[1200, 590]} tablet={[704, 346]} mobile={[358, 211]} alt="Four AL’ARD mobile screens: home, the olive oil mega menu, the product page with sizes, and All Products filters." />
+        <figcaption class="study-group__captions study-group__captions--4">
+          <span>Home</span><span>Mega menu — Palestinian Olive Oil</span><span>Product page — sizes &amp; per-ml pricing</span><span>All Products — filters</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <div class="container cs-section" id="outcome">
-    <div class="cs-eyebrow"><span class="cs-eyebrow__square"></span>07 — Outcome</div>
-    <h2 class="cs-title">Reviewed before a line of code — now live</h2>
-    <div class="cs-outcome">
-      <div>
-        <h3>Outcome</h3>
-        <p>I built an interactive Figma prototype before development. AL'ARD's marketing manager reviewed it and sent back changes and new feature requests, and the SEO team audited the site — I turned both into design updates, and the redesigned US storefront is now live at alardproducts.com.</p>
-      </div>
-      <div>
-        <h3>What I learned</h3>
-        <p>A conversion redesign isn't just a visual refresh. Business goals, real usability for a wide audience, SEO requirements, and what the dev stack could support all pulled in different directions — most of the work was making sure no single priority won at the expense of the others, while keeping the brand's Palestinian heritage front and center.</p>
+  <section class="study-section study-section--muted" aria-labelledby="conversion-title">
+    <div class="container">
+      <StudyHead id="conversion-title" eyebrow="06 — Conversion, gifting & B2B" line1="Patterns for more —" line2="and bigger — orders" lead="Subscribe & Save, bundles, reviews, a build-your-own box and a free-shipping bar — plus a dedicated path for gifting and corporate orders." accent={false} />
+      <ol class="study-facts study-facts--3">
+        <li class="fact fact--md"><span class="fact__label">01</span><h3 class="fact__value">Gift tiers</h3><p class="fact__text">By budget &amp; occasion, compared side by side.</p></li>
+        <li class="fact fact--md"><span class="fact__label">02</span><h3 class="fact__value">Add-ons</h3><p class="fact__text">Kufiya, dates, Nabulsi soap, tree sponsorship, gift card.</p></li>
+        <li class="fact fact--md"><span class="fact__label">03</span><h3 class="fact__value">B2B</h3><p class="fact__text">Corporate &amp; bulk gifting with custom branding and multi-address shipping.</p></li>
+      </ol>
+      <div class="study-pair study-pair--after">
+        <figure class="study-figure">
+          <StudyMedia project="alard" name="05-frequently-bought-together" desktop={[588, 447]} tablet={[704, 535]} mobile={[358, 271]} alt="AL’ARD frequently bought together: tahini paste and Medjool dates, with a 10% bundle price." />
+          <figcaption>Frequently bought together.</figcaption>
+        </figure>
+        <figure class="study-figure">
+          <StudyMedia project="alard" name="06-cart-drawer-free-shipping" desktop={[588, 447]} tablet={[704, 535]} mobile={[358, 271]} alt="The AL’ARD cart drawer with free-shipping progress and loyalty points." />
+          <figcaption>Cart drawer — free-shipping progress &amp; loyalty points.</figcaption>
+        </figure>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container">
-    <div class="cs-cta">
-      <div>
-        <h2>Selling online, but losing shoppers before checkout?</h2>
-        <p>Tell me about your store, and where people drop off.</p>
+  <StudyQuote
+    quote="He understands the direction well, is responsive to feedback, and has been helping translate our ideas into a clearer and more user-friendly website experience."
+    name="Ahmad Al-Nimr"
+    role="Digital Marketing Manager, AL’ARD · Nablus, Palestine"
+    initials="AN"
+  />
+
+  <section class="study-section" aria-labelledby="outcome-title">
+    <div class="container">
+      <StudyHead id="outcome-title" eyebrow="07 — Outcome" line1="Reviewed before a line of code —" line2="now live" accent={false} />
+      <div class="study-outcome">
+        <div>
+          <h3>Outcome</h3>
+          <p class="study-outcome__lead">I built an interactive Figma prototype before development. AL’ARD’s marketing manager reviewed it and sent back changes and new feature requests, and the SEO team audited the site — I turned both into design updates, and the redesigned US storefront is now live at alardproducts.com.</p>
+        </div>
+        <div>
+          <h3>What I learned</h3>
+          <p>A conversion redesign isn’t just a visual refresh. Business goals, real usability for a wide audience, SEO requirements, and what the dev stack could support all pulled in different directions — most of the work was making sure no single priority won at the expense of the others, while keeping the brand’s Palestinian heritage front and center.</p>
+        </div>
       </div>
-      <a class="btn btn--primary btn--xl" href="/#contact">Let’s talk</a>
     </div>
-  </div>
+  </section>
+
+  <StudyCta title="Selling online, but losing shoppers before checkout?" text="Tell me about your store, and where people drop off." />
 </article>
 
-<NextProject current="alard" />
-
-<Testimonials />
+<StudyNext current="alard" />
 
 </Layout>

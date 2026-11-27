@@ -822,6 +822,7 @@ button { font: inherit; color: inherit; }
 .study-glance__label { margin-bottom: 24px; color: var(--muted-foreground); }
 .study-glance__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
 .study-glance__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.study-glance__grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .fact { display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid var(--border); }
 .fact__label { color: var(--muted-foreground); }
 .fact__value { font-family: var(--font-en-heading); font-weight: 700; font-size: 3rem; line-height: 1.15; letter-spacing: -0.025em; color: var(--primary); }
@@ -882,6 +883,14 @@ button { font: inherit; color: inherit; }
 .study-steps span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; line-height: normal; color: var(--gold-text); }
 .study-only-compact { display: none; }
 .study-pair--after { margin-top: 48px; }
+/* Rows of numbered facts (AL'ARD). */
+.study-facts { display: grid; gap: 32px; margin: 0; padding: 0; list-style: none; }
+.study-facts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 40px; }
+.study-facts--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.study-facts--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 24px; }
+.study-subhead { margin: 64px 0 32px; text-transform: uppercase; }
+.study-figure--after-facts { margin-top: 48px; }
+.study-next-block { margin-top: 96px; }
 /* Big image beside a column of two (RADX design system, store assets). */
 .study-split { display: grid; grid-template-columns: minmax(0, 588px) minmax(0, 588px); gap: 24px; align-items: start; }
 .study-split--store { grid-template-columns: minmax(0, 792px) minmax(0, 384px); }
@@ -955,6 +964,11 @@ button { font: inherit; color: inherit; }
   .study-pair--after { margin-top: 32px; }
   .study-split, .study-split--store { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .study-split__col { gap: 32px; }
+  .study-facts--3, .study-facts--4 { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .study-facts--5 { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px; }
+  .study-subhead { margin: 40px 0 24px; }
+  .study-figure--after-facts { margin-top: 32px; }
+  .study-next-block { margin-top: 64px; }
   .study-quote { padding-block: 64px; }
   .study-outcome { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .study-outcome--rows { row-gap: 32px; }

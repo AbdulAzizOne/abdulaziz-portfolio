@@ -8,7 +8,7 @@ const t = ui[lang];
 <section class="study-glance" aria-labelledby="glance-title">
   <div class="container">
     <h2 class="study-glance__label" id="glance-title">{label ?? t.atAGlance}</h2>
-    <dl class:list={["study-glance__grid", items.length === 3 && "study-glance__grid--3"]}>
+    <dl class:list={["study-glance__grid", items.length === 3 && "study-glance__grid--3", items.length === 2 && "study-glance__grid--2"]}>
       {items.map((i) => (
         <div class="fact">
           <dt class="fact__label">{i.label}</dt>
