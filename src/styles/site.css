@@ -636,8 +636,6 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- Section heads (generic heading utility: 404 page, etc.) ---------- */
-.section-head > * { max-width: 1340px; }
-.section-sub { max-width: 64ch; }
 .section-title {
   font-family: var(--font-en-heading);
   font-weight: 700;
@@ -646,13 +644,6 @@ button { font: inherit; color: inherit; }
   letter-spacing: -0.025em;
   color: var(--foreground);
 }
-.section-sub {
-  margin-top: 28px;
-  font-size: 1.0625rem;
-  line-height: 1.5;
-  color: var(--muted-foreground);
-}
-.section-head--tight .section-sub { margin-top: 16px; }
 
 /* ---------- Case study v3 (Figma: ✅ Ready for dev · <Project> Case Study v2,
    Patterns / Case Study v3 · sections). Desktop ≥1024: 1200 container, 12-col.
@@ -1277,6 +1268,12 @@ button { font: inherit; color: inherit; }
 /* ---------- 404 ---------- */
 .not-found { min-height: 60vh; display: grid; place-items: center; text-align: center; }
 .not-found p { margin-block: 20px 32px; color: var(--muted-foreground); font-size: 1.25rem; }
+/* One 404 for the whole site (static hosting): English first, then Arabic. */
+.not-found__inner { display: grid; gap: 56px; padding-block: 64px; }
+.not-found__block--ar { padding-top: 56px; border-top: 1px solid var(--border); }
+.not-found__block--ar .section-title { font-family: "Almarai", var(--font-en-heading); line-height: 1.45; }
+.not-found__block--ar p, .not-found__block--ar .btn { font-family: "Noto Sans Arabic", var(--font-en-body); }
+.not-found__block--ar p { line-height: 1.75; }
 
 /* ---------- Page transitions ---------- */
 /* Cross-document View Transitions: a soft cross-fade between pages in browsers
@@ -1310,6 +1307,12 @@ button { font: inherit; color: inherit; }
     display: none;
   }
   .nav.is-open { display: block; }
+  /* Without JavaScript the toggle can't open the menu: show the links in
+     the page flow under the header instead. */
+  html:not(.js) .nav-toggle { display: none; }
+  html:not(.js) .site-header { position: static; }
+  html:not(.js) .site-header__inner { flex-wrap: wrap; align-content: flex-start; padding-top: 12px; }
+  html:not(.js) .nav { display: block; position: static; flex-basis: 100%; border-bottom: 0; }
   .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
   .nav__link { display: block; height: auto; padding: 14px 0; border-bottom: 1px solid var(--border); border-radius: 0; background: none; }
   .nav__list li:last-child { padding-top: 20px; }
@@ -1321,10 +1324,6 @@ button { font: inherit; color: inherit; }
 @media (max-width: 720px) {
   :root { --header-h: 64px; }
   .brand svg { width: 44px; }
-  .media-row--2,
-  .media-row--crpton { grid-template-columns: 1fr; }
-  .media-row--3 { grid-template-columns: 1fr 1fr; }
-  .media-row--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1358,7 +1357,7 @@ button { font: inherit; color: inherit; }
 :root:lang(ar) :is(.hero__title, .section-title, .work__title, .process__title, .about__title, .testimonials__title) { line-height: 1.45; }
 :root:lang(ar) .contact__title { line-height: 1.45; max-width: 20ch; }
 :root:lang(ar) .contact__text { line-height: 1.75; }
-:root:lang(ar) :is(.hero__lead, .section-sub, .work-card__summary, .about__bio, .about__band-item-text, .testimonial-card blockquote p, .testimonials__featured blockquote p, .process__step p) { line-height: 1.75; }
+:root:lang(ar) :is(.hero__lead, .work-card__summary, .about__bio, .about__band-item-text, .testimonial-card blockquote p, .testimonials__featured blockquote p, .process__step p) { line-height: 1.75; }
 
 /* Short English phrases quoted in Arabic text (<bdi>): keep each on one line
    so the quotation marks stay with it. */
@@ -1392,3 +1391,38 @@ button { font: inherit; color: inherit; }
 @media (min-width: 768px) and (max-width: 1023px) {
   .study-glance__grid--tablet-row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 }
+
+/* Case-study image viewer (phones; built by main.js). Figma: Image viewer. */
+@media (max-width: 767px) {
+  html.js .study-media[role="button"] { cursor: zoom-in; -webkit-tap-highlight-color: transparent; }
+  html.js .study-media[role="button"]:focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 4px; border-radius: 4px; }
+}
+html.viewer-open { overflow: hidden; }
+.viewer {
+  position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; background: #05271a; color: #fff; overflow: hidden;
+}
+.viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.viewer::backdrop { background: #05271a; }
+.viewer__bar, .viewer__foot { opacity: var(--viewer-fade, 1); }
+.viewer__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: max(16px, env(safe-area-inset-top)) 16px 16px;
+}
+.viewer__count { margin: 0; font-size: 0.875rem; line-height: 1.43; font-variant-numeric: tabular-nums; color: rgb(255 255 255 / 0.8); }
+.viewer__close {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.2); background: rgb(255 255 255 / 0.08); color: #fff; cursor: pointer;
+}
+.viewer__close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.viewer__pan {
+  display: flex; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y;
+  scrollbar-width: none;
+}
+.viewer__pan::-webkit-scrollbar { display: none; }
+.viewer__img { display: block; flex: none; max-width: none; margin: auto 0; }
+.viewer__foot { padding: 16px 16px max(24px, env(safe-area-inset-bottom)); }
+.viewer__caption { margin: 0; font-size: 0.875rem; line-height: 1.43; }
+.viewer__caption:empty { display: none; }
+.viewer__hint { margin: 8px 0 0; font-size: 0.75rem; line-height: 1.5; color: rgb(255 255 255 / 0.6); }
+:root:lang(ar) .viewer__caption { line-height: 1.7; }

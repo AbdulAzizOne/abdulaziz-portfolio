@@ -1,12 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Page not found · Abdulaziz Abu Dhair" bare>
+<Layout title="Page not found · الصفحة غير موجودة" bare>
 <main class="band band--alt not-found">
-  <div class="container">
-    <h1 class="section-title">This page doesn’t exist.</h1>
-    <p>The link may be old, or the page may have moved.</p>
-    <a class="btn btn--primary" href="/">Back to portfolio</a>
+  <div class="container not-found__inner">
+    <div class="not-found__block">
+      <h1 class="section-title">This page doesn’t exist.</h1>
+      <p>The link may be old, or the page may have moved.</p>
+      <a class="btn btn--primary" href="/">Back to portfolio</a>
+    </div>
+    <div class="not-found__block not-found__block--ar" lang="ar" dir="rtl">
+      <h2 class="section-title">هذه الصفحة غير موجودة.</h2>
+      <p>ربما يكون الرابط قديماً، أو أن الصفحة نُقلت إلى مكان آخر.</p>
+      <a class="btn btn--primary" href="/ar">العودة إلى الموقع</a>
+    </div>
   </div>
 </main>
 </Layout>
