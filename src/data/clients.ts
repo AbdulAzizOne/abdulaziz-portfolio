@@ -31,7 +31,7 @@ export const clientRows: ClientLogo[][] = [
     { file: "qetaf", alt: "Qetaf Medical", width: 150, height: 87 },
     { file: "vbooking", alt: "VBooking", width: 150, height: 87 },
     { file: "ris", alt: "RIS Enterprise Solutions", width: 150, height: 87 },
-    { file: "radx", alt: "RADX", width: 150, height: 87, darkWidth: 163.5 },
+    { file: "radx-2026", alt: "RADX", width: 150, height: 87 },
     { file: "crpton", alt: "Crpton", width: 150, height: 87 },
     { file: "progmix", alt: "ProgmiX", width: 150, height: 87 },
     { file: "alard", alt: "AL'ARD", width: 150, height: 87 },
