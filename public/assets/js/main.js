@@ -23,6 +23,13 @@
       if (event.target.closest("a")) setOpen(false);
     });
 
+    // Close the menu when keyboard focus moves past its last link.
+    nav.addEventListener("focusout", (event) => {
+      if (toggle.getAttribute("aria-expanded") !== "true") return;
+      const next = event.relatedTarget;
+      if (next && !nav.contains(next) && next !== toggle) setOpen(false);
+    });
+
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
         setOpen(false);
