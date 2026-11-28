@@ -28,8 +28,7 @@ const section = (id: string) => (home ? `#${id}` : `${homeHref}#${id}`);
         <li><a class="nav__link" href={section("work")}>{t.navWork}</a></li>
         <li><a class="nav__link" href={section("process")}>{t.navApproach}</a></li>
         <li><a class="nav__link" href={section("about")}>{t.navAbout}</a></li>
-        {/* Every page ends with the testimonials section, so this stays in-page. */}
-        <li><a class="nav__link" href="#testimonials">{t.navTestimonials}</a></li>
+        <li><a class="nav__link" href={section("testimonials")}>{t.navTestimonials}</a></li>
         <li><a class="nav__link lang-switch" href={switchHref} lang={other} hreflang={other} aria-label={t.switchAria}>{t.switchLabel}</a></li>
         <li><a class="btn btn--primary btn--sm" href="#contact">{t.navContact}</a></li>
       </ul>
