@@ -21,6 +21,10 @@ export const clientRows: ClientLogo[][] = [
     { file: "padico", alt: "PADICO Holding", width: 150, height: 87 },
     { file: "millennium", alt: "Millennium Technology", width: 150, height: 87 },
     { file: "newroz", alt: "Newroz Telecom", width: 120, height: 70 },
+    { file: "exalt", alt: "EXALT Technologies", width: 150, height: 87 },
+    { file: "sada", alt: "SADA Intelligence", width: 150, height: 87 },
+    { file: "ichr", alt: "Independent Commission for Human Rights", width: 150, height: 87 },
+    { file: "fastlink", alt: "Fastlink", width: 150, height: 87 },
   ],
   [
     { file: "zenraise", alt: "ZenRaise", width: 150, height: 87 },
@@ -29,5 +33,9 @@ export const clientRows: ClientLogo[][] = [
     { file: "ris", alt: "RIS Enterprise Solutions", width: 150, height: 87 },
     { file: "radx", alt: "RADX", width: 150, height: 87, darkWidth: 163.5 },
     { file: "crpton", alt: "Crpton", width: 150, height: 87 },
+    { file: "progmix", alt: "ProgmiX", width: 150, height: 87 },
+    { file: "alard", alt: "AL'ARD", width: 150, height: 87 },
+    { file: "ourverse", alt: "OurVerse", width: 150, height: 87 },
+    { file: "arch", alt: "ARCH digital archiving system", width: 150, height: 87 },
   ],
 ];
