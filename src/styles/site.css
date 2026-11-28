@@ -1391,3 +1391,38 @@ button { font: inherit; color: inherit; }
 @media (min-width: 768px) and (max-width: 1023px) {
   .study-glance__grid--tablet-row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 }
+
+/* Case-study image viewer (phones; built by main.js). Figma: Image viewer. */
+@media (max-width: 767px) {
+  html.js .study-media[role="button"] { cursor: zoom-in; -webkit-tap-highlight-color: transparent; }
+  html.js .study-media[role="button"]:focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 4px; border-radius: 4px; }
+}
+html.viewer-open { overflow: hidden; }
+.viewer {
+  position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0; background: #05271a; color: #fff; overflow: hidden;
+}
+.viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.viewer::backdrop { background: #05271a; }
+.viewer__bar, .viewer__foot { opacity: var(--viewer-fade, 1); }
+.viewer__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: max(16px, env(safe-area-inset-top)) 16px 16px;
+}
+.viewer__count { margin: 0; font-size: 0.875rem; line-height: 1.43; font-variant-numeric: tabular-nums; color: rgb(255 255 255 / 0.8); }
+.viewer__close {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.2); background: rgb(255 255 255 / 0.08); color: #fff; cursor: pointer;
+}
+.viewer__close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.viewer__pan {
+  display: flex; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y;
+  scrollbar-width: none;
+}
+.viewer__pan::-webkit-scrollbar { display: none; }
+.viewer__img { display: block; flex: none; max-width: none; margin: auto 0; }
+.viewer__foot { padding: 16px 16px max(24px, env(safe-area-inset-bottom)); }
+.viewer__caption { margin: 0; font-size: 0.875rem; line-height: 1.43; }
+.viewer__caption:empty { display: none; }
+.viewer__hint { margin: 8px 0 0; font-size: 0.75rem; line-height: 1.5; color: rgb(255 255 255 / 0.6); }
+:root:lang(ar) .viewer__caption { line-height: 1.7; }

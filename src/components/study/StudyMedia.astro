@@ -19,7 +19,7 @@ const { project, name, desktop, tablet, mobile, alt, rtl = false, class: classNa
 const f = (bp: string, dark = false) =>
   `/assets/case-study/${project}/${name}-${bp}${dark ? "-dark" : ""}${rtl ? "-rtl" : ""}.webp`;
 ---
-<picture class:list={["study-media", className]}>
+<picture class:list={["study-media", className]} data-zoom-src={f("desktop")} data-zoom-src-dark={f("desktop", true)} data-zoom-w={desktop[0] * 2} data-zoom-h={desktop[1] * 2}>
   <source media="(prefers-color-scheme: dark) and (min-width: 1024px)" srcset={`${f("desktop", true)} 2x`} width={desktop[0]} height={desktop[1]}>
   <source media="(min-width: 1024px)" srcset={`${f("desktop")} 2x`} width={desktop[0]} height={desktop[1]}>
   <source media="(prefers-color-scheme: dark) and (min-width: 768px)" srcset={`${f("tablet", true)} 2x`} width={tablet[0]} height={tablet[1]}>

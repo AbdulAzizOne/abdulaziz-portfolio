@@ -187,4 +187,182 @@
   );
 
   targets.forEach((el) => observer.observe(el));
+
+  // Case-study image viewer (phones only, Figma "Image viewer"): tap an image
+  // to see it large; swipe to pan, pinch to zoom, swipe down or Escape to close.
+  const zoomables = Array.from(document.querySelectorAll("picture[data-zoom-src]"));
+  if (zoomables.length && typeof HTMLDialogElement === "function") {
+    const phone = window.matchMedia("(max-width: 767px)");
+    const dark = window.matchMedia("(prefers-color-scheme: dark)");
+    const ar = (root.lang || "").toLowerCase().startsWith("ar");
+    const t = ar
+      ? { open: "عرض الصورة بحجم أكبر", close: "إغلاق", of: " / ", hint: "اسحب للتحريك · قرّب بإصبعين للتكبير · اسحب للأسفل للإغلاق", label: "عارض الصور" }
+      : { open: "View larger image", close: "Close", of: " / ", hint: "Swipe to pan · pinch to zoom · swipe down to close", label: "Image viewer" };
+    const BASE = 520;
+    const MAX_ZOOM = 3;
+
+    let dialog, pan, img, counter, caption, lastFocus;
+    let ratio = 1, baseH = BASE, zoom = 1;
+
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text) node.textContent = text;
+      return node;
+    };
+
+    const captionFor = (picture) => {
+      const figure = picture.closest("figure");
+      const own = figure && figure.querySelector(":scope > figcaption");
+      let text = "";
+      if (own) {
+        const pill = own.querySelector(".study-tag__pill");
+        text = own.textContent.trim();
+        if (pill) text = `${pill.textContent.trim()} · ${text.slice(pill.textContent.trim().length).trim()}`;
+      }
+      const alt = picture.querySelector("img")?.alt || "";
+      return text || alt;
+    };
+
+    const setHeight = (h) => {
+      img.style.height = `${h}px`;
+      img.style.width = `${h * ratio}px`;
+    };
+
+    const build = () => {
+      dialog = el("dialog", "viewer");
+      dialog.setAttribute("aria-label", t.label);
+      const bar = el("div", "viewer__bar");
+      counter = el("p", "viewer__count");
+      counter.dir = "ltr";
+      const close = el("button", "viewer__close");
+      close.type = "button";
+      close.setAttribute("aria-label", t.close);
+      close.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+      close.addEventListener("click", () => dialog.close());
+      bar.append(counter, close);
+      pan = el("div", "viewer__pan");
+      img = el("img", "viewer__img");
+      img.alt = "";
+      img.decoding = "async";
+      pan.append(img);
+      const foot = el("div", "viewer__foot");
+      caption = el("p", "viewer__caption");
+      foot.append(caption, el("p", "viewer__hint", t.hint));
+      dialog.append(bar, pan, foot);
+      document.body.append(dialog);
+
+      dialog.addEventListener("close", () => {
+        root.classList.remove("viewer-open");
+        img.removeAttribute("src");
+        if (lastFocus) lastFocus.focus();
+      });
+
+      // Pinch to zoom (two fingers) and swipe down to close (one finger, not zoomed).
+      let pinch = null;
+      let drag = null;
+      const mid = (a, b) => ({ x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 });
+      const dist = (a, b) => Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+
+      pan.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 2) {
+          drag = null;
+          pan.style.transform = "";
+          pinch = { d: dist(e.touches[0], e.touches[1]), zoom };
+        } else if (e.touches.length === 1 && zoom === 1) {
+          drag = { x: e.touches[0].clientX, y: e.touches[0].clientY, dy: 0, top: pan.scrollTop };
+        }
+      }, { passive: true });
+
+      pan.addEventListener("touchmove", (e) => {
+        if (pinch && e.touches.length === 2) {
+          e.preventDefault();
+          const next = Math.min(MAX_ZOOM, Math.max(1, pinch.zoom * (dist(e.touches[0], e.touches[1]) / pinch.d)));
+          const box = pan.getBoundingClientRect();
+          const m = mid(e.touches[0], e.touches[1]);
+          const mx = m.x - box.left, my = m.y - box.top;
+          const fx = (pan.scrollLeft + mx) / pan.scrollWidth;
+          const fy = (pan.scrollTop + my) / pan.scrollHeight;
+          zoom = next;
+          setHeight(baseH * zoom);
+          pan.scrollLeft = fx * pan.scrollWidth - mx;
+          pan.scrollTop = fy * pan.scrollHeight - my;
+        } else if (drag && e.touches.length === 1) {
+          const dx = e.touches[0].clientX - drag.x;
+          const dy = e.touches[0].clientY - drag.y;
+          if (drag.top <= 0 && dy > 0 && dy > Math.abs(dx) * 1.5) {
+            drag.dy = dy;
+            pan.style.transform = `translateY(${dy}px)`;
+            dialog.style.setProperty("--viewer-fade", String(Math.max(0.4, 1 - dy / 400)));
+          } else if (drag.dy) {
+            drag.dy = 0;
+            pan.style.transform = "";
+            dialog.style.removeProperty("--viewer-fade");
+          }
+        }
+      }, { passive: false });
+
+      const end = (e) => {
+        if (pinch && e.touches.length < 2) pinch = null;
+        if (drag && e.touches.length === 0) {
+          const closeIt = drag.dy > 90;
+          drag = null;
+          pan.style.transform = "";
+          dialog.style.removeProperty("--viewer-fade");
+          if (closeIt) dialog.close();
+        }
+      };
+      pan.addEventListener("touchend", end);
+      pan.addEventListener("touchcancel", end);
+    };
+
+    const open = (index) => {
+      if (!dialog) build();
+      const picture = zoomables[index];
+      const w = Number(picture.dataset.zoomW) || 1;
+      const h = Number(picture.dataset.zoomH) || 1;
+      ratio = w / h;
+      zoom = 1;
+      img.width = w;
+      img.height = h;
+      img.src = dark.matches ? picture.dataset.zoomSrcDark : picture.dataset.zoomSrc;
+      img.alt = picture.querySelector("img")?.alt || "";
+      counter.textContent = `${index + 1}${t.of}${zoomables.length}`;
+      caption.textContent = captionFor(picture);
+      lastFocus = picture;
+      root.classList.add("viewer-open");
+      dialog.showModal();
+      baseH = Math.min(BASE, pan.clientHeight || BASE);
+      setHeight(baseH);
+      // Start at the reading edge: left in English, right in Arabic.
+      pan.scrollTop = 0;
+      pan.scrollLeft = 0;
+    };
+
+    const sync = () => {
+      zoomables.forEach((picture) => {
+        if (phone.matches) {
+          picture.tabIndex = 0;
+          picture.setAttribute("role", "button");
+          picture.setAttribute("aria-label", `${t.open}: ${picture.querySelector("img")?.alt || ""}`);
+        } else {
+          picture.removeAttribute("tabindex");
+          picture.removeAttribute("role");
+          picture.removeAttribute("aria-label");
+        }
+      });
+      if (!phone.matches && dialog && dialog.open) dialog.close();
+    };
+    sync();
+    phone.addEventListener("change", sync);
+
+    zoomables.forEach((picture, index) => {
+      picture.addEventListener("click", () => { if (phone.matches) open(index); });
+      picture.addEventListener("keydown", (e) => {
+        if (!phone.matches || (e.key !== "Enter" && e.key !== " ")) return;
+        e.preventDefault();
+        open(index);
+      });
+    });
+  }
 })();
